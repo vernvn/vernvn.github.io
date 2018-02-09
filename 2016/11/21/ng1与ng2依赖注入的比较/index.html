@@ -1,0 +1,611 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。 AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="依赖注入">
+<meta property="og:url" content="http://vernvn.github.io/2016/11/21/ng1与ng2依赖注入的比较/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。 AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/949077-ce2193b397ce7ee8.png?imageMogr2/auto-orient/strip%7CimageView2/2">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="依赖注入">
+<meta name="twitter:description" content="依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。 AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/949077-ce2193b397ce7ee8.png?imageMogr2/auto-orient/strip%7CimageView2/2">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2016/11/21/ng1与ng2依赖注入的比较/"/>
+
+
+  <title> 依赖注入 | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                依赖注入
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-11-21T09:35:40+08:00" content="2016-11-21">
+              2016-11-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。"><a href="#依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。" class="headerlink" title="依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。"></a>依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。</h3><p><br></p>
+<h3 id="AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不仅对测试很有用，而且还不会污染全局变量，是很好的设计模式。"><a href="#AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不仅对测试很有用，而且还不会污染全局变量，是很好的设计模式。" class="headerlink" title="AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不仅对测试很有用，而且还不会污染全局变量，是很好的设计模式。"></a>AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不仅对测试很有用，而且还不会污染全局变量，是很好的设计模式。</h3><p><br></p>
+<h2 id="AngularJS依赖注入的方法"><a href="#AngularJS依赖注入的方法" class="headerlink" title="AngularJS依赖注入的方法"></a>AngularJS依赖注入的方法</h2><ol>
+<li>通过函数的参数进行推断式注入声明<h3 id="如果没有明确的声明，AngularJS会假定名称就是依赖的名称。因此，它会在内部调用函数对象的toString-方法，分析并提取函数的参数列表，然后通过-injector将这些参数再注入进对象实例。下面是代码示例："><a href="#如果没有明确的声明，AngularJS会假定名称就是依赖的名称。因此，它会在内部调用函数对象的toString-方法，分析并提取函数的参数列表，然后通过-injector将这些参数再注入进对象实例。下面是代码示例：" class="headerlink" title="如果没有明确的声明，AngularJS会假定名称就是依赖的名称。因此，它会在内部调用函数对象的toString()方法，分析并提取函数的参数列表，然后通过$injector将这些参数再注入进对象实例。下面是代码示例："></a>如果没有明确的声明，AngularJS会假定名称就是依赖的名称。因此，它会在内部调用函数对象的toString()方法，分析并提取函数的参数列表，然后通过$injector将这些参数再注入进对象实例。下面是代码示例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function myController($scope,$timeout)&#123;</div><div class="line">	var updateTime = function()&#123;</div><div class="line">		$scope.clock = &#123;</div><div class="line">			time: new Date()</div><div class="line">		&#125;;</div><div class="line">		$timeout(function()&#123;</div><div class="line">			$scope.clock.time = new Date();</div><div class="line">			updateTime();</div><div class="line">		&#125;,1000)</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=&apos;myController&apos;&gt;</div><div class="line">	&lt;span&gt;&#123;&#123;clock.time | data:&apos;yyyy-MM-dd hh:mm:ss&apos;&#125;&#125;&lt;/span&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h3 id="创建了一个可以自动更新时间的应用，看看是如何进行依赖注入的。通过设置参数-scope和-timeout，angular会在内部调用函数的toString-方法，分析并提取函数的参数列表，然后通过-injector将这些参数注入到对象的实例。"><a href="#创建了一个可以自动更新时间的应用，看看是如何进行依赖注入的。通过设置参数-scope和-timeout，angular会在内部调用函数的toString-方法，分析并提取函数的参数列表，然后通过-injector将这些参数注入到对象的实例。" class="headerlink" title="创建了一个可以自动更新时间的应用，看看是如何进行依赖注入的。通过设置参数$scope和$timeout，angular会在内部调用函数的toString()方法，分析并提取函数的参数列表，然后通过$injector将这些参数注入到对象的实例。"></a>创建了一个可以自动更新时间的应用，看看是如何进行依赖注入的。通过设置参数$scope和$timeout，angular会在内部调用函数的toString()方法，分析并提取函数的参数列表，然后通过$injector将这些参数注入到对象的实例。</h3><p><br></p>
+<p><font color="#f00" size="5" face="黑体">注意：</font><br><br></p>
+<ul>
+<li>此方法只适合未经压缩混淆的代码，因为angular需要解析未经压缩混淆的参数列表。<br><br></li>
+</ul>
+<ol>
+<li>显式的注入声明<h3 id="显式的明确定义一个函数在被调用时需要用到的依赖关系，通过这种方法声明依赖，即使在源代码被压缩，参数名称发生改变的情况下依然可以工作。代码示例："><a href="#显式的明确定义一个函数在被调用时需要用到的依赖关系，通过这种方法声明依赖，即使在源代码被压缩，参数名称发生改变的情况下依然可以工作。代码示例：" class="headerlink" title="显式的明确定义一个函数在被调用时需要用到的依赖关系，通过这种方法声明依赖，即使在源代码被压缩，参数名称发生改变的情况下依然可以工作。代码示例："></a>显式的明确定义一个函数在被调用时需要用到的依赖关系，通过这种方法声明依赖，即使在源代码被压缩，参数名称发生改变的情况下依然可以工作。代码示例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var mycontrollerFactory = function mycontroller($scope,$timeout)&#123;</div><div class="line">	var updateTime = function () &#123;</div><div class="line">        $scope.clock = &#123;</div><div class="line">            time: new Date()</div><div class="line">        &#125;;</div><div class="line">        $timeout(function () &#123;</div><div class="line">            $scope.clock.time = new Date();</div><div class="line">            updateTime();</div><div class="line">        &#125;, 1000);</div><div class="line">    &#125;</div><div class="line">    updateTime();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mycontrollerFactory.$inject = [&apos;$scope&apos;,&apos;$timeout&apos;];</div></pre></td></tr></table></figure>
+<h3 id="显式的将我们需要的依赖注入到函数中，所以在函数中参数也可以分别换成其他字段。"><a href="#显式的将我们需要的依赖注入到函数中，所以在函数中参数也可以分别换成其他字段。" class="headerlink" title="显式的将我们需要的依赖注入到函数中，所以在函数中参数也可以分别换成其他字段。"></a>显式的将我们需要的依赖注入到函数中，所以在函数中参数也可以分别换成其他字段。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var mycontrollerFactory = function mycontroller(s,t)&#123;.....&#125;</div></pre></td></tr></table></figure>
+<p><font color="#f00" size="5" face="黑体">注意：</font><br><br></p>
+<ul>
+<li>对于这种声明方式，参数的顺序是十分重要的，因为$inject数组元素的顺序必须和注入的参数顺序一一对应。<br><br></li>
+</ul>
+<ol>
+<li>行内注入声明<h3 id="angular提供的行内注入方法实际上是一种语法糖，它与前面的提到的通过-inject属性进行声明的原理是一样的，但是允许我们在函数定义的时候从行内将参数传入，这种方法方便简洁，而且避免了在定义的过程中使用临时变量。"><a href="#angular提供的行内注入方法实际上是一种语法糖，它与前面的提到的通过-inject属性进行声明的原理是一样的，但是允许我们在函数定义的时候从行内将参数传入，这种方法方便简洁，而且避免了在定义的过程中使用临时变量。" class="headerlink" title="angular提供的行内注入方法实际上是一种语法糖，它与前面的提到的通过$inject属性进行声明的原理是一样的，但是允许我们在函数定义的时候从行内将参数传入，这种方法方便简洁，而且避免了在定义的过程中使用临时变量。"></a>angular提供的行内注入方法实际上是一种语法糖，它与前面的提到的通过$inject属性进行声明的原理是一样的，但是允许我们在函数定义的时候从行内将参数传入，这种方法方便简洁，而且避免了在定义的过程中使用临时变量。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;app&apos;,[])</div><div class="line">.controller(&apos;mycontroller&apos;,[&apos;$scope&apos;,&apos;$timeout&apos;,function($scope,$timeout)&#123;</div><div class="line">	var updateTime = function () &#123;</div><div class="line">        $scope.clock = &#123;</div><div class="line">            time: new Date()</div><div class="line">        &#125;;</div><div class="line">        $timeout(function () &#123;</div><div class="line">            $scope.clock.time = new Date();</div><div class="line">            updateTime();</div><div class="line">        &#125;, 1000);</div><div class="line">    &#125;</div><div class="line">    updateTime();</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><font color="#f00" size="5" face="黑体">注意：</font><br><br></p>
+<ul>
+<li>行内声明的方式允许我们直接传入一个参数数组，而不是一个函数，数组的元素是字符串，他们代表的是可以被注入到对象中的依赖名字，最后一个参数就是依赖注入的目标函数对象本身。</li>
+</ul>
+<h2 id="下面来对比一下ng1与ng2的依赖注入的区别，以login组件为例"><a href="#下面来对比一下ng1与ng2的依赖注入的区别，以login组件为例" class="headerlink" title="下面来对比一下ng1与ng2的依赖注入的区别，以login组件为例"></a>下面来对比一下ng1与ng2的依赖注入的区别，以login组件为例</h2><h2 id="先来看一下angular2的架构图"><a href="#先来看一下angular2的架构图" class="headerlink" title="先来看一下angular2的架构图"></a>先来看一下angular2的架构图</h2><p><img src="http://upload-images.jianshu.io/upload_images/949077-ce2193b397ce7ee8.png?imageMogr2/auto-orient/strip%7CimageView2/2" alt="providerToservice"><br><br><br><em>Angular1</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Login&#123;</div><div class="line">    formValue : &#123;login:string,password:string&#125; = &#123;login:&apos;&apos;,password:&apos;&apos;&#125;;</div><div class="line">    onSubmit()&#123;</div><div class="line">        const service = new LoginService();</div><div class="line">        service.login(this.formValue);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">module.component(&apos;login&apos;,&#123;</div><div class="line">    controller: Login,</div><div class="line">    controllerAs ; &apos;ctrl&apos;,</div><div class="line">    template:`</div><div class="line">        &lt;form ng-submit = &quot;ctrl.onSubmit()&quot;&gt;</div><div class="line">        Text &lt;input type=&quot;text&quot; ng-model=&quot;ctrl.formValue.login&gt;</div><div class="line">        password  &lt;input type=&quot;password&quot; ng-model=&quot;ctrl.formValue.password&quot;&gt;</div><div class="line">        &lt;button&gt;submit&lt;/button&gt;</div><div class="line">        &lt;/form&gt;</div><div class="line">    `</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><em>Angular2</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    selector:&apos;login&apos;,</div><div class="line">    template:`</div><div class="line">        .....</div><div class="line">    `</div><div class="line">&#125;)</div><div class="line">class Login&#123;</div><div class="line">    onSubmit(formValue:&#123;login:string,password:string&#125;)&#123;</div><div class="line">        const service = new LoginService();</div><div class="line">        service.login(formValue);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="在这里直接把login组件绑定在login-service上的，很难进行独立测试，也降低了它复用的可能性"><a href="#在这里直接把login组件绑定在login-service上的，很难进行独立测试，也降低了它复用的可能性" class="headerlink" title="在这里直接把login组件绑定在login service上的，很难进行独立测试，也降低了它复用的可能性"></a>在这里直接把login组件绑定在login service上的，很难进行独立测试，也降低了它复用的可能性</h3><p><br></p>
+<h2 id="with-DI"><a href="#with-DI" class="headerlink" title="with DI"></a>with DI</h2><h3 id="在构造函数里面注射一个LoginService的实例，而不是直接创建"><a href="#在构造函数里面注射一个LoginService的实例，而不是直接创建" class="headerlink" title="在构造函数里面注射一个LoginService的实例，而不是直接创建"></a>在构造函数里面注射一个LoginService的实例，而不是直接创建</h3><p><em>Angular1</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Login&#123;</div><div class="line">    formValue : &#123;login:string,password:string&#125; = &#123;login:&apos;&apos;,password:&apos;&apos;&#125;;</div><div class="line">    constructor(public service:LoginService)&#123;&#125;</div><div class="line">    onSubmit()&#123;</div><div class="line">        this.service.login(this.formValue);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="我们还需要告诉框架应该创建这个service的实例"><a href="#我们还需要告诉框架应该创建这个service的实例" class="headerlink" title="我们还需要告诉框架应该创建这个service的实例"></a>我们还需要告诉框架应该创建这个service的实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">module.service(&apos;login&apos;,LoginService);</div></pre></td></tr></table></figure>
+<p><br><br><em>Angular2</em></p>
+<h3 id="同样，在构造函数里面注射一个LoginSerivce的实例"><a href="#同样，在构造函数里面注射一个LoginSerivce的实例" class="headerlink" title="同样，在构造函数里面注射一个LoginSerivce的实例"></a>同样，在构造函数里面注射一个LoginSerivce的实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Login&#123;</div><div class="line">    constructor(public service: LoginService)&#123;&#125;</div><div class="line">    onSubmit(formValue:&#123;login:string,password:string&#125;)&#123;</div><div class="line">        this.service.login(formValue);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>不同于ng1，我们需要将这个service添加到providers列表里面来实现<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">    bootstrap:[Login],</div><div class="line">    providers:[LoginService],</div><div class="line">    declarations:[Login]</div><div class="line">&#125;)</div><div class="line">class AppModule&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="如果注入到它的根模块，则整个应用都可以调用，也可以注入到使用它的组件元数据里面-只需在装饰器加上一个providers配置项-这样注入的服务只对自己和后代可用"><a href="#如果注入到它的根模块，则整个应用都可以调用，也可以注入到使用它的组件元数据里面-只需在装饰器加上一个providers配置项-这样注入的服务只对自己和后代可用" class="headerlink" title="如果注入到它的根模块，则整个应用都可以调用，也可以注入到使用它的组件元数据里面,只需在装饰器加上一个providers配置项,这样注入的服务只对自己和后代可用"></a>如果注入到它的根模块，则整个应用都可以调用，也可以注入到使用它的组件元数据里面,只需在装饰器加上一个providers配置项,这样注入的服务只对自己和后代可用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    selector:&apos;lr&apos;,</div><div class="line">    providers:[LoginService]</div><div class="line">&#125;)</div><div class="line">class APPLr&#123;&#125;</div></pre></td></tr></table></figure>
+<p><font color="#f00" size="5" face="黑体">注意：</font></p>
+<ul>
+<li>ng1依赖于字符串来配置DI，而ng2则默认使用注解的方式<h3 id="ng1里面有好几个Api可以用来给指令注入依赖，有些是根据名称注入的（LoginService）-有些依赖会一直自动提供（link函数里面的），有些需要使用require进行配置"><a href="#ng1里面有好几个Api可以用来给指令注入依赖，有些是根据名称注入的（LoginService）-有些依赖会一直自动提供（link函数里面的），有些需要使用require进行配置" class="headerlink" title="ng1里面有好几个Api可以用来给指令注入依赖，有些是根据名称注入的（LoginService）,有些依赖会一直自动提供（link函数里面的），有些需要使用require进行配置"></a>ng1里面有好几个Api可以用来给指令注入依赖，有些是根据名称注入的（LoginService）,有些依赖会一直自动提供（link函数里面的），有些需要使用require进行配置</h3><br><h3 id="ng2提供了统一的Api用来注入服务，指令等，所有这些内容都会被注入到组件的构造函数里面"><a href="#ng2提供了统一的Api用来注入服务，指令等，所有这些内容都会被注入到组件的构造函数里面" class="headerlink" title="ng2提供了统一的Api用来注入服务，指令等，所有这些内容都会被注入到组件的构造函数里面"></a>ng2提供了统一的Api用来注入服务，指令等，所有这些内容都会被注入到组件的构造函数里面</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3></li>
+<li>DI是ng的核心机制之一</li>
+<li>他可以使你的代码更加松耦合</li>
+<li>提升了可测试性</li>
+<li>ng2采用了统一的Api来给组件注入依赖</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/18/何时使用指令，服务，控制器/" rel="next" title="何时使用指令，服务，控制器">
+                <i class="fa fa-chevron-left"></i> 何时使用指令，服务，控制器
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/28/rxjs/" rel="prev" title="RxJS:万物皆为流">
+                RxJS:万物皆为流 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。"><span class="nav-number">1.</span> <span class="nav-text">依赖注入是一种软件设计模式，他允许你移除软件组件的硬编码方式，替代的是通过依赖注入制造低耦合的组件不论在编译阶段还是在运行阶段。硬编码就是在程序中将代码写死，低耦合就是尽量让每个模块独立，相关的处理尽量在单个模块中完成。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不仅对测试很有用，而且还不会污染全局变量，是很好的设计模式。"><span class="nav-number">2.</span> <span class="nav-text">AngularJs有一个内在的注入机制，他可以把你的App分成许多个可重复使用的组件，当需要的时候通过依赖注入把这些自减注入进你的App中去。在需要的地方进行参数传递，这种方法不仅对测试很有用，而且还不会污染全局变量，是很好的设计模式。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AngularJS依赖注入的方法"><span class="nav-number"></span> <span class="nav-text">AngularJS依赖注入的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如果没有明确的声明，AngularJS会假定名称就是依赖的名称。因此，它会在内部调用函数对象的toString-方法，分析并提取函数的参数列表，然后通过-injector将这些参数再注入进对象实例。下面是代码示例："><span class="nav-number">1.</span> <span class="nav-text">如果没有明确的声明，AngularJS会假定名称就是依赖的名称。因此，它会在内部调用函数对象的toString()方法，分析并提取函数的参数列表，然后通过$injector将这些参数再注入进对象实例。下面是代码示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建了一个可以自动更新时间的应用，看看是如何进行依赖注入的。通过设置参数-scope和-timeout，angular会在内部调用函数的toString-方法，分析并提取函数的参数列表，然后通过-injector将这些参数注入到对象的实例。"><span class="nav-number">2.</span> <span class="nav-text">创建了一个可以自动更新时间的应用，看看是如何进行依赖注入的。通过设置参数$scope和$timeout，angular会在内部调用函数的toString()方法，分析并提取函数的参数列表，然后通过$injector将这些参数注入到对象的实例。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显式的明确定义一个函数在被调用时需要用到的依赖关系，通过这种方法声明依赖，即使在源代码被压缩，参数名称发生改变的情况下依然可以工作。代码示例："><span class="nav-number">3.</span> <span class="nav-text">显式的明确定义一个函数在被调用时需要用到的依赖关系，通过这种方法声明依赖，即使在源代码被压缩，参数名称发生改变的情况下依然可以工作。代码示例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显式的将我们需要的依赖注入到函数中，所以在函数中参数也可以分别换成其他字段。"><span class="nav-number">4.</span> <span class="nav-text">显式的将我们需要的依赖注入到函数中，所以在函数中参数也可以分别换成其他字段。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#angular提供的行内注入方法实际上是一种语法糖，它与前面的提到的通过-inject属性进行声明的原理是一样的，但是允许我们在函数定义的时候从行内将参数传入，这种方法方便简洁，而且避免了在定义的过程中使用临时变量。"><span class="nav-number">5.</span> <span class="nav-text">angular提供的行内注入方法实际上是一种语法糖，它与前面的提到的通过$inject属性进行声明的原理是一样的，但是允许我们在函数定义的时候从行内将参数传入，这种方法方便简洁，而且避免了在定义的过程中使用临时变量。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面来对比一下ng1与ng2的依赖注入的区别，以login组件为例"><span class="nav-number"></span> <span class="nav-text">下面来对比一下ng1与ng2的依赖注入的区别，以login组件为例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先来看一下angular2的架构图"><span class="nav-number"></span> <span class="nav-text">先来看一下angular2的架构图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在这里直接把login组件绑定在login-service上的，很难进行独立测试，也降低了它复用的可能性"><span class="nav-number">1.</span> <span class="nav-text">在这里直接把login组件绑定在login service上的，很难进行独立测试，也降低了它复用的可能性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#with-DI"><span class="nav-number"></span> <span class="nav-text">with DI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在构造函数里面注射一个LoginService的实例，而不是直接创建"><span class="nav-number">1.</span> <span class="nav-text">在构造函数里面注射一个LoginService的实例，而不是直接创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们还需要告诉框架应该创建这个service的实例"><span class="nav-number">2.</span> <span class="nav-text">我们还需要告诉框架应该创建这个service的实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同样，在构造函数里面注射一个LoginSerivce的实例"><span class="nav-number">3.</span> <span class="nav-text">同样，在构造函数里面注射一个LoginSerivce的实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果注入到它的根模块，则整个应用都可以调用，也可以注入到使用它的组件元数据里面-只需在装饰器加上一个providers配置项-这样注入的服务只对自己和后代可用"><span class="nav-number">4.</span> <span class="nav-text">如果注入到它的根模块，则整个应用都可以调用，也可以注入到使用它的组件元数据里面,只需在装饰器加上一个providers配置项,这样注入的服务只对自己和后代可用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ng1里面有好几个Api可以用来给指令注入依赖，有些是根据名称注入的（LoginService）-有些依赖会一直自动提供（link函数里面的），有些需要使用require进行配置"><span class="nav-number">5.</span> <span class="nav-text">ng1里面有好几个Api可以用来给指令注入依赖，有些是根据名称注入的（LoginService）,有些依赖会一直自动提供（link函数里面的），有些需要使用require进行配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ng2提供了统一的Api用来注入服务，指令等，所有这些内容都会被注入到组件的构造函数里面"><span class="nav-number">6.</span> <span class="nav-text">ng2提供了统一的Api用来注入服务，指令等，所有这些内容都会被注入到组件的构造函数里面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="generator简单说是一种可以控制函数内部执行状态的函数funtion* 定义了generator函数的语法yield定义了函数内部实现不同的状态demo11234567function* build()&amp;#123;	yield &amp;apos;step1&amp;apos;;	return &amp;apos;done&amp;apos;;&amp;#125;var generator = build();generator.">
+<meta name="keywords" content="ES6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="generator">
+<meta property="og:url" content="http://vernvn.github.io/2016/11/09/generator/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="generator简单说是一种可以控制函数内部执行状态的函数funtion* 定义了generator函数的语法yield定义了函数内部实现不同的状态demo11234567function* build()&amp;#123;	yield &amp;apos;step1&amp;apos;;	return &amp;apos;done&amp;apos;;&amp;#125;var generator = build();generator.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="generator">
+<meta name="twitter:description" content="generator简单说是一种可以控制函数内部执行状态的函数funtion* 定义了generator函数的语法yield定义了函数内部实现不同的状态demo11234567function* build()&amp;#123;	yield &amp;apos;step1&amp;apos;;	return &amp;apos;done&amp;apos;;&amp;#125;var generator = build();generator.">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2016/11/09/generator/"/>
+
+
+  <title> generator | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                generator
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-11-09T14:53:20+08:00" content="2016-11-09">
+              2016-11-09
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="generator简单说是一种可以控制函数内部执行状态的函数"><a href="#generator简单说是一种可以控制函数内部执行状态的函数" class="headerlink" title="generator简单说是一种可以控制函数内部执行状态的函数"></a>generator简单说是一种可以控制函数内部执行状态的函数</h2><h3 id="funtion-定义了generator函数的语法"><a href="#funtion-定义了generator函数的语法" class="headerlink" title="funtion* 定义了generator函数的语法"></a>funtion* 定义了generator函数的语法</h3><h3 id="yield定义了函数内部实现不同的状态"><a href="#yield定义了函数内部实现不同的状态" class="headerlink" title="yield定义了函数内部实现不同的状态"></a>yield定义了函数内部实现不同的状态</h3><h3 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function* build()&#123;</div><div class="line">	yield &apos;step1&apos;;</div><div class="line">	return &apos;done&apos;;</div><div class="line">&#125;</div><div class="line">var generator = build();</div><div class="line">generator.next();  //&#123;value:&apos;step1&apos;,done:false&#125;</div><div class="line">generator.next();  //&#123;value:&apos;done&apos;,done:true&#125;</div></pre></td></tr></table></figure>
+<h3 id="这里前者是函数体yield后面的值，后者代表函数是否完成"><a href="#这里前者是函数体yield后面的值，后者代表函数是否完成" class="headerlink" title="这里前者是函数体yield后面的值，后者代表函数是否完成"></a>这里前者是函数体yield后面的值，后者代表函数是否完成</h3><h3 id="加入函数体内不包含任意一个yield-则函数只是一个延迟执行的函数而已"><a href="#加入函数体内不包含任意一个yield-则函数只是一个延迟执行的函数而已" class="headerlink" title="加入函数体内不包含任意一个yield,则函数只是一个延迟执行的函数而已"></a>加入函数体内不包含任意一个yield,则函数只是一个延迟执行的函数而已</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">generator.next(); //&#123;value:done,done:true&#125;</div><div class="line">generator.next(); //&#123;value:undefined,done:true&#125;</div></pre></td></tr></table></figure>
+<h3 id="yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来"><a href="#yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来" class="headerlink" title="yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来"></a>yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">function* build()&#123;</div><div class="line">	yield &apos;step1&apos;;</div><div class="line">	var step = yield &apos;step2&apos;;</div><div class="line">	if(step == 3)&#123;</div><div class="line">        yield &apos;step3&apos;;</div><div class="line">    &#125;else&#123;</div><div class="line">        yield &apos;step4&apos;;</div><div class="line">    &#125;</div><div class="line">    yield &apos;step5&apos;;</div><div class="line">    return &apos;执行完毕!&apos;;</div><div class="line">&#125;</div><div class="line">var generator = build();</div><div class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step1&apos;, done: false&#125;</div><div class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step2&apos;, done: false&#125;</div><div class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step3&apos;, done: false&#125;</div><div class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step5&apos;, done: false&#125;</div><div class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;执行完毕&apos;, done: true&#125;</div></pre></td></tr></table></figure>
+<h3 id="注意-next传递的参数值是传递给上一次yield表达式-所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式"><a href="#注意-next传递的参数值是传递给上一次yield表达式-所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式" class="headerlink" title="注意: next传递的参数值是传递给上一次yield表达式,所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式"></a>注意: next传递的参数值是传递给上一次yield表达式,所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式</h3><p><font color="#f00" size="5" face="黑体">异常处理</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function* build()&#123;</div><div class="line">	try&#123;</div><div class="line">		throw new Error(&apos;from build&apos;);</div><div class="line">		yield &apos;haha&apos;;</div><div class="line">	&#125;catch(err)&#123;</div><div class="line">		console.log(&apos;inside error&apos;+ err);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">var it = build();</div><div class="line">it.next()    // =&gt; inside error: Error: from build!</div></pre></td></tr></table></figure></p>
+<h3 id="上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常-然后generator本身也提供了一个方法用于向外抛出异常"><a href="#上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常-然后generator本身也提供了一个方法用于向外抛出异常" class="headerlink" title="上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常,然后generator本身也提供了一个方法用于向外抛出异常"></a>上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常,然后generator本身也提供了一个方法用于向外抛出异常</h3><h3 id="throw-此方法可以向外抛出异常-由外部的try…catch来捕获"><a href="#throw-此方法可以向外抛出异常-由外部的try…catch来捕获" class="headerlink" title="throw 此方法可以向外抛出异常,由外部的try…catch来捕获"></a>throw 此方法可以向外抛出异常,由外部的try…catch来捕获</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function * build()&#123;</div><div class="line">    try&#123;</div><div class="line">        yield &apos;haha&apos;;  //没有抛出异常</div><div class="line">    &#125;catch(err)&#123;</div><div class="line">        console.log(&apos;inside error: &apos; + err);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">var it = build();   //外部的try...catch进行捕获</div><div class="line">try&#123;</div><div class="line">    it.throw(&apos;from it&apos;); </div><div class="line">&#125;catch(err)&#123;</div><div class="line">    console.log(&apos;out error: &apos; + err);  // =&gt; out error from it</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="yield-后面跟上别的generator实例就可以遍历别的generator里的yield了"><a href="#yield-后面跟上别的generator实例就可以遍历别的generator里的yield了" class="headerlink" title="yield* 后面跟上别的generator实例就可以遍历别的generator里的yield了"></a>yield* 后面跟上别的generator实例就可以遍历别的generator里的yield了</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">function* build()&#123;</div><div class="line">    var a = yield 1;</div><div class="line">    var b = yield 2;</div><div class="line">    var c = yield* child();</div><div class="line">    console.log(a, b, c);</div><div class="line">&#125;</div><div class="line">function* child()&#123;</div><div class="line">    var x = yield 3;</div><div class="line">    var y = yield 4;</div><div class="line">    console.log(x, y);</div><div class="line">    return &apos;child&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var it =  build();</div><div class="line">it.next();</div><div class="line">it.next(&apos;a&apos;);</div><div class="line">it.next(&apos;b&apos;);</div><div class="line">it.next(&apos;c&apos;);</div><div class="line">it.next(&apos;d&apos;);  </div><div class="line">// =&gt; c d</div><div class="line">// =&gt; a b child</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/09/angular-note/" rel="next" title="angular note">
+                <i class="fa fa-chevron-left"></i> angular note
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/18/何时使用指令，服务，控制器/" rel="prev" title="何时使用指令，服务，控制器">
+                何时使用指令，服务，控制器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#generator简单说是一种可以控制函数内部执行状态的函数"><span class="nav-number">1.</span> <span class="nav-text">generator简单说是一种可以控制函数内部执行状态的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#funtion-定义了generator函数的语法"><span class="nav-number">1.1.</span> <span class="nav-text">funtion* 定义了generator函数的语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yield定义了函数内部实现不同的状态"><span class="nav-number">1.2.</span> <span class="nav-text">yield定义了函数内部实现不同的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#demo1"><span class="nav-number">1.3.</span> <span class="nav-text">demo1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里前者是函数体yield后面的值，后者代表函数是否完成"><span class="nav-number">1.4.</span> <span class="nav-text">这里前者是函数体yield后面的值，后者代表函数是否完成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入函数体内不包含任意一个yield-则函数只是一个延迟执行的函数而已"><span class="nav-number">1.5.</span> <span class="nav-text">加入函数体内不包含任意一个yield,则函数只是一个延迟执行的函数而已</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来"><span class="nav-number">1.6.</span> <span class="nav-text">yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意-next传递的参数值是传递给上一次yield表达式-所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式"><span class="nav-number">1.7.</span> <span class="nav-text">注意: next传递的参数值是传递给上一次yield表达式,所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常-然后generator本身也提供了一个方法用于向外抛出异常"><span class="nav-number">1.8.</span> <span class="nav-text">上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常,然后generator本身也提供了一个方法用于向外抛出异常</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throw-此方法可以向外抛出异常-由外部的try…catch来捕获"><span class="nav-number">1.9.</span> <span class="nav-text">throw 此方法可以向外抛出异常,由外部的try…catch来捕获</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-后面跟上别的generator实例就可以遍历别的generator里的yield了"><span class="nav-number">2.</span> <span class="nav-text">yield* 后面跟上别的generator实例就可以遍历别的generator里的yield了</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

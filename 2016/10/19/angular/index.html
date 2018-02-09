@@ -1,0 +1,606 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="重点：angular核心之一serviceService自定义或内建服务，它是一个函数或对象，$http服务12345app.controller(&amp;apos;ctrl&amp;apos;,function($scope,$http)&amp;#123;	$http.get(&amp;apos;post/json&amp;apos;).then(function(data)&amp;#123;		$scope.name = data.n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angular servicce">
+<meta property="og:url" content="http://vernvn.github.io/2016/10/19/angular/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="重点：angular核心之一serviceService自定义或内建服务，它是一个函数或对象，$http服务12345app.controller(&amp;apos;ctrl&amp;apos;,function($scope,$http)&amp;#123;	$http.get(&amp;apos;post/json&amp;apos;).then(function(data)&amp;#123;		$scope.name = data.n">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://segmentfault.com/img/bVm9Et">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="angular servicce">
+<meta name="twitter:description" content="重点：angular核心之一serviceService自定义或内建服务，它是一个函数或对象，$http服务12345app.controller(&amp;apos;ctrl&amp;apos;,function($scope,$http)&amp;#123;	$http.get(&amp;apos;post/json&amp;apos;).then(function(data)&amp;#123;		$scope.name = data.n">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVm9Et">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2016/10/19/angular/"/>
+
+
+  <title> angular servicce | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                angular servicce
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2016-10-19T10:59:16+08:00" content="2016-10-19">
+              2016-10-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="重点：angular核心之一service"><a href="#重点：angular核心之一service" class="headerlink" title="重点：angular核心之一service"></a>重点：angular核心之一service</h2><h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="自定义或内建服务，它是一个函数或对象，"><a href="#自定义或内建服务，它是一个函数或对象，" class="headerlink" title="自定义或内建服务，它是一个函数或对象，"></a>自定义或内建服务，它是一个函数或对象，</h3><h4 id="http服务"><a href="#http服务" class="headerlink" title="$http服务"></a>$http服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.controller(&apos;ctrl&apos;,function($scope,$http)&#123;</div><div class="line">	$http.get(&apos;post/json&apos;).then(function(data)&#123;</div><div class="line">		$scope.name = data.name</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<hr>
+<p><br></p>
+<h3 id="创建自定义服务-五种方法，constant-value-factory-service-provider-一般情况下factory与service使用较多，angular内置服务都是以-开头，所以自定义的服务应该避免以-开头，造成混乱。"><a href="#创建自定义服务-五种方法，constant-value-factory-service-provider-一般情况下factory与service使用较多，angular内置服务都是以-开头，所以自定义的服务应该避免以-开头，造成混乱。" class="headerlink" title="创建自定义服务,五种方法，constant,value,factory,service,provider,一般情况下factory与service使用较多，angular内置服务都是以$开头，所以自定义的服务应该避免以$开头，造成混乱。"></a>创建自定义服务,五种方法，constant,value,factory,service,provider,一般情况下factory与service使用较多，angular内置服务都是以$开头，所以自定义的服务应该避免以$开头，造成混乱。</h3><blockquote>
+<p>所有类型的service都是单体，单体是什么？单体是一种设计模式，它限制了每一个类仅能够实例化为一个对象，无论我们在什么地方注入，将永远使用同一个实例，换句话就是，如果我们在一个地方改变了其中的某个值，其他地方也会发生相应的改变；<br><img src="https://segmentfault.com/img/bVm9Et" alt="providerToservice"></p>
+</blockquote>
+<h3 id="constant"><a href="#constant" class="headerlink" title="constant"></a>constant</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.constant(&apos;myconstant&apos;,&#123;</div><div class="line">	config1 :　&apos;defaultValue&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>constant是用来在指令中提供默认配置，放入的值不会改变;</li>
+</ul>
+<hr>
+<p><br></p>
+<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.value(&apos;myvalue&apos;,&#123;</div><div class="line">	config2: &apos;changeValue&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>value经常用来保存值，数值是可以改变的，这是和constant最大区别，但是不能对其中的值进行计算</li>
+</ul>
+<hr>
+<p><br></p>
+<h3 id="provider"><a href="#provider" class="headerlink" title="provider"></a>provider</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;myprovider&apos;,function()&#123;</div><div class="line">	this.$get = function()&#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>通过provider方法创建的服务一定要包含$get方法，否则会报错，provider注入的结果就是$get返回的结果，并且在三种创建服务的方法中，只有provider方法创建的服务可以传进config函数，以用于在对象启动前，对模块进行配置，但是在config中进行配置的只能在是$get函数之外定义的变量,注入config函数时，参数名必须是  <strong>服务名+Provider</strong>,例如下面代码只有color能被访问到，getcolor却不能<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">app.provider(&apos;myprovider&apos;,function()&#123;</div><div class="line">	this.color = &apos;&apos;;</div><div class="line">	this.$get = function()&#123;</div><div class="line">		var that = this;</div><div class="line">		return &#123;</div><div class="line">			getcolor : function()&#123;</div><div class="line">				return that.color</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.config(function(myproviderProvider)&#123;</div><div class="line">	myproviderProvider.color = &apos;red&apos;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<hr>
+<p><br></p>
+<h3 id="factory"><a href="#factory" class="headerlink" title="factory"></a>factory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;myfactory&apos;,function()&#123;</div><div class="line">	var factory = &#123;&#125;;</div><div class="line">	return factory;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>通过factory创建的服务必须有返回值，即return函数，factory方法注入的结果即是return返回的结果，可以使用注入对象的定义的方法，例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	var factory = &#123;&#125;;</div><div class="line">	var _name = &apos;lee&apos;;</div><div class="line">	factory.getname = function()&#123;</div><div class="line">		return _name;</div><div class="line">	&#125;;</div><div class="line">	return factory;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><br></p>
+<h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.service(&apos;myservice&apos;,function()&#123;</div><div class="line">	this.saysomething = function()&#123;&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>通过service方法创建的服务可以不用返回任何值，因为service本身返回一个构造器，系统会用new关键字来创建一个对象，所以我们可以在service内部使用this来进行扩展。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.service(&apos;myservice&apos;,function()&#123;</div><div class="line">	this.name = &apos;&apos;;</div><div class="line">	this.getname = function()&#123;</div><div class="line">		return this.name;</div><div class="line">	&#125;</div><div class="line">	this.setname = function(name)&#123;</div><div class="line">		this.name = name;</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><br><br>上面的代码也可以用以下方式表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.factory(&apos;myservice&apos;,function()&#123;</div><div class="line">	return new Foobar();</div><div class="line">&#125;)</div><div class="line">function Foobar()&#123;</div><div class="line">	this.name = &apos;&apos;;</div><div class="line">	this.getname = function()&#123;</div><div class="line">		return this.name</div><div class="line">	&#125;</div><div class="line">	this.setname = function(name)&#123;</div><div class="line">		this.name = name</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="Foobar是一个’类’-如果已经有个一个类，诸如Foobar，只需要注入进服务"><a href="#Foobar是一个’类’-如果已经有个一个类，诸如Foobar，只需要注入进服务" class="headerlink" title="Foobar是一个’类’,如果已经有个一个类，诸如Foobar，只需要注入进服务"></a>Foobar是一个’类’,如果已经有个一个类，诸如Foobar，只需要注入进服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.service(&apos;myservice&apos;,Foobar);</div></pre></td></tr></table></figure>
+<hr>
+<p><br></p>
+<h3 id="官方小例子："><a href="#官方小例子：" class="headerlink" title="官方小例子："></a>官方小例子：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">app.service(&apos;lee&apos;,function()&#123;</div><div class="line">	this.myfunc = function(x)&#123;</div><div class="line">		return x.tostring(16)</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(&apos;ctrl&apos;,function($scope,lee)&#123;</div><div class="line">	$scope.hex = lee.myfunc(255);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=&quot;ctrl&quot;&gt;</div><div class="line">	&lt;div&gt;&#123;&#123;hex&#125;&#125;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<hr>
+<p><br></p>
+<h3 id="项目中的服务例子"><a href="#项目中的服务例子" class="headerlink" title="项目中的服务例子"></a>项目中的服务例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">angular.module(&apos;clientModule&apos;,[&apos;home&apos;])</div><div class="line">.factory(&apos;clientService&apos;,[&apos;$http&apos;,&apos;$q&apos;,&apos;mainservice&apos;,function($http,$q,mainservice)&#123;  </div><div class="line">//$q是angular内置服务，可以使你异步地执行函数</div><div class="line">	var communicateIp = &apos;http://10.0.1.8:8010/&apos;;</div><div class="line">	mainservice.ip = communicateIp;</div><div class="line">	function handleRequest(method,url,data)&#123;  //定义一个接口管理的方法</div><div class="line">		var deferred = $q.defer();            </div><div class="line">// defer的字面意思是延迟,$q.defer(),可以创建一个deferred实例。 </div><div class="line">		var config = &#123;</div><div class="line">			method : method,</div><div class="line">			url : url</div><div class="line">		&#125;;</div><div class="line">		if(&apos;POST&apos;===method)&#123;</div><div class="line">			config.data = data;</div><div class="line">		&#125;else if(&apos;GET&apos;=== method)&#123;</div><div class="line">			config.params = data;</div><div class="line">		&#125;else if(&apos;DELETE&apos;=== method)&#123;</div><div class="line">			config.params = data;</div><div class="line">		&#125;</div><div class="line">		$http(config).success(function(data)&#123;</div><div class="line">			deferred.resolve(data);</div><div class="line">		&#125;).error(function(err)&#123;</div><div class="line">			deferred.reject(err);</div><div class="line">		&#125;);</div><div class="line">		return deferred.promise;   </div><div class="line">//通过deferred延迟对象，可以得到一个承诺promise，而promise会返回当前任务的完成结果						</div><div class="line">	&#125;;</div><div class="line">	return &#123;</div><div class="line">	    exit: function(params)&#123;</div><div class="line">	      return handleRequest(&apos;GET&apos;, communicateIp+&apos;api/pre/demo/loginout&apos;, params);</div><div class="line">	    &#125;,</div><div class="line">	    changepersonalPassword: function(params)&#123;</div><div class="line">	      return handleRequest(&apos;GET&apos;, communicateIp+&apos;api/pre/demo/updatePassword&apos;, params);</div><div class="line">	    &#125;,</div><div class="line">	    checkuser: function(params)&#123;</div><div class="line">	    	return handleRequest(&apos;GET&apos;, communicateIp +&apos;api/pre/demo/login&apos;,params);</div><div class="line">	    &#125;</div><div class="line">  	&#125;;</div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/28/angular-directive/" rel="prev" title="angular directive">
+                angular directive <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#重点：angular核心之一service"><span class="nav-number">1.</span> <span class="nav-text">重点：angular核心之一service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">2.</span> <span class="nav-text">Service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义或内建服务，它是一个函数或对象，"><span class="nav-number">2.1.</span> <span class="nav-text">自定义或内建服务，它是一个函数或对象，</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#http服务"><span class="nav-number">2.1.1.</span> <span class="nav-text">$http服务</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建自定义服务-五种方法，constant-value-factory-service-provider-一般情况下factory与service使用较多，angular内置服务都是以-开头，所以自定义的服务应该避免以-开头，造成混乱。"><span class="nav-number">2.2.</span> <span class="nav-text">创建自定义服务,五种方法，constant,value,factory,service,provider,一般情况下factory与service使用较多，angular内置服务都是以$开头，所以自定义的服务应该避免以$开头，造成混乱。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constant"><span class="nav-number">2.3.</span> <span class="nav-text">constant</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#value"><span class="nav-number">2.4.</span> <span class="nav-text">value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#provider"><span class="nav-number">2.5.</span> <span class="nav-text">provider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#factory"><span class="nav-number">2.6.</span> <span class="nav-text">factory</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#service"><span class="nav-number">2.7.</span> <span class="nav-text">service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Foobar是一个’类’-如果已经有个一个类，诸如Foobar，只需要注入进服务"><span class="nav-number">2.8.</span> <span class="nav-text">Foobar是一个’类’,如果已经有个一个类，诸如Foobar，只需要注入进服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#官方小例子："><span class="nav-number">2.9.</span> <span class="nav-text">官方小例子：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目中的服务例子"><span class="nav-number">2.10.</span> <span class="nav-text">项目中的服务例子</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

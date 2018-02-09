@@ -1,0 +1,613 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angular2+," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="ControlValueAccessor它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系Angular引入它的原因在于不同的输入控件更新数据方式不同，input或checkbox,但是可以通过ControlValueAccessor统一  DefaultValueAccessor - text/textarea类型  SelectControlValueA">
+<meta name="keywords" content="angular2+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义表单">
+<meta property="og:url" content="http://vernvn.github.io/2017/12/28/自定义表单/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ControlValueAccessor它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系Angular引入它的原因在于不同的输入控件更新数据方式不同，input或checkbox,但是可以通过ControlValueAccessor统一  DefaultValueAccessor - text/textarea类型  SelectControlValueA">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/299/404/2994048125-58cc9e6c17087_articlex">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义表单">
+<meta name="twitter:description" content="ControlValueAccessor它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系Angular引入它的原因在于不同的输入控件更新数据方式不同，input或checkbox,但是可以通过ControlValueAccessor统一  DefaultValueAccessor - text/textarea类型  SelectControlValueA">
+<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/299/404/2994048125-58cc9e6c17087_articlex">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2017/12/28/自定义表单/"/>
+
+
+  <title> 自定义表单 | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                自定义表单
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-12-28T13:47:16+08:00" content="2017-12-28">
+              2017-12-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="ControlValueAccessor"><a href="#ControlValueAccessor" class="headerlink" title="ControlValueAccessor"></a>ControlValueAccessor</h2><h3 id="它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系"><a href="#它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系" class="headerlink" title="它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系"></a>它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系</h3><p>Angular引入它的原因在于不同的输入控件更新数据方式不同，input或checkbox,但是可以通过ControlValueAccessor统一</p>
+<ul>
+<li><p>DefaultValueAccessor - text/textarea类型</p>
+</li>
+<li><p>SelectControlValueAccessor - selec类型</p>
+</li>
+<li><p>CheckboxControlValueAccessor - checkbox类型</p>
+</li>
+</ul>
+<h2 id="实现ControlValueAccessor接口"><a href="#实现ControlValueAccessor接口" class="headerlink" title="实现ControlValueAccessor接口"></a>实现ControlValueAccessor接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export interface ControlValueAccessor &#123;</div><div class="line">    writeValue(obj: any): void;     // 将模型中的新值写入视图</div><div class="line">    registerOnChange(fn: any): void;    // 当控件接收到change事件后，调用的函数，通知外部组件发生变化</div><div class="line">    registerOnTouched(fn: any): void;    // 接收到touched事件后调用的函数</div><div class="line">    setDisabledState?(isDisabled: boolean): void;    // 当控件状态变成DISABLED或ENABLE时，调用该函数启用或禁用dom</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Component(...)</div><div class="line">class CounterComponent implements ControlValueAccessor &#123;</div><div class="line">    ...</div><div class="line">    propagateChange = (_: any) =&gt; &#123;&#125;;</div><div class="line">    registerOnChange(fn: any) &#123;</div><div class="line">        this.propagateChange = fn;   //  view层的值发生改变，通知外部</div><div class="line">    &#125;</div><div class="line">    registerOnTouched...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="注册成为表单控件"><a href="#注册成为表单控件" class="headerlink" title="注册成为表单控件"></a>注册成为表单控件</h2><ul>
+<li><p>NG_VALUE_ACCESSOR: token类型为ControlValueAccessor,将控件本身注册到DI框架，使其可以被表单访问</p>
+</li>
+<li><p>NG_VALIDTORS: 将控件注册成为一个可以让表单得到其验证状态的控件，token为function或Validator,配合useExisting可以让控件只暴露出对应的function或Validator的validate方法</p>
+</li>
+<li><p>forwardRef: 向前引用，允许我们引用一个尚未定义的对象</p>
+</li>
+<li><p>multi: 设置为true,该token对应多个依赖项，使用相同的token获取依赖项的时候，获取的是已注册的依赖对象列表。如果不是true,那么对于相同的token的提供商来说，后定义的提供商会覆盖前面定义的</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    selector: &apos;exe-demo&apos;,</div><div class="line">    ...</div><div class="line">    provides: [</div><div class="line">             // 创建Token为NG_VALUE_ACCESSOR的提供商</div><div class="line">        &#123;</div><div class="line">            provide: NG_VALUE_ACCESSOR,</div><div class="line">            useExisting: forwardRef(() =&gt; SomeComponent),</div><div class="line">            multi: true</div><div class="line">        &#125;,</div><div class="line">             // 创建Token为NG_VALIDATORS的表单验证验证器</div><div class="line">        &#123;</div><div class="line">            provide: NG_VALIDATORS,</div><div class="line">            useValue: validateCounterRange,</div><div class="line">            multi: true</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">import &#123; Component, forwardRef , Input &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, </div><div class="line">FormControl, ValidatorFn, ValidationErrors, AbstractControl &#125; from &apos;@angular/forms&apos;;</div><div class="line">export const EXE_COUNTER_VALUE_ACCESSOR: any = &#123;</div><div class="line">    provide: NG_VALUE_ACCESSOR,</div><div class="line">    useExisting: forwardRef(() =&gt; CounterComponent),</div><div class="line">    multi: true</div><div class="line">&#125;</div><div class="line">export const validateCounterRange: ValidatorFn = (control: AbstractControl) : ValidationErrors =&gt; &#123;</div><div class="line">   return ( control.value &gt; 10 || control.value &lt; 0 ) ? </div><div class="line">   &#123;</div><div class="line">       &apos;rangeError&apos;: &#123; current: control.value, max: 10, min: 0&#125;</div><div class="line">   &#125; : null</div><div class="line">&#125;</div><div class="line">export const EXE_COUNTER_VALIDATOR = &#123;</div><div class="line">    provide: NG_VALIDATORS,</div><div class="line">    useValue: validateCounterRange,  </div><div class="line">    multi: true</div><div class="line">&#125;</div><div class="line">@Component(&#123;</div><div class="line">    ...</div><div class="line">    provides: [</div><div class="line">        EXE_COUNTER_VALUE_ACCESSOR,</div><div class="line">        EXE_COUNTER_VALIDATOR</div><div class="line">    ],</div><div class="line">    changeDetection: ChangeDetectionStrategy.OnPush</div><div class="line">&#125;)</div><div class="line">export class CounterComponent implements ControlValueAccessor &#123;</div><div class="line">    @Input() _count: number = 0;</div><div class="line">    get count() &#123;</div><div class="line">        return this._count;</div><div class="line">    &#125;</div><div class="line">    set count(value: number) &#123;</div><div class="line">        this._count = value;</div><div class="line">        this.propagateChange(this._count);</div><div class="line">    &#125;</div><div class="line">    propagateChange = (_: any) =&gt; &#123;&#125;;</div><div class="line">    writeValue(value: any) &#123;</div><div class="line">        if (value) &#123;</div><div class="line">            this.count = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    registerOnchange(fn: any) &#123;</div><div class="line">        this.propagateChange = fn;</div><div class="line">    &#125;</div><div class="line">    registerOnTouched(fn: any) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    increment() &#123;</div><div class="line">        this.count++;</div><div class="line">    &#125;</div><div class="line">    decrement() &#123;</div><div class="line">        this.count--;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种"><a href="#在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种" class="headerlink" title="在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种"></a>在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种</h3><ul>
+<li><p>useClass</p>
+</li>
+<li><p>useValue</p>
+</li>
+<li><p>useExisting</p>
+</li>
+<li><p>useFactory</p>
+</li>
+</ul>
+<p><img src="https://sfault-image.b0.upaiyun.com/299/404/2994048125-58cc9e6c17087_articlex" alt="relation"></p>
+<font color="#f00">useClass</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [ </div><div class="line">    &#123; provide: ApiService, useClass: ApiService &#125;  // 简介写法直接 ApiService</div><div class="line">]</div></pre></td></tr></table></figure>
+<font color="#f00">useValue</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [ </div><div class="line">    &#123; provide: API_URL, useValue: &apos;http://my.api.com/v1&apos; &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<font color="#f00">useExisting</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [ </div><div class="line">    &#123; provide: &apos;ApiServiceAlias&apos;, useValue: ApiService &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<font color="#f00">useFactory</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">export function configFactory(config: AppConfig) &#123;</div><div class="line">    return () =&gt; config.load();</div><div class="line">&#125;</div><div class="line">providers: [ </div><div class="line">    &#123; provide: APP_INITIALIZER, useFactory: configFactory,</div><div class="line">    deps: [AppConfig, multi: true] &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular2/" rel="tag">#angular2+</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/15/12-15  日常笔记/" rel="next" title="12-15  日常笔记">
+                <i class="fa fa-chevron-left"></i> 12-15  日常笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/07/everyNote/" rel="prev" title="EveryNote">
+                EveryNote <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ControlValueAccessor"><span class="nav-number">1.</span> <span class="nav-text">ControlValueAccessor</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系"><span class="nav-number">1.1.</span> <span class="nav-text">它是一个接口用于连接表单模型和视图，自定义表单必须实现这个接口，来实现模型与视图的映射关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现ControlValueAccessor接口"><span class="nav-number">2.</span> <span class="nav-text">实现ControlValueAccessor接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册成为表单控件"><span class="nav-number">3.</span> <span class="nav-text">注册成为表单控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#完整代码"><span class="nav-number">3.1.</span> <span class="nav-text">完整代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种"><span class="nav-number">3.2.</span> <span class="nav-text">在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

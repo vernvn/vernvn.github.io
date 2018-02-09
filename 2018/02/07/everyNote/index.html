@@ -1,0 +1,633 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EveryNote">
+<meta property="og:url" content="http://vernvn.github.io/2018/02/07/everyNote/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-08T09:13:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="EveryNote">
+<meta name="twitter:description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2018/02/07/everyNote/"/>
+
+
+  <title> EveryNote | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                EveryNote
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2018-02-07T11:09:10+08:00" content="2018-02-07">
+              2018-02-07
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="记录每天学习中发现的知识点"><a href="#记录每天学习中发现的知识点" class="headerlink" title="记录每天学习中发现的知识点"></a>记录每天学习中发现的知识点</h2><font face="黑体" color="#f00" size="4">总结TemplateRef与ViewContainerRef</font>
+
+<h4 id="TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素"><a href="#TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素" class="headerlink" title="TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素"></a>TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素</h4><h4 id="ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"><a href="#ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图" class="headerlink" title="ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"></a>ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;template #tpl&gt;</div><div class="line">    ...</div><div class="line">&lt;/template&gt;</div><div class="line">@ViewChild(&apos;tpl&apos;) tplRef: TemplateRef&lt;any&gt;;</div><div class="line">@ViewChild(&apos;tpl&apos;, &#123; read: ViewContainerRef &#125;) tplVcRef: ViewContainerRef;</div><div class="line">ngAfterViewInit()&#123;</div><div class="line">    this.tplVcRef.createEmbeddedView(this.tplRef);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"><a href="#注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例" class="headerlink" title="注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"></a>注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例</h3><font face="黑体" color="#f00" size="4">指令的一般应用场景</font>
+
+<h4 id="分类：内置指令，-自定义指令"><a href="#分类：内置指令，-自定义指令" class="headerlink" title="分类：内置指令， 自定义指令"></a>分类：内置指令， 自定义指令</h4><h4 id="主要考虑自定义指令的属性指令与结构指令"><a href="#主要考虑自定义指令的属性指令与结构指令" class="headerlink" title="主要考虑自定义指令的属性指令与结构指令"></a>主要考虑自定义指令的属性指令与结构指令</h4><h3 id="自定义属性指令实现简写"><a href="#自定义属性指令实现简写" class="headerlink" title="自定义属性指令实现简写"></a>自定义属性指令实现简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@Directive(&#123;</div><div class="line">    selector: &apos;[directivename]&apos;  // 这里定义的selector为什么使用中括号，是为了结合input装饰器获取属性值</div><div class="line">&#125;)</div><div class="line">export class SomeDirective &#123;</div><div class="line">    private _default = &apos;[someValue]&apos; // 旨在指令类内部定义默认值</div><div class="line">    @Input(directivename) directiveAnotherName;  // 输入属性</div><div class="line">    constructor(private el: ElementRef, private renderer: Renderer)&#123; // 引用类实例化，其中renderer对象提供许多api供渲染元素</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    @HostListener(eventName) eventName()&#123;  // 监听宿主元素事件</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    &lt;h1 [changeColor]=&quot;&apos;red&apos;&quot;&gt;&lt;/h1&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="自定义结构指令是实现简写"><a href="#自定义结构指令是实现简写" class="headerlink" title="自定义结构指令是实现简写"></a>自定义结构指令是实现简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@Directive(&#123;</div><div class="line">    selector: &apos;[directivename]&apos;  // 这里定义的selector为什么使用中括号，是为了结合input装饰器获取属性值</div><div class="line">&#125;)</div><div class="line">export class SomeDirective &#123;</div><div class="line">    @Input(directivename)  </div><div class="line">    set condition(newCondition: boolean) &#123;  // 这里用了getter、setter存取器, 进行属性值的动态监听</div><div class="line">        if(newCondition)&#123;</div><div class="line">            this.tplVc.createEmbeddedView(this.tpl); // 创建内嵌视图,可以设置第二个参数&#123;$implicit: somevalue&#125;, 则angular提供了let模板语法，允许在生成的上下文是定义和传递</div><div class="line">        &#125;else&#123;</div><div class="line">            this.tplVc.clear();  // 清除内嵌视图</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    constructor(private tpf: TemplateRef, private tplVc: VireContainerRef)&#123; // 引用类实例化，用于创建内嵌视图</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    &lt;h1 *structureDirective = true&gt;&lt;/h1&gt; // 这里用了angular结构性指令的语法糖，原理同*ngIf</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="总结以上属性指令与结构指令"><a href="#总结以上属性指令与结构指令" class="headerlink" title="总结以上属性指令与结构指令"></a>总结以上属性指令与结构指令</h3><p><em>1 ElementRef与Renderer等的作用：支持跨平台，从底层封住，统一了api接口;
+</em>2 TemplateRef与ViewContainerRef的作用： 前面有总结过他俩的作用;<br>*3 angular2中指令与组件的关系：组件继承与指令，并扩展了与视图的关系</p>
+<h3 id="自定义debounceClick指令"><a href="#自定义debounceClick指令" class="headerlink" title="自定义debounceClick指令"></a>自定义debounceClick指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">@Directive(&#123;</div><div class="line">    selector: &apos;[directiveDebounceClick]&apos;</div><div class="line">&#125;)</div><div class="line">export class SomeDirective &#123;</div><div class="line">    @Input(&apos;debounceTime&apos;) debounceTime: string;</div><div class="line">    @Output(&apos;debounceClick&apos;)  debounceClick = new EventEmitter();</div><div class="line">    private clicks = new Subject&lt;any&gt;();  // 定义subject处理点击事件</div><div class="line">    constructor()&#123; &#125;</div><div class="line">    @HostListener(&apos;click&apos;,[&apos;$event&apos;])  // 监听宿主元素上的点击事件，第二个参数用于将事件传递给eventClick方法</div><div class="line">    eventClick(event)&#123;</div><div class="line">        event.preventDefault();</div><div class="line">        event.stopPropagation();  // 阻止事件默认行为与事件冒泡</div><div class="line">        this.clicks.next(event);  // 发送新值</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ngOnInit()&#123;</div><div class="line">        this.clicks.debounceTime(this.debounceTime) // 去抖动,时间自定义</div><div class="line">        .subscribe(x =&gt; this.debounceClick.emit(x)); // 调用emit方法发出事件</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    &lt;button directiveDebounceClick [debounceTime] =&apos;300&apos; (debounceClick)=&quot;log($event)&quot;&gt;&lt;/button&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<font face="黑体" color="#f00" size="4">ng-content包装器</font>
+
+<h4 id="如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念"><a href="#如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念" class="headerlink" title="如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:"></a>如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:<ng-content></ng-content></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">  selector: &apos;wrapper&apos;,</div><div class="line">  template: `</div><div class="line">    &lt;div class=&quot;box&quot;&gt;</div><div class="line">      &lt;ng-content&gt;&lt;/ng-content&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  `</div><div class="line">&#125;)</div><div class="line">class Wrapper &#123;&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</div><div class="line"></div><div class="line">@Component(&#123;</div><div class="line">  selector: &apos;wrapper&apos;,</div><div class="line">  template: `</div><div class="line">  &lt;div class=&quot;box red&quot;&gt;</div><div class="line">    &lt;ng-content&gt;&lt;/ng-content&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  &lt;div class=&quot;box blue&quot;&gt;</div><div class="line">    &lt;ng-content select=&quot;counter&quot;&gt;&lt;/ng-content&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">  `,</div><div class="line">  styles: [`</div><div class="line">    .red &#123;background: red;&#125;</div><div class="line">    .blue &#123;background: blue;&#125;</div><div class="line">  `]</div><div class="line">&#125;)</div><div class="line">export class Wrapper &#123; &#125;</div></pre></td></tr></table></figure>
+<h4 id="将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。"><a href="#将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。" class="headerlink" title="将包装器的不同子项投影到模板的不同部分。 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。"></a>将包装器的不同子项投影到模板的不同部分。<ng-content> 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。</ng-content></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;wrapper&gt;</div><div class="line">  &lt;span&gt;This is not a counter&lt;/span&gt;</div><div class="line">  &lt;counter&gt;&lt;/counter&gt;</div><div class="line">&lt;/wrapper&gt;</div></pre></td></tr></table></figure>
+<h4 id="counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。"><a href="#counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。" class="headerlink" title="counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。"></a>counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。</h4><h2 id="ngProjectAs"><a href="#ngProjectAs" class="headerlink" title="ngProjectAs"></a>ngProjectAs</h2><h4 id="内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"><a href="#内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。" class="headerlink" title="内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"></a>内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。</h4><font face="黑体" color="#f00" size="3">表单自定义验证规则</font>
+
+<h4 id="举例：邮件匹配"><a href="#举例：邮件匹配" class="headerlink" title="举例：邮件匹配"></a>举例：邮件匹配</h4><p>定义用户类型接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">export interface User &#123;</div><div class="line">    name: string;</div><div class="line">    account: &#123;</div><div class="line">        email: string;</div><div class="line">        confirm: string;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>邮件匹配规则函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export const emailMatcher = (control: AbstractControl): &#123;[key: string]: boolean&#125; =&gt; &#123;</div><div class="line">   const email = control.get(&apos;email&apos;);</div><div class="line">   const confirm = control.get(&apos;confirm&apos;);</div><div class="line">   if (!email || !confirm)&#123;</div><div class="line">       return;</div><div class="line">   &#125;</div><div class="line">   return email.value === confirm.value ? null : &#123; nomatch: true &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>表单模版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">import &#123; Component, OnInit&#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; FormBuilder, FormGroup, Validators &#125; from &apos;@angular/forms&apos;;</div><div class="line">import &#123; emailMatcher &#125; from &apos;./email-matcher&apos;;</div><div class="line">@Component(&#123;</div><div class="line">    selector: &apos;signup=form&apos;,</div><div class="line">    template: `</div><div class="line">        &lt;form novalidate (ngSubmit)=&quot;onSubmit(user)&quot; [formGroup]=&quot;user&quot;&gt;</div><div class="line">            &lt;label&gt;</div><div class="line">               name...</div><div class="line">            &lt;/label&gt;</div><div class="line">            &lt;div *ngIf=&quot;user.get(&apos;name&apos;).touched &amp;&amp; user.get(&apos;name&apos;).hasError(&apos;required&apos;)&quot;&gt;</div><div class="line">                name is required</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;div formGroupName = &quot;account&quot;&gt;</div><div class="line">                &lt;label&gt;</div><div class="line">                    &lt;span&gt;Email address&lt;/span&gt;</div><div class="line">                    &lt;input type=&quot;email&quot; placeholder=&quot;Your email address&quot; formControlName=&quot;email&quot;&gt;</div><div class="line">                &lt;/label&gt;</div><div class="line">                &lt;label&gt;</div><div class="line">                    &lt;span&gt;Confirm address&lt;/span&gt;</div><div class="line">                    &lt;input type=&quot;email&quot; placeholder=&quot;Confirm your email address&quot; formControlName=&quot;confirm&quot;&gt;</div><div class="line">                &lt;/label&gt;</div><div class="line">                &lt;div *ngIf=&quot;user.get(&apos;account&apos;).touched &amp;&amp; user.get(&apos;name&apos;).hasError(&apos;nomatch&apos;)&quot;&gt;</div><div class="line">                    name is required</div><div class="line">                &lt;/div&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">            &lt;button type=&quot;submit&quot; [disabled]=&quot;user.invalid&quot;&gt;Sign up&lt;/button&gt;</div><div class="line">        &lt;/form&gt;</div><div class="line">    `</div><div class="line">&#125;)</div><div class="line">export class SignUpFormCOmponent implements OnInit &#123;</div><div class="line">    user: FormGroup;</div><div class="line">    constructor(private fb: FormBuilder)&#123;&#125;</div><div class="line">    ngOnInit() &#123;</div><div class="line">        this.user = this.fb.group(&#123;</div><div class="line">            name: [&apos;&apos;, Validators.required],</div><div class="line">            account: this.fb.group(&#123;</div><div class="line">                email: [&apos;&apos;, Validators.required],</div><div class="line">                confirm: [&apos;&apos;, Validators.rquired],</div><div class="line">            &#125;, &#123;validator: emailMatcher&#125;)</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<font face="黑体" color="#f00" size="3">对比创建表单自定义验证指令</font>
+
+<p>模版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;input name=&quot;password&quot; formControlName=&quot;password&quot; validateEqual=&quot;password&quot;&gt;</div><div class="line">&lt;input name=&quot;confirmpassword&quot; formControlName=&quot;confirmpassword&quot; validateEqual=&quot;password&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>validateEqual指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">import &#123; Directive, forwardRef, Attribute &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; Validator, AbstractControl, NG_VALIDATORS &#125; from &apos;@angular/forms&apos;;</div><div class="line">@DIrective(&#123;</div><div class="line">    selector: &apos;[validateEqual][formControlName], [validateEqual][formControl],[validateEqual][ngModel]&apos; ,</div><div class="line">    providers: [&#123;</div><div class="line">        provide: NG_VALIDATORS,</div><div class="line">        useExisting: forward(() =&gt; EqualValidator),</div><div class="line">        multi: true</div><div class="line">    &#125;]</div><div class="line">    扩展</div><div class="line">&#125;)</div><div class="line">export class EqualValidator implements Validator &#123;</div><div class="line">    constructor(@Attribute(&apos;validateEqual&apos;) public validateEqual: string)&#123;&#125;</div><div class="line">    validate(control: AbstractControl): &#123; [key:string]: boolean &#125; &#123;</div><div class="line">        let v  = control.value;  使用指令的控件自身值: confirmpassword</div><div class="line">        let e  = control.root.get(this.validateEqual);  指令指定的控件: passwordControl;</div><div class="line">        if (e &amp;&amp; v !== e.value) &#123;</div><div class="line">            return &#123; validateEqual: false&#125;</div><div class="line">        &#125;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"><a href="#验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性" class="headerlink" title="验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"></a>验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性</h4><h3 id="Forward-Reference"><a href="#Forward-Reference" class="headerlink" title="Forward Reference"></a>Forward Reference</h3><h4 id="不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。"><a href="#不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。" class="headerlink" title="不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。"></a>不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。</h4><font face="黑体" color="#f00" size="3">es6+中的class不进行自动提升主要为了解决继承父类时，父类不可用的问题</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">import &#123; forwardRef, Injectable &#125; from &apos;@angular2/core&apos;</div><div class="line">@Injectable()</div><div class="line">class Socket &#123;</div><div class="line">    constructor(@Inject(forwardRef(() =&gt; Buffer)) private buffer) &#123;&#125;</div><div class="line">&#125;</div><div class="line">class Buffer &#123;</div><div class="line">    constructor(@Inject(BUFFER_SIZE) private size: Number) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="OpaqueToken"><a href="#OpaqueToken" class="headerlink" title="OpaqueToken"></a>OpaqueToken</h3><h4 id="OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。"><a href="#OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。" class="headerlink" title="OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。"></a>OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123; OpaqueToken &#125; from &apos;@angular/core&apos;;</div><div class="line">const CONFIG_TOKEN = new OpaqueToken(&apos;config&apos;);</div><div class="line">export const THIRDPARTYLIBPROVIDERS = [</div><div class="line">    &#123;</div><div class="line">        provide: CONFIG_TOKEN, useClass: ThirdPartyConfig</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>OpaqueToken类的定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export class OpaqueToken &#123;</div><div class="line">    constructor(protected _desc: string) &#123;&#125;</div><div class="line">    toString() : string &#123;</div><div class="line">        return `Token$&#123;this._desc&#125;`</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>OpaqueToken类的使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import &#123; ReflectiveInjector, OpaquToken &#125; from &apos;@angular/core&apos;;</div><div class="line">const t = new OpaquToken(&apos;value&apos;);</div><div class="line">const injector = ReflectiveInjector.resolveAndCreate([</div><div class="line">    &#123;</div><div class="line">        provide: t,</div><div class="line">        useValue: &apos;bindingValue&apos;</div><div class="line">    &#125;</div><div class="line">]);</div><div class="line">injector.get(t)  // &apos;bindingValue&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="InjectionToken-Angular4"><a href="#InjectionToken-Angular4" class="headerlink" title="InjectionToken (Angular4+)"></a>InjectionToken (Angular4+)</h3><h4 id="使用ValueProvider"><a href="#使用ValueProvider" class="headerlink" title="使用ValueProvider"></a>使用ValueProvider</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@NgModule(&#123;</div><div class="line">    ...,</div><div class="line">    providers: [</div><div class="line">        &#123;</div><div class="line">            provide: &apos;apiUrl&apos;,</div><div class="line">            userValue: &apos;http://localhost:4200/heroes&apos;</div><div class="line">        &#125;</div><div class="line">    ],</div><div class="line">    bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123;&#125;</div></pre></td></tr></table></figure>
+<h4 id="注入ProviderValue"><a href="#注入ProviderValue" class="headerlink" title="注入ProviderValue"></a>注入ProviderValue</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Injectable()</div><div class="line">export class HeroService &#123;</div><div class="line">    constructor(</div><div class="line">        private loggerService: LoggerService,</div><div class="line">        @Inject(&apos;apiUrl&apos;) private apiUrl: String</div><div class="line">    )&#123;</div><div class="line">        console.log(apiUrl)  //  http://localhost:4200/heroes</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果引入了第三方库且名称相同就产生了问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export const THIRD_PARTY_PROVIDERS = [</div><div class="line">    &#123;</div><div class="line">        provide: &apos;apiUrl&apos;,   //  与localhost:4200相同</div><div class="line">        userValue: &apos;http://192.168.18.59:4200&apos;</div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>更新Provider配置信息则如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import &#123; THIRD_PARTY_PROVIDERS &#125; from &apos;./third-party&apos;;</div><div class="line">@NgModule(&#123;</div><div class="line">    ...,</div><div class="line">    providers: [</div><div class="line">        &#123;</div><div class="line">        provide: &apos;apiUrl&apos;,</div><div class="line">        useValue: &apos;http://localhost:4200/heros&apos;</div><div class="line">        &#125;,</div><div class="line">        THIRD_PARTY_PROVIDERS</div><div class="line">    ],</div><div class="line">    bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123; &#125;</div></pre></td></tr></table></figure></p>
+<font face="黑体" color="#f00" size="3">localhost:4200被覆盖</font>
+
+<h4 id="使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。"><a href="#使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。" class="headerlink" title="使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。"></a>使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import &#123; InjectionToken &#125; from &apos;@angular/core&apos;;</div><div class="line">export const API_URL = new InjectionToken&lt;string&gt;(&apos;apiUrl&apos;);</div></pre></td></tr></table></figure>
+<h4 id="OpaqueToken-与-InjectionToken-异同点"><a href="#OpaqueToken-与-InjectionToken-异同点" class="headerlink" title="OpaqueToken 与 InjectionToken 异同点"></a>OpaqueToken 与 InjectionToken 异同点</h4><h4 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h4><ul>
+<li>创建可在Provider中使用的Token</li>
+</ul>
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><ul>
+<li>前者ng2的类，后者ng4+引入的类，继承自OpaqueToken，且引入了泛型用于定义所关联的依赖对象的类型</li>
+</ul>
+<h2 id="Es6-Set-Map"><a href="#Es6-Set-Map" class="headerlink" title="Es6 Set Map"></a>Es6 Set Map</h2><h3 id="Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数"><a href="#Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数" class="headerlink" title="Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数"></a>Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">const set = new Set([1,2,3,4,2]);</div><div class="line">[...set]    // [1,2,3,4]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const set = new Set();</div><div class="line">[1,2,2,2,3,4].map(x =&gt; set.add(x));</div><div class="line">set   // [1,2,3,4]</div></pre></td></tr></table></figure>
+<h4 id="Set内部，两个对象不相等，两个NaN相等，用length检测-可以用for…of遍历"><a href="#Set内部，两个对象不相等，两个NaN相等，用length检测-可以用for…of遍历" class="headerlink" title="Set内部，两个对象不相等，两个NaN相等，用length检测,可以用for…of遍历"></a>Set内部，两个对象不相等，两个NaN相等，用length检测,可以用for…of遍历</h4><ul>
+<li><p>add(value)</p>
+</li>
+<li><p>delete(value) </p>
+</li>
+<li><p>has(value)</p>
+</li>
+<li><p>clear()</p>
+</li>
+</ul>
+<h3 id="Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map"><a href="#Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map" class="headerlink" title="Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map"></a>Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var m = new Map([[&apos;Michael&apos;, 95], [&apos;Bob&apos;, 75], [&apos;Tracy&apos;, 85]]);</div><div class="line">m.get(&apos;Michael&apos;); // 95</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var m = new Map();</div><div class="line">var o = &#123;p: &quot;Hello World&quot;&#125;;</div><div class="line">m.set(o, &quot;content&quot;)</div><div class="line">m.get(o)    // &quot;content&quot;</div><div class="line">m.has(o)    // true</div><div class="line">m.delete(o) // true</div><div class="line">m.has(o)    // false</div></pre></td></tr></table></figure>
+<font face="黑体" color="#f00" size="3">只有对同一个对象的引用，Map结构才视为同一个键</font>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var map = new Map();</div><div class="line">map.set([&apos;a&apos;], 555);</div><div class="line">map.get([&apos;a&apos;])   // undefined</div><div class="line">上面代码的set和get方法，表面是针对同一个键，但实际上这是两个值，内存地址是不一样的，因此get方法无法读取该键，返回undefined。</div></pre></td></tr></table></figure>
+<h3 id="ModuleWithProviders"><a href="#ModuleWithProviders" class="headerlink" title="ModuleWithProviders"></a>ModuleWithProviders</h3><p>创建一个共享模块，包含部分功能性模块、管道、指令、和服务。对于服务，通常作为单例的服务可能被多次提供，可以通过在共享模块内部返回ModuleWithProviders对象的静态方法forRoot解决这类问题, (相对于将service注入在NgModule,通过forRoot方法返回具有NgModule属性的ModuleWithProviders对象，可以解决service多次提供的情况)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">import &#123; NgModule, ModuleWithProviders &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; someDirective, somePipe, someService &#125; from &apos;./functions&apos;;</div><div class="line">@NgModule(&#123;</div><div class="line">    declarations: [</div><div class="line">        somePipe,</div><div class="line">        someDirective</div><div class="line">    ],</div><div class="line">    exports: [</div><div class="line">        somePipe,</div><div class="line">        someDirective </div><div class="line">    ]</div><div class="line">&#125;)</div><div class="line">export class SharedModule &#123;</div><div class="line">    static forRoot() : ModuleWithProviders &#123;</div><div class="line">        return &#123;</div><div class="line">            ngModule: SharedModule,</div><div class="line">            providers: [ someService ]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>NgModule中并不提供服务，在模块类中定义forRoot静态方法，返回ModuleWithProviders接口对象，在应用模块中导入共享模块并调用静态方法forRoot来提供服务和其他指令管道等,这样根模块会把他得providers添加到根模块的服务提供商中，确切的说是angular会先累加所有的显式注入的提供商，然后进一步追加其他模块的提供商到@NgModule.providers中，可以确保显式添加的提供商优先级大于从其他模块导入的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import &#123; SharedModule &#125; from &apos;./shared&apos;</div><div class="line">//:...</div><div class="line">@NgModule(&#123;</div><div class="line">    imports: [</div><div class="line">        SharedModule.forRoot()</div><div class="line">    ],</div><div class="line">    //:...</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123;&#125;</div></pre></td></tr></table></figure>
+<p>不调用forRoot方法则会只访问共享的管道和指令，不在提供服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">import &#123; SharedModule &#125; from &apos;./shared&apos;</div><div class="line">//:...</div><div class="line">@NgModule(&#123;</div><div class="line">    imports: [</div><div class="line">        SharedModule、</div><div class="line">    ],</div><div class="line">    //:...</div><div class="line">&#125;)</div><div class="line">export class AppModule &#123;&#125;</div></pre></td></tr></table></figure>
+<font face="黑体" color="#f00" size="3">Angular2中没有模块级别的service,所有在NgModule中声明的Provider都是注册在跟级别的DI中</font>
+
+<h3 id="shadow-DOM-选择器"><a href="#shadow-DOM-选择器" class="headerlink" title="shadow DOM 选择器"></a>shadow DOM 选择器</h3><p>使用emulated进行样式隔离时，可以访问适用于shadow DOM的css选择器</p>
+<h4 id="宿主"><a href="#宿主" class="headerlink" title="宿主"></a>宿主</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">:host &#123;</div><div class="line">    color: red;    // &lt;song-track&gt;</div><div class="line">&#125;</div><div class="line">:host(.selected) &#123;</div><div class="line">    color: red;    // &lt;song-track class=&quot;selected&quot;&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="样式依赖于祖先元素"><a href="#样式依赖于祖先元素" class="headerlink" title="样式依赖于祖先元素"></a>样式依赖于祖先元素</h4><p>它会在组件的宿主元素的祖先元素中查找汽配的祖先元素直到文档的根</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">:host-content(.selected) &#123;</div><div class="line">    color: red;</div><div class="line">&#125;</div><div class="line">:host-content(#selected) &#123;</div><div class="line">    color: red</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="宿主元素或后代元素-跨边界"><a href="#宿主元素或后代元素-跨边界" class="headerlink" title="宿主元素或后代元素(跨边界)"></a>宿主元素或后代元素(跨边界)</h4><p>它会覆盖任何封装的宿主元素或者其子元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">:host /deep/ .selected&#123;</div><div class="line">    color: red;</div><div class="line">&#125;</div><div class="line">:host &gt;&gt;&gt; .selected&#123;</div><div class="line">    color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<font face="黑体" color="#f00" size="3">angular-cli 启动的项目使用deep而不是&gt;&gt;&gt;</font>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/28/自定义表单/" rel="next" title="自定义表单">
+                <i class="fa fa-chevron-left"></i> 自定义表单
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/08/NgZone/" rel="prev" title="NgZone">
+                NgZone <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录每天学习中发现的知识点"><span class="nav-number">1.</span> <span class="nav-text">记录每天学习中发现的知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素"><span class="nav-number">1.0.1.</span> <span class="nav-text">TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"><span class="nav-number">1.0.2.</span> <span class="nav-text">ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"><span class="nav-number">1.1.</span> <span class="nav-text">注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类：内置指令，-自定义指令"><span class="nav-number">1.1.1.</span> <span class="nav-text">分类：内置指令， 自定义指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要考虑自定义指令的属性指令与结构指令"><span class="nav-number">1.1.2.</span> <span class="nav-text">主要考虑自定义指令的属性指令与结构指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义属性指令实现简写"><span class="nav-number">1.2.</span> <span class="nav-text">自定义属性指令实现简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义结构指令是实现简写"><span class="nav-number">1.3.</span> <span class="nav-text">自定义结构指令是实现简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结以上属性指令与结构指令"><span class="nav-number">1.4.</span> <span class="nav-text">总结以上属性指令与结构指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义debounceClick指令"><span class="nav-number">1.5.</span> <span class="nav-text">自定义debounceClick指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念"><span class="nav-number">1.5.1.</span> <span class="nav-text">如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。"><span class="nav-number">1.5.2.</span> <span class="nav-text">将包装器的不同子项投影到模板的不同部分。 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。"><span class="nav-number">1.5.3.</span> <span class="nav-text">counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ngProjectAs"><span class="nav-number">2.</span> <span class="nav-text">ngProjectAs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"><span class="nav-number">2.0.1.</span> <span class="nav-text">内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举例：邮件匹配"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例：邮件匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"><span class="nav-number">2.0.3.</span> <span class="nav-text">验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Reference"><span class="nav-number">2.1.</span> <span class="nav-text">Forward Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。"><span class="nav-number">2.1.1.</span> <span class="nav-text">不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpaqueToken"><span class="nav-number">2.2.</span> <span class="nav-text">OpaqueToken</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。"><span class="nav-number">2.2.1.</span> <span class="nav-text">OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InjectionToken-Angular4"><span class="nav-number">2.3.</span> <span class="nav-text">InjectionToken (Angular4+)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用ValueProvider"><span class="nav-number">2.3.1.</span> <span class="nav-text">使用ValueProvider</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注入ProviderValue"><span class="nav-number">2.3.2.</span> <span class="nav-text">注入ProviderValue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。"><span class="nav-number">2.3.3.</span> <span class="nav-text">使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OpaqueToken-与-InjectionToken-异同点"><span class="nav-number">2.3.4.</span> <span class="nav-text">OpaqueToken 与 InjectionToken 异同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点"><span class="nav-number">2.3.5.</span> <span class="nav-text">相同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">2.3.6.</span> <span class="nav-text">不同点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Es6-Set-Map"><span class="nav-number">3.</span> <span class="nav-text">Es6 Set Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数"><span class="nav-number">3.1.</span> <span class="nav-text">Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Set内部，两个对象不相等，两个NaN相等，用length检测-可以用for…of遍历"><span class="nav-number">3.1.1.</span> <span class="nav-text">Set内部，两个对象不相等，两个NaN相等，用length检测,可以用for…of遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map"><span class="nav-number">3.2.</span> <span class="nav-text">Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModuleWithProviders"><span class="nav-number">3.3.</span> <span class="nav-text">ModuleWithProviders</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shadow-DOM-选择器"><span class="nav-number">3.4.</span> <span class="nav-text">shadow DOM 选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主"><span class="nav-number">3.4.1.</span> <span class="nav-text">宿主</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样式依赖于祖先元素"><span class="nav-number">3.4.2.</span> <span class="nav-text">样式依赖于祖先元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主元素或后代元素-跨边界"><span class="nav-number">3.4.3.</span> <span class="nav-text">宿主元素或后代元素(跨边界)</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

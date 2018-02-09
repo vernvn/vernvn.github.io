@@ -1,0 +1,664 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="日常遗忘知识点总结利用伪类实现自定义title1&amp;lt;span mytitle=&amp;quot;hello world&amp;quot;&amp;gt;Today is Friday&amp;lt;/span&amp;gt; 1234567span[mytitle]:hover::after&amp;#123;    content: attr(mytitle);    position: absolute;    right:0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="12-15  日常笔记">
+<meta property="og:url" content="http://vernvn.github.io/2017/12/15/12-15  日常笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="日常遗忘知识点总结利用伪类实现自定义title1&amp;lt;span mytitle=&amp;quot;hello world&amp;quot;&amp;gt;Today is Friday&amp;lt;/span&amp;gt; 1234567span[mytitle]:hover::after&amp;#123;    content: attr(mytitle);    position: absolute;    right:0">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-6.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-15.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-16.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-24.jpeg">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-26.jpeg">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-27.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-32.jpeg">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-33.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-34.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-38.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-39.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-43.png">
+<meta property="og:image" content="https://github.com/vernvn/hexoBlog/blob/master/decImg/222.png?raw=true">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-55.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-59.png">
+<meta property="og:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-61.png">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="12-15  日常笔记">
+<meta name="twitter:description" content="日常遗忘知识点总结利用伪类实现自定义title1&amp;lt;span mytitle=&amp;quot;hello world&amp;quot;&amp;gt;Today is Friday&amp;lt;/span&amp;gt; 1234567span[mytitle]:hover::after&amp;#123;    content: attr(mytitle);    position: absolute;    right:0">
+<meta name="twitter:image" content="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-6.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2017/12/15/12-15  日常笔记/"/>
+
+
+  <title> 12-15  日常笔记 | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                12-15  日常笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-12-15T10:30:16+08:00" content="2017-12-15">
+              2017-12-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="日常遗忘知识点总结"><a href="#日常遗忘知识点总结" class="headerlink" title="日常遗忘知识点总结"></a>日常遗忘知识点总结</h2><h3 id="利用伪类实现自定义title"><a href="#利用伪类实现自定义title" class="headerlink" title="利用伪类实现自定义title"></a>利用伪类实现自定义title</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span mytitle=&quot;hello world&quot;&gt;Today is Friday&lt;/span&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">span[mytitle]:hover::after&#123;</div><div class="line">    content: attr(mytitle);</div><div class="line">    position: absolute;</div><div class="line">    right:0</div><div class="line">    color: #ff0;</div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="伪类清除浮动"><a href="#伪类清除浮动" class="headerlink" title="伪类清除浮动"></a>伪类清除浮动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;parent&quot;&gt;</div><div class="line">    &lt;div class=&quot;child1&quot; style=&quot;float:left;width:25%;&quot;&gt;&lt;/div&gt; </div><div class="line">    &lt;div class=&quot;child2&quot; style=&quot;float:right;width:25%;&quot;&gt;&lt;/div&gt; </div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.parent::after&#123;</div><div class="line">    content: &apos;\0020&apos;;</div><div class="line">    height: 0;</div><div class="line">    display: block;</div><div class="line">    clear: both;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Flex布局"><a href="#Flex布局" class="headerlink" title="Flex布局"></a>Flex布局</h3><blockquote>
+<p>引自 <font color="#f00" size="3">大漠老师的文章，进行flex布局的学习与记录总结</font>  <a href="https://www.w3cplus.com/css3/understanding-flexbox-everything-you-need-to-know.html" target="_blank" rel="noopener">原文地址</a></p>
+</blockquote>
+<p>显式声明flex容器后，启动了一个flexbox格式化上下文。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    display: flex;   //或者inline-flex;</div><div class="line">    li &#123;</div><div class="line">        width: 100px;</div><div class="line">        height: 100px;</div><div class="line">        margin: 8px;</div><div class="line">        background-color: #8cacea;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-6.png" alt="flex"></p>
+<p>display显示设置了flex属性后，自身变为flex容器，子元素变为了flex项目。</p>
+<font color="#f00">容器属性: flex-direction || flex-wrap || flex-flow || justify-content || align-items || align-content</font>
+
+<h4 id="flex-direction"><a href="#flex-direction" class="headerlink" title="flex-direction"></a>flex-direction</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    flex-direction: row || column || row-reverse || column-reverse;   // default: row</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>row: 从左向右水平<br>…</p>
+<h4 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    flex-wrap: wrap || norwrap || wrap-reverse;   // default: nowrap(不换行)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果拥有大量子元素，会自适应每个元素的大小，全部注入到一行内，即使宽度大于视窗宽度出现滚动条（nowrap）</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-15.png" alt="nowrap"></p>
+<p>显示默认宽度都行排列，不会强迫一行有多少个flex项目（wrap）</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-16.png" alt="wrap"></p>
+<h4 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h4><p>是flex-direction和flex-wrap属性的速记属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">    flex-flow: row wrap;</div><div class="line">    相当于  // flex-direction: row; flex-wrap: wrap;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><font color="#f00">接受属性值: flex-start || flex-end || center || space-between || space-around</font>
+
+
+<p>flex-start: 左对齐 （default）</p>
+<p>flex-end: 右对齐</p>
+<p>center: 居中对齐</p>
+<p>space-between: 两端对齐(除了第一个和最后一个部分，间距相等)</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-24.jpeg" alt="space-between"></p>
+<p>space-around: 让每个flex元素都具有相同的空间</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-26.jpeg" alt="space-between"></p>
+<h4 id="align-items-（不同于justify-content，它处理的是容器的纵向排列）"><a href="#align-items-（不同于justify-content，它处理的是容器的纵向排列）" class="headerlink" title="align-items （不同于justify-content，它处理的是容器的纵向排列）"></a>align-items （不同于justify-content，它处理的是容器的纵向排列）</h4><font color="#f00">接受属性值: flex-start || flex-end || center || stretch || baseline</font>
+
+
+<p>stretch: 所有flex元素高度和容器高度一样 （default）</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-27.png" alt="stretch"></p>
+<p>flex-start: 顶部对齐</p>
+<p>flex-end: 底部对齐</p>
+<p>center: 居中对齐</p>
+<p>baseline: 沿着自身的基线对齐</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-32.jpeg" alt="baseline"></p>
+<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>添加大量子元素，让其多行排列，该属性用于控制多行排列的flex容器的排列方式，效果类似align-items，expect baseline</p>
+<font color="#f00">接受属性值: flex-start || flex-end || center || stretch</font>
+
+
+<p>stretch: 纵向适应可用空间 （default）</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-33.png" alt="stretch"></p>
+<p>flex-start: 沿着顶部到底部排列</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-34.png" alt="flex-start"></p>
+<p>flex-end: 沿着低部到顶部排列</p>
+<p>center: 居中</p>
+<h2 id="未完待续。。。"><a href="#未完待续。。。" class="headerlink" title="未完待续。。。"></a>未完待续。。。</h2><h2 id="12-18-继续flex布局要点学习"><a href="#12-18-继续flex布局要点学习" class="headerlink" title="12.18 继续flex布局要点学习"></a>12.18 继续flex布局要点学习</h2><h4 id="order"><a href="#order" class="headerlink" title="order"></a>order</h4><p>允许flex项目在flex容器内重新排序，默认值为0，可以接受负值</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-38.png" alt="order=0"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">li:nth-child(1)&#123; </div><div class="line">    order: 1; /*设置一个比0更大的值*/ </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>从低到高拍下</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-39.png" alt="order=1"></p>
+<h4 id="flex-grow-flex-shrink"><a href="#flex-grow-flex-shrink" class="headerlink" title="flex-grow | flex-shrink"></a>flex-grow | flex-shrink</h4><p>控制flex项目在容器的空间上进行扩展; 接受0或者大于0的任何正数，默认为0。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">&lt;ul&gt; </div><div class="line">    &lt;li&gt;I am a simple list&lt;/li&gt; </div><div class="line">&lt;/ul&gt; </div><div class="line"></div><div class="line">ul &#123; </div><div class="line">    display: flex; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当把flex-grow设置为1的时候，填充多余空间</p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-43.png" alt="flex-grow"></p>
+<p>当有多个flex项目需要进行扩展比设置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#main div:nth-of-type(1) &#123;flex-grow: 1;&#125;</div><div class="line">#main div:nth-of-type(2) &#123;flex-grow: 3;&#125;</div><div class="line">#main div:nth-of-type(3) &#123;flex-grow: 1;&#125;</div><div class="line">#main div:nth-of-type(4) &#123;flex-grow: 1;&#125;</div><div class="line">#main div:nth-of-type(5) &#123;flex-grow: 1;&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/vernvn/hexoBlog/blob/master/decImg/222.png?raw=true" alt="flex-grow"></p>
+<p>当把flex-shrink设置为大于1的时候，缩小flex项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;ul class=&quot;flex&quot;&gt;</div><div class="line">    &lt;li&gt;a&lt;/li&gt;</div><div class="line">    &lt;li&gt;b&lt;/li&gt;</div><div class="line">    &lt;li&gt;c&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">flex &#123;display:flex;width:400px;margin:0;padding:0;list-style:none;&#125;</div><div class="line">flex li&#123;width:200px;&#125;</div><div class="line">flex li:nth-child(3)&#123;flex-shrink:3;&#125;</div></pre></td></tr></table></figure>
+<p>flex-shrink默认值为1，接受正整数，压缩空间比,c显式的定义了flex-shrink，a,b没有显式定义，但将根据默认值1来计算，可以看到总共将剩余空间分成了5份，其中a占1份，b占1份，c占3分，即1:1:3<br>我们可以看到父容器定义为400px，子项被定义为200px，相加之后即为600px，超出父容器200px。那么这么超出的200px需要被a,b,c消化<br>通过收缩因子，所以加权综合可得200 <em> 1+200 </em> 1+200 <em> 3=1000px；<br>于是我们可以计算a,b,c将被移除的溢出量是多少：<br>a被移除溢出量：(200</em>1/1000)<em>200，即约等于40px<br>b被移除溢出量：(200</em>1/1000)<em>200，即约等于40px<br>c被移除溢出量：(200</em>3/1000)*200，即约等于120px<br>最后a,b,c的实际宽度分别为：200-40=160px, 200-40=160px, 200-120=80px</p>
+<h4 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h4><p>初始化flex项目的大小。默认值auto.接受任何用于width的值。px | % | rem | em; 如果为0也需要加单位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">li &#123;</div><div class="line">    flex-basis: 150px;   // 初始固定大小</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="flex速记"><a href="#flex速记" class="headerlink" title="flex速记"></a>flex速记</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">li&#123;</div><div class="line">    flex: 0 1 auto;  // flex-grow、flex-shrink、flex-basis </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h4><p>改变一个弹性项目沿着侧轴的位置而不影响弹性项目</p>
+<font color="#f0f">接受属性值: auto || flex-start || flex-end || center || stretch || baseline</font>
+
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-55.png" alt="stretch"></p>
+<font color="#f0f">auto为设置为父元素的align-items的值，若没有父元的话，设置为stretch</font>
+
+<h3 id="绝对和相对flex项目"><a href="#绝对和相对flex项目" class="headerlink" title="绝对和相对flex项目"></a>绝对和相对flex项目</h3><p>二者区别在于间距的计算，相对flex项目的间距根据内容大小计算，绝对flex项目的间距根据flex属性计算，而不是内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">li&#123;</div><div class="line">    flex: 1 1 auto;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-59.png" alt="relative"></p>
+<p>flex-basis: auto; 宽度自动计算; 此时为相对flex项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">li&#123;</div><div class="line">    flex: 1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>flex项目变为绝对的了，<font color="#f0f">宽度计算依据flex属性</font></p>
+<p><img src="https://www.w3cplus.com/sites/default/files/blogs/2017/1702/understanding-flexbox-61.png" alt="relative"></p>
+<p>flex-basis: 0;  基于flex-grow共享可用空间</p>
+<font color="#f00" size="3">所有Flexbox属性都是基于合适的flex-direction起作用。</font>
+
+
+<font color="#f0f" size="3">当在Flex项目上使用 margin: auto 时，值为 auto 的方向（左、右或者二者都是）会占据所有剩余空间</font>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/11/路由守卫及加载策略/" rel="next" title="路由守卫及加载策略">
+                <i class="fa fa-chevron-left"></i> 路由守卫及加载策略
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/28/自定义表单/" rel="prev" title="自定义表单">
+                自定义表单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#日常遗忘知识点总结"><span class="nav-number">1.</span> <span class="nav-text">日常遗忘知识点总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用伪类实现自定义title"><span class="nav-number">1.1.</span> <span class="nav-text">利用伪类实现自定义title</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#伪类清除浮动"><span class="nav-number">1.2.</span> <span class="nav-text">伪类清除浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex布局"><span class="nav-number">1.3.</span> <span class="nav-text">Flex布局</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-direction"><span class="nav-number">1.3.1.</span> <span class="nav-text">flex-direction</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-wrap"><span class="nav-number">1.3.2.</span> <span class="nav-text">flex-wrap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-flow"><span class="nav-number">1.3.3.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#justify-content"><span class="nav-number">1.3.4.</span> <span class="nav-text">justify-content</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-items-（不同于justify-content，它处理的是容器的纵向排列）"><span class="nav-number">1.3.5.</span> <span class="nav-text">align-items （不同于justify-content，它处理的是容器的纵向排列）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-content"><span class="nav-number">1.3.6.</span> <span class="nav-text">align-content</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续。。。"><span class="nav-number">2.</span> <span class="nav-text">未完待续。。。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-18-继续flex布局要点学习"><span class="nav-number">3.</span> <span class="nav-text">12.18 继续flex布局要点学习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#order"><span class="nav-number">3.0.1.</span> <span class="nav-text">order</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-grow-flex-shrink"><span class="nav-number">3.0.2.</span> <span class="nav-text">flex-grow | flex-shrink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex-basis"><span class="nav-number">3.0.3.</span> <span class="nav-text">flex-basis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flex速记"><span class="nav-number">3.0.4.</span> <span class="nav-text">flex速记</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#align-self"><span class="nav-number">3.0.5.</span> <span class="nav-text">align-self</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绝对和相对flex项目"><span class="nav-number">3.1.</span> <span class="nav-text">绝对和相对flex项目</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

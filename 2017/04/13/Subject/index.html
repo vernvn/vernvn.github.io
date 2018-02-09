@@ -1,0 +1,577 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="Rxjs Subject 源码片段123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * Subject继承于Observable  */export class Subject extends Observable &amp;#123;    cons">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Subject">
+<meta property="og:url" content="http://vernvn.github.io/2017/04/13/Subject/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Rxjs Subject 源码片段123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * Subject继承于Observable  */export class Subject extends Observable &amp;#123;    cons">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Subject">
+<meta name="twitter:description" content="Rxjs Subject 源码片段123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354/** * Subject继承于Observable  */export class Subject extends Observable &amp;#123;    cons">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2017/04/13/Subject/"/>
+
+
+  <title> Subject | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Subject
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <time itemprop="dateCreated" datetime="2017-04-13T15:28:16+08:00" content="2017-04-13">
+              2017-04-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Rxjs-Subject-源码片段"><a href="#Rxjs-Subject-源码片段" class="headerlink" title="Rxjs Subject 源码片段"></a>Rxjs Subject 源码片段</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * Subject继承于Observable </div><div class="line"> */</div><div class="line">export class Subject extends Observable &#123;</div><div class="line">    constructor() &#123;</div><div class="line">        super();</div><div class="line">        this.observers = []; // 观察者列表  </div><div class="line">        this.closed = false;</div><div class="line">        this.isStopped = false;</div><div class="line">        this.hasError = false;</div><div class="line">        this.thrownError = null;</div><div class="line">    &#125;</div><div class="line">    next(value) &#123;</div><div class="line">        if (this.closed) &#123;</div><div class="line">            throw new ObjectUnsubscribedError();</div><div class="line">        &#125;</div><div class="line">        if (!this.isStopped) &#123;</div><div class="line">            const &#123; observers &#125; = this;</div><div class="line">            const len = observers.length;</div><div class="line">            const copy = observers.slice();</div><div class="line">            for (let i = 0; i &lt; len; i++) &#123; // 循环调用观察者next方法，通知观察者</div><div class="line">                copy[i].next(value);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    error(err) &#123;</div><div class="line">        if (this.closed) &#123;</div><div class="line">            throw new ObjectUnsubscribedError();</div><div class="line">        &#125;</div><div class="line">        this.hasError = true;</div><div class="line">        this.thrownError = err;</div><div class="line">        this.isStopped = true;</div><div class="line">        const &#123; observers &#125; = this;</div><div class="line">        const len = observers.length;</div><div class="line">        const copy = observers.slice();</div><div class="line">        for (let i = 0; i &lt; len; i++) &#123; // 循环调用观察者error方法</div><div class="line">            copy[i].error(err);</div><div class="line">        &#125;</div><div class="line">        this.observers.length = 0;</div><div class="line">    &#125;</div><div class="line">    complete() &#123;</div><div class="line">        if (this.closed) &#123;</div><div class="line">            throw new ObjectUnsubscribedError();</div><div class="line">        &#125;</div><div class="line">        this.isStopped = true;</div><div class="line">        const &#123; observers &#125; = this;</div><div class="line">        const len = observers.length;</div><div class="line">        const copy = observers.slice();</div><div class="line">        for (let i = 0; i &lt; len; i++) &#123; // 循环调用观察者complete方法</div><div class="line">            copy[i].complete();</div><div class="line">        &#125;</div><div class="line">        this.observers.length = 0; // 清空内部观察者列表</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="因为-Subject-在订阅时，是把-observer-存放到观察者列表中，并在接收到新值的时候，遍历观察者列表并调用观察者上的-next-方法"><a href="#因为-Subject-在订阅时，是把-observer-存放到观察者列表中，并在接收到新值的时候，遍历观察者列表并调用观察者上的-next-方法" class="headerlink" title="因为 Subject 在订阅时，是把 observer 存放到观察者列表中，并在接收到新值的时候，遍历观察者列表并调用观察者上的 next 方法"></a>因为 Subject 在订阅时，是把 observer 存放到观察者列表中，并在接收到新值的时候，遍历观察者列表并调用观察者上的 next 方法</h3><h3 id="Subject继承自Observable-将Observable的单路推送转换为多路推送。它就是讲单路Observable转变为多路Observable的桥梁。"><a href="#Subject继承自Observable-将Observable的单路推送转换为多路推送。它就是讲单路Observable转变为多路Observable的桥梁。" class="headerlink" title="Subject继承自Observable,将Observable的单路推送转换为多路推送。它就是讲单路Observable转变为多路Observable的桥梁。"></a>Subject继承自Observable,将Observable的单路推送转换为多路推送。它就是讲单路Observable转变为多路Observable的桥梁。</h3><h2 id="Subject的几个衍生类：BehaviorSubject-ReplaySubject-AsyncSubject"><a href="#Subject的几个衍生类：BehaviorSubject-ReplaySubject-AsyncSubject" class="headerlink" title="Subject的几个衍生类：BehaviorSubject,ReplaySubject,AsyncSubject;"></a>Subject的几个衍生类：BehaviorSubject,ReplaySubject,AsyncSubject;</h2><h3 id="BehaviorSubject：保存最近向数据消费者发送的值，当一个Observer订阅后，他会立即收到最新的值；它非常适合表示随时间推移的值；BehaviorSubject-形容一个人的生日，随时间不断更新；"><a href="#BehaviorSubject：保存最近向数据消费者发送的值，当一个Observer订阅后，他会立即收到最新的值；它非常适合表示随时间推移的值；BehaviorSubject-形容一个人的生日，随时间不断更新；" class="headerlink" title="BehaviorSubject：保存最近向数据消费者发送的值，当一个Observer订阅后，他会立即收到最新的值；它非常适合表示随时间推移的值；BehaviorSubject 形容一个人的生日，随时间不断更新；"></a>BehaviorSubject：保存最近向数据消费者发送的值，当一个Observer订阅后，他会立即收到最新的值；它非常适合表示随时间推移的值；BehaviorSubject 形容一个人的生日，随时间不断更新；</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var subject = new Rx.BehaviorSubject(0) //初始值</div><div class="line">subject.subscribe(&#123;</div><div class="line">    next:(v) =&gt; &#123;</div><div class="line">        console.log(&apos;A&apos; + v )</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">subject.next(1);</div><div class="line">subject.next(2);</div><div class="line">subject.subscribe(&#123;</div><div class="line">    next:(v) =&gt; &#123;</div><div class="line">        console.log(&apos;B&apos; + v )</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">subject.next(3);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var subject = new Rx.ReplaySubject(3); /* 回放数量 */</div><div class="line">subject.subscribe(&#123;</div><div class="line">  next: (v) =&gt; console.log(&apos;observerA: &apos; + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(1);</div><div class="line">subject.next(2);</div><div class="line">subject.next(3);</div><div class="line">subject.next(4);</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  next: (v) =&gt; console.log(&apos;observerB: &apos; + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(5);</div></pre></td></tr></table></figure>
+<h3 id="ReplaySubject-如同于-BehaviorSubject-是-Subject-的子类。通过-ReplaySubject-可以向新的订阅者推送旧数值，就像一个录像机-ReplaySubject-可以记录Observable的一部分状态（过去时间内推送的值）-一个-ReplaySubject-可以记录Observable执行过程中推送的多个值，并向新的订阅者回放它们。"><a href="#ReplaySubject-如同于-BehaviorSubject-是-Subject-的子类。通过-ReplaySubject-可以向新的订阅者推送旧数值，就像一个录像机-ReplaySubject-可以记录Observable的一部分状态（过去时间内推送的值）-一个-ReplaySubject-可以记录Observable执行过程中推送的多个值，并向新的订阅者回放它们。" class="headerlink" title="ReplaySubject 如同于 BehaviorSubject 是 Subject 的子类。通过 ReplaySubject 可以向新的订阅者推送旧数值，就像一个录像机 ReplaySubject 可以记录Observable的一部分状态（过去时间内推送的值）;.一个 ReplaySubject 可以记录Observable执行过程中推送的多个值，并向新的订阅者回放它们。"></a>ReplaySubject 如同于 BehaviorSubject 是 Subject 的子类。通过 ReplaySubject 可以向新的订阅者推送旧数值，就像一个录像机 ReplaySubject 可以记录Observable的一部分状态（过去时间内推送的值）;.一个 ReplaySubject 可以记录Observable执行过程中推送的多个值，并向新的订阅者回放它们。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var subject = new Rx.AsyncSubject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  next: (v) =&gt; console.log(&apos;observerA: &apos; + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(1);</div><div class="line">subject.next(2);</div><div class="line">subject.next(3);</div><div class="line">subject.next(4);</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  next: (v) =&gt; console.log(&apos;observerB: &apos; + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">subject.next(5);</div><div class="line">subject.complete();</div></pre></td></tr></table></figure>
+<h3 id="AsyncSubject是Subject的另外一个衍生类，Observable仅会在执行完成后-complete-，推送执行环境中的最后一个值。业务上很少用"><a href="#AsyncSubject是Subject的另外一个衍生类，Observable仅会在执行完成后-complete-，推送执行环境中的最后一个值。业务上很少用" class="headerlink" title="AsyncSubject是Subject的另外一个衍生类，Observable仅会在执行完成后(complete)，推送执行环境中的最后一个值。业务上很少用"></a>AsyncSubject是Subject的另外一个衍生类，Observable仅会在执行完成后(complete)，推送执行环境中的最后一个值。业务上很少用</h3><h3 id="既然Subject是一个Observer，你可以把它作为subscribe（订阅）普通Observable时的参数"><a href="#既然Subject是一个Observer，你可以把它作为subscribe（订阅）普通Observable时的参数" class="headerlink" title="既然Subject是一个Observer，你可以把它作为subscribe（订阅）普通Observable时的参数"></a>既然Subject是一个Observer，你可以把它作为subscribe（订阅）普通Observable时的参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var subject = new Rx.Subject();</div><div class="line"></div><div class="line">subject.subscribe(&#123;</div><div class="line">  next: (v) =&gt; console.log(&apos;observerA: &apos; + v)</div><div class="line">&#125;);</div><div class="line">subject.subscribe(&#123;</div><div class="line">  next: (v) =&gt; console.log(&apos;observerB: &apos; + v)</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var observable = Rx.Observable.from([1, 2, 3]);</div><div class="line"></div><div class="line">observable.subscribe(subject); // 你可以传递Subject来订阅observable</div></pre></td></tr></table></figure>
+<h3 id="通过添加两个Observer到Observer列表中，之后Observable直接订阅Observer列表将普通的单路推送转换为多路推送"><a href="#通过添加两个Observer到Observer列表中，之后Observable直接订阅Observer列表将普通的单路推送转换为多路推送" class="headerlink" title="通过添加两个Observer到Observer列表中，之后Observable直接订阅Observer列表将普通的单路推送转换为多路推送"></a>通过添加两个Observer到Observer列表中，之后Observable直接订阅Observer列表将普通的单路推送转换为多路推送</h3><h2 id="Cold-amp-HOT"><a href="#Cold-amp-HOT" class="headerlink" title="Cold  &amp;  HOT"></a>Cold  &amp;  HOT</h2><h3 id="observable-is-default-cold-cold-表示只有-subscribe-出现-observer-才会被激活-当有多个subscribe时，每一个都是一条独立的链；hot-每个subscirbe共享一个链，不管什么时间插入subscribe-都不会重新开始。如何把一个cold-变成-hot？Subject则可以充当中介。multicast、refCount、publish、share则是通过Subject完成将cold转变为hot的方法。"><a href="#observable-is-default-cold-cold-表示只有-subscribe-出现-observer-才会被激活-当有多个subscribe时，每一个都是一条独立的链；hot-每个subscirbe共享一个链，不管什么时间插入subscribe-都不会重新开始。如何把一个cold-变成-hot？Subject则可以充当中介。multicast、refCount、publish、share则是通过Subject完成将cold转变为hot的方法。" class="headerlink" title="observable is default cold; cold: 表示只有 subscribe 出现 observer 才会被激活; 当有多个subscribe时，每一个都是一条独立的链；hot: 每个subscirbe共享一个链，不管什么时间插入subscribe,都不会重新开始。如何把一个cold 变成 hot？Subject则可以充当中介。multicast、refCount、publish、share则是通过Subject完成将cold转变为hot的方法。"></a>observable is default cold; cold: 表示只有 subscribe 出现 observer 才会被激活; 当有多个subscribe时，每一个都是一条独立的链；hot: 每个subscirbe共享一个链，不管什么时间插入subscribe,都不会重新开始。如何把一个cold 变成 hot？Subject则可以充当中介。multicast、refCount、publish、share则是通过Subject完成将cold转变为hot的方法。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">let sub = new Subject();</div><div class="line">let obs = sub.map(v =&gt; &#123;</div><div class="line">    console.log(&quot;ajax call&quot;); </div><div class="line">&#125;);</div><div class="line">obs.subscribe(v =&gt; console.log(&quot;subscribe 1&quot;));</div><div class="line">obs.subscribe(v =&gt; console.log(&quot;subscribe 2&quot;));         </div><div class="line">sub.next(&quot;value&quot;); </div><div class="line">// ajax call</div><div class="line">// subscribe 1</div><div class="line">// ajax call</div><div class="line">// subscribe 2</div></pre></td></tr></table></figure>
+<h3 id="模拟异步请求数据的业务场景，如果有更多的subscribe的时候，则会对请求服务器多次，造成服务器负载严重，此时一般解决方法为以下两种"><a href="#模拟异步请求数据的业务场景，如果有更多的subscribe的时候，则会对请求服务器多次，造成服务器负载严重，此时一般解决方法为以下两种" class="headerlink" title="模拟异步请求数据的业务场景，如果有更多的subscribe的时候，则会对请求服务器多次，造成服务器负载严重，此时一般解决方法为以下两种"></a>模拟异步请求数据的业务场景，如果有更多的subscribe的时候，则会对请求服务器多次，造成服务器负载严重，此时一般解决方法为以下两种</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let obs = sub.map(v =&gt; &#123;</div><div class="line">    console.log(&quot;ajax call&quot;); </div><div class="line">&#125;).share();</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let obs = sub.map(v =&gt; &#123;</div><div class="line">    console.log(&quot;ajax call&quot;); </div><div class="line">&#125;).publish().refCount();</div></pre></td></tr></table></figure>
+<h3 id="引入multicast（组播）的概念，通过中介者订阅源序列在由它推送出去-下面是它的运作方式"><a href="#引入multicast（组播）的概念，通过中介者订阅源序列在由它推送出去-下面是它的运作方式" class="headerlink" title="引入multicast（组播）的概念，通过中介者订阅源序列在由它推送出去,下面是它的运作方式"></a>引入multicast（组播）的概念，通过中介者订阅源序列在由它推送出去,下面是它的运作方式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">var source = Rx.Observable.interval(1000).take(3);</div><div class="line"></div><div class="line">var observerA = &#123;</div><div class="line">    next: value =&gt; console.log(&apos;A next: &apos; + value),</div><div class="line">    error: error =&gt; console.log(&apos;A error: &apos; + error),</div><div class="line">    complete: () =&gt; console.log(&apos;A complete!&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">var observerB = &#123;</div><div class="line">    next: value =&gt; console.log(&apos;B next: &apos; + value),</div><div class="line">    error: error =&gt; console.log(&apos;B error: &apos; + error),</div><div class="line">    complete: () =&gt; console.log(&apos;B complete!&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">var subject = &#123;</div><div class="line">    observers: [],</div><div class="line">    subscribe: function(observer) &#123;   //addObserver</div><div class="line">        this.observers.push(observer)</div><div class="line">    &#125;,</div><div class="line">    next: function(value) &#123;</div><div class="line">        this.observers.forEach(o =&gt; o.next(value))    </div><div class="line">    &#125;,</div><div class="line">    error: function(error)&#123;</div><div class="line">        this.observers.forEach(o =&gt; o.error(error))</div><div class="line">    &#125;,</div><div class="line">    complete: function() &#123;</div><div class="line">        this.observers.forEach(o =&gt; o.complete())</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">subject.subscribe(observerA)</div><div class="line"></div><div class="line">source.subscribe(subject);</div><div class="line"></div><div class="line">setTimeout(() =&gt; &#123;</div><div class="line">    subject.subscribe(observerB);</div><div class="line">&#125;, 1000);</div></pre></td></tr></table></figure>
+<h3 id="换一种形式，用multicast方法来实现"><a href="#换一种形式，用multicast方法来实现" class="headerlink" title="换一种形式，用multicast方法来实现"></a>换一种形式，用multicast方法来实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var source = Rx.Observable.interval(1000)</div><div class="line">             .take(3)</div><div class="line">             .multicast(new Rx.Subject());</div><div class="line"></div><div class="line">var observerA = &#123;</div><div class="line">    next: value =&gt; console.log(&apos;A next: &apos; + value),</div><div class="line">    error: error =&gt; console.log(&apos;A error: &apos; + error),</div><div class="line">    complete: () =&gt; console.log(&apos;A complete!&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">var observerB = &#123;</div><div class="line">    next: value =&gt; console.log(&apos;B next: &apos; + value),</div><div class="line">    error: error =&gt; console.log(&apos;B error: &apos; + error),</div><div class="line">    complete: () =&gt; console.log(&apos;B complete!&apos;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">source.subscribe(observerA); // subject.subscribe(observerA)</div><div class="line"></div><div class="line">source.connect();    // source.subscribe(subject)  //开始推送 </div><div class="line"></div><div class="line">setTimeout(() =&gt; &#123;</div><div class="line">    source.subscribe(observerB); // subject.subscribe(observerA)</div><div class="line">&#125;, 1000);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var result = Observable.interval(1000).take(6)  //执行两次</div><div class="line">             .map(x =&gt; Math.random())</div><div class="line">            //  .share()    //不会因为订阅者数量而执行多次</div><div class="line">            //  .publish().refCount()</div><div class="line"></div><div class="line">     var subA = result.subscribe(x =&gt; console.log(&apos;A: &apos; + x));</div><div class="line">     var subB = result.subscribe(x =&gt; console.log(&apos;B: &apos; + x));</div></pre></td></tr></table></figure>
+<h3 id="常用应用场景"><a href="#常用应用场景" class="headerlink" title="常用应用场景"></a>常用应用场景</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let sub = new Subject();</div><div class="line">let obs = sub.map(v =&gt; &#123;</div><div class="line">    console.log(&quot;ajax call&quot;);  //请求接口</div><div class="line">&#125;);</div><div class="line">obs.subscribe(v =&gt; console.log(&quot;subscribe 1&quot;));  //分发</div><div class="line">obs.subscribe(v =&gt; console.log(&quot;subscribe 2&quot;));         </div><div class="line">sub.next(&quot;value&quot;);</div></pre></td></tr></table></figure>
+<h3 id="ajax会打印两次，增加服务器端负载；-调用share-方法；其中angular2中的http也是not-share的，在类似场景中同样的问题；"><a href="#ajax会打印两次，增加服务器端负载；-调用share-方法；其中angular2中的http也是not-share的，在类似场景中同样的问题；" class="headerlink" title="ajax会打印两次，增加服务器端负载； 调用share()方法；其中angular2中的http也是not share的，在类似场景中同样的问题；"></a>ajax会打印两次，增加服务器端负载； 调用share()方法；其中angular2中的http也是not share的，在类似场景中同样的问题；</h3><h3 id="建立一個-subject-先拿去訂閱-observable-source-，再把我們真正的-observer-加到-subject-中，這樣一來就能完成訂閱，而每個加到-subject-中的-observer-都能整組的接收到相同的元素。"><a href="#建立一個-subject-先拿去訂閱-observable-source-，再把我們真正的-observer-加到-subject-中，這樣一來就能完成訂閱，而每個加到-subject-中的-observer-都能整組的接收到相同的元素。" class="headerlink" title="建立一個 subject 先拿去訂閱 observable(source)，再把我們真正的 observer 加到 subject 中，這樣一來就能完成訂閱，而每個加到 subject 中的 observer 都能整組的接收到相同的元素。"></a>建立一個 subject 先拿去訂閱 observable(source)，再把我們真正的 observer 加到 subject 中，這樣一來就能完成訂閱，而每個加到 subject 中的 observer 都能整組的接收到相同的元素。</h3><h3 id="Observable-multicast-new-Rx-Subject-Observable-publish-对于Subject三种衍生形式，publishReplay-1-、publishBehavior-0-、publishLast"><a href="#Observable-multicast-new-Rx-Subject-Observable-publish-对于Subject三种衍生形式，publishReplay-1-、publishBehavior-0-、publishLast" class="headerlink" title="Observable.multicast(new Rx.Subject()) == Observable.publish();对于Subject三种衍生形式，publishReplay(1)、publishBehavior(0)、publishLast()"></a>Observable.multicast(new Rx.Subject()) == Observable.publish();对于Subject三种衍生形式，publishReplay(1)、publishBehavior(0)、publishLast()</h3><h3 id="另外-Observable-publish-refCount-Observable-share"><a href="#另外-Observable-publish-refCount-Observable-share" class="headerlink" title="另外   Observable.publish().refCount() == Observable.share()"></a>另外   Observable.publish().refCount() == Observable.share()</h3><h2 id="总结Subject！"><a href="#总结Subject！" class="headerlink" title="总结Subject！"></a>总结Subject！</h2><ul>
+<li>既是Observable又是Observer</li>
+<li>对内部的observers进行组播</li>
+<li>observer default is cold and not share.(cold 表示只有 subscribe 出现 observer 才会被激活.    not share 表示每一个 subscribe 都会激活 observer 链)</li>
+</ul>
+<h3 id="业务场景：窗口a接收到A-b接收到B-c接受到C，本窗口d则需要异步的捕获a和b窗口的值并乘c窗口的值，d-a-b-c"><a href="#业务场景：窗口a接收到A-b接收到B-c接受到C，本窗口d则需要异步的捕获a和b窗口的值并乘c窗口的值，d-a-b-c" class="headerlink" title="业务场景：窗口a接收到A,b接收到B,c接受到C，本窗口d则需要异步的捕获a和b窗口的值并乘c窗口的值，d = (a+b)*c;"></a>业务场景：窗口a接收到A,b接收到B,c接受到C，本窗口d则需要异步的捕获a和b窗口的值并乘c窗口的值，d = (a+b)*c;</h3><h3 id="我们可以把每个数据的变更定义成流，然后定义出这些流的组合关系"><a href="#我们可以把每个数据的变更定义成流，然后定义出这些流的组合关系" class="headerlink" title="我们可以把每个数据的变更定义成流，然后定义出这些流的组合关系"></a>我们可以把每个数据的变更定义成流，然后定义出这些流的组合关系</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">const A = new Rx.Subject()</div><div class="line">const B = new Rx.Subject()</div><div class="line">const C = new Rx.Subject()</div><div class="line"></div><div class="line">const D = Rx.Observable</div><div class="line">  .combineLatest(A, B, C)</div><div class="line">  .map(data =&gt; &#123;</div><div class="line">    let [a, b, c] = data</div><div class="line">    return (a + b) * c</div><div class="line">  &#125;)</div><div class="line"></div><div class="line">D.subscribe(result =&gt; console.log(result))</div><div class="line"></div><div class="line">setTimeout(() =&gt; A.next(2), 3000)</div><div class="line">setTimeout(() =&gt; B.next(3), 5000)</div><div class="line">setTimeout(() =&gt; C.next(5), 2000)</div><div class="line"></div><div class="line">setTimeout(() =&gt; C.next(11), 10000)</div></pre></td></tr></table></figure>
+<h3 id="为了简单，我们用定时器来模拟异步消息。实际业务中，对每个Subject的赋值是可以跟AJAX或者WebSocket结合起来，而且对D的那段实现毫无影响。我们可以看到，在整个这个过程中，最大的便利性在于，一旦定义完整个规则，变动整个表达式树上任意一个点，整个过程都会重跑一遍，以确保最终得到正确结果。无论中间环节上哪个东西变了，它只要更新自己就可以了，别人怎么用它的，不必关心。而且，我们从D的角度看，他只关心自己的数据来源是如何组织的，这些来源最终形成了一棵树，从各叶子汇聚到树根，也就是我们的订阅者这里，树上每个节点变更，都会自动触发从它往下到树根的所有数据变动，这个过程是最精确的，不会触发无效的数据更新。"><a href="#为了简单，我们用定时器来模拟异步消息。实际业务中，对每个Subject的赋值是可以跟AJAX或者WebSocket结合起来，而且对D的那段实现毫无影响。我们可以看到，在整个这个过程中，最大的便利性在于，一旦定义完整个规则，变动整个表达式树上任意一个点，整个过程都会重跑一遍，以确保最终得到正确结果。无论中间环节上哪个东西变了，它只要更新自己就可以了，别人怎么用它的，不必关心。而且，我们从D的角度看，他只关心自己的数据来源是如何组织的，这些来源最终形成了一棵树，从各叶子汇聚到树根，也就是我们的订阅者这里，树上每个节点变更，都会自动触发从它往下到树根的所有数据变动，这个过程是最精确的，不会触发无效的数据更新。" class="headerlink" title="为了简单，我们用定时器来模拟异步消息。实际业务中，对每个Subject的赋值是可以跟AJAX或者WebSocket结合起来，而且对D的那段实现毫无影响。我们可以看到，在整个这个过程中，最大的便利性在于，一旦定义完整个规则，变动整个表达式树上任意一个点，整个过程都会重跑一遍，以确保最终得到正确结果。无论中间环节上哪个东西变了，它只要更新自己就可以了，别人怎么用它的，不必关心。而且，我们从D的角度看，他只关心自己的数据来源是如何组织的，这些来源最终形成了一棵树，从各叶子汇聚到树根，也就是我们的订阅者这里，树上每个节点变更，都会自动触发从它往下到树根的所有数据变动，这个过程是最精确的，不会触发无效的数据更新。"></a>为了简单，我们用定时器来模拟异步消息。实际业务中，对每个Subject的赋值是可以跟AJAX或者WebSocket结合起来，而且对D的那段实现毫无影响。我们可以看到，在整个这个过程中，最大的便利性在于，一旦定义完整个规则，变动整个表达式树上任意一个点，整个过程都会重跑一遍，以确保最终得到正确结果。无论中间环节上哪个东西变了，它只要更新自己就可以了，别人怎么用它的，不必关心。而且，我们从D的角度看，他只关心自己的数据来源是如何组织的，这些来源最终形成了一棵树，从各叶子汇聚到树根，也就是我们的订阅者这里，树上每个节点变更，都会自动触发从它往下到树根的所有数据变动，这个过程是最精确的，不会触发无效的数据更新。</h3>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/28/rxjs/" rel="next" title="RxJS:万物皆为流">
+                <i class="fa fa-chevron-left"></i> RxJS:万物皆为流
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/12/常规面试总结2017/" rel="prev" title="常规面试总结2017">
+                常规面试总结2017 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+               alt="Lee" />
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">Artikel</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">Tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rxjs-Subject-源码片段"><span class="nav-number">1.</span> <span class="nav-text">Rxjs Subject 源码片段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#因为-Subject-在订阅时，是把-observer-存放到观察者列表中，并在接收到新值的时候，遍历观察者列表并调用观察者上的-next-方法"><span class="nav-number">1.1.</span> <span class="nav-text">因为 Subject 在订阅时，是把 observer 存放到观察者列表中，并在接收到新值的时候，遍历观察者列表并调用观察者上的 next 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subject继承自Observable-将Observable的单路推送转换为多路推送。它就是讲单路Observable转变为多路Observable的桥梁。"><span class="nav-number">1.2.</span> <span class="nav-text">Subject继承自Observable,将Observable的单路推送转换为多路推送。它就是讲单路Observable转变为多路Observable的桥梁。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subject的几个衍生类：BehaviorSubject-ReplaySubject-AsyncSubject"><span class="nav-number">2.</span> <span class="nav-text">Subject的几个衍生类：BehaviorSubject,ReplaySubject,AsyncSubject;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BehaviorSubject：保存最近向数据消费者发送的值，当一个Observer订阅后，他会立即收到最新的值；它非常适合表示随时间推移的值；BehaviorSubject-形容一个人的生日，随时间不断更新；"><span class="nav-number">2.1.</span> <span class="nav-text">BehaviorSubject：保存最近向数据消费者发送的值，当一个Observer订阅后，他会立即收到最新的值；它非常适合表示随时间推移的值；BehaviorSubject 形容一个人的生日，随时间不断更新；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReplaySubject-如同于-BehaviorSubject-是-Subject-的子类。通过-ReplaySubject-可以向新的订阅者推送旧数值，就像一个录像机-ReplaySubject-可以记录Observable的一部分状态（过去时间内推送的值）-一个-ReplaySubject-可以记录Observable执行过程中推送的多个值，并向新的订阅者回放它们。"><span class="nav-number">2.2.</span> <span class="nav-text">ReplaySubject 如同于 BehaviorSubject 是 Subject 的子类。通过 ReplaySubject 可以向新的订阅者推送旧数值，就像一个录像机 ReplaySubject 可以记录Observable的一部分状态（过去时间内推送的值）;.一个 ReplaySubject 可以记录Observable执行过程中推送的多个值，并向新的订阅者回放它们。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AsyncSubject是Subject的另外一个衍生类，Observable仅会在执行完成后-complete-，推送执行环境中的最后一个值。业务上很少用"><span class="nav-number">2.3.</span> <span class="nav-text">AsyncSubject是Subject的另外一个衍生类，Observable仅会在执行完成后(complete)，推送执行环境中的最后一个值。业务上很少用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#既然Subject是一个Observer，你可以把它作为subscribe（订阅）普通Observable时的参数"><span class="nav-number">2.4.</span> <span class="nav-text">既然Subject是一个Observer，你可以把它作为subscribe（订阅）普通Observable时的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过添加两个Observer到Observer列表中，之后Observable直接订阅Observer列表将普通的单路推送转换为多路推送"><span class="nav-number">2.5.</span> <span class="nav-text">通过添加两个Observer到Observer列表中，之后Observable直接订阅Observer列表将普通的单路推送转换为多路推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cold-amp-HOT"><span class="nav-number">3.</span> <span class="nav-text">Cold  &amp;  HOT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#observable-is-default-cold-cold-表示只有-subscribe-出现-observer-才会被激活-当有多个subscribe时，每一个都是一条独立的链；hot-每个subscirbe共享一个链，不管什么时间插入subscribe-都不会重新开始。如何把一个cold-变成-hot？Subject则可以充当中介。multicast、refCount、publish、share则是通过Subject完成将cold转变为hot的方法。"><span class="nav-number">3.1.</span> <span class="nav-text">observable is default cold; cold: 表示只有 subscribe 出现 observer 才会被激活; 当有多个subscribe时，每一个都是一条独立的链；hot: 每个subscirbe共享一个链，不管什么时间插入subscribe,都不会重新开始。如何把一个cold 变成 hot？Subject则可以充当中介。multicast、refCount、publish、share则是通过Subject完成将cold转变为hot的方法。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟异步请求数据的业务场景，如果有更多的subscribe的时候，则会对请求服务器多次，造成服务器负载严重，此时一般解决方法为以下两种"><span class="nav-number">3.2.</span> <span class="nav-text">模拟异步请求数据的业务场景，如果有更多的subscribe的时候，则会对请求服务器多次，造成服务器负载严重，此时一般解决方法为以下两种</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入multicast（组播）的概念，通过中介者订阅源序列在由它推送出去-下面是它的运作方式"><span class="nav-number">3.3.</span> <span class="nav-text">引入multicast（组播）的概念，通过中介者订阅源序列在由它推送出去,下面是它的运作方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换一种形式，用multicast方法来实现"><span class="nav-number">3.4.</span> <span class="nav-text">换一种形式，用multicast方法来实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用应用场景"><span class="nav-number">3.5.</span> <span class="nav-text">常用应用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax会打印两次，增加服务器端负载；-调用share-方法；其中angular2中的http也是not-share的，在类似场景中同样的问题；"><span class="nav-number">3.6.</span> <span class="nav-text">ajax会打印两次，增加服务器端负载； 调用share()方法；其中angular2中的http也是not share的，在类似场景中同样的问题；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立一個-subject-先拿去訂閱-observable-source-，再把我們真正的-observer-加到-subject-中，這樣一來就能完成訂閱，而每個加到-subject-中的-observer-都能整組的接收到相同的元素。"><span class="nav-number">3.7.</span> <span class="nav-text">建立一個 subject 先拿去訂閱 observable(source)，再把我們真正的 observer 加到 subject 中，這樣一來就能完成訂閱，而每個加到 subject 中的 observer 都能整組的接收到相同的元素。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Observable-multicast-new-Rx-Subject-Observable-publish-对于Subject三种衍生形式，publishReplay-1-、publishBehavior-0-、publishLast"><span class="nav-number">3.8.</span> <span class="nav-text">Observable.multicast(new Rx.Subject()) == Observable.publish();对于Subject三种衍生形式，publishReplay(1)、publishBehavior(0)、publishLast()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#另外-Observable-publish-refCount-Observable-share"><span class="nav-number">3.9.</span> <span class="nav-text">另外   Observable.publish().refCount() == Observable.share()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结Subject！"><span class="nav-number">4.</span> <span class="nav-text">总结Subject！</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#业务场景：窗口a接收到A-b接收到B-c接受到C，本窗口d则需要异步的捕获a和b窗口的值并乘c窗口的值，d-a-b-c"><span class="nav-number">4.1.</span> <span class="nav-text">业务场景：窗口a接收到A,b接收到B,c接受到C，本窗口d则需要异步的捕获a和b窗口的值并乘c窗口的值，d = (a+b)*c;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我们可以把每个数据的变更定义成流，然后定义出这些流的组合关系"><span class="nav-number">4.2.</span> <span class="nav-text">我们可以把每个数据的变更定义成流，然后定义出这些流的组合关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为了简单，我们用定时器来模拟异步消息。实际业务中，对每个Subject的赋值是可以跟AJAX或者WebSocket结合起来，而且对D的那段实现毫无影响。我们可以看到，在整个这个过程中，最大的便利性在于，一旦定义完整个规则，变动整个表达式树上任意一个点，整个过程都会重跑一遍，以确保最终得到正确结果。无论中间环节上哪个东西变了，它只要更新自己就可以了，别人怎么用它的，不必关心。而且，我们从D的角度看，他只关心自己的数据来源是如何组织的，这些来源最终形成了一棵树，从各叶子汇聚到树根，也就是我们的订阅者这里，树上每个节点变更，都会自动触发从它往下到树根的所有数据变动，这个过程是最精确的，不会触发无效的数据更新。"><span class="nav-number">4.3.</span> <span class="nav-text">为了简单，我们用定时器来模拟异步消息。实际业务中，对每个Subject的赋值是可以跟AJAX或者WebSocket结合起来，而且对D的那段实现毫无影响。我们可以看到，在整个这个过程中，最大的便利性在于，一旦定义完整个规则，变动整个表达式树上任意一个点，整个过程都会重跑一遍，以确保最终得到正确结果。无论中间环节上哪个东西变了，它只要更新自己就可以了，别人怎么用它的，不必关心。而且，我们从D的角度看，他只关心自己的数据来源是如何组织的，这些来源最终形成了一棵树，从各叶子汇聚到树根，也就是我们的订阅者这里，树上每个节点变更，都会自动触发从它往下到树根的所有数据变动，这个过程是最精确的，不会触发无效的数据更新。</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
