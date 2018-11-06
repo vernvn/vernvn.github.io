@@ -6,15 +6,15 @@
 
 
 <html class="theme-next muse use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="summarize interview," />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="summarize interview,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
 
 
 
@@ -116,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2017/09/12/常规面试总结2017/"/>
+  <link rel="canonical" href="http://vernvn.github.io/2017/09/12/常规面试总结2017/">
 
 
   <title> 常规面试总结2017 | Hexo </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -143,12 +143,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hexo</span>
       <span class="logo-line-after"><i></i></span>
@@ -175,7 +175,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -183,7 +183,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -230,7 +230,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -252,7 +252,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-09-12T09:59:19+08:00" content="2017-09-12">
               2017-09-12
             </time>
@@ -290,21 +290,21 @@
 <h4 id="CSRF攻击："><a href="#CSRF攻击：" class="headerlink" title="CSRF攻击："></a>CSRF攻击：</h4><p>跨站请求伪造，利用一些提交行为转换到操作其他网站（在网站支付时打款被转义到黑客账户）；</p>
 <p>如何防范： 遵循http协议，token即时验证，添加验证码阻止信息外泄</p>
 <h4 id="控制台注入代码："><a href="#控制台注入代码：" class="headerlink" title="控制台注入代码："></a>控制台注入代码：</h4><p>不懂的人会被欺骗到某个网站在控制台通过执行某段代码暴漏个人信息从而被黑客截取。</p>
-<h1 id="2-this指向与箭头函数"><a href="#2-this指向与箭头函数" class="headerlink" title="2.this指向与箭头函数"></a>2.this指向与箭头函数</h1><h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p>this在函数执行时被绑定，指向为调用该函数的对象。函数调用模式的不同造就了this指向问题上的差异。<br>函数作为一个对象的方法时，this指向该对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">var obj = &#123;</div><div class="line">    name: &apos;lee&apos;,</div><div class="line">    say: function()&#123;</div><div class="line">        console.log(this.name); // lee</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>函数暴漏在全局作用域下，this指向为window<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var name = &apos;window&apos;;</div><div class="line">function say()&#123;</div><div class="line">    console.log(this.name) // lee</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>构造函数内部this指向为构造函数实例对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function Obj()&#123;</div><div class="line">    this.name = &apos;lee&apos;;</div><div class="line">&#125;</div><div class="line">var obj = new Obj();</div><div class="line">obj.name // lee;</div></pre></td></tr></table></figure></p>
-<p>改变this指向的方法： apply、call、bind, call与apply的区别在于第二部分参数前者为多个参数，后者为一个参数数组，bind与它们的差异在于只是返回一个改变了this指向的新函数，需要调用，而apply与call在改变了this指向后立即执行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var name = &quot;window&quot;;</div><div class="line">var person = &#123;</div><div class="line">    name: &quot;lee&quot;</div><div class="line">&#125;;</div><div class="line">function say() &#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">say();    //window</div><div class="line">say.apply(person);   //lee</div><div class="line">say.call(person);   //lee</div><div class="line">say.bind(person)();   //lee</div><div class="line">say.apply();    //window</div></pre></td></tr></table></figure></p>
+<h1 id="2-this指向与箭头函数"><a href="#2-this指向与箭头函数" class="headerlink" title="2.this指向与箭头函数"></a>2.this指向与箭头函数</h1><h3 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h3><p>this在函数执行时被绑定，指向为调用该函数的对象。函数调用模式的不同造就了this指向问题上的差异。<br>函数作为一个对象的方法时，this指向该对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var name = &apos;window&apos;;</span><br><span class="line">var obj = &#123;</span><br><span class="line">    name: &apos;lee&apos;,</span><br><span class="line">    say: function()&#123;</span><br><span class="line">        console.log(this.name); // lee</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数暴漏在全局作用域下，this指向为window<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var name = &apos;window&apos;;</span><br><span class="line">function say()&#123;</span><br><span class="line">    console.log(this.name) // lee</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>构造函数内部this指向为构造函数实例对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Obj()&#123;</span><br><span class="line">    this.name = &apos;lee&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var obj = new Obj();</span><br><span class="line">obj.name // lee;</span><br></pre></td></tr></table></figure></p>
+<p>改变this指向的方法： apply、call、bind, call与apply的区别在于第二部分参数前者为多个参数，后者为一个参数数组，bind与它们的差异在于只是返回一个改变了this指向的新函数，需要调用，而apply与call在改变了this指向后立即执行了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var name = &quot;window&quot;;</span><br><span class="line">var person = &#123;</span><br><span class="line">    name: &quot;lee&quot;</span><br><span class="line">&#125;;</span><br><span class="line">function say() &#123;</span><br><span class="line">    console.log(this.name);</span><br><span class="line">&#125;</span><br><span class="line">say();    //window</span><br><span class="line">say.apply(person);   //lee</span><br><span class="line">say.call(person);   //lee</span><br><span class="line">say.bind(person)();   //lee</span><br><span class="line">say.apply();    //window</span><br></pre></td></tr></table></figure></p>
 <h3 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h3><p>es6新增的特性之一，简化了函数定义.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">x =&gt; (&#123;</div><div class="line">    foo: x    // 单纯的返回一个表达式对象，注意需要加（）</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><p>箭头函数内部this是词法作用域，由上下文确定；而函数中的this指向则在函数执行时根据调用模式确定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj = &#123;</div><div class="line">    birth: 1990,</div><div class="line">    getAge: function () &#123;</div><div class="line">        var b = this.birth; // 1990</div><div class="line">        var fn = function () &#123;</div><div class="line">            return new Date().getFullYear() - this.birth; // 匿名函数this指向window</div><div class="line">        &#125;;</div><div class="line">        var fn = () =&gt;  new Date().getFullYear() - this.birth; // this指向obj对象</div><div class="line">        </div><div class="line">        return fn();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<h1 id="3-var-let-const-之间的区别"><a href="#3-var-let-const-之间的区别" class="headerlink" title="3.var let const 之间的区别"></a>3.var let const 之间的区别</h1><p>var定义的变量是该变量作用域的局部变量，可以定义全局变量，但是会污染全局环境不容易维护，不推荐。<br>const定义常量，且不可重新赋值，但是如果定义的变量是一个对象的话，对象内部变量是可以改变的。<br>let声明块级作用域，块作用域内的变量在包含它们的块或for循环之外是不能访问的，否定变量声明提升，对var的一种增强。<br>es6里面不建议使用var，因为其没有块级作用域，非严格模式下会有变量声明提升的情况，会产生意想不到的错误。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt;5; i++)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(i)</div><div class="line">    &#125;,10)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; (&#123;</span><br><span class="line">    foo: x    // 单纯的返回一个表达式对象，注意需要加（）</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><p>箭头函数内部this是词法作用域，由上下文确定；而函数中的this指向则在函数执行时根据调用模式确定。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    birth: 1990,</span><br><span class="line">    getAge: function () &#123;</span><br><span class="line">        var b = this.birth; // 1990</span><br><span class="line">        var fn = function () &#123;</span><br><span class="line">            return new Date().getFullYear() - this.birth; // 匿名函数this指向window</span><br><span class="line">        &#125;;</span><br><span class="line">        var fn = () =&gt;  new Date().getFullYear() - this.birth; // this指向obj对象</span><br><span class="line">        </span><br><span class="line">        return fn();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-var-let-const-之间的区别"><a href="#3-var-let-const-之间的区别" class="headerlink" title="3.var let const 之间的区别"></a>3.var let const 之间的区别</h1><p>var定义的变量是该变量作用域的局部变量，可以定义全局变量，但是会污染全局环境不容易维护，不推荐。<br>const定义常量，且不可重新赋值，但是如果定义的变量是一个对象的话，对象内部变量是可以改变的。<br>let声明块级作用域，块作用域内的变量在包含它们的块或for循环之外是不能访问的，否定变量声明提升，对var的一种增强。<br>es6里面不建议使用var，因为其没有块级作用域，非严格模式下会有变量声明提升的情况，会产生意想不到的错误。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0; i &lt;5; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i)</span><br><span class="line">    &#125;,10)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>结果会是 5 5 5 5 5; 为什么呢，怎么能打印出想要的 0，1,2,3,4,呢？</p>
-<p>setTimeout事件在for循环结束后触发，此时i的值为5，解决方法；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i&lt;5; i++)&#123;</div><div class="line">    (function(i)&#123;</div><div class="line">        setTimeout(function() &#123; console.log(i); &#125;, 10);</div><div class="line">    &#125;)(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>利用立即执行函数迭代i的值；如果利用块级作用域呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">for(let i = 0; i &lt;5; i++)&#123;</div><div class="line">    setTimeout(function()&#123;</div><div class="line">        console.log(i)</div><div class="line">    &#125;,10)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>setTimeout事件在for循环结束后触发，此时i的值为5，解决方法；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(var i = 0; i&lt;5; i++)&#123;</span><br><span class="line">    (function(i)&#123;</span><br><span class="line">        setTimeout(function() &#123; console.log(i); &#125;, 10);</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>利用立即执行函数迭代i的值；如果利用块级作用域呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(let i = 0; i &lt;5; i++)&#123;</span><br><span class="line">    setTimeout(function()&#123;</span><br><span class="line">        console.log(i)</span><br><span class="line">    &#125;,10)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>每次for循环都会产生对应的作用域</p>
-<h1 id="4-深拷贝与浅拷贝"><a href="#4-深拷贝与浅拷贝" class="headerlink" title="4.深拷贝与浅拷贝"></a>4.深拷贝与浅拷贝</h1><p>浅拷贝只是复制了对象的指针，不会赋值对象本身，公用一块内存，所以改变一个对象的属性值都会变化，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    name: &apos;john&apos;</div><div class="line">&#125;</div><div class="line">var b = a;</div><div class="line">b.name = &apos;jeff&apos;;</div><div class="line"></div><div class="line">a // &#123; name: &apos;jeff&#125;;</div><div class="line">b // &#123; name: &apos;jeff&#125;;</div></pre></td></tr></table></figure></p>
-<p>深拷贝则复制了对象，不会共享内存与指针，修改一个不会影响到另一个；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    name: &apos;john&apos;</div><div class="line">&#125;</div><div class="line">var b = Object.assign(&#123;&#125;, a);</div><div class="line">b.name = &apos;jeff&apos;;</div><div class="line"></div><div class="line">a // &#123; name: &apos;john&#125;;</div><div class="line">b // &#123; name: &apos;jeff&#125;;</div></pre></td></tr></table></figure></p>
-<p>但是由于javascript中存储对象都是存地址的，Object.assign的局限性存在于它只是相对浅拷贝深入了一层，换句话就是如果对象的属性值是一个指向对象的引用，它只拷贝那个引用值，可以利用对象字符串的转换（JSON.parse(JSON.stringify(obj)）与递归实现真正的深拷贝。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var obj = &#123; a:1, arr: [2,3] &#125;;</div><div class="line">var shadowObj = Object.assign(&#123;&#125;, obj);</div><div class="line">obj.arr[0] = 22;</div><div class="line">obj.a = 11;</div><div class="line">// obj      &#123; a: 11, arr: [22,3]&#125;</div><div class="line">// shadObj  &#123; a: 1,  arr: [22,3]&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="4-深拷贝与浅拷贝"><a href="#4-深拷贝与浅拷贝" class="headerlink" title="4.深拷贝与浅拷贝"></a>4.深拷贝与浅拷贝</h1><p>浅拷贝只是复制了对象的指针，不会赋值对象本身，公用一块内存，所以改变一个对象的属性值都会变化，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    name: &apos;john&apos;</span><br><span class="line">&#125;</span><br><span class="line">var b = a;</span><br><span class="line">b.name = &apos;jeff&apos;;</span><br><span class="line"></span><br><span class="line">a // &#123; name: &apos;jeff&#125;;</span><br><span class="line">b // &#123; name: &apos;jeff&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>深拷贝则复制了对象，不会共享内存与指针，修改一个不会影响到另一个；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;</span><br><span class="line">    name: &apos;john&apos;</span><br><span class="line">&#125;</span><br><span class="line">var b = Object.assign(&#123;&#125;, a);</span><br><span class="line">b.name = &apos;jeff&apos;;</span><br><span class="line"></span><br><span class="line">a // &#123; name: &apos;john&#125;;</span><br><span class="line">b // &#123; name: &apos;jeff&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>但是由于javascript中存储对象都是存地址的，Object.assign的局限性存在于它只是相对浅拷贝深入了一层，换句话就是如果对象的属性值是一个指向对象的引用，它只拷贝那个引用值，可以利用对象字符串的转换（JSON.parse(JSON.stringify(obj)）与递归实现真正的深拷贝。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123; a:1, arr: [2,3] &#125;;</span><br><span class="line">var shadowObj = Object.assign(&#123;&#125;, obj);</span><br><span class="line">obj.arr[0] = 22;</span><br><span class="line">obj.a = 11;</span><br><span class="line">// obj      &#123; a: 11, arr: [22,3]&#125;</span><br><span class="line">// shadObj  &#123; a: 1,  arr: [22,3]&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -394,28 +394,26 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-               alt="Lee" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
           <p class="site-author-name" itemprop="name">Lee</p>
           <p class="site-description motion-element" itemprop="description">my blog</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -425,7 +423,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -453,7 +451,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常规面试总结2017"><span class="nav-number">1.</span> <span class="nav-text">常规面试总结2017</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导语："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">导语：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前端安全的理解与防范"><span class="nav-number">1.1.</span> <span class="nav-text">1.前端安全的理解与防范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端攻击有哪些形式，如何防范"><span class="nav-number">1.1.1.</span> <span class="nav-text">前端攻击有哪些形式，如何防范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS攻击："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">XSS攻击：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF攻击："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">CSRF攻击：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台注入代码："><span class="nav-number">1.1.1.3.</span> <span class="nav-text">控制台注入代码：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-this指向与箭头函数"><span class="nav-number">2.</span> <span class="nav-text">2.this指向与箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this指向"><span class="nav-number">2.0.1.</span> <span class="nav-text">this指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">2.0.2.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">this</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-var-let-const-之间的区别"><span class="nav-number">3.</span> <span class="nav-text">3.var let const 之间的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-深拷贝与浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">4.深拷贝与浅拷贝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常规面试总结2017"><span class="nav-number">1.</span> <span class="nav-text">常规面试总结2017</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导语："><span class="nav-number">1.0.0.1.</span> <span class="nav-text">导语：</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前端安全的理解与防范"><span class="nav-number">1.1.</span> <span class="nav-text">1.前端安全的理解与防范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端攻击有哪些形式，如何防范"><span class="nav-number">1.1.1.</span> <span class="nav-text">前端攻击有哪些形式，如何防范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS攻击："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">XSS攻击：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF攻击："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">CSRF攻击：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#控制台注入代码："><span class="nav-number">1.1.1.3.</span> <span class="nav-text">控制台注入代码：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-this指向与箭头函数"><span class="nav-number">2.</span> <span class="nav-text">2.this指向与箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this指向"><span class="nav-number">2.0.1.</span> <span class="nav-text">this指向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#箭头函数"><span class="nav-number">2.0.2.</span> <span class="nav-text">箭头函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">this</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-var-let-const-之间的区别"><span class="nav-number">3.</span> <span class="nav-text">3.var let const 之间的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-深拷贝与浅拷贝"><span class="nav-number">4.</span> <span class="nav-text">4.深拷贝与浅拷贝</span></a></li></div>
             
           </div>
         </section>
@@ -469,7 +467,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
@@ -480,7 +478,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

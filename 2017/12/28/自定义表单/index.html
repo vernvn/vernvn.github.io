@@ -6,15 +6,15 @@
 
 
 <html class="theme-next muse use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="angular2+," />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="angular2+,">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
 
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2017/12/28/自定义表单/"/>
+  <link rel="canonical" href="http://vernvn.github.io/2017/12/28/自定义表单/">
 
 
   <title> 自定义表单 | Hexo </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -145,12 +145,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hexo</span>
       <span class="logo-line-after"><i></i></span>
@@ -177,7 +177,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -185,7 +185,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -232,7 +232,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -254,7 +254,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-12-28T13:47:16+08:00" content="2017-12-28">
               2017-12-28
             </time>
@@ -292,8 +292,8 @@
 <li><p>CheckboxControlValueAccessor - checkbox类型</p>
 </li>
 </ul>
-<h2 id="实现ControlValueAccessor接口"><a href="#实现ControlValueAccessor接口" class="headerlink" title="实现ControlValueAccessor接口"></a>实现ControlValueAccessor接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export interface ControlValueAccessor &#123;</div><div class="line">    writeValue(obj: any): void;     // 将模型中的新值写入视图</div><div class="line">    registerOnChange(fn: any): void;    // 当控件接收到change事件后，调用的函数，通知外部组件发生变化</div><div class="line">    registerOnTouched(fn: any): void;    // 接收到touched事件后调用的函数</div><div class="line">    setDisabledState?(isDisabled: boolean): void;    // 当控件状态变成DISABLED或ENABLE时，调用该函数启用或禁用dom</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Component(...)</div><div class="line">class CounterComponent implements ControlValueAccessor &#123;</div><div class="line">    ...</div><div class="line">    propagateChange = (_: any) =&gt; &#123;&#125;;</div><div class="line">    registerOnChange(fn: any) &#123;</div><div class="line">        this.propagateChange = fn;   //  view层的值发生改变，通知外部</div><div class="line">    &#125;</div><div class="line">    registerOnTouched...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="实现ControlValueAccessor接口"><a href="#实现ControlValueAccessor接口" class="headerlink" title="实现ControlValueAccessor接口"></a>实现ControlValueAccessor接口</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export interface ControlValueAccessor &#123;</span><br><span class="line">    writeValue(obj: any): void;     // 将模型中的新值写入视图</span><br><span class="line">    registerOnChange(fn: any): void;    // 当控件接收到change事件后，调用的函数，通知外部组件发生变化</span><br><span class="line">    registerOnTouched(fn: any): void;    // 接收到touched事件后调用的函数</span><br><span class="line">    setDisabledState?(isDisabled: boolean): void;    // 当控件状态变成DISABLED或ENABLE时，调用该函数启用或禁用dom</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Component(...)</span><br><span class="line">class CounterComponent implements ControlValueAccessor &#123;</span><br><span class="line">    ...</span><br><span class="line">    propagateChange = (_: any) =&gt; &#123;&#125;;</span><br><span class="line">    registerOnChange(fn: any) &#123;</span><br><span class="line">        this.propagateChange = fn;   //  view层的值发生改变，通知外部</span><br><span class="line">    &#125;</span><br><span class="line">    registerOnTouched...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="注册成为表单控件"><a href="#注册成为表单控件" class="headerlink" title="注册成为表单控件"></a>注册成为表单控件</h2><ul>
 <li><p>NG_VALUE_ACCESSOR: token类型为ControlValueAccessor,将控件本身注册到DI框架，使其可以被表单访问</p>
 </li>
@@ -304,8 +304,8 @@
 <li><p>multi: 设置为true,该token对应多个依赖项，使用相同的token获取依赖项的时候，获取的是已注册的依赖对象列表。如果不是true,那么对于相同的token的提供商来说，后定义的提供商会覆盖前面定义的</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    selector: &apos;exe-demo&apos;,</div><div class="line">    ...</div><div class="line">    provides: [</div><div class="line">             // 创建Token为NG_VALUE_ACCESSOR的提供商</div><div class="line">        &#123;</div><div class="line">            provide: NG_VALUE_ACCESSOR,</div><div class="line">            useExisting: forwardRef(() =&gt; SomeComponent),</div><div class="line">            multi: true</div><div class="line">        &#125;,</div><div class="line">             // 创建Token为NG_VALIDATORS的表单验证验证器</div><div class="line">        &#123;</div><div class="line">            provide: NG_VALIDATORS,</div><div class="line">            useValue: validateCounterRange,</div><div class="line">            multi: true</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">import &#123; Component, forwardRef , Input &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, </div><div class="line">FormControl, ValidatorFn, ValidationErrors, AbstractControl &#125; from &apos;@angular/forms&apos;;</div><div class="line">export const EXE_COUNTER_VALUE_ACCESSOR: any = &#123;</div><div class="line">    provide: NG_VALUE_ACCESSOR,</div><div class="line">    useExisting: forwardRef(() =&gt; CounterComponent),</div><div class="line">    multi: true</div><div class="line">&#125;</div><div class="line">export const validateCounterRange: ValidatorFn = (control: AbstractControl) : ValidationErrors =&gt; &#123;</div><div class="line">   return ( control.value &gt; 10 || control.value &lt; 0 ) ? </div><div class="line">   &#123;</div><div class="line">       &apos;rangeError&apos;: &#123; current: control.value, max: 10, min: 0&#125;</div><div class="line">   &#125; : null</div><div class="line">&#125;</div><div class="line">export const EXE_COUNTER_VALIDATOR = &#123;</div><div class="line">    provide: NG_VALIDATORS,</div><div class="line">    useValue: validateCounterRange,  </div><div class="line">    multi: true</div><div class="line">&#125;</div><div class="line">@Component(&#123;</div><div class="line">    ...</div><div class="line">    provides: [</div><div class="line">        EXE_COUNTER_VALUE_ACCESSOR,</div><div class="line">        EXE_COUNTER_VALIDATOR</div><div class="line">    ],</div><div class="line">    changeDetection: ChangeDetectionStrategy.OnPush</div><div class="line">&#125;)</div><div class="line">export class CounterComponent implements ControlValueAccessor &#123;</div><div class="line">    @Input() _count: number = 0;</div><div class="line">    get count() &#123;</div><div class="line">        return this._count;</div><div class="line">    &#125;</div><div class="line">    set count(value: number) &#123;</div><div class="line">        this._count = value;</div><div class="line">        this.propagateChange(this._count);</div><div class="line">    &#125;</div><div class="line">    propagateChange = (_: any) =&gt; &#123;&#125;;</div><div class="line">    writeValue(value: any) &#123;</div><div class="line">        if (value) &#123;</div><div class="line">            this.count = value;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    registerOnchange(fn: any) &#123;</div><div class="line">        this.propagateChange = fn;</div><div class="line">    &#125;</div><div class="line">    registerOnTouched(fn: any) &#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    increment() &#123;</div><div class="line">        this.count++;</div><div class="line">    &#125;</div><div class="line">    decrement() &#123;</div><div class="line">        this.count--;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Component(&#123;</span><br><span class="line">    selector: &apos;exe-demo&apos;,</span><br><span class="line">    ...</span><br><span class="line">    provides: [</span><br><span class="line">             // 创建Token为NG_VALUE_ACCESSOR的提供商</span><br><span class="line">        &#123;</span><br><span class="line">            provide: NG_VALUE_ACCESSOR,</span><br><span class="line">            useExisting: forwardRef(() =&gt; SomeComponent),</span><br><span class="line">            multi: true</span><br><span class="line">        &#125;,</span><br><span class="line">             // 创建Token为NG_VALIDATORS的表单验证验证器</span><br><span class="line">        &#123;</span><br><span class="line">            provide: NG_VALIDATORS,</span><br><span class="line">            useValue: validateCounterRange,</span><br><span class="line">            multi: true</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component, forwardRef , Input &#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, </span><br><span class="line">FormControl, ValidatorFn, ValidationErrors, AbstractControl &#125; from &apos;@angular/forms&apos;;</span><br><span class="line">export const EXE_COUNTER_VALUE_ACCESSOR: any = &#123;</span><br><span class="line">    provide: NG_VALUE_ACCESSOR,</span><br><span class="line">    useExisting: forwardRef(() =&gt; CounterComponent),</span><br><span class="line">    multi: true</span><br><span class="line">&#125;</span><br><span class="line">export const validateCounterRange: ValidatorFn = (control: AbstractControl) : ValidationErrors =&gt; &#123;</span><br><span class="line">   return ( control.value &gt; 10 || control.value &lt; 0 ) ? </span><br><span class="line">   &#123;</span><br><span class="line">       &apos;rangeError&apos;: &#123; current: control.value, max: 10, min: 0&#125;</span><br><span class="line">   &#125; : null</span><br><span class="line">&#125;</span><br><span class="line">export const EXE_COUNTER_VALIDATOR = &#123;</span><br><span class="line">    provide: NG_VALIDATORS,</span><br><span class="line">    useValue: validateCounterRange,  </span><br><span class="line">    multi: true</span><br><span class="line">&#125;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    ...</span><br><span class="line">    provides: [</span><br><span class="line">        EXE_COUNTER_VALUE_ACCESSOR,</span><br><span class="line">        EXE_COUNTER_VALIDATOR</span><br><span class="line">    ],</span><br><span class="line">    changeDetection: ChangeDetectionStrategy.OnPush</span><br><span class="line">&#125;)</span><br><span class="line">export class CounterComponent implements ControlValueAccessor &#123;</span><br><span class="line">    @Input() _count: number = 0;</span><br><span class="line">    get count() &#123;</span><br><span class="line">        return this._count;</span><br><span class="line">    &#125;</span><br><span class="line">    set count(value: number) &#123;</span><br><span class="line">        this._count = value;</span><br><span class="line">        this.propagateChange(this._count);</span><br><span class="line">    &#125;</span><br><span class="line">    propagateChange = (_: any) =&gt; &#123;&#125;;</span><br><span class="line">    writeValue(value: any) &#123;</span><br><span class="line">        if (value) &#123;</span><br><span class="line">            this.count = value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    registerOnchange(fn: any) &#123;</span><br><span class="line">        this.propagateChange = fn;</span><br><span class="line">    &#125;</span><br><span class="line">    registerOnTouched(fn: any) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    increment() &#123;</span><br><span class="line">        this.count++;</span><br><span class="line">    &#125;</span><br><span class="line">    decrement() &#123;</span><br><span class="line">        this.count--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种"><a href="#在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种" class="headerlink" title="在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种"></a>在Angular中通过Provider来描述与Token相关联的依赖对象的创建方式，分为以下四种</h3><ul>
 <li><p>useClass</p>
 </li>
@@ -319,16 +319,16 @@
 <p><img src="https://sfault-image.b0.upaiyun.com/299/404/2994048125-58cc9e6c17087_articlex" alt="relation"></p>
 <font color="#f00">useClass</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [ </div><div class="line">    &#123; provide: ApiService, useClass: ApiService &#125;  // 简介写法直接 ApiService</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">providers: [ </span><br><span class="line">    &#123; provide: ApiService, useClass: ApiService &#125;  // 简介写法直接 ApiService</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <font color="#f00">useValue</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [ </div><div class="line">    &#123; provide: API_URL, useValue: &apos;http://my.api.com/v1&apos; &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">providers: [ </span><br><span class="line">    &#123; provide: API_URL, useValue: &apos;http://my.api.com/v1&apos; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <font color="#f00">useExisting</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">providers: [ </div><div class="line">    &#123; provide: &apos;ApiServiceAlias&apos;, useValue: ApiService &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">providers: [ </span><br><span class="line">    &#123; provide: &apos;ApiServiceAlias&apos;, useValue: ApiService &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <font color="#f00">useFactory</font>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">export function configFactory(config: AppConfig) &#123;</div><div class="line">    return () =&gt; config.load();</div><div class="line">&#125;</div><div class="line">providers: [ </div><div class="line">    &#123; provide: APP_INITIALIZER, useFactory: configFactory,</div><div class="line">    deps: [AppConfig, multi: true] &#125;</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export function configFactory(config: AppConfig) &#123;</span><br><span class="line">    return () =&gt; config.load();</span><br><span class="line">&#125;</span><br><span class="line">providers: [ </span><br><span class="line">    &#123; provide: APP_INITIALIZER, useFactory: configFactory,</span><br><span class="line">    deps: [AppConfig, multi: true] &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -417,28 +417,26 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-               alt="Lee" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
           <p class="site-author-name" itemprop="name">Lee</p>
           <p class="site-description motion-element" itemprop="description">my blog</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -448,7 +446,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -492,7 +490,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
@@ -503,7 +501,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

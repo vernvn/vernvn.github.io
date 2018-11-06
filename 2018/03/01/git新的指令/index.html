@@ -6,15 +6,15 @@
 
 
 <html class="theme-next muse use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2018/03/01/git新的指令/"/>
+  <link rel="canonical" href="http://vernvn.github.io/2018/03/01/git新的指令/">
 
 
   <title> git新的指令 | Hexo </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -149,12 +149,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hexo</span>
       <span class="logo-line-after"><i></i></span>
@@ -181,7 +181,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -189,7 +189,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -236,7 +236,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -258,7 +258,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2018-03-01T14:22:58+08:00" content="2018-03-01">
               2018-03-01
             </time>
@@ -291,9 +291,9 @@
 <p>使用git已经一段时间了，总结一下我的理解关于使用git进行团队协作开发的流程。首先master分支作为主分支应该承担版本发布的责任。开发任务应该在develop分支上。不论当前分支是从哪个分支分离开来，都需要合并到那个分支上。根据需求的不同以及开发人员的指派，应该创建一系列feature-<em>分支，一旦开发完毕后，进行代码的review，确认无误后合并分支到develop分支上，之后删除相应的feature-</em>分支。在进行版本的发布前，需要从develop分支分离并创建对应的预发布分支，进行当前版本的测试，完成后，需要合并进develop分支和master分支，之后切换分支到master分支，生成版本节点标签并删除对应预发布分支，进行版本的发布。如果遇到bug问题，需要从master分支分离出修复bug分支，修复完成后合并进develop和master分支，之后切换分支到master分支，生成节点标签并删除对应bug分支。</p>
 </blockquote>
 <h3 id="一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。"><a href="#一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。" class="headerlink" title="一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。"></a>一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。</h3><h4 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h4><p>正在feature分支开发，master分支报了一个bug错误，此时需要即时修复bug,但是开发还没有完成，此时提交不太友好。Git提供的stash功能正好适用这个场景。可以把当前工作储存起来，处理完事情后继续工作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git stash    // order code</div><div class="line">Saved working directory and index state WIP on feature-**: 4966d2d bingo</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash    // order code</span><br><span class="line">Saved working directory and index state WIP on feature-**: 4966d2d bingo</span><br></pre></td></tr></table></figure>
 <p>此时git status查看工作区是干净的。此时可以创建临时分支处理bug。处理完bug后切换回feature-分支继续开发。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git stash list // order code</div><div class="line">stash@&#123;0&#125;: WIP on feature-**: 4966d2d bingo</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash list // order code</span><br><span class="line">stash@&#123;0&#125;: WIP on feature-**: 4966d2d bingo</span><br></pre></td></tr></table></figure>
 <p>工作现场存在，现在需要恢复现场。两个办法：</p>
 <ul>
 <li><p>git stash apply &amp;&amp; git stash drop  // 前者恢复现场不删除stash内容，后者为补充删除stash内容</p>
@@ -302,16 +302,16 @@
 </li>
 </ul>
 <p>如果多次stash的情况下，可以git stash list查看，然后恢复指定的stash</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git stash apply stash@&#123;0&#125;  // 括号内为指定stash内容</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;0&#125;  // 括号内为指定stash内容</span><br></pre></td></tr></table></figure>
 <h4 id="–no-ff"><a href="#–no-ff" class="headerlink" title="–no-ff"></a>–no-ff</h4><p>这个参数的意思是保留原分支记录，默认情况下，执行fast-forward merge,直接将master分支指向develop分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git merge --no-ff develop // 把develop合并进master分支</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff develop // 把develop合并进master分支</span><br></pre></td></tr></table></figure>
 <p><img src="http://i.imgur.com/Kt1rngH.png" alt="fast-forward"></p>
 <p><img src="http://i.imgur.com/rDt0UhJ.png" alt="--no-ff"></p>
 <h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p>比较两次修改的差异</p>
-<h3 id="工作区-VS-暂存区"><a href="#工作区-VS-暂存区" class="headerlink" title="工作区 VS 暂存区"></a>工作区 VS 暂存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git diff &lt;filename&gt;  </div><div class="line"></div><div class="line">$ git diff &lt;branch&gt; &lt;filename&gt; // 和另一分支的区别</div></pre></td></tr></table></figure>
-<h3 id="暂存区-VS-Git仓库"><a href="#暂存区-VS-Git仓库" class="headerlink" title="暂存区 VS Git仓库"></a>暂存区 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git diff --cached &lt;filename&gt;  </div><div class="line"></div><div class="line">$ git diff --cached &lt;commit&gt; &lt;filename&gt; // 和指定commit的区别</div></pre></td></tr></table></figure>
-<h3 id="工作目录-VS-Git仓库"><a href="#工作目录-VS-Git仓库" class="headerlink" title="工作目录 VS Git仓库"></a>工作目录 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff &lt;commit&gt; &lt;filename&gt;</div></pre></td></tr></table></figure>
-<h3 id="Git仓库-VS-Git仓库"><a href="#Git仓库-VS-Git仓库" class="headerlink" title="Git仓库 VS Git仓库"></a>Git仓库 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git diff &lt;commit&gt; &lt;commit&gt;  // git仓库任意两次commit的差别</div></pre></td></tr></table></figure>
+<h3 id="工作区-VS-暂存区"><a href="#工作区-VS-暂存区" class="headerlink" title="工作区 VS 暂存区"></a>工作区 VS 暂存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;filename&gt;  </span><br><span class="line"></span><br><span class="line">$ git diff &lt;branch&gt; &lt;filename&gt; // 和另一分支的区别</span><br></pre></td></tr></table></figure>
+<h3 id="暂存区-VS-Git仓库"><a href="#暂存区-VS-Git仓库" class="headerlink" title="暂存区 VS Git仓库"></a>暂存区 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff --cached &lt;filename&gt;  </span><br><span class="line"></span><br><span class="line">$ git diff --cached &lt;commit&gt; &lt;filename&gt; // 和指定commit的区别</span><br></pre></td></tr></table></figure>
+<h3 id="工作目录-VS-Git仓库"><a href="#工作目录-VS-Git仓库" class="headerlink" title="工作目录 VS Git仓库"></a>工作目录 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;commit&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="Git仓库-VS-Git仓库"><a href="#Git仓库-VS-Git仓库" class="headerlink" title="Git仓库 VS Git仓库"></a>Git仓库 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;commit&gt; &lt;commit&gt;  // git仓库任意两次commit的差别</span><br></pre></td></tr></table></figure>
 <h2 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h2><p>以上命令可以不指定<filename>,则对应全部文件操作<br>以上命令涉及git仓库对比的，均可指定commit版本</filename></p>
 <ul>
 <li><p>HEAD 最近一次commit</p>
@@ -327,12 +327,12 @@
 <p><img src="https://sfault-image.b0.upaiyun.com/206/854/2068544494-5783bdd025d80_articlex" alt="0"></p>
 <h3 id="以下是一个例子讲解rebase的作用"><a href="#以下是一个例子讲解rebase的作用" class="headerlink" title="以下是一个例子讲解rebase的作用"></a>以下是一个例子讲解rebase的作用</h3><p><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup2_8_1_1.png" alt="1"></p>
 <p>切换到issue3分支后，对master执行rebase,解决冲突</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout issue3</div><div class="line">$ git rebase master</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout issue3</span><br><span class="line">$ git rebase master</span><br></pre></td></tr></table></figure>
 <p>冲突解决后不需要commit命令进行提交，而是执行rebase命令的continue选项或着abort选项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add .</div><div class="line">$ git rebase --continue  /  --abort</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git rebase --continue  /  --abort</span><br></pre></td></tr></table></figure>
 <p><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup2_8_1.png" alt="2"></p>
 <p>master分支的issue3分支可以fast-forward了。切换到master分支执行合并</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git checkout master</div><div class="line">$ git merge issue3</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge issue3</span><br></pre></td></tr></table></figure>
 <p>rebase的内容与merge的效果是一样的，但是历史记录会简洁</p>
 <p><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup2_8_2.png" alt="3"></p>
 
@@ -367,6 +367,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/06/rxjs常用操作符及项目应用/" rel="prev" title="rxjs常用操作符及项目应用">
+                rxjs常用操作符及项目应用 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -414,28 +418,26 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-               alt="Lee" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
           <p class="site-author-name" itemprop="name">Lee</p>
           <p class="site-description motion-element" itemprop="description">my blog</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -445,7 +447,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -473,7 +475,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git管理项目总结"><span class="nav-number">1.</span> <span class="nav-text">使用Git管理项目总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导语："><span class="nav-number">1.0.1.</span> <span class="nav-text">导语：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。"><span class="nav-number">1.1.</span> <span class="nav-text">一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-stash"><span class="nav-number">1.1.1.</span> <span class="nav-text">git stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–no-ff"><span class="nav-number">1.1.2.</span> <span class="nav-text">–no-ff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-diff"><span class="nav-number">1.1.3.</span> <span class="nav-text">git diff</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区-VS-暂存区"><span class="nav-number">1.2.</span> <span class="nav-text">工作区 VS 暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂存区-VS-Git仓库"><span class="nav-number">1.3.</span> <span class="nav-text">暂存区 VS Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作目录-VS-Git仓库"><span class="nav-number">1.4.</span> <span class="nav-text">工作目录 VS Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git仓库-VS-Git仓库"><span class="nav-number">1.5.</span> <span class="nav-text">Git仓库 VS Git仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展："><span class="nav-number">2.</span> <span class="nav-text">扩展：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-rebase"><span class="nav-number">2.0.1.</span> <span class="nav-text">git rebase</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录"><span class="nav-number">2.1.</span> <span class="nav-text">将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永远不要rebase一个已经分享的分支"><span class="nav-number">2.2.</span> <span class="nav-text">永远不要rebase一个已经分享的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下是一个例子讲解rebase的作用"><span class="nav-number">2.3.</span> <span class="nav-text">以下是一个例子讲解rebase的作用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Git管理项目总结"><span class="nav-number">1.</span> <span class="nav-text">使用Git管理项目总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#导语："><span class="nav-number">1.0.1.</span> <span class="nav-text">导语：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。"><span class="nav-number">1.1.</span> <span class="nav-text">一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-stash"><span class="nav-number">1.1.1.</span> <span class="nav-text">git stash</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#–no-ff"><span class="nav-number">1.1.2.</span> <span class="nav-text">–no-ff</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-diff"><span class="nav-number">1.1.3.</span> <span class="nav-text">git diff</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区-VS-暂存区"><span class="nav-number">1.2.</span> <span class="nav-text">工作区 VS 暂存区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#暂存区-VS-Git仓库"><span class="nav-number">1.3.</span> <span class="nav-text">暂存区 VS Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作目录-VS-Git仓库"><span class="nav-number">1.4.</span> <span class="nav-text">工作目录 VS Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git仓库-VS-Git仓库"><span class="nav-number">1.5.</span> <span class="nav-text">Git仓库 VS Git仓库</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展："><span class="nav-number">2.</span> <span class="nav-text">扩展：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-rebase"><span class="nav-number">2.0.1.</span> <span class="nav-text">git rebase</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录"><span class="nav-number">2.1.</span> <span class="nav-text">将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#永远不要rebase一个已经分享的分支"><span class="nav-number">2.2.</span> <span class="nav-text">永远不要rebase一个已经分享的分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以下是一个例子讲解rebase的作用"><span class="nav-number">2.3.</span> <span class="nav-text">以下是一个例子讲解rebase的作用</span></a></li></div>
             
           </div>
         </section>
@@ -489,7 +491,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
@@ -500,7 +502,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

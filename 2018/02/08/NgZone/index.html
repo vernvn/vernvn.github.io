@@ -6,15 +6,15 @@
 
 
 <html class="theme-next muse use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
 
 
 
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2018/02/08/NgZone/"/>
+  <link rel="canonical" href="http://vernvn.github.io/2018/02/08/NgZone/">
 
 
   <title> NgZone | Hexo </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -142,12 +142,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hexo</span>
       <span class="logo-line-after"><i></i></span>
@@ -174,7 +174,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -182,7 +182,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -229,7 +229,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2018-02-08T10:22:09+08:00" content="2018-02-08">
               2018-02-08
             </time>
@@ -285,9 +285,9 @@
 
 <h3 id="zone是什么"><a href="#zone是什么" class="headerlink" title="zone是什么"></a>zone是什么</h3><p>对浏览器的异步api做了封装，并对外发出通知何时开始何时结束，angular在得到异步事件结束的通知后，执行变化检查。</p>
 <h3 id="zone性能优化的重点在哪"><a href="#zone性能优化的重点在哪" class="headerlink" title="zone性能优化的重点在哪"></a>zone性能优化的重点在哪</h3><p>精确的控制哪些异步事件是应该在angular的zone以内运行的，哪些是应该在angular的zone之外运行的。显然在angular的zone之外运行的事件是不会进行变化检测的，减少不必要的变化检测则实现了性能上的优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import &#123; NgZone &#125; from &apos;@angular/core&apos;;</div><div class="line">constructor(private zone: NgZone) &#123;&#125;</div><div class="line">mouseDown(event) &#123;</div><div class="line">    this.zone.runOutsideAngular(() =&gt; &#123;</div><div class="line">        window.document.addEventListener(&apos;mouseover&apos;, this.mouseMove.bind(this));  // 此处应该尽量避免直接操纵dom,应该利用底层封装api(renderer, renderer2)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; NgZone &#125; from &apos;@angular/core&apos;;</span><br><span class="line">constructor(private zone: NgZone) &#123;&#125;</span><br><span class="line">mouseDown(event) &#123;</span><br><span class="line">    this.zone.runOutsideAngular(() =&gt; &#123;</span><br><span class="line">        window.document.addEventListener(&apos;mouseover&apos;, this.mouseMove.bind(this));  // 此处应该尽量避免直接操纵dom,应该利用底层封装api(renderer, renderer2)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>NgZone可以让代码继续回到zone里运行，会再次触发anuglar的变化检测，调用NgZone.run();</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mouseUp(event) &#123;</div><div class="line">    this.zone.run(() =&gt; &#123;</div><div class="line">        .....</div><div class="line">    &#125;)</div><div class="line">    window.docuemnt.removeEventListener(&apos;mousemove&apos;, this.mouseMove);  // 移除mousemove绑定的回调</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mouseUp(event) &#123;</span><br><span class="line">    this.zone.run(() =&gt; &#123;</span><br><span class="line">        .....</span><br><span class="line">    &#125;)</span><br><span class="line">    window.docuemnt.removeEventListener(&apos;mousemove&apos;, this.mouseMove);  // 移除mousemove绑定的回调</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>zone.js为javascript提供执行上下文，可以在异步任务之间进行持久性传递。采用了猴子补丁将javascript中的异步任务包裹了一层。使得异步任务运行在zone的上下文中。每一个异步任务都被当作一个task,并在task基础上提供钩子函数。</p>
 <ul>
 <li><p>onZoneCreated: 产生一个新的zone对象时的钩子函数，zone.fork也会产生一个继承基类zone的新zone,形成一个独立的zone上下文</p>
@@ -300,11 +300,11 @@
 </li>
 </ul>
 <p>并且对大多数异步事件进行了包裹封装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">const log = (phase) =&gt; &#123;</div><div class="line">    return () =&gt; &#123;</div><div class="line">        console.log(&apos;i am in zone.js&apos; + phase + &apos;!&apos;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">zone.fork(&#123;</div><div class="line">    onZoneCreated: log(&apos;onZoneCreated&apos;),</div><div class="line">    beforeTask: log(&apos;beforeTask&apos;),</div><div class="line">    afterTask: log(&apos;afterTask&apos;)</div><div class="line">&#125;).run(() =&gt; &#123;</div><div class="line">    const methodLog = (func) =&gt; &#123;</div><div class="line">        return () =&gt; &#123;</div><div class="line">            console.log(&apos;i am from&apos; + func + &apos;function&apos;)</div><div class="line">        &#125;</div><div class="line">    &#125;,</div><div class="line">    foo = methodLog(&apos;foo&apos;),</div><div class="line">    bar = methodLog(&apos;bar&apos;),</div><div class="line">    baz = () =&gt; &#123;</div><div class="line">        setTimeout( methodLog(&apos;baz in setTimeout&apos;), 0)</div><div class="line">    &#125;;</div><div class="line">    foo(); </div><div class="line">    baz();</div><div class="line">    bar();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">输出结果：</div><div class="line">i am in zone.js beforeTask;</div><div class="line">i am from foo function;</div><div class="line">i am from bar function;</div><div class="line">i am in zone.js afterTask;</div><div class="line"></div><div class="line">i am in zone.js onZoneCreated;</div><div class="line">i am in zone.js beforeTask;</div><div class="line">i am from baz in setTimeout function;</div><div class="line">i am in zone.js afterTask;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const log = (phase) =&gt; &#123;</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">        console.log(&apos;i am in zone.js&apos; + phase + &apos;!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">zone.fork(&#123;</span><br><span class="line">    onZoneCreated: log(&apos;onZoneCreated&apos;),</span><br><span class="line">    beforeTask: log(&apos;beforeTask&apos;),</span><br><span class="line">    afterTask: log(&apos;afterTask&apos;)</span><br><span class="line">&#125;).run(() =&gt; &#123;</span><br><span class="line">    const methodLog = (func) =&gt; &#123;</span><br><span class="line">        return () =&gt; &#123;</span><br><span class="line">            console.log(&apos;i am from&apos; + func + &apos;function&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    foo = methodLog(&apos;foo&apos;),</span><br><span class="line">    bar = methodLog(&apos;bar&apos;),</span><br><span class="line">    baz = () =&gt; &#123;</span><br><span class="line">        setTimeout( methodLog(&apos;baz in setTimeout&apos;), 0)</span><br><span class="line">    &#125;;</span><br><span class="line">    foo(); </span><br><span class="line">    baz();</span><br><span class="line">    bar();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输出结果：</span><br><span class="line">i am in zone.js beforeTask;</span><br><span class="line">i am from foo function;</span><br><span class="line">i am from bar function;</span><br><span class="line">i am in zone.js afterTask;</span><br><span class="line"></span><br><span class="line">i am in zone.js onZoneCreated;</span><br><span class="line">i am in zone.js beforeTask;</span><br><span class="line">i am from baz in setTimeout function;</span><br><span class="line">i am in zone.js afterTask;</span><br></pre></td></tr></table></figure>
 <p>上述例子中将run方法分为了两个task，分别为同步task和异步task。fork方法会产生一个继承根zone的子类，并在fork函数中配置特定的钩子函数，形成独立的zone上下文，而run方法则是启动执行业务代码的对外接口。</p>
 <h3 id="使用Observable优化脏检查"><a href="#使用Observable优化脏检查" class="headerlink" title="使用Observable优化脏检查"></a>使用Observable优化脏检查</h3><p>使用OnPush的检查策略，如果修改了对象内部的值，此时不会进行脏检查，不会进行视图更新。此时可以选择Observable对象，通过手动调用markForCheck()方法进行优化，当前组件到根组件的路径上的所有组件都会进行变化检测。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">@Component(&#123;</div><div class="line">    ...,</div><div class="line">    changeDetection: ChangeDetectionStrategy.OnPush</div><div class="line">&#125;)</div><div class="line">export class TodosComponent implements OnInit&#123;</div><div class="line">    @Input() todos: Observable&lt;Todo[]&gt;;</div><div class="line">    constructor(private cd: ChangeDetectorRef) &#123;&#125;</div><div class="line">    ngOnInit() &#123;</div><div class="line">        this.todos.subscribe(todos =&gt; &#123;</div><div class="line">            业务代码；</div><div class="line">            this.cd.markForCheck();</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></h4></h4>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Component(&#123;</span><br><span class="line">    ...,</span><br><span class="line">    changeDetection: ChangeDetectionStrategy.OnPush</span><br><span class="line">&#125;)</span><br><span class="line">export class TodosComponent implements OnInit&#123;</span><br><span class="line">    @Input() todos: Observable&lt;Todo[]&gt;;</span><br><span class="line">    constructor(private cd: ChangeDetectorRef) &#123;&#125;</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        this.todos.subscribe(todos =&gt; &#123;</span><br><span class="line">            业务代码；</span><br><span class="line">            this.cd.markForCheck();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h4></h4>
       
     </div>
 
@@ -387,28 +387,26 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-               alt="Lee" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
           <p class="site-author-name" itemprop="name">Lee</p>
           <p class="site-description motion-element" itemprop="description">my blog</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -418,7 +416,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -493,7 +491,7 @@ onError: zone运行Task时候的异常钩子函数
 12345678910输出结果：i am in zone.js beforeTask;i am from foo function;i am from bar function;i am in zone.js afterTask;i am in zone.js onZoneCreated;i am in zone.js beforeTask;i am from baz in setTimeout function;i am in zone.js afterTask;
 上述例子中将run方法分为了两个task，分别为同步task和异步task。fork方法会产生一个继承根zone的子类，并在fork函数中配置特定的钩子函数，形成独立的zone上下文，而run方法则是启动执行业务代码的对外接口。
 使用Observable优化脏检查使用OnPush的检查策略，如果修改了对象内部的值，此时不会进行脏检查，不会进行视图更新。此时可以选择Observable对象，通过手动调用markForCheck()方法进行优化，当前组件到根组件的路径上的所有组件都会进行变化检测。
-1234567891011121314@Component({    ...,    changeDetection: ChangeDetectionStrategy.OnPush})export class TodosComponent implements OnInit{    @Input() todos: Observable&lt;Todo[]&gt;;    constructor(private cd: ChangeDetectorRef) {}    ngOnInit() {        this.todos.subscribe(todos =&gt; {            业务代码；            this.cd.markForCheck();        })    }}</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zone是什么"><span class="nav-number"></span> <span class="nav-text">zone是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zone性能优化的重点在哪"><span class="nav-number"></span> <span class="nav-text">zone性能优化的重点在哪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number"></span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Observable优化脏检查"><span class="nav-number"></span> <span class="nav-text">使用Observable优化脏检查</span></a></div>
+1234567891011121314@Component({    ...,    changeDetection: ChangeDetectionStrategy.OnPush})export class TodosComponent implements OnInit{    @Input() todos: Observable&lt;Todo[]&gt;;    constructor(private cd: ChangeDetectorRef) {}    ngOnInit() {        this.todos.subscribe(todos =&gt; {            业务代码；            this.cd.markForCheck();        })    }}</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#zone是什么"><span class="nav-number"></span> <span class="nav-text">zone是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zone性能优化的重点在哪"><span class="nav-number"></span> <span class="nav-text">zone性能优化的重点在哪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number"></span> <span class="nav-text">补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Observable优化脏检查"><span class="nav-number"></span> <span class="nav-text">使用Observable优化脏检查</span></a></li></div>
             
           </div>
         </section>
@@ -509,7 +507,7 @@ onError: zone运行Task时候的异常钩子函数
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
@@ -520,7 +518,7 @@ onError: zone运行Task时候的异常钩子函数
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

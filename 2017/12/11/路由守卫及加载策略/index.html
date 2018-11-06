@@ -6,15 +6,15 @@
 
 
 <html class="theme-next muse use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
 
 
 
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2017/12/11/路由守卫及加载策略/"/>
+  <link rel="canonical" href="http://vernvn.github.io/2017/12/11/路由守卫及加载策略/">
 
 
   <title> 路由守卫及加载策略 | Hexo </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -142,12 +142,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hexo</span>
       <span class="logo-line-after"><i></i></span>
@@ -174,7 +174,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -182,7 +182,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -229,7 +229,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-12-11T17:18:16+08:00" content="2017-12-11">
               2017-12-11
             </time>
@@ -295,27 +295,27 @@
 <li><a href="https://www.angular.cn/api/router/CanLoad" target="_blank" rel="noopener">Canload</a>: 异步导航特性模块</li>
 </ul>
 <h4 id="在分层路由的每个级别上，我们都可以设置多个守卫。-路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate-和CanActivateChild-守卫。-然后它会按照从上到下的顺序检查CanActivate-守卫。-如果特性模块是异步加载的，在加载它之前还会检查CanLoad-守卫。-如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。"><a href="#在分层路由的每个级别上，我们都可以设置多个守卫。-路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate-和CanActivateChild-守卫。-然后它会按照从上到下的顺序检查CanActivate-守卫。-如果特性模块是异步加载的，在加载它之前还会检查CanLoad-守卫。-如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。" class="headerlink" title="在分层路由的每个级别上，我们都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate()和CanActivateChild()守卫。 然后它会按照从上到下的顺序检查CanActivate()守卫。 如果特性模块是异步加载的，在加载它之前还会检查CanLoad()守卫。 如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。"></a>在分层路由的每个级别上，我们都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate()和CanActivateChild()守卫。 然后它会按照从上到下的顺序检查CanActivate()守卫。 如果特性模块是异步加载的，在加载它之前还会检查CanLoad()守卫。 如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。</h4><h3 id="特性模块的授权验证"><a href="#特性模块的授权验证" class="headerlink" title="特性模块的授权验证"></a>特性模块的授权验证</h3><p>匿名用户会重定向到登录页，因为区分用户是否授权，所以创建在根目录下(auth-guard.ts)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">import &#123; Injectable &#125; from &apos;@angular/core&apos;;</div><div class="line">import &#123; CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot &#125; from &apos;@angular/rotuer&apos;;</div><div class="line">@Injectable()</div><div class="line">export class AuthGuard implements CanActivate &#123;</div><div class="line">   constructor(private router: Router) &#123;&#125;</div><div class="line">   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) &#123;</div><div class="line">        let url = state.url;</div><div class="line">        return this.checkLogin(url);</div><div class="line">   &#125;</div><div class="line">   checkLogin(url: string): boolean &#123;</div><div class="line">       if (&apos;登录成功标识&apos;) &#123;</div><div class="line">           reutrn true;</div><div class="line">       &#125;</div><div class="line">       this.router.navigate([&apos;/login&apos;]);</div><div class="line">       return false</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Injectable &#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot &#125; from &apos;@angular/rotuer&apos;;</span><br><span class="line">@Injectable()</span><br><span class="line">export class AuthGuard implements CanActivate &#123;</span><br><span class="line">   constructor(private router: Router) &#123;&#125;</span><br><span class="line">   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) &#123;</span><br><span class="line">        let url = state.url;</span><br><span class="line">        return this.checkLogin(url);</span><br><span class="line">   &#125;</span><br><span class="line">   checkLogin(url: string): boolean &#123;</span><br><span class="line">       if (&apos;登录成功标识&apos;) &#123;</span><br><span class="line">           reutrn true;</span><br><span class="line">       &#125;</span><br><span class="line">       this.router.navigate([&apos;/login&apos;]);</span><br><span class="line">       return false</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <font color="#f00" size="3">ActivatedRouteSnapshot包含即将被激活的路由，RouterStateSnapshot包含即将到达的状态</font>   
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">import &#123; AuthGuard &#125; from &apos;../aut-guard.service&apos;;</div><div class="line">const routes : Routes = [</div><div class="line">    path: &apos;admin&apos;,</div><div class="line">    component: AdminComponent,</div><div class="line">    canActive: [AuthGuard],</div><div class="line">    ...</div><div class="line">]</div><div class="line">@NgModule(&#123;</div><div class="line">    providers: [</div><div class="line">        AuthGuard</div><div class="line">    ],</div><div class="line">    &apos;&apos;&apos;</div><div class="line">&#125;)</div><div class="line">...</div></pre></td></tr></table></figure>
-<h3 id="CanActivateChild区别在于子路由被激活前的守卫"><a href="#CanActivateChild区别在于子路由被激活前的守卫" class="headerlink" title="CanActivateChild区别在于子路由被激活前的守卫"></a>CanActivateChild区别在于子路由被激活前的守卫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import &#123; CanActivateChild &#125; from &apos;@angular/router&apos;;</div><div class="line">canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean &#123;</div><div class="line">    return this.canActivate(route, state);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">const routes : Routes = [</div><div class="line">    path: &apos;admin&apos;,</div><div class="line">    component: AdminComponent,</div><div class="line">    canActive: [AuthGuard],</div><div class="line">    children: [</div><div class="line">        &#123;</div><div class="line">            path: &apos;&apos;,</div><div class="line">            canActivateChild: [AuthGuard],</div><div class="line">            children: [</div><div class="line">                ...</div><div class="line">            ]</div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">]</div><div class="line">...</div></pre></td></tr></table></figure>
-<h3 id="CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false"><a href="#CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false" class="headerlink" title="CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)"></a>CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">canDeactivate(): Observable&lt;boolean&gt; | promise&lt;boolean&gt; | boolean &#123;</div><div class="line">    if (!this.changeStatus) &#123; </div><div class="line">        return true;   //如果没有改变直接导航，否则弹框</div><div class="line">    &#125;</div><div class="line">    return this.someService.confirm(&apos;discard changes?&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;:id&apos;,</div><div class="line">    component: CrisisDetailComponent,</div><div class="line">    canDeactivate: [CanDeactivateGuard]</div><div class="line">&#125;</div><div class="line">@NgModule(&#123;</div><div class="line">    providers: [</div><div class="line">        CanDeactivateGuard</div><div class="line">    ],</div><div class="line">    &apos;&apos;&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AuthGuard &#125; from &apos;../aut-guard.service&apos;;</span><br><span class="line">const routes : Routes = [</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    component: AdminComponent,</span><br><span class="line">    canActive: [AuthGuard],</span><br><span class="line">    ...</span><br><span class="line">]</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    providers: [</span><br><span class="line">        AuthGuard</span><br><span class="line">    ],</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">&#125;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="CanActivateChild区别在于子路由被激活前的守卫"><a href="#CanActivateChild区别在于子路由被激活前的守卫" class="headerlink" title="CanActivateChild区别在于子路由被激活前的守卫"></a>CanActivateChild区别在于子路由被激活前的守卫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; CanActivateChild &#125; from &apos;@angular/router&apos;;</span><br><span class="line">canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean &#123;</span><br><span class="line">    return this.canActivate(route, state);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const routes : Routes = [</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    component: AdminComponent,</span><br><span class="line">    canActive: [AuthGuard],</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            path: &apos;&apos;,</span><br><span class="line">            canActivateChild: [AuthGuard],</span><br><span class="line">            children: [</span><br><span class="line">                ...</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h3 id="CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false"><a href="#CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false" class="headerlink" title="CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)"></a>CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">canDeactivate(): Observable&lt;boolean&gt; | promise&lt;boolean&gt; | boolean &#123;</span><br><span class="line">    if (!this.changeStatus) &#123; </span><br><span class="line">        return true;   //如果没有改变直接导航，否则弹框</span><br><span class="line">    &#125;</span><br><span class="line">    return this.someService.confirm(&apos;discard changes?&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;:id&apos;,</span><br><span class="line">    component: CrisisDetailComponent,</span><br><span class="line">    canDeactivate: [CanDeactivateGuard]</span><br><span class="line">&#125;</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    providers: [</span><br><span class="line">        CanDeactivateGuard</span><br><span class="line">    ],</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="Resolve-预先获取数据"><a href="#Resolve-预先获取数据" class="headerlink" title="Resolve 预先获取数据"></a>Resolve 预先获取数据</h3><p>如果响应时间够长，就需要预先从服务器上获取数据，路由激活瞬间数据渲染完毕，此处需要Resolve守卫。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">resolve(route: activatedRouteSnapshot, state: RouterStateSnapshot):Observable&lt;any&gt;&#123;</div><div class="line">   const id = route.paramMap.get(&apos;id&apos;);</div><div class="line">   return this.someService.getDate(id).map(x =&gt; &#123;</div><div class="line">       if (x) &#123;</div><div class="line">           return x;</div><div class="line">       &#125;else &#123;</div><div class="line">           this.router.naviagte([&apos;./someWhere&apos;]);</div><div class="line">           return null;</div><div class="line">       &#125;</div><div class="line">   &#125;)</div><div class="line">&#125;</div><div class="line">// 此处可以阻止路由被加载，直到数据获取完毕,如果没有数据获取则导航回指定路由，并且NgModule的providers中需要注册</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">resolve(route: activatedRouteSnapshot, state: RouterStateSnapshot):Observable&lt;any&gt;&#123;</span><br><span class="line">   const id = route.paramMap.get(&apos;id&apos;);</span><br><span class="line">   return this.someService.getDate(id).map(x =&gt; &#123;</span><br><span class="line">       if (x) &#123;</span><br><span class="line">           return x;</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           this.router.naviagte([&apos;./someWhere&apos;]);</span><br><span class="line">           return null;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br><span class="line">// 此处可以阻止路由被加载，直到数据获取完毕,如果没有数据获取则导航回指定路由，并且NgModule的providers中需要注册</span><br></pre></td></tr></table></figure>
 <h3 id="异步路由"><a href="#异步路由" class="headerlink" title="异步路由"></a>异步路由</h3><p>异步路由可以在获取请求时惰性加载特性模块，并且带来了一下好处</p>
 <ul>
 <li>对于体积庞大的特性模块可以在用户请求时进行加载</li>
 <li>持续扩充特性模块的功能，不用增加初始加载的体积及速度</li>
 <li>模块化开发提升开发效率，结构分明</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;admin&apos;,</div><div class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;   // 相对于app目录</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;   // 相对于app目录</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <font color="#f00" size="3">惰性加载只会发生一次，在该路由首次被请求时，后续的请求是立即可用的</font>
 
-<h3 id="Canload守卫-保护对特性模块的未授权加载"><a href="#Canload守卫-保护对特性模块的未授权加载" class="headerlink" title="Canload守卫 保护对特性模块的未授权加载"></a>Canload守卫 保护对特性模块的未授权加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">canload(route: Route): boolean &#123;</div><div class="line">    let url = `$&#123;route.path&#125;`;   // route为准备访问的目标地址</div><div class="line">    return this.checkLogin(url);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;admin&apos;,</div><div class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;,</div><div class="line">    canLoad: [AuthGuard]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Canload守卫-保护对特性模块的未授权加载"><a href="#Canload守卫-保护对特性模块的未授权加载" class="headerlink" title="Canload守卫 保护对特性模块的未授权加载"></a>Canload守卫 保护对特性模块的未授权加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">canload(route: Route): boolean &#123;</span><br><span class="line">    let url = `$&#123;route.path&#125;`;   // route为准备访问的目标地址</span><br><span class="line">    return this.checkLogin(url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;,</span><br><span class="line">    canLoad: [AuthGuard]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <font color="#f00" size="3">路由加载形式:立即加载、惰性加载、预加载</font>
 
 <h4 id="预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载-理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。"><a href="#预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载-理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。" class="headerlink" title="预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载;理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。"></a>预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载;理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。</h4><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>导航完成后，路由器会查找没有加载但是可以加载的模块，此时预加载策略决定了是否加载以及加载哪些模块。</p>
@@ -323,15 +323,15 @@
 <li>完全不预加载，默认</li>
 <li>预加载所有特性模块: PreloadAllModules</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import &#123; PreloadAllModules, RouterModule &#125; from &apos;@angular/router&apos;</div><div class="line">RouterModule.forRoot(appRoutes, &#123;</div><div class="line">    preloadingStrategy: PreloadAllModules</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; PreloadAllModules, RouterModule &#125; from &apos;@angular/router&apos;</span><br><span class="line">RouterModule.forRoot(appRoutes, &#123;</span><br><span class="line">    preloadingStrategy: PreloadAllModules</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <font color="#f00" size="3">CanLoad守卫会阻塞预加载策略，优先级高于预加载策略</font>
 
 <h3 id="自定义预加载策略"><a href="#自定义预加载策略" class="headerlink" title="自定义预加载策略"></a>自定义预加载策略</h3><p>结合路由定义时的data属性，只预加载preload为true的路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path: &apos;admin&apos;,</div><div class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;,</div><div class="line">    data: &#123; preload: true &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;,</span><br><span class="line">    data: &#123; preload: true &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>添加selective-preloading-strategy.ts,实现自定义预加载策略</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">import &#123; PreloadingStrategy , Route &#125; from &apos;@angular/router&apos;;</div><div class="line">@Injectable()</div><div class="line">export class SelectivePreloadingStrategy implements PreloadingStrategy &#123;</div><div class="line">    preloadModules: string[] = [];</div><div class="line">    preload(route: Route, load: () =&gt; Observable&lt;any&gt;) : Observable&lt;any&gt; &#123;</div><div class="line">        if (route.data &amp;&amp; route.data[&apos;preload&apos;]) &#123;</div><div class="line">            this.preloadModules.push(route.path);</div><div class="line">            return load();</div><div class="line">        &#125; else &#123;</div><div class="line">            return Observable.of(null);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"><a href="#如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。" class="headerlink" title="如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"></a>如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。</h4><h3 id="重定向迁移URL"><a href="#重定向迁移URL" class="headerlink" title="重定向迁移URL"></a>重定向迁移URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123; path: &apos;heroe/:id&apos;, redirectTo: &apos;/superHero/:id&apos;&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RouterModule.forRoot(rotues, &#123; useHash: true &#125;) // 基于HashLocationStrategy</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123; PreloadingStrategy , Route &#125; from &apos;@angular/router&apos;;</span><br><span class="line">@Injectable()</span><br><span class="line">export class SelectivePreloadingStrategy implements PreloadingStrategy &#123;</span><br><span class="line">    preloadModules: string[] = [];</span><br><span class="line">    preload(route: Route, load: () =&gt; Observable&lt;any&gt;) : Observable&lt;any&gt; &#123;</span><br><span class="line">        if (route.data &amp;&amp; route.data[&apos;preload&apos;]) &#123;</span><br><span class="line">            this.preloadModules.push(route.path);</span><br><span class="line">            return load();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return Observable.of(null);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"><a href="#如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。" class="headerlink" title="如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"></a>如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。</h4><h3 id="重定向迁移URL"><a href="#重定向迁移URL" class="headerlink" title="重定向迁移URL"></a>重定向迁移URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; path: &apos;heroe/:id&apos;, redirectTo: &apos;/superHero/:id&apos;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RouterModule.forRoot(rotues, &#123; useHash: true &#125;) // 基于HashLocationStrategy</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -414,28 +414,26 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-               alt="Lee" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
           <p class="site-author-name" itemprop="name">Lee</p>
           <p class="site-description motion-element" itemprop="description">my blog</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -445,7 +443,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -473,7 +471,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由守卫"><span class="nav-number">1.</span> <span class="nav-text">路由守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-router-supports-multiple-guard-interfaces"><span class="nav-number">1.0.1.</span> <span class="nav-text">The router supports multiple guard interfaces:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在分层路由的每个级别上，我们都可以设置多个守卫。-路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate-和CanActivateChild-守卫。-然后它会按照从上到下的顺序检查CanActivate-守卫。-如果特性模块是异步加载的，在加载它之前还会检查CanLoad-守卫。-如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。"><span class="nav-number">1.0.2.</span> <span class="nav-text">在分层路由的每个级别上，我们都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate()和CanActivateChild()守卫。 然后它会按照从上到下的顺序检查CanActivate()守卫。 如果特性模块是异步加载的，在加载它之前还会检查CanLoad()守卫。 如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性模块的授权验证"><span class="nav-number">1.1.</span> <span class="nav-text">特性模块的授权验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CanActivateChild区别在于子路由被激活前的守卫"><span class="nav-number">1.2.</span> <span class="nav-text">CanActivateChild区别在于子路由被激活前的守卫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false"><span class="nav-number">1.3.</span> <span class="nav-text">CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resolve-预先获取数据"><span class="nav-number">1.4.</span> <span class="nav-text">Resolve 预先获取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步路由"><span class="nav-number">1.5.</span> <span class="nav-text">异步路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canload守卫-保护对特性模块的未授权加载"><span class="nav-number">1.6.</span> <span class="nav-text">Canload守卫 保护对特性模块的未授权加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载-理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。"><span class="nav-number">1.6.1.</span> <span class="nav-text">预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载;理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.7.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Router内置了两种预加载策略"><span class="nav-number">1.7.1.</span> <span class="nav-text">Router内置了两种预加载策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义预加载策略"><span class="nav-number">1.8.</span> <span class="nav-text">自定义预加载策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"><span class="nav-number">1.8.1.</span> <span class="nav-text">如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向迁移URL"><span class="nav-number">1.9.</span> <span class="nav-text">重定向迁移URL</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由守卫"><span class="nav-number">1.</span> <span class="nav-text">路由守卫</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-router-supports-multiple-guard-interfaces"><span class="nav-number">1.0.1.</span> <span class="nav-text">The router supports multiple guard interfaces:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在分层路由的每个级别上，我们都可以设置多个守卫。-路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate-和CanActivateChild-守卫。-然后它会按照从上到下的顺序检查CanActivate-守卫。-如果特性模块是异步加载的，在加载它之前还会检查CanLoad-守卫。-如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。"><span class="nav-number">1.0.2.</span> <span class="nav-text">在分层路由的每个级别上，我们都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate()和CanActivateChild()守卫。 然后它会按照从上到下的顺序检查CanActivate()守卫。 如果特性模块是异步加载的，在加载它之前还会检查CanLoad()守卫。 如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性模块的授权验证"><span class="nav-number">1.1.</span> <span class="nav-text">特性模块的授权验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CanActivateChild区别在于子路由被激活前的守卫"><span class="nav-number">1.2.</span> <span class="nav-text">CanActivateChild区别在于子路由被激活前的守卫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false"><span class="nav-number">1.3.</span> <span class="nav-text">CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resolve-预先获取数据"><span class="nav-number">1.4.</span> <span class="nav-text">Resolve 预先获取数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步路由"><span class="nav-number">1.5.</span> <span class="nav-text">异步路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Canload守卫-保护对特性模块的未授权加载"><span class="nav-number">1.6.</span> <span class="nav-text">Canload守卫 保护对特性模块的未授权加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载-理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。"><span class="nav-number">1.6.1.</span> <span class="nav-text">预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载;理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.7.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Router内置了两种预加载策略"><span class="nav-number">1.7.1.</span> <span class="nav-text">Router内置了两种预加载策略</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义预加载策略"><span class="nav-number">1.8.</span> <span class="nav-text">自定义预加载策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"><span class="nav-number">1.8.1.</span> <span class="nav-text">如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向迁移URL"><span class="nav-number">1.9.</span> <span class="nav-text">重定向迁移URL</span></a></li></ol></div>
             
           </div>
         </section>
@@ -489,7 +487,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
@@ -500,7 +498,7 @@
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

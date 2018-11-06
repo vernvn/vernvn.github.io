@@ -6,15 +6,15 @@
 
 
 <html class="theme-next muse use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,21 +63,21 @@
 
 
 
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
 
 
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
 
 
 
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2017/10/29/装饰器、泛型/"/>
+  <link rel="canonical" href="http://vernvn.github.io/2017/10/29/装饰器、泛型/">
 
 
   <title> 装饰器、泛型 | Hexo </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-CN">
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
 
   
 
@@ -142,12 +142,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Hexo</span>
       <span class="logo-line-after"><i></i></span>
@@ -174,7 +174,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -182,7 +182,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -229,7 +229,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -251,7 +251,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">Posted on</span>
             <time itemprop="dateCreated" datetime="2017-10-29T10:00:16+08:00" content="2017-10-29">
               2017-10-29
             </time>
@@ -281,9 +281,9 @@
 
       
         <h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><h3 id="方法装饰器"><a href="#方法装饰器" class="headerlink" title="方法装饰器"></a>方法装饰器</h3><p>LogComponent组件只为负责打印日志，通过log装饰器修饰printLog方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">export class LogComponent &#123;</div><div class="line">    @log</div><div class="line">    printLog(str) &#123;</div><div class="line">        return str;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function log(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor&lt;any&gt;) &#123;</div><div class="line">    // descriptor is a object contains writable, enumberable, configurable, setter, getter, value;</div><div class="line">    let origin = descriptor.value;</div><div class="line">    descriptor.value = function (...args) &#123;  // apply方法</div><div class="line">        console.log(this); // LogComponent</div><div class="line">        let result = origin.apply(this, args);</div><div class="line">        console.log(&apos;Log is - &apos; + result);</div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line">    return descriptor;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>应用场景： 可以在其他组件内继承LogComponent，也可以封装为一个service,服务于各个组件，职责单一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">export class AppComponent extends LogComponent  implements OnInit &#123;</div><div class="line">    constructor(</div><div class="line">        private viewContainerRef: ViewContainerRef,</div><div class="line">        private renderer: Renderer2,</div><div class="line">        private elementRef: ElementRef,</div><div class="line">    ) &#123;</div><div class="line">        super();</div><div class="line">    &#125;</div><div class="line">    ngOnInit(): void &#123;</div><div class="line">        this.setupMenus();</div><div class="line">        this.printLog(&apos;test&apos;);</div><div class="line">    &#125;</div><div class="line">    printLog(str) &#123;</div><div class="line">        super.printLog(str);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="参数装饰器"><a href="#参数装饰器" class="headerlink" title="参数装饰器"></a>参数装饰器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Injectable()</div><div class="line">export class AppService &#123;</div><div class="line">    login( @Inject name: string) &#123; &#125;   </div><div class="line">&#125;</div><div class="line"></div><div class="line">function Inject(target: Object, propertyKey: string, parameterIndex: number) &#123;</div><div class="line">    console.log(propertyKey); // login 参数名称，注意是方法名</div><div class="line">    console.log(parameterIndex); // 0 参数索引</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export class LogComponent &#123;</span><br><span class="line">    @log</span><br><span class="line">    printLog(str) &#123;</span><br><span class="line">        return str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function log(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor&lt;any&gt;) &#123;</span><br><span class="line">    // descriptor is a object contains writable, enumberable, configurable, setter, getter, value;</span><br><span class="line">    let origin = descriptor.value;</span><br><span class="line">    descriptor.value = function (...args) &#123;  // apply方法</span><br><span class="line">        console.log(this); // LogComponent</span><br><span class="line">        let result = origin.apply(this, args);</span><br><span class="line">        console.log(&apos;Log is - &apos; + result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    return descriptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>应用场景： 可以在其他组件内继承LogComponent，也可以封装为一个service,服务于各个组件，职责单一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">export class AppComponent extends LogComponent  implements OnInit &#123;</span><br><span class="line">    constructor(</span><br><span class="line">        private viewContainerRef: ViewContainerRef,</span><br><span class="line">        private renderer: Renderer2,</span><br><span class="line">        private elementRef: ElementRef,</span><br><span class="line">    ) &#123;</span><br><span class="line">        super();</span><br><span class="line">    &#125;</span><br><span class="line">    ngOnInit(): void &#123;</span><br><span class="line">        this.setupMenus();</span><br><span class="line">        this.printLog(&apos;test&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    printLog(str) &#123;</span><br><span class="line">        super.printLog(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="参数装饰器"><a href="#参数装饰器" class="headerlink" title="参数装饰器"></a>参数装饰器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Injectable()</span><br><span class="line">export class AppService &#123;</span><br><span class="line">    login( @Inject name: string) &#123; &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Inject(target: Object, propertyKey: string, parameterIndex: number) &#123;</span><br><span class="line">    console.log(propertyKey); // login 参数名称，注意是方法名</span><br><span class="line">    console.log(parameterIndex); // 0 参数索引</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="泛型（Generic）"><a href="#泛型（Generic）" class="headerlink" title="泛型（Generic）"></a>泛型（Generic）</h2><p>集合类型如果设置为any可以实现同时支持多种类型，但是放弃了原本支持的类型检查，泛型则是为了解决这一点；帮助进行后面的类型检查</p>
 <pre><code>class Name&lt;T&gt;{
     sayName(name:T): void{
@@ -378,28 +378,26 @@ user2.sayName(3);
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-               alt="Lee" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
           <p class="site-author-name" itemprop="name">Lee</p>
           <p class="site-description motion-element" itemprop="description">my blog</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">posts</span>
             </a>
           </div>
 
@@ -409,7 +407,7 @@ user2.sayName(3);
             <div class="site-state-item site-state-tags">
               <a href="/tags">
                 <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -453,7 +451,7 @@ user2.sayName(3);
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
@@ -464,7 +462,7 @@ user2.sayName(3);
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
