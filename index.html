@@ -365,9 +365,25 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const observable1 = interval(400);</span><br><span class="line">const observable2 = interval(300);</span><br><span class="line">const subscription = observable1.subscribe(x =&gt; console.log(&apos;first: &apos; + x));</span><br><span class="line">const childSubscription = observable2.subscribe(x =&gt; console.log(&apos;second: &apos; + x));</span><br><span class="line">subscription.add(childSubscription);</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    subscription.unsubscribe();</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
 <h5 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h5><p><img src="https://cdn-images-1.medium.com/max/1600/1*pZ4lHOGYFBZUPHQJVpGrzg.jpeg" alt=""></p>
 <ul>
-<li>Subject是一种特殊类型的Observable，允许将值多播到许多观察者。虽然普通的Observable是单播的（每个订阅的Observer都拥有Observable的独立执行），但Subject是多播的</li>
-<li>Subject是一种特殊的混合体，可以同时充当Observable和Observer。</li>
+<li><p>Subject是一种特殊类型的Observable，允许将值多播到许多观察者。虽然普通的Observable是单播的（每个订阅的Observer都拥有Observable的独立执行），但Subject是多播的</p>
+</li>
+<li><p><font color="#f00" size="2">每一个Subject都是一个observable可观察对象，</font>给定一个Subject后，你可以订阅它，提供的观察者将会正常的开始接收值。从观察者的角度来看，它不能判断一个可观察对象的执行时来自于单播的Observable还是来自于一个Subject.<br>在Subject的内部，subscribe并不调用一个新的发送值得执行。它仅仅在观察者注册表中注册给定的观察者，类似addEventListener的工作方式。</p>
+</li>
+<li><p><font color="#f00" size="2">每一个Subject都是一个Observer观察者对象。</font>它是一个拥有next()/error()/complete()方法的对象。要想Subject提供一个新的值，只需调用next()，它将会被多播至用来监听Subject的观察者。</p>
+</li>
 </ul>
+<blockquote>
+<p>Subject就是一个可观察对象，只不过可以被多播至多个观察者。同时Subject也类似于EventEmitter:维护者着众多事件监听器的注册表。</p>
+</blockquote>
+<h4 id="BehaviorSubject"><a href="#BehaviorSubject" class="headerlink" title="BehaviorSubject"></a>BehaviorSubject</h4><p>Subjects的一个变体是BehaviorSubject,其有”当前值”的概念。它储存着要发射给消费者的最新的值。无论何时一个新的观察者订阅它，都会立即接受到这个来自BehaviorSubject的”当前值”</p>
+<blockquote>
+<p>BehaviorSubject对于表示”随时间的值”是很有用的。举个例子，人的生日的事件流是一个Subject,然而人的年龄的流是一个BehaviorSubject。</p>
+</blockquote>
+<h4 id="ReplaySubject"><a href="#ReplaySubject" class="headerlink" title="ReplaySubject"></a>ReplaySubject</h4><p>一个ReplaySubject类似于一个BehaviorSubject，因为它可以发送一个过去的值(old values)给一个新的订阅者，但是它也可以记录可观察对象的一部分执行。</p>
+<blockquote>
+<p>一个ReplaySubject 从一个可观察对象的执行中记录多个值，并且可以重新发送给新的订阅者。</p>
+</blockquote>
+<h4 id="AsyncSubject"><a href="#AsyncSubject" class="headerlink" title="AsyncSubject"></a>AsyncSubject</h4><p>AsyncSubject是另一个变体，它只发送给观察者可观察对象执行的最新值，并且仅在执行结束时。AsyncSubject类似于last()操作符,因为它为了发送单一值而等待complete通知。</p>
 <h4 id="常用的操作符"><a href="#常用的操作符" class="headerlink" title="常用的操作符"></a>常用的操作符</h4><p>每一个操作符都会产生一个新的Observable，不会对上游的Observable做任何修改，这完全符合函数式编程“数据不可变”的要求。pipe方法就是数据管道，会对数据流进行处理，可以添加操作符作为参数。</p>
 <p><strong>interval</strong> 创建一个无限长度的周期性序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interval(1000)  // 输出: 0,1,2...</span><br></pre></td></tr></table></figure></p>
 <p><strong>timer</strong> 指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timer(0,1000) // 输出:0,1,2...</span><br></pre></td></tr></table></figure></p>
