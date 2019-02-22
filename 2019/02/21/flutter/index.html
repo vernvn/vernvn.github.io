@@ -1,0 +1,584 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+
+
+
+
+
+
+<meta name="description" content="primarySwatch 和 primaryColor 的区别12345678Widget build (BuildContext context) &amp;#123;	return MaterialApp(		title: &amp;apos;myApp&amp;apos;,		theme: ThemeData(			primaryColor: Colors.white   // primarySwatch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flutter 学习笔记与问题总结">
+<meta property="og:url" content="http://vernvn.github.io/2019/02/21/flutter/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="primarySwatch 和 primaryColor 的区别12345678Widget build (BuildContext context) &amp;#123;	return MaterialApp(		title: &amp;apos;myApp&amp;apos;,		theme: ThemeData(			primaryColor: Colors.white   // primarySwatch">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-22T07:59:37.468Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="flutter 学习笔记与问题总结">
+<meta name="twitter:description" content="primarySwatch 和 primaryColor 的区别12345678Widget build (BuildContext context) &amp;#123;	return MaterialApp(		title: &amp;apos;myApp&amp;apos;,		theme: ThemeData(			primaryColor: Colors.white   // primarySwatch">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2019/02/21/flutter/">
+
+
+  <title> flutter 学习笔记与问题总结 | Hexo </title>
+</head>
+
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                flutter 学习笔记与问题总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-02-21T10:26:33+08:00" content="2019-02-21">
+              2019-02-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="primarySwatch-和-primaryColor-的区别"><a href="#primarySwatch-和-primaryColor-的区别" class="headerlink" title="primarySwatch 和 primaryColor 的区别"></a>primarySwatch 和 primaryColor 的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build (BuildContext context) &#123;</span><br><span class="line">	return MaterialApp(</span><br><span class="line">		title: &apos;myApp&apos;,</span><br><span class="line">		theme: ThemeData(</span><br><span class="line">			primaryColor: Colors.white   // primarySwatch  </span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用primaryColor可以Colors.white,使用primarySwatch不可以设置白色和黑色，primarySwatch中的颜色是调用MaterialColor这种颜色类</p>
+<h4 id="listView"><a href="#listView" class="headerlink" title="listView"></a>listView</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildSuggestions() &#123;</span><br><span class="line">	return ListView.builder(</span><br><span class="line">		padding: EdgeInsets.all(16.0),</span><br><span class="line">		itemCount: 100,</span><br><span class="line">		itemBuilder: (BuildContext context, i) &#123;   //itemBuilder callback </span><br><span class="line">			if (i.isOdd) &#123;</span><br><span class="line">				return Something();</span><br><span class="line">			&#125;</span><br><span class="line">			return Another()</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h4><p>与js一样，dart支持单线程执行，js中Promise对象表示异步操作的最终结果，dart中用Future对象来处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_getIpAddress() &#123;</span><br><span class="line">	final url = &apos;http://www.google.com&apos;;</span><br><span class="line">	HttpRequest.reqeust(url).then((value) =&gt; &#123;</span><br><span class="line">		print(json.decode(value.responseText)[&apos;origin&apos;]);</span><br><span class="line">	&#125;).catchError((error) =&gt; print(error))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>async函数返回Future,await等待Future</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_getIpAddress() &#123;</span><br><span class="line">	final url = &apos;http://www.google.com&apos;;</span><br><span class="line">	var request = await HttpRequest.reqeust(url);</span><br><span class="line">	String ip = json.decode(request.responseText)[&apos;origin&apos;];</span><br><span class="line">	print(ip);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Contianer(</span><br><span class="line">	child: Center(</span><br><span class="line">		child: Container(</span><br><span class="line">			child: Text(&apos;demo&apos;),</span><br><span class="line">			decoration: BoxDecoration(    // color, borderRadius, boxShadow, shape 通过BoxDecoration装饰</span><br><span class="line">				color: Colors.red,</span><br><span class="line">				borderRadius: BorderRadius.all(</span><br><span class="line">					Radius.circular(8.0)</span><br><span class="line">				),</span><br><span class="line">				boxshadow: &lt;BoxShadow&gt;[</span><br><span class="line">					BoxShadow(</span><br><span class="line">						color: Color(0xcc000000),</span><br><span class="line">						offset: Offset(0.0, 2.0)</span><br><span class="line">					),</span><br><span class="line">					BoxShadow(</span><br><span class="line">						color: Color(0000000000),</span><br><span class="line">						offset: Offset(0.0, 2.0)</span><br><span class="line">					)</span><br><span class="line">				],</span><br><span class="line">				shape: BoxShape.circle  </span><br><span class="line">			),</span><br><span class="line">			padding: EdgesInsets.all(16.0),</span><br><span class="line">			width: 240.0</span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Positioned widget and Stack widget</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Container(</span><br><span class="line">	child: Stack(</span><br><span class="line">		children: [</span><br><span class="line">			Positioned(</span><br><span class="line">				child: Container(</span><br><span class="line">					child: Text(&apos;demo&apos;),</span><br><span class="line">					decoration: BoxDecoration(</span><br><span class="line">						color: Colors.red</span><br><span class="line">					)</span><br><span class="line">				),</span><br><span class="line">				left: 24.0,</span><br><span class="line">				top: 24.0</span><br><span class="line">			)</span><br><span class="line">		]</span><br><span class="line">	),</span><br><span class="line">	width: 320.0,</span><br><span class="line">	height: 320.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Transform widget and Scaling widget</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Container(</span><br><span class="line">	child: Transform(</span><br><span class="line">		child: Container(</span><br><span class="line">			child: Text(&apos;demo&apos;)</span><br><span class="line">		),</span><br><span class="line">		alignment: Alignment.center,</span><br><span class="line">		transform: Matrix4.identity()..rotateZ(15 * 3.1415926 / 180)  // rotate</span><br><span class="line">		transform: Matrix4.identity()..scale(1.5)   // scale</span><br><span class="line">	),</span><br><span class="line">	width: 320.0,</span><br><span class="line">	height: 320.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ellipsis</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Container(</span><br><span class="line">	child: Container(</span><br><span class="line">		child: Text(</span><br><span class="line">			child: Text(&apos;demo&apos;),</span><br><span class="line">			overflow: TextOverflow.ellipsis,</span><br><span class="line">			maxLines: 1</span><br><span class="line">		),</span><br><span class="line">	),</span><br><span class="line">	width: 320.0,</span><br><span class="line">	height: 320.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h4 id="GestureDetector-处理手势"><a href="#GestureDetector-处理手势" class="headerlink" title="GestureDetector 处理手势"></a>GestureDetector 处理手势</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class MyButton extends StatelessWidget &#123;</span><br><span class="line">	@override</span><br><span class="line">	Widget build (BuildContext context) &#123;</span><br><span class="line">		return GestureDetector(     		// IconButton等使用GestureDetector提供onPressed回调</span><br><span class="line">			onTap: () &#123;   					// onLongPress...</span><br><span class="line">				print(&apos;tapped&apos;)</span><br><span class="line">			&#125;,</span><br><span class="line">			child: Container(</span><br><span class="line">				child: Text(&apos;demo&apos;)</span><br><span class="line">			)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="final-const-var-static-in-Dart"><a href="#final-const-var-static-in-Dart" class="headerlink" title="final const var static in Dart"></a>final const var static in Dart</h4><blockquote>
+<p>static: 表示一个成员属于类而不是对象，修饰成员</p>
+</blockquote>
+<blockquote>
+<p>final: 必须初始化，且值不可变，编译时不能确定值，修饰变量  //  final list = [1,2,3];  list[0] = 4;  =&gt; [4,2,3]</p>
+</blockquote>
+<blockquote>
+<p>const: 编译时可确定，并且不能修改    // var list = const [1,2,3];  list[0] = 4;  error</p>
+</blockquote>
+<h4 id="typedef-类型定义，通过用来检查函数类型"><a href="#typedef-类型定义，通过用来检查函数类型" class="headerlink" title="typedef 类型定义，通过用来检查函数类型"></a>typedef 类型定义，通过用来检查函数类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int Compart(int a, int b);</span><br><span class="line">int sort(int a, int b) =&gt; a - b;</span><br><span class="line">main() &#123;</span><br><span class="line">	assert(sort is Compare);   // True</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Bloc-pattern"><a href="#Bloc-pattern" class="headerlink" title="Bloc pattern"></a>Bloc pattern</h4>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/06/rxjs常用操作符及项目应用/" rel="next" title="rxjs常用操作符及项目应用">
+                <i class="fa fa-chevron-left"></i> rxjs常用操作符及项目应用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#primarySwatch-和-primaryColor-的区别"><span class="nav-number">1.</span> <span class="nav-text">primarySwatch 和 primaryColor 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listView"><span class="nav-number">2.</span> <span class="nav-text">listView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步编程"><span class="nav-number">3.</span> <span class="nav-text">异步编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局"><span class="nav-number">4.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GestureDetector-处理手势"><span class="nav-number">5.</span> <span class="nav-text">GestureDetector 处理手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-const-var-static-in-Dart"><span class="nav-number">6.</span> <span class="nav-text">final const var static in Dart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typedef-类型定义，通过用来检查函数类型"><span class="nav-number">7.</span> <span class="nav-text">typedef 类型定义，通过用来检查函数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bloc-pattern"><span class="nav-number">8.</span> <span class="nav-text">Bloc pattern</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
