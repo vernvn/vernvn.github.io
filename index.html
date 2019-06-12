@@ -242,6 +242,235 @@
             
               
                 
+                <a class="post-title-link" href="/2019/06/12/flutter中可以携带参数的命名路由/" itemprop="url">
+                  flutter中可以携带参数的命名路由
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-06-12T11:22:17+08:00" content="2019-06-12">
+              2019-06-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="创建一个可以携带参数的flutter命名路由"><a href="#创建一个可以携带参数的flutter命名路由" class="headerlink" title="创建一个可以携带参数的flutter命名路由"></a>创建一个可以携带参数的flutter命名路由</h2><p>MaterialApp提供了一个属性<font face="黑体" color="#f00" size="4">onGenerateRoute</font>,需要一个返回<code>Route&lt;dynamic&gt;</code>,并接受<code>RouteSettings</code>参数的函数</p>
+<p>首先创建一个Router类，并且创建一个静态函数,settings包括路由的名称和参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Router &#123;</span><br><span class="line">    static Route&lt;dynamic&gt; generateRoute(RouteSettings settings) &#123;</span><br><span class="line">        switch(settings.name) &#123;</span><br><span class="line">            case &apos;/&apos;: return MaterialPageRoute(</span><br><span class="line">                builder: (_) =&gt; Home()</span><br><span class="line">            ),</span><br><span class="line">            case &apos;/feed&apos;: return MaterialPageRoute(</span><br><span class="line">                builder: (_) =&gt; Feed()</span><br><span class="line">            ),</span><br><span class="line">            default: return MaterialPageRoute(</span><br><span class="line">                builder: (_) =&gt; Scaffold(</span><br><span class="line">                    body: Center(</span><br><span class="line">                        child: Text(&apos;没有路由&apos;)</span><br><span class="line">                    )</span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了避免我们的代码出现错误，我们将采用硬编码的方式定义路由名称，并放到全局可以访问的constant.dart文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const String homeRoute = &apos;/&apos;;</span><br><span class="line">const String feedRoute = &apos;/feed&apos;;</span><br></pre></td></tr></table></figure></p>
+<p>switch case语句之后更改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case homeRoute: return MaterialPageRoute(</span><br><span class="line">    builder: (_) =&gt; Home()</span><br><span class="line">),</span><br><span class="line">case feedRoute: return MaterialPageRoute(</span><br><span class="line">    builder: (_) =&gt; Feed()</span><br><span class="line">),</span><br></pre></td></tr></table></figure></p>
+<p>之后，在定义MaterialApp应用程序时，generateRoute函数传递给onGenerateRoute,通过initialRoute配置起始视图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        return MaterialApp (</span><br><span class="line">            onGenerateRoute: Router.generateRoute,</span><br><span class="line">            initialRoute: homeRoute</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这时，当你需要导航时，只需要使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Navigator.pushNamed(context, feedRoute);</span><br></pre></td></tr></table></figure></p>
+<p>如果需要传递参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Navigator.pushNamed(context, feedRoute, arguments: &apos;传递的参数&apos;);</span><br><span class="line">case feedRoute: </span><br><span class="line">    var data = settins.arguments as String;</span><br><span class="line">    return MaterialPageRoute(</span><br><span class="line">        builder: (_) =&gt; Feed(data)</span><br><span class="line">    ),</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/02/26/steam in dart/" itemprop="url">
+                  Dart Streams
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-02-26T15:02:52+08:00" content="2019-02-26">
+              2019-02-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="什么是Streams"><a href="#什么是Streams" class="headerlink" title="什么是Streams?"></a>什么是Streams?</h3><blockquote>
+<p>streams就好比传送带，将物品放到一侧，他将自动运送到另一侧。我们可以将数据对象放在传送带上，他会被传送带传输。如果传送带不是无限长的（它不是一个无限的流， 例如rxjs里的interval，如果不取消订阅，他会随着时间一直流动），那么传送带的物品终会掉落。</p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*z_EhYGu-2XQ5AwST.gif" alt="avatar"></p>
+<blockquote>
+<p>为了避免传送带上的物品无辜掉落，我们可以做一些事情，使得物品在掉落之前实现某些价值。</p>
+</blockquote>
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*2LOUvyESiTySjwwU.gif" alt="avatar"></p>
+<h3 id="Dart-Streams-和-Rx"><a href="#Dart-Streams-和-Rx" class="headerlink" title="Dart Streams 和 Rx"></a>Dart Streams 和 Rx</h3><ul>
+<li><p>Rx里面的可观察对象命名未Observable，它与Dart Streams里的Stream是同等的意义，所以在可以使用Stream的任何地方赋予Observable的含义</p>
+</li>
+<li><p>listen / subscribe, 进行序列订阅，同等意义</p>
+</li>
+<li><p>listen()返回一个StreamSubscription对象，调用cancel()释放订阅</p>
+</li>
+<li><p>StreamController / Subject, 发布值，相当于在传送带的左侧添加物品，同等意义</p>
+</li>
+</ul>
+<h3 id="使用StreamBuilder"><a href="#使用StreamBuilder" class="headerlink" title="使用StreamBuilder"></a>使用StreamBuilder</h3><p>不用使用initState()和setState(),flutter提供了一个方便的widget称之为StreamBuilder,它需要一个Stream和一个builder函数，只要Stream发出一个新值就会调用他,不再需要initState或dispose.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">body: Center(</span><br><span class="line">	child: Column(</span><br><span class="line">		mainAxisAligment: MainAxisAlignment.center,</span><br><span class="line">		children: &lt;Widget&gt;[</span><br><span class="line">			Text(&apos;demo&apos;),</span><br><span class="line">			StreamBuilder&lt;int&gt;(</span><br><span class="line">				initialData: 0,</span><br><span class="line">				stream: _stream,</span><br><span class="line">				builder: (context, snappShot) &#123;</span><br><span class="line">					String valueString = &apos;NoData&apos;;</span><br><span class="line">					if (snappShot != null &amp;&amp; snappShot.hasData) &#123;</span><br><span class="line">						valueString = snappShot.data.toString();</span><br><span class="line">					&#125;</span><br><span class="line">					return Text(</span><br><span class="line">						valueString,</span><br><span class="line">						style: Theme.of(context).textTheme.display1</span><br><span class="line">					)</span><br><span class="line">				&#125;</span><br><span class="line">			)</span><br><span class="line">		]</span><br><span class="line">	)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>相对于直接订阅，使用StreamBuilder有几个明显的区别：</p>
+<ul>
+<li>setState()在listen()时接受新值时会重建整页，而StreamBuilder只会重建他自己的widget</li>
+<li>snappShot包含从Stream接收的最新数据</li>
+<li>含有一个initialData,用于第一次构建，即屏幕的第一帧，解决StreamBuilder不能在第一帧期间接收值的问题,如果snappShot无效,则返回默认Widget，适用于某些业务场景</li>
+</ul>
+<h3 id="flutter中使用BLOC模式"><a href="#flutter中使用BLOC模式" class="headerlink" title="flutter中使用BLOC模式"></a>flutter中使用BLOC模式</h3><h4 id="什么是bloc模式？"><a href="#什么是bloc模式？" class="headerlink" title="什么是bloc模式？"></a>什么是bloc模式？</h4><p>bloc[Business Logic Component]翻译过来就是业务逻辑组件，把业务逻辑抽出来，数据和ui解耦，一处改动，多处更新</p>
+<blockquote>
+<p><img src="https://ask.qcloudimg.com/http-save/1203298/sb707akvgg.png?imageView2/2/w/1620" alt="avatar"></p>
+</blockquote>
+<blockquote>
+<p>上面描述的是组件的一些基本行为，【展示数据】，【发送事件】,flutter中实现Bloc的精髓就是stream，严格遵守了单一职责原则，代码解耦更好。</p>
+</blockquote>
+<p>UI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">class CounterPage extends StateLessWidget &#123;</span><br><span class="line">	@override</span><br><span class="line">	Widget build(BuildContext context) &#123;</span><br><span class="line">		final IncrementBloc bloc = BlocProvider.of&lt;IncrementBloc&gt;(context);</span><br><span class="line">		return Scaffod(</span><br><span class="line">			appBar: AppBar(</span><br><span class="line">				title: Text(&apos;block&apos;)</span><br><span class="line">			),</span><br><span class="line">			body: Center(</span><br><span class="line">				child: StreamBuilder&lt;int&gt;(</span><br><span class="line">					stream: bloc._counterStream,</span><br><span class="line">					initialData: 0,</span><br><span class="line">					builder: (BuildContext context, AsyncSnapShot&lt;int&gt; snapshot) &#123;</span><br><span class="line">						return Text(&apos;clicked $&#123;snapshot.data&#125; times&apos;)</span><br><span class="line">					&#125;</span><br><span class="line">				)</span><br><span class="line">			),</span><br><span class="line">			floatingActionButton: FloatingActionButton(</span><br><span class="line">				child: Icon(Icons.add),</span><br><span class="line">				onPressed: () &#123;</span><br><span class="line">					bloc._actionSink.add(null);  // 发送事件</span><br><span class="line">				&#125;</span><br><span class="line">			)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Bloc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class IncrementBloc &#123;</span><br><span class="line">	int _counter;</span><br><span class="line">	StreamController&lt;int&gt; _counterController = StreamController&lt;int&gt;();</span><br><span class="line">	StreamSink&lt;int&gt; _counterSink =&gt; _counterController.sink;  		// 发送数据</span><br><span class="line">	Stream&lt;int&gt; _counterStream =&gt; _counterController.stream;   		// stream</span><br><span class="line"></span><br><span class="line">	StreamController _actionController = StreamController();</span><br><span class="line">	StreamSink _actionSink =&gt; _actionController.sink;</span><br><span class="line">	Stream _actionStream =&gt; _actionController.stream; </span><br><span class="line"></span><br><span class="line">	void IncrementBloc() &#123;</span><br><span class="line">		_counter = 0;</span><br><span class="line">		_actionStream.listen((data)&#123;</span><br><span class="line">			_counter = _counter + 1;</span><br><span class="line">			_counterSink.add(_counter);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2019/02/21/flutter/" itemprop="url">
                   flutter 学习笔记与问题总结
                 </a>
@@ -286,7 +515,16 @@
       
         
           
-            <h4 id="primarySwatch-和-primaryColor-的区别"><a href="#primarySwatch-和-primaryColor-的区别" class="headerlink" title="primarySwatch 和 primaryColor 的区别"></a>primarySwatch 和 primaryColor 的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build (BuildContext context) &#123;</span><br><span class="line">	return MaterialApp(</span><br><span class="line">		title: &apos;myApp&apos;,</span><br><span class="line">		theme: ThemeData(</span><br><span class="line">			primaryColor: Colors.white   // primarySwatch  </span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h4 id="Flutter框架结构"><a href="#Flutter框架结构" class="headerlink" title="Flutter框架结构"></a>Flutter框架结构</h4><p><img src="https://cdn.jsdelivr.net/gh/flutterchina/flutter-in-action@1.0/docs/imgs/framework.png" alt="avatar"></p>
+<ul>
+<li><p>底下两层（Foundation和Animation、Painting、Gestures被合并为一个dart UI层，它是Flutter引擎暴露的底层UI库，提供动画、手势及绘制能力。</p>
+</li>
+<li><p>Rendering层，这一层是一个抽象的布局层，它依赖于dart UI层，Rendering层会构建一个UI树，当UI树有变化时，会计算出有变化的部分，然后更新UI树，最终将UI树绘制到屏幕上，这个过程类似于React中的虚拟DOM。Rendering层可以说是Flutter UI框架最核心的部分，它除了确定每个UI元素的位置、大小之外还要进行坐标变换、绘制(调用底层dart:ui)。</p>
+</li>
+<li><p>Widgets层是Flutter提供的的一套基础组件库，在基础组件库之上，Flutter还提供了 Material 和Cupertino两种视觉风格的组件库。而我们Flutter开发的大多数场景，只是和这两层打交道。</p>
+</li>
+</ul>
+<h4 id="primarySwatch-和-primaryColor-的区别"><a href="#primarySwatch-和-primaryColor-的区别" class="headerlink" title="primarySwatch 和 primaryColor 的区别"></a>primarySwatch 和 primaryColor 的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build (BuildContext context) &#123;</span><br><span class="line">	return MaterialApp(</span><br><span class="line">		title: &apos;myApp&apos;,</span><br><span class="line">		theme: ThemeData(</span><br><span class="line">			primaryColor: Colors.white   // primarySwatch  </span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用primaryColor可以Colors.white,使用primarySwatch不可以设置白色和黑色，primarySwatch中的颜色是调用MaterialColor这种颜色类</p>
 <h4 id="listView"><a href="#listView" class="headerlink" title="listView"></a>listView</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildSuggestions() &#123;</span><br><span class="line">	return ListView.builder(</span><br><span class="line">		padding: EdgeInsets.all(16.0),</span><br><span class="line">		itemCount: 100,</span><br><span class="line">		itemBuilder: (BuildContext context, i) &#123;   //itemBuilder callback </span><br><span class="line">			if (i.isOdd) &#123;</span><br><span class="line">				return Something();</span><br><span class="line">			&#125;</span><br><span class="line">			return Another()</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h4><p>与js一样，dart支持单线程执行，js中Promise对象表示异步操作的最终结果，dart中用Future对象来处理</p>
@@ -317,7 +555,7 @@
 <p>const: 编译时可确定，并且不能修改    // var list = const [1,2,3];  list[0] = 4;  error</p>
 </blockquote>
 <h4 id="typedef-类型定义，通过用来检查函数类型"><a href="#typedef-类型定义，通过用来检查函数类型" class="headerlink" title="typedef 类型定义，通过用来检查函数类型"></a>typedef 类型定义，通过用来检查函数类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int Compart(int a, int b);</span><br><span class="line">int sort(int a, int b) =&gt; a - b;</span><br><span class="line">main() &#123;</span><br><span class="line">	assert(sort is Compare);   // True</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Bloc-pattern"><a href="#Bloc-pattern" class="headerlink" title="Bloc pattern"></a>Bloc pattern</h4>
+
           
         
       
@@ -1422,263 +1660,11 @@ const addOneClick$ = id =&gt; fromEvent(document.getElementById(id), &apos;click
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/12/11/路由守卫及加载策略/" itemprop="url">
-                  路由守卫及加载策略
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-12-11T17:18:16+08:00" content="2017-12-11">
-              2017-12-11
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>任何时候导航到任何地方往往不能满足业务需求，需要授权守护。返回值是boolean的三种形式</p>
-<ul>
-<li>Observable<boolean></boolean></li>
-<li>Promise<boolean></boolean></li>
-<li>boolean</li>
-</ul>
-<p>往往同步守卫不是一个好的选择，阻塞的情况时常发生。如果返回true，导航继续，否则，导航终止，停留原地</p>
-<h4 id="The-router-supports-multiple-guard-interfaces"><a href="#The-router-supports-multiple-guard-interfaces" class="headerlink" title="The router supports multiple guard interfaces:"></a>The router supports multiple guard interfaces:</h4><ul>
-<li><a href="https://www.angular.cn/api/router/CanActivate" target="_blank" rel="noopener">CanActivate</a>: 导航到某路由</li>
-<li><a href="https://www.angular.cn/api/router/CanActivateChild" target="_blank" rel="noopener">CanActivateChild</a>: 导航到某子路由</li>
-<li><a href="https://www.angular.cn/api/router/CanDeactivate" target="_blank" rel="noopener">CanDeactivate</a>: 处理当前路由离开情况</li>
-<li><a href="https://www.angular.cn/api/router/Resolve" target="_blank" rel="noopener">Resolve</a>: 激活前获取路由数据</li>
-<li><a href="https://www.angular.cn/api/router/CanLoad" target="_blank" rel="noopener">Canload</a>: 异步导航特性模块</li>
-</ul>
-<h4 id="在分层路由的每个级别上，我们都可以设置多个守卫。-路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate-和CanActivateChild-守卫。-然后它会按照从上到下的顺序检查CanActivate-守卫。-如果特性模块是异步加载的，在加载它之前还会检查CanLoad-守卫。-如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。"><a href="#在分层路由的每个级别上，我们都可以设置多个守卫。-路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate-和CanActivateChild-守卫。-然后它会按照从上到下的顺序检查CanActivate-守卫。-如果特性模块是异步加载的，在加载它之前还会检查CanLoad-守卫。-如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。" class="headerlink" title="在分层路由的每个级别上，我们都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate()和CanActivateChild()守卫。 然后它会按照从上到下的顺序检查CanActivate()守卫。 如果特性模块是异步加载的，在加载它之前还会检查CanLoad()守卫。 如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。"></a>在分层路由的每个级别上，我们都可以设置多个守卫。 路由器会先按照从最深的子路由由下往上检查的顺序来检查CanDeactivate()和CanActivateChild()守卫。 然后它会按照从上到下的顺序检查CanActivate()守卫。 如果特性模块是异步加载的，在加载它之前还会检查CanLoad()守卫。 如果任何一个守卫返回false，其它尚未完成的守卫会被取消，这样整个导航就被取消了。</h4><h3 id="特性模块的授权验证"><a href="#特性模块的授权验证" class="headerlink" title="特性模块的授权验证"></a>特性模块的授权验证</h3><p>匿名用户会重定向到登录页，因为区分用户是否授权，所以创建在根目录下(auth-guard.ts)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Injectable &#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot &#125; from &apos;@angular/rotuer&apos;;</span><br><span class="line">@Injectable()</span><br><span class="line">export class AuthGuard implements CanActivate &#123;</span><br><span class="line">   constructor(private router: Router) &#123;&#125;</span><br><span class="line">   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) &#123;</span><br><span class="line">        let url = state.url;</span><br><span class="line">        return this.checkLogin(url);</span><br><span class="line">   &#125;</span><br><span class="line">   checkLogin(url: string): boolean &#123;</span><br><span class="line">       if (&apos;登录成功标识&apos;) &#123;</span><br><span class="line">           reutrn true;</span><br><span class="line">       &#125;</span><br><span class="line">       this.router.navigate([&apos;/login&apos;]);</span><br><span class="line">       return false</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<font color="#f00" size="3">ActivatedRouteSnapshot包含即将被激活的路由，RouterStateSnapshot包含即将到达的状态</font>   
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; AuthGuard &#125; from &apos;../aut-guard.service&apos;;</span><br><span class="line">const routes : Routes = [</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    component: AdminComponent,</span><br><span class="line">    canActive: [AuthGuard],</span><br><span class="line">    ...</span><br><span class="line">]</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    providers: [</span><br><span class="line">        AuthGuard</span><br><span class="line">    ],</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">&#125;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="CanActivateChild区别在于子路由被激活前的守卫"><a href="#CanActivateChild区别在于子路由被激活前的守卫" class="headerlink" title="CanActivateChild区别在于子路由被激活前的守卫"></a>CanActivateChild区别在于子路由被激活前的守卫</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; CanActivateChild &#125; from &apos;@angular/router&apos;;</span><br><span class="line">canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean &#123;</span><br><span class="line">    return this.canActivate(route, state);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const routes : Routes = [</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    component: AdminComponent,</span><br><span class="line">    canActive: [AuthGuard],</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            path: &apos;&apos;,</span><br><span class="line">            canActivateChild: [AuthGuard],</span><br><span class="line">            children: [</span><br><span class="line">                ...</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">]</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h3 id="CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false"><a href="#CanDeactivate-处理未保存的更改-不保存并离开-true-保留更改并留下-false" class="headerlink" title="CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)"></a>CanDeactivate 处理未保存的更改;不保存并离开(true),保留更改并留下(false)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">canDeactivate(): Observable&lt;boolean&gt; | promise&lt;boolean&gt; | boolean &#123;</span><br><span class="line">    if (!this.changeStatus) &#123; </span><br><span class="line">        return true;   //如果没有改变直接导航，否则弹框</span><br><span class="line">    &#125;</span><br><span class="line">    return this.someService.confirm(&apos;discard changes?&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;:id&apos;,</span><br><span class="line">    component: CrisisDetailComponent,</span><br><span class="line">    canDeactivate: [CanDeactivateGuard]</span><br><span class="line">&#125;</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    providers: [</span><br><span class="line">        CanDeactivateGuard</span><br><span class="line">    ],</span><br><span class="line">    &apos;&apos;&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="Resolve-预先获取数据"><a href="#Resolve-预先获取数据" class="headerlink" title="Resolve 预先获取数据"></a>Resolve 预先获取数据</h3><p>如果响应时间够长，就需要预先从服务器上获取数据，路由激活瞬间数据渲染完毕，此处需要Resolve守卫。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">resolve(route: activatedRouteSnapshot, state: RouterStateSnapshot):Observable&lt;any&gt;&#123;</span><br><span class="line">   const id = route.paramMap.get(&apos;id&apos;);</span><br><span class="line">   return this.someService.getDate(id).map(x =&gt; &#123;</span><br><span class="line">       if (x) &#123;</span><br><span class="line">           return x;</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           this.router.naviagte([&apos;./someWhere&apos;]);</span><br><span class="line">           return null;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br><span class="line">// 此处可以阻止路由被加载，直到数据获取完毕,如果没有数据获取则导航回指定路由，并且NgModule的providers中需要注册</span><br></pre></td></tr></table></figure>
-<h3 id="异步路由"><a href="#异步路由" class="headerlink" title="异步路由"></a>异步路由</h3><p>异步路由可以在获取请求时惰性加载特性模块，并且带来了一下好处</p>
-<ul>
-<li>对于体积庞大的特性模块可以在用户请求时进行加载</li>
-<li>持续扩充特性模块的功能，不用增加初始加载的体积及速度</li>
-<li>模块化开发提升开发效率，结构分明</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;   // 相对于app目录</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<font color="#f00" size="3">惰性加载只会发生一次，在该路由首次被请求时，后续的请求是立即可用的</font>
-
-<h3 id="Canload守卫-保护对特性模块的未授权加载"><a href="#Canload守卫-保护对特性模块的未授权加载" class="headerlink" title="Canload守卫 保护对特性模块的未授权加载"></a>Canload守卫 保护对特性模块的未授权加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">canload(route: Route): boolean &#123;</span><br><span class="line">    let url = `$&#123;route.path&#125;`;   // route为准备访问的目标地址</span><br><span class="line">    return this.checkLogin(url);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;,</span><br><span class="line">    canLoad: [AuthGuard]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<font color="#f00" size="3">路由加载形式:立即加载、惰性加载、预加载</font>
-
-<h4 id="预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载-理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。"><a href="#预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载-理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。" class="headerlink" title="预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载;理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。"></a>预加载好比后台加载，在保证了尽可能小的初始加载体积和首屏加载速度的同时，同样满足了特性模块的按需加载;理想情况下，首屏加载完毕后会有一个短暂的空档期，如果此时完成了接下来将要访问的模块的加载成功，体验会有很大提高。此时的加载就是预加载。</h4><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>导航完成后，路由器会查找没有加载但是可以加载的模块，此时预加载策略决定了是否加载以及加载哪些模块。</p>
-<h4 id="Router内置了两种预加载策略"><a href="#Router内置了两种预加载策略" class="headerlink" title="Router内置了两种预加载策略"></a>Router内置了两种预加载策略</h4><ul>
-<li>完全不预加载，默认</li>
-<li>预加载所有特性模块: PreloadAllModules</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123; PreloadAllModules, RouterModule &#125; from &apos;@angular/router&apos;</span><br><span class="line">RouterModule.forRoot(appRoutes, &#123;</span><br><span class="line">    preloadingStrategy: PreloadAllModules</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<font color="#f00" size="3">CanLoad守卫会阻塞预加载策略，优先级高于预加载策略</font>
-
-<h3 id="自定义预加载策略"><a href="#自定义预加载策略" class="headerlink" title="自定义预加载策略"></a>自定义预加载策略</h3><p>结合路由定义时的data属性，只预加载preload为true的路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: &apos;admin&apos;,</span><br><span class="line">    loadChildren: &apos;app/admin/admin.module#AdminModule&apos;,</span><br><span class="line">    data: &#123; preload: true &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>添加selective-preloading-strategy.ts,实现自定义预加载策略</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123; PreloadingStrategy , Route &#125; from &apos;@angular/router&apos;;</span><br><span class="line">@Injectable()</span><br><span class="line">export class SelectivePreloadingStrategy implements PreloadingStrategy &#123;</span><br><span class="line">    preloadModules: string[] = [];</span><br><span class="line">    preload(route: Route, load: () =&gt; Observable&lt;any&gt;) : Observable&lt;any&gt; &#123;</span><br><span class="line">        if (route.data &amp;&amp; route.data[&apos;preload&apos;]) &#123;</span><br><span class="line">            this.preloadModules.push(route.path);</span><br><span class="line">            return load();</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return Observable.of(null);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"><a href="#如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。" class="headerlink" title="如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。"></a>如果要进行预加载，返回一个靠用加载器的Observable，否则返回一个null值的Observable对象。</h4><h3 id="重定向迁移URL"><a href="#重定向迁移URL" class="headerlink" title="重定向迁移URL"></a>重定向迁移URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; path: &apos;heroe/:id&apos;, redirectTo: &apos;/superHero/:id&apos;&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RouterModule.forRoot(rotues, &#123; useHash: true &#125;) // 基于HashLocationStrategy</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/29/装饰器、泛型/" itemprop="url">
-                  装饰器、泛型
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2017-10-29T10:00:16+08:00" content="2017-10-29">
-              2017-10-29
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="装饰器"><a href="#装饰器" class="headerlink" title="装饰器"></a>装饰器</h2><h3 id="方法装饰器"><a href="#方法装饰器" class="headerlink" title="方法装饰器"></a>方法装饰器</h3><p>LogComponent组件只为负责打印日志，通过log装饰器修饰printLog方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">export class LogComponent &#123;</span><br><span class="line">    @log</span><br><span class="line">    printLog(str) &#123;</span><br><span class="line">        return str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function log(target: Object, propertyKey: string, descriptor: TypedPropertyDescriptor&lt;any&gt;) &#123;</span><br><span class="line">    // descriptor is a object contains writable, enumberable, configurable, setter, getter, value;</span><br><span class="line">    let origin = descriptor.value;</span><br><span class="line">    descriptor.value = function (...args) &#123;  // apply方法</span><br><span class="line">        console.log(this); // LogComponent</span><br><span class="line">        let result = origin.apply(this, args);</span><br><span class="line">        console.log(&apos;Log is - &apos; + result);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    return descriptor;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>应用场景： 可以在其他组件内继承LogComponent，也可以封装为一个service,服务于各个组件，职责单一<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">export class AppComponent extends LogComponent  implements OnInit &#123;</span><br><span class="line">    constructor(</span><br><span class="line">        private viewContainerRef: ViewContainerRef,</span><br><span class="line">        private renderer: Renderer2,</span><br><span class="line">        private elementRef: ElementRef,</span><br><span class="line">    ) &#123;</span><br><span class="line">        super();</span><br><span class="line">    &#125;</span><br><span class="line">    ngOnInit(): void &#123;</span><br><span class="line">        this.setupMenus();</span><br><span class="line">        this.printLog(&apos;test&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    printLog(str) &#123;</span><br><span class="line">        super.printLog(str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="参数装饰器"><a href="#参数装饰器" class="headerlink" title="参数装饰器"></a>参数装饰器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Injectable()</span><br><span class="line">export class AppService &#123;</span><br><span class="line">    login( @Inject name: string) &#123; &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Inject(target: Object, propertyKey: string, parameterIndex: number) &#123;</span><br><span class="line">    console.log(propertyKey); // login 参数名称，注意是方法名</span><br><span class="line">    console.log(parameterIndex); // 0 参数索引</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="泛型（Generic）"><a href="#泛型（Generic）" class="headerlink" title="泛型（Generic）"></a>泛型（Generic）</h2><p>集合类型如果设置为any可以实现同时支持多种类型，但是放弃了原本支持的类型检查，泛型则是为了解决这一点；帮助进行后面的类型检查</p>
-<pre><code>class Name&lt;T&gt;{
-    sayName(name:T): void{
-        console.log(&apos; hello, i&apos;m &apos; + name);
-    }
-}
-let user1 = new Name&lt;string&gt;();
-user1.sayName(&apos;lee&apos;);
-
-let user2 = new Name&lt;number&gt;();
-user2.sayName(3);
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1717,7 +1703,7 @@ user2.sayName(3);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>

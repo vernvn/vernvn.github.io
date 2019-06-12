@@ -84,17 +84,19 @@
 
 
 
-<meta name="description" content="primarySwatch 和 primaryColor 的区别12345678Widget build (BuildContext context) &amp;#123;	return MaterialApp(		title: &amp;apos;myApp&amp;apos;,		theme: ThemeData(			primaryColor: Colors.white   // primarySwatch">
+<meta name="description" content="Flutter框架结构  底下两层（Foundation和Animation、Painting、Gestures被合并为一个dart UI层，它是Flutter引擎暴露的底层UI库，提供动画、手势及绘制能力。  Rendering层，这一层是一个抽象的布局层，它依赖于dart UI层，Rendering层会构建一个UI树，当UI树有变化时，会计算出有变化的部分，然后更新UI树，最终将UI树绘制到屏">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flutter 学习笔记与问题总结">
 <meta property="og:url" content="http://vernvn.github.io/2019/02/21/flutter/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="primarySwatch 和 primaryColor 的区别12345678Widget build (BuildContext context) &amp;#123;	return MaterialApp(		title: &amp;apos;myApp&amp;apos;,		theme: ThemeData(			primaryColor: Colors.white   // primarySwatch">
+<meta property="og:description" content="Flutter框架结构  底下两层（Foundation和Animation、Painting、Gestures被合并为一个dart UI层，它是Flutter引擎暴露的底层UI库，提供动画、手势及绘制能力。  Rendering层，这一层是一个抽象的布局层，它依赖于dart UI层，Rendering层会构建一个UI树，当UI树有变化时，会计算出有变化的部分，然后更新UI树，最终将UI树绘制到屏">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-22T07:59:37.468Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/flutterchina/flutter-in-action@1.0/docs/imgs/framework.png">
+<meta property="og:updated_time" content="2019-02-27T07:54:15.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flutter 学习笔记与问题总结">
-<meta name="twitter:description" content="primarySwatch 和 primaryColor 的区别12345678Widget build (BuildContext context) &amp;#123;	return MaterialApp(		title: &amp;apos;myApp&amp;apos;,		theme: ThemeData(			primaryColor: Colors.white   // primarySwatch">
+<meta name="twitter:description" content="Flutter框架结构  底下两层（Foundation和Animation、Painting、Gestures被合并为一个dart UI层，它是Flutter引擎暴露的底层UI库，提供动画、手势及绘制能力。  Rendering层，这一层是一个抽象的布局层，它依赖于dart UI层，Rendering层会构建一个UI树，当UI树有变化时，会计算出有变化的部分，然后更新UI树，最终将UI树绘制到屏">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/flutterchina/flutter-in-action@1.0/docs/imgs/framework.png">
 
 
 
@@ -280,7 +282,16 @@
       
 
       
-        <h4 id="primarySwatch-和-primaryColor-的区别"><a href="#primarySwatch-和-primaryColor-的区别" class="headerlink" title="primarySwatch 和 primaryColor 的区别"></a>primarySwatch 和 primaryColor 的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build (BuildContext context) &#123;</span><br><span class="line">	return MaterialApp(</span><br><span class="line">		title: &apos;myApp&apos;,</span><br><span class="line">		theme: ThemeData(</span><br><span class="line">			primaryColor: Colors.white   // primarySwatch  </span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h4 id="Flutter框架结构"><a href="#Flutter框架结构" class="headerlink" title="Flutter框架结构"></a>Flutter框架结构</h4><p><img src="https://cdn.jsdelivr.net/gh/flutterchina/flutter-in-action@1.0/docs/imgs/framework.png" alt="avatar"></p>
+<ul>
+<li><p>底下两层（Foundation和Animation、Painting、Gestures被合并为一个dart UI层，它是Flutter引擎暴露的底层UI库，提供动画、手势及绘制能力。</p>
+</li>
+<li><p>Rendering层，这一层是一个抽象的布局层，它依赖于dart UI层，Rendering层会构建一个UI树，当UI树有变化时，会计算出有变化的部分，然后更新UI树，最终将UI树绘制到屏幕上，这个过程类似于React中的虚拟DOM。Rendering层可以说是Flutter UI框架最核心的部分，它除了确定每个UI元素的位置、大小之外还要进行坐标变换、绘制(调用底层dart:ui)。</p>
+</li>
+<li><p>Widgets层是Flutter提供的的一套基础组件库，在基础组件库之上，Flutter还提供了 Material 和Cupertino两种视觉风格的组件库。而我们Flutter开发的大多数场景，只是和这两层打交道。</p>
+</li>
+</ul>
+<h4 id="primarySwatch-和-primaryColor-的区别"><a href="#primarySwatch-和-primaryColor-的区别" class="headerlink" title="primarySwatch 和 primaryColor 的区别"></a>primarySwatch 和 primaryColor 的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build (BuildContext context) &#123;</span><br><span class="line">	return MaterialApp(</span><br><span class="line">		title: &apos;myApp&apos;,</span><br><span class="line">		theme: ThemeData(</span><br><span class="line">			primaryColor: Colors.white   // primarySwatch  </span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用primaryColor可以Colors.white,使用primarySwatch不可以设置白色和黑色，primarySwatch中的颜色是调用MaterialColor这种颜色类</p>
 <h4 id="listView"><a href="#listView" class="headerlink" title="listView"></a>listView</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildSuggestions() &#123;</span><br><span class="line">	return ListView.builder(</span><br><span class="line">		padding: EdgeInsets.all(16.0),</span><br><span class="line">		itemCount: 100,</span><br><span class="line">		itemBuilder: (BuildContext context, i) &#123;   //itemBuilder callback </span><br><span class="line">			if (i.isOdd) &#123;</span><br><span class="line">				return Something();</span><br><span class="line">			&#125;</span><br><span class="line">			return Another()</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h4><p>与js一样，dart支持单线程执行，js中Promise对象表示异步操作的最终结果，dart中用Future对象来处理</p>
@@ -311,7 +322,7 @@
 <p>const: 编译时可确定，并且不能修改    // var list = const [1,2,3];  list[0] = 4;  error</p>
 </blockquote>
 <h4 id="typedef-类型定义，通过用来检查函数类型"><a href="#typedef-类型定义，通过用来检查函数类型" class="headerlink" title="typedef 类型定义，通过用来检查函数类型"></a>typedef 类型定义，通过用来检查函数类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int Compart(int a, int b);</span><br><span class="line">int sort(int a, int b) =&gt; a - b;</span><br><span class="line">main() &#123;</span><br><span class="line">	assert(sort is Compare);   // True</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Bloc-pattern"><a href="#Bloc-pattern" class="headerlink" title="Bloc pattern"></a>Bloc pattern</h4>
+
       
     </div>
 
@@ -343,6 +354,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/26/steam in dart/" rel="prev" title="Dart Streams">
+                Dart Streams <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -408,7 +423,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -447,7 +462,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#primarySwatch-和-primaryColor-的区别"><span class="nav-number">1.</span> <span class="nav-text">primarySwatch 和 primaryColor 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listView"><span class="nav-number">2.</span> <span class="nav-text">listView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步编程"><span class="nav-number">3.</span> <span class="nav-text">异步编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局"><span class="nav-number">4.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GestureDetector-处理手势"><span class="nav-number">5.</span> <span class="nav-text">GestureDetector 处理手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-const-var-static-in-Dart"><span class="nav-number">6.</span> <span class="nav-text">final const var static in Dart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typedef-类型定义，通过用来检查函数类型"><span class="nav-number">7.</span> <span class="nav-text">typedef 类型定义，通过用来检查函数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bloc-pattern"><span class="nav-number">8.</span> <span class="nav-text">Bloc pattern</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flutter框架结构"><span class="nav-number">1.</span> <span class="nav-text">Flutter框架结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#primarySwatch-和-primaryColor-的区别"><span class="nav-number">2.</span> <span class="nav-text">primarySwatch 和 primaryColor 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#listView"><span class="nav-number">3.</span> <span class="nav-text">listView</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步编程"><span class="nav-number">4.</span> <span class="nav-text">异步编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局"><span class="nav-number">5.</span> <span class="nav-text">布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GestureDetector-处理手势"><span class="nav-number">6.</span> <span class="nav-text">GestureDetector 处理手势</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#final-const-var-static-in-Dart"><span class="nav-number">7.</span> <span class="nav-text">final const var static in Dart</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#typedef-类型定义，通过用来检查函数类型"><span class="nav-number">8.</span> <span class="nav-text">typedef 类型定义，通过用来检查函数类型</span></a></li></ol></div>
             
           </div>
         </section>
