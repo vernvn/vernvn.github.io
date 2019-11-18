@@ -1,0 +1,612 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+
+
+
+
+
+
+<meta name="description" content="ScrollView in Flutter想象有一种应用场景，scrollable组件内部嵌套另一个scrollable组件。特别是当同时显示ListView和GridView时应该怎么处理。 1234567891011121314151617181920212223return Scaffold (    appBar: AppBar(        title: Text(&amp;apos;list">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的Widget使用">
+<meta property="og:url" content="http://vernvn.github.io/2019/06/18/常见的Widget使用/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ScrollView in Flutter想象有一种应用场景，scrollable组件内部嵌套另一个scrollable组件。特别是当同时显示ListView和GridView时应该怎么处理。 1234567891011121314151617181920212223return Scaffold (    appBar: AppBar(        title: Text(&amp;apos;list">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*EV0ISPIhC8Yrf9nEwSJEMQ.gif">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f1ef4beb9?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/1669f785cc80d26b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/1669f785c4f198d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f1f050152?imageslim">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f8a91a7e8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1">
+<meta property="og:updated_time" content="2019-06-21T09:12:22.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常见的Widget使用">
+<meta name="twitter:description" content="ScrollView in Flutter想象有一种应用场景，scrollable组件内部嵌套另一个scrollable组件。特别是当同时显示ListView和GridView时应该怎么处理。 1234567891011121314151617181920212223return Scaffold (    appBar: AppBar(        title: Text(&amp;apos;list">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1600/1*EV0ISPIhC8Yrf9nEwSJEMQ.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://vernvn.github.io/2019/06/18/常见的Widget使用/">
+
+
+  <title> 常见的Widget使用 | Hexo </title>
+</head>
+
+<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule" rel="section">
+            
+            Schedule
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                常见的Widget使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2019-06-18T13:35:28+08:00" content="2019-06-18">
+              2019-06-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="ScrollView-in-Flutter"><a href="#ScrollView-in-Flutter" class="headerlink" title="ScrollView in Flutter"></a>ScrollView in Flutter</h4><p>想象有一种应用场景，scrollable组件内部嵌套另一个scrollable组件。特别是当同时显示ListView和GridView时应该怎么处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">return Scaffold (</span><br><span class="line">    appBar: AppBar(</span><br><span class="line">        title: Text(&apos;listView&apos;)</span><br><span class="line">    ),</span><br><span class="line">    body: Container(</span><br><span class="line">        child: SingleChildScrollView(</span><br><span class="line">            child: Column(</span><br><span class="line">                children: &lt;Widget&gt;[</span><br><span class="line">                    someWidget,</span><br><span class="line">                    someWidget,</span><br><span class="line">                    someWidget,</span><br><span class="line">                    ListView(</span><br><span class="line">                        children: &lt;Widget&gt;[</span><br><span class="line">                            anotherWidget,</span><br><span class="line">                            anotherWidget,</span><br><span class="line">                            anotherWidget</span><br><span class="line">                        ]</span><br><span class="line">                    )</span><br><span class="line">                ]</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>运行以上代码，控制台会抛出异常，其中关键的一句翻译过来就是：</p>
+<blockquote>
+<p>垂直视口被赋予无限高度。这种情况通常在可滚动小部件嵌套在另一个可滚动小部件内时发生。</p>
+</blockquote>
+<p>这个时候，我们可以通过Slivers来实现这一需求。通过以下代码替换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">return Scaffold (</span><br><span class="line">    appBar: AppBar(</span><br><span class="line">        title: Text(&apos;listView&apos;)</span><br><span class="line">    ),</span><br><span class="line">    body: Container(</span><br><span class="line">        child: CustomScrollView(</span><br><span class="line">            slivers: &lt;Widget&gt;[</span><br><span class="line">                SliverList(</span><br><span class="line">                    delegate: SliverChildListDelegate(</span><br><span class="line">                        someWidget,</span><br><span class="line">                        someWidget,</span><br><span class="line">                        someWidget,</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">                SliverList(</span><br><span class="line">                    delegate: SliverChildListDelegate(</span><br><span class="line">                        anotherWidget,</span><br><span class="line">                        anotherWidget,</span><br><span class="line">                        anotherWidget,</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">                SliverGrid(</span><br><span class="line">                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),</span><br><span class="line">                    delegate: SliverChildListDelegate(</span><br><span class="line">                        thirdWidget,</span><br><span class="line">                        thirdWidget,</span><br><span class="line">                        thirdWidget,</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">            ]</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<div align="center"><br>  <img src="https://cdn-images-1.medium.com/max/1600/1*EV0ISPIhC8Yrf9nEwSJEMQ.gif"><br></div>
+
+<h3 id="下面介绍Slivers系列常见的控件及使用场景"><a href="#下面介绍Slivers系列常见的控件及使用场景" class="headerlink" title="下面介绍Slivers系列常见的控件及使用场景"></a>下面介绍Slivers系列常见的控件及使用场景</h3><h4 id="SliverAppBar"><a href="#SliverAppBar" class="headerlink" title="SliverAppBar"></a>SliverAppBar</h4><p>经常用于AppBar展开收起的场景，通过配置flexibleSpace和expandedHeight属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverAppBar(</span><br><span class="line">            actions: &lt;Widget&gt;[</span><br><span class="line">                _buildAction(),</span><br><span class="line">            ],</span><br><span class="line">            title: Text(&apos;SliverAppBar&apos;),</span><br><span class="line">            backgroundColor: Theme.of(context).accentColor,</span><br><span class="line">            expandedHeight: 200.0,</span><br><span class="line">            flexibleSpace: FlexibleSpaceBar(</span><br><span class="line">                background: Image.asset(&apos;images/food01.jpeg&apos;, fit: BoxFit.cover),</span><br><span class="line">            ),</span><br><span class="line">        ),</span><br><span class="line">        SliverFixedExtentList(</span><br><span class="line">            itemExtent: 120.0,</span><br><span class="line">            delegate: SliverChildListDelegate(</span><br><span class="line">                products.map((product) &#123;</span><br><span class="line">                return _buildItem(product);</span><br><span class="line">                &#125;).toList(),</span><br><span class="line">            ),</span><br><span class="line">        ),</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f1ef4beb9?imageslim"><br></div>
+
+<p>flexibleSpace是被展开和收起的组件，expandedHeight是其操控的高度；其他属性具体含义可以参考官方文档</p>
+<h4 id="SliverList"><a href="#SliverList" class="headerlink" title="SliverList"></a>SliverList</h4><p>SliverList只需要设置delegate属性就可以，可以滑动的列表，常常用于滑动组件嵌套的场景</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverList(</span><br><span class="line">            delegate: SliverChildBuilderDelegate(</span><br><span class="line">                (BuildContext context, int index) &#123;</span><br><span class="line">                    return _buildItem(context, products[index]);</span><br><span class="line">                &#125;,</span><br><span class="line">                childCount: 3,</span><br><span class="line">            ),</span><br><span class="line">        )</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>也可以通过SliverChildListDelegate来构建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverList(</span><br><span class="line">            delegate: SliverChildListDelegate([</span><br><span class="line">              _buildItem(),</span><br><span class="line">              _buildItem(),</span><br><span class="line">              _buildItem(),</span><br><span class="line">            ]),</span><br><span class="line">        )</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<font face="黑体" color="#f00" size="4">SliverChildListDelegate和SliverChildBuilderDelegate的区别：</font>
+
+<p>SliverChildListDelegate一般用来构item建数量明确的列表，会提前build好所有的子item，所以在效率上会有问题，适合item数量不多的情况。<br>SliverChildBuilderDelegate构建的列表理论上是可以无限长的。<br>两者的区别有些类似于ListView和ListView.builder()的区别。</p>
+<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f785cc80d26b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"><br></div>
+
+<h4 id="SliverGrid"><a href="#SliverGrid" class="headerlink" title="SliverGrid"></a>SliverGrid</h4><p>SliverGrid有三个构造函数：SliverGrid.count()、SliverGrid.extent和SliverGrid()。</p>
+<ul>
+<li>SliverGrid.count()指定了一行展示多少个item，下面的例子表示一行展示4个：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliverGrid.count(children: scrollItems, crossAxisCount: 4)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SliverGrid.extent可以指定item的最大宽度，然后让Flutter自己决定一行展示多少个item</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliverGrid.extent(children: scrollItems, maxCrossAxisExtent: 90.0)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>SliverGrid()则是需要指定一个gridDelegate，它提供给了程序员一个自定义Delegate的入口，你可以自己决定每一个item怎么排列</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SliverGrid(</span><br><span class="line">  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(</span><br><span class="line">    crossAxisCount: 2</span><br><span class="line">  ),</span><br><span class="line">  delegate: SliverChildBuilderDelegate(</span><br><span class="line">    (BuildContext context, int index) &#123;</span><br><span class="line">      return _buildItem(products[index]);;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f785c4f198d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"><br></div>
+
+<h4 id="SliverPersistentHeader"><a href="#SliverPersistentHeader" class="headerlink" title="SliverPersistentHeader"></a>SliverPersistentHeader</h4><p>SliverPersistentHeader顾名思义，就是给一个可滑动的视图添加一个头（实际上，在CustomScrollView的slivers列表中，header可以出现在视图的任意位置，不一定要是在顶部）。这个Header会随着滑动而展开/收起</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SliverPersistentHeader(</span><br><span class="line">    delegate: _SliverAppBarDelegate(</span><br><span class="line">        minHeight: 60.0,</span><br><span class="line">        maxHeight: 180.0,</span><br><span class="line">        child: Container(),</span><br><span class="line">    ),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>构建一个SliverPersistentHeader需要传入一个delegate，这个delegate是SliverPersistentHeaderDelegate类型的，而SliverPersistentHeaderDelegate是一个abstract类，我们不能直接new一个SliverPersistentHeaderDelegate出来，因此，我们需要自定义一个delegate来实现SliverPersistentHeaderDelegate类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate &#123;</span><br><span class="line">  _SliverAppBarDelegate(&#123;</span><br><span class="line">    @required this.minHeight,</span><br><span class="line">    @required this.maxHeight,</span><br><span class="line">    @required this.child,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  final double minHeight;</span><br><span class="line">  final double maxHeight;</span><br><span class="line">  final Widget child;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  double get minExtent =&gt; minHeight;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  double get maxExtent =&gt; math.max(maxHeight, minHeight);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(</span><br><span class="line">      BuildContext context, double shrinkOffset, bool overlapsContent) &#123;</span><br><span class="line">    return new SizedBox.expand(child: child);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) &#123;</span><br><span class="line">    return maxHeight != oldDelegate.maxHeight ||</span><br><span class="line">        minHeight != oldDelegate.minHeight ||</span><br><span class="line">        child != oldDelegate.child;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写一个自定义SliverPersistentHeaderDelegate很简单，只需重写build()、get maxExtent、get minExtent和shouldRebuild()这四个方法，上面就是一个最简单的SliverPersistentHeaderDelegate的实现。其中，maxExtent表示header完全展开时的高度，minExtent表示header在收起时的最小高度。因此，对于我们上面的那个自定义Delegate，如果将minHeight和maxHeight的值设置为相同时，header就不会收缩了，这样的Header跟我们平常理解的Header更像。</p>
+<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f1f050152?imageslim"><br></div>
+
+<h4 id="SliverToBoxAdapter"><a href="#SliverToBoxAdapter" class="headerlink" title="SliverToBoxAdapter"></a>SliverToBoxAdapter</h4><p> SliverPersistentHeader一般来说都是会展开/收起的（除非minExtent和maxExtent值相同），那么如果想要在滚动视图中添加一个普通的控件，那么就可以使用SliverToBoxAdapter来将各种视图组合在一起，放在CustomListView中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    physics: ScrollPhysics(),</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverToBoxAdapter(</span><br><span class="line">            child: _buildHeader(),</span><br><span class="line">        ),</span><br><span class="line">        SliverGrid.count(</span><br><span class="line">            crossAxisCount: 3,</span><br><span class="line">            children: products.map((product) &#123;</span><br><span class="line">                return _buildItemGrid(product);</span><br><span class="line">            &#125;).toList(),</span><br><span class="line">        ),</span><br><span class="line">        SliverToBoxAdapter(</span><br><span class="line">            child: _buildSearch(),</span><br><span class="line">        ),</span><br><span class="line">        SliverFixedExtentList(</span><br><span class="line">            itemExtent: 100.0,</span><br><span class="line">            delegate: SliverChildListDelegate(</span><br><span class="line">                products.map((product) &#123;</span><br><span class="line">                return _buildItemList(product);</span><br><span class="line">                &#125;).toList(),</span><br><span class="line">            ),</span><br><span class="line">        ),</span><br><span class="line">        SliverToBoxAdapter(</span><br><span class="line">            child: _buildFooter(),</span><br><span class="line">        ),</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f8a91a7e8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/Flutter新的状态管理方案/" rel="next" title="Flutter新的状态管理方案">
+                <i class="fa fa-chevron-left"></i> Flutter新的状态管理方案
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/17/2019-resume/" rel="prev" title="2019 RESUME">
+                2019 RESUME <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
+          <p class="site-author-name" itemprop="name">Lee</p>
+          <p class="site-description motion-element" itemprop="description">my blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ScrollView-in-Flutter"><span class="nav-number">1.</span> <span class="nav-text">ScrollView in Flutter</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#下面介绍Slivers系列常见的控件及使用场景"><span class="nav-number"></span> <span class="nav-text">下面介绍Slivers系列常见的控件及使用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SliverAppBar"><span class="nav-number">1.</span> <span class="nav-text">SliverAppBar</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SliverList"><span class="nav-number">2.</span> <span class="nav-text">SliverList</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SliverGrid"><span class="nav-number">3.</span> <span class="nav-text">SliverGrid</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SliverPersistentHeader"><span class="nav-number">4.</span> <span class="nav-text">SliverPersistentHeader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SliverToBoxAdapter"><span class="nav-number">5.</span> <span class="nav-text">SliverToBoxAdapter</span></a></li></ol></li></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
