@@ -291,14 +291,12 @@
 </blockquote>
 <ul>
 <li>http</li>
-<li>css/sass</li>
-<li>js/ts</li>
-<li>webpack</li>
+<li>es6/es7/es8</li>
 <li>angular</li>
 <li>rxjs</li>
-<li>es6</li>
 <li>flutter</li>
 <li>微信</li>
+<li>webpack</li>
 <li>其他知识点</li>
 </ul>
 <h2 id="Let’s-Review"><a href="#Let’s-Review" class="headerlink" title="Let’s Review  !"></a>Let’s Review  !</h2><h3 id="一、HTTP"><a href="#一、HTTP" class="headerlink" title="一、HTTP"></a>一、HTTP</h3><h4 id="1-GET-POST"><a href="#1-GET-POST" class="headerlink" title="1. GET/POST"></a>1. GET/POST</h4><p>GET / POST主要区别：属于HTTP协议的两种请求方式，协议规定get用于获取信息，post用于修改数据；当携带参数时，get的参数在url里且长度大多受到服务器或浏览器限制（1024字符），post在body里，post传输的参数在地址栏里不可见所以安全性比get略好，但是在数据传输过程中，他们都是可以被捕获的，所以都是不安全的，所以需要进行加密处理，用到https。本质上最大的区别在于get请求是幂等性的，post不是，引用HTTP协议：</p>
@@ -321,7 +319,25 @@
 <li>Content-Type仅限：text/plain、multipart/form-data、application/x-www-form-urlencoded<h4 id="6-跨域"><a href="#6-跨域" class="headerlink" title="6. 跨域"></a>6. 跨域</h4>解决跨域的方法有很多种。cors是比较好的解决方案。JsonP只支持get请求，但是适配老式浏览器<h5 id="9-TCP三次握手"><a href="#9-TCP三次握手" class="headerlink" title="9. TCP三次握手"></a>9. TCP三次握手</h5>三次握手的过程：<br>主机向服务器发送一个建立连接的请求（您好，我想认识您）；<br>服务器接到请求后发送同意连接的信号（好的，很高兴认识您）；<br>主机接到同意连接的信号后，再次向服务器发送了确认信号（我也很高兴认识您），自此，主机与服务器两者建立了连接。<br>四次挥手的过程：<br>主机向服务器发送一个断开连接的请求（不早了，我该走了）；<br>服务器接到请求后发送确认收到请求的信号（知道了）；<br>服务器向主机发送断开通知（我也该走了）；<br>主机接到断开通知后断开连接并反馈一个确认信号（嗯，好的），服务器收到确认信号后断开连接；<br>为什么建立连接是三次？为什么断开链接是四次呢？<br>为了确保数据全部发送并且防止服务器端一直等待而浪费资源；</li>
 </ul>
 <h4 id="10-性能优化"><a href="#10-性能优化" class="headerlink" title="10. 性能优化"></a>10. 性能优化</h4><p>合理使用缓存，将资源放在浏览器端，这是最快的方式（service worker）；合理进行http缓存；如果资源必须从网络中加载，则要考虑缩短连接时间，即DNS优化部分；减少响应内容大小，即对内容进行压缩，静态资源优化gzip、br；减少reflow的次数；无用代码移除；tree-shaking；差异化加载；减少http请求；预加载；懒加载；节流防抖；内存回收；<br>will-change优化动画、滚动等效果的性能，尤其在移动端（调动更多的GPU资源进行计算和重绘）<br>缩减首屏白屏时间：从资源和视觉两方面去优化：懒加载/按需加载（提高首屏加载速度），视觉上可以采取Medium渐变加载的策略，给用户一个柔和的感觉。<br><img src="https://img-blog.csdn.net/20160501111846529" alt=""></p>
-<h3 id="二、CSS-SASS"><a href="#二、CSS-SASS" class="headerlink" title="二、CSS/SASS"></a>二、CSS/SASS</h3>
+<h3 id="二、ES6-ES7-ES8"><a href="#二、ES6-ES7-ES8" class="headerlink" title="二、ES6/ES7/ES8"></a>二、ES6/ES7/ES8</h3><blockquote>
+<p>ES全称ECMAScript，ECMAScript是ECMA制定的标准化脚本语言。</p>
+</blockquote>
+<p>es6的特性跨度和es5比较大，所以es6的特性比较多，es7,es8是在es6的基础上进行的补充。下面列举一些常用的es6特性：</p>
+<ul>
+<li>类</li>
+<li>模块化</li>
+<li>箭头函数</li>
+<li>模版字符串</li>
+<li>解构赋值</li>
+<li>Promise</li>
+<li>let、const</li>
+<li>延展操作符</li>
+<li>函数参数默认值</li>
+</ul>
+<p>es6引入了类的概念，js的面向对象编程更加容易理解。模块化主要有export和import组成，每一个模块都有自己单独的作用域，通过export暴露对外接口，通过import来引用其他模块提供的接口。箭头函数是es6中最重要的特性之一，可以很好的处理this指针的问题，箭头函数中this继承的是父执行上下文中的this，；箭头函数和bind方法，每次执行后都会返回一个新的函数引用。</p>
+<p>es7新增Array.prototype.includes(),用来判断一个数组是否包含指定的值，包含返回true，不包含返回false；新增指数操作符<strong>，Math.pow(2,10)等价于2</strong>10；</p>
+<p>es8新增async/await;</p>
+
           
         
       
