@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>LEE RAN</ShortName>
+    <Description>个人技术博客，主要是记录琐碎知识点、对某一技术的理解、和项目开发过程中遇到的问题</Description>
+    <Url type="text/html" template="https://vernvn.github.io?s={searchTerms}" />
+</OpenSearchDescription>

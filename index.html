@@ -1,74 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
-
-  
-
-
-<html class="theme-next muse use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
+<!-- comment -->
 
 
 
 
 
-
-  
-  
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+    <link rel="dns-prefetch" href="//cdn-city.livere.com">
 
 
 
+<!-- analytics -->
 
-  
-  
-  
-  
+    <link rel="dns-prefetch" href="//hm.baidu.com">
 
-  
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+
+
+    <link rel="dns-prefetch" href="//pingjs.qq.com">
+
+
+    <!-- ## Preload ## -->
     
+    <!-- Busuanzi -->
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
 
 
 
@@ -76,1708 +57,1104 @@
 
 
 
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+    <!-- Title -->
+    <title>努力混迹江湖的前端小白</title>
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
 
-
-
-
-
-<meta name="description" content="my blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://vernvn.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="my blog">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="my blog">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: rgba(233,242,251,1);
     }
-  };
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: rgba(233,242,251,1);
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="website"><meta property="og:url" content="http://vernvn.github.io/"><meta property="og:locale" content="zh-CN"><meta name="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上 - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://vernvn.github.io/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+    <!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-153074481-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-153074481-1');
+</script>
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/">
+    <script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
 
 
-  <title> Hexo </title>
+
+    <!-- ### Structured Data ### -->
+    
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Blog",
+    "author": {
+        "@type": "Person",
+        "name": "Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        },
+        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "努力混迹江湖的前端小白",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        }
+    },
+    "url": "http://vernvn.github.io",
+    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://vernvn.github.io"
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://vernvn.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "angular,rxjs,flutter,stream",
+    "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上 - Lee - 努力混迹江湖的前端小白"
+}
+</script>
+
+
+
+
+
+    <!-- ### Custom Head ### -->
+    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
 </head>
 
-<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+    <body>
+            
 
-  
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
 
+    <p class="text-center header-slogan">
+        
+            
+                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
+            
+        
+    </p>
 
-
-
-
-
-
-
-
-
-  
-  
+    <nav class="navbar-section text-center">
     
-  
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+    
+        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <!-- Share Weibo -->
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-            Home
-          </a>
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
         </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
-            
-            Schedule
-          </a>
-        </li>
-      
 
-      
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
+</div>
+    
+    
+</nav>
+</header>
 
-  
+            <div class="container">
+    <div class="main-container">
+        <main>
+            <div class="post-stream-container">
+                <!-- # Post List # -->
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/11/17/2019-resume/" rel="bookmark">2019 RESUME</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+总结2019年的收获、巩固知识点
+
+
+http
+es6/es7/es8
+pwa
+angular
+    <a href="/2019/11/17/2019-resume/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2019-11-17</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/06/18/%E5%B8%B8%E8%A7%81%E7%9A%84Widget%E4%BD%BF%E7%94%A8/" rel="bookmark">常见的Widget使用</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        ...
+    <a href="/2019/06/18/%E5%B8%B8%E8%A7%81%E7%9A%84Widget%E4%BD%BF%E7%94%A8/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2019-06-18</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/06/12/Flutter%E6%96%B0%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/" rel="bookmark">Flutter新的状态管理方案</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+在Google IO 2019大会上提出了新的状态管理方案Provider用来替代之前的状态管理方案Provide，针对不同类型对象提供了多种不同的Provider;Provider借助了Inherit...
+    <a href="/2019/06/12/Flutter%E6%96%B0%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%96%B9%E6%A1%88/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2019-06-12</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/06/12/flutter%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%90%BA%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1/" rel="bookmark">flutter中可以携带参数的命名路由</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+    <a href="/2019/06/12/flutter%E4%B8%AD%E5%8F%AF%E4%BB%A5%E6%90%BA%E5%B8%A6%E5%8F%82%E6%95%B0%E7%9A%84%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2019-06-12</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/02/26/steam%20in%20dart/" rel="bookmark">Dart Streams</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        什么是Streams?
+...
+    <a href="/2019/02/26/steam%20in%20dart/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2019-02-26</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2019/02/21/flutter/" rel="bookmark">flutter 学习笔记与问题总结</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        Flutter框架结构
+    <a href="/2019/02/21/flutter/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2019-02-21</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/" rel="bookmark">rxjs常用操作符及项目应用</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        前言RXJS全名Reactive Extensions for JavaScript，是JavaS...
+    <a href="/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2018-11-06</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2018/03/01/git%E6%96%B0%E7%9A%84%E6%8C%87%E4%BB%A4/" rel="bookmark">git新的指令</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        使用Git管理项目总结
+    <a href="/2018/03/01/git%E6%96%B0%E7%9A%84%E6%8C%87%E4%BB%A4/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2018-03-01</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2018/02/08/ng2-translate/" rel="bookmark">ng2-translate</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+    <a href="/2018/02/08/ng2-translate/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2018-02-08</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2018/02/08/NgZone/" rel="bookmark">NgZone</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        利用Angular本身ChangeDetectionStrategyAPI改变检查策略脱离变化检测器，即减少不必要的检测来提高应用的性能
+
+
+
+    <a href="/2018/02/08/NgZone/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2018-02-08</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2018/02/07/everyNote/" rel="bookmark">EveryNote</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        记录每天学习中发现的知识点
+    <a href="/2018/02/07/everyNote/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2018-02-07</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/12/28/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95/" rel="bookmark">自定义表单</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        Con...
+    <a href="/2017/12/28/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-12-28</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/12/15/12-15%20%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/" rel="bookmark">12-15  日常笔记</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        日常遗忘知识点总结
+    <a href="/2017/12/15/12-15%20%20%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-12-15</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/12/11/%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB%E5%8F%8A%E5%8A%A0%E8%BD%BD%E7%AD%96%E7%95%A5/" rel="bookmark">路由守卫及加载策略</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        路由守卫任何时候导航到任何地方往往不能满足业务需求，需要授权守护。返回值是boolea...
+    <a href="/2017/12/11/%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB%E5%8F%8A%E5%8A%A0%E8%BD%BD%E7%AD%96%E7%95%A5/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-12-11</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/10/29/%E8%A3%85%E9%A5%B0%E5%99%A8%E3%80%81%E6%B3%9B%E5%9E%8B/" rel="bookmark">装饰器、泛型</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        装饰器
+    <a href="/2017/10/29/%E8%A3%85%E9%A5%B0%E5%99%A8%E3%80%81%E6%B3%9B%E5%9E%8B/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-10-29</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/09/12/%E5%B8%B8%E8%A7%84%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932017/" rel="bookmark">常规面试总结2017</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        常规面试总结2017
+    <a href="/2017/09/12/%E5%B8%B8%E8%A7%84%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932017/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-09-12</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/04/13/Subject/" rel="bookmark">Subject</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        Rxjs Subject...
+    <a href="/2017/04/13/Subject/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-04-13</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2017/02/28/rxjs/" rel="bookmark">RxJS:万物皆为流</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+    <a href="/2017/02/28/rxjs/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2017-02-28</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/11/21/ng1%E4%B8%8Eng2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E6%AF%94%E8%BE%83/" rel="bookmark">依赖注入</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+    <a href="/2016/11/21/ng1%E4%B8%8Eng2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E6%AF%94%E8%BE%83/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2016-11-21</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+                    
+                        <article class="post-entry container px-0 card">
+        <div class="columns col-gapless">
+            
+                <div class="column col-12">
+                    
+    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/" rel="bookmark">何时使用指令，服务，控制器</a></h2>
+
+
+<p class="mb-0 card-body">
+    
+        
+Directive(指令)
+Controller(控制器)
+Service(服务)以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。
+    <a href="/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/">阅读全文</a>
+</p>
+
+
+
+
+    <!-- Date & Category -->
+    <div class="card-footer post-entry-info text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <time>2016-11-18</time>
+        
+        
+    </div>
+
+                </div>
+            
+        </div>
+</article>
+
+                    
+                
+            </div>
+        </main>
+        
+<nav>
+<ul class="pagination">
+    
+    
+        <li class="page-item page-next">
+            <a href="/page/2/" rel="next">
+                <span class="page-item-title">下一页</span>
+                <span class="page-item-subtitle"><i class="icon icon-forward" aria-hidden="true"></i></span>
+            </a>
+        </li>
+    
+</ul>
 </nav>
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/11/17/2019-resume/" itemprop="url">
-                  2019 RESUME
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-11-17T14:00:06+08:00" content="2019-11-17">
-              2019-11-17
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>总结2019年的收获、巩固知识点</p>
-</blockquote>
-<ul>
-<li>http</li>
-<li>es6/es7/es8</li>
-<li>angular</li>
-<li>rxjs</li>
-<li>flutter</li>
-<li>微信</li>
-<li>webpack</li>
-<li>其他知识点</li>
-</ul>
-<h2 id="Let’s-Review"><a href="#Let’s-Review" class="headerlink" title="Let’s Review  !"></a>Let’s Review  !</h2><h3 id="一、HTTP"><a href="#一、HTTP" class="headerlink" title="一、HTTP"></a>一、HTTP</h3><h4 id="1-GET-POST"><a href="#1-GET-POST" class="headerlink" title="1. GET/POST"></a>1. GET/POST</h4><p>GET / POST主要区别：属于HTTP协议的两种请求方式，协议规定get用于获取信息，post用于修改数据；当携带参数时，get的参数在url里且长度大多受到服务器或浏览器限制（1024字符），post在body里，post传输的参数在地址栏里不可见所以安全性比get略好，但是在数据传输过程中，他们都是可以被捕获的，所以都是不安全的，所以需要进行加密处理，用到https。本质上最大的区别在于get请求是幂等性的，post不是，引用HTTP协议：</p>
-<blockquote>
-<p>Methods can also have the property of “idempotence” in that (aside from error or expiration issues) the side-effects of N &gt; 0 identical requests is the same as for a single request.</p>
-</blockquote>
-<p>HTTP方法的幂等性是指一次和多次请求某一个资源应该具有同样的副作用, GET <a href="http://www.xxx.com/article/1" target="_blank" rel="noopener">http://www.xxx.com/article/1</a>, 无论调用多少次，获取的只是这一篇文章， 如果POST <a href="http://www.xxx.com/article/1" target="_blank" rel="noopener">http://www.xxx.com/article/1</a>, 相当于创建一篇文章，如果没有唯一索引（唯一索引保证其幂等性），则每调用一次，都会创建一篇文章，post不具有幂等性。delete，put同样具有幂等性，所以在http协议下get更适合获取，post更适合创建，put更适合更新，现如今更多的只是语义上的区别</p>
-<h4 id="2-HTTP报文"><a href="#2-HTTP报文" class="headerlink" title="2. HTTP报文"></a>2. HTTP报文</h4><p>http报文有请求报文和响应报文两种。请求报文是从客户端向服务器发送请求报文，响应报文是服务端的回答<br>一个请求报文由四部分组成：请求行、请求头、空行、请求数据。<br>请求行包括请求方法字段、url字段、http协议版本字段，并用空格分隔<br>GET /index.html HTTP/1.1<br>请求头有字值对组成，典型的请求头有user-agent:浏览器类型，accept:客户端可识别的内容类型列表，host:请求的主机名，accept-encoding：允许的压缩方式，connection:keep-alive保持客户端到服务器连结持续有效，当后续触发请求时，避免建立连接释放连接的开销<br>最后一个请求头之后是一个空行，发送回车符和换行符，通知服务器之后不会再有请求头<br>请求数据中常见的有content-type的几个常用类型：application/x-www-form-urlencoded—form表单，multipart/form-data—文件，application/json—JSON字符串</p>
-<h4 id="4-URL加载全过程"><a href="#4-URL加载全过程" class="headerlink" title="4. URL加载全过程"></a>4. URL加载全过程</h4><p>DNS解析（递归查询）—TCP连接—发送http请求—服务器处理请求响应—浏览器解析渲染—结束连接<br>DNS查找缓存顺序：浏览器缓存——&gt;hosts文件——&gt;路由器缓存——&gt;网络服务商缓存——&gt;根域名服务器缓存</p>
-<h4 id="5-HTTPS"><a href="#5-HTTPS" class="headerlink" title="5. HTTPS"></a>5. HTTPS</h4><p>HTTP报文是包裹在TCP报文中发送的，服务器端收到TCP报文时会解包提取出HTTP报文。但是这个过程中存在一定的风险，HTTP报文是明文，如果中间被截取的话会存在一些信息泄露的风险。那么在进入TCP报文之前对HTTP做一次加密就可以解决这个问题了。HTTPS协议的本质就是HTTP + SSL(or TLS)。在HTTP报文进入TCP报文之前，先使用SSL对HTTP报文进行加密。HTTPS在传输数据之前需要客户端与服务器进行一个握手(TLS/SSL握手)，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL使用了非对称加密，对称加密以及hash等</p>
-<p><a href="https://zhuanlan.zhihu.com/p/27395037" target="_blank" rel="noopener">HTTPS原理详解</a></p>
-<h4 id="7-HTTP缓存"><a href="#7-HTTP缓存" class="headerlink" title="7. HTTP缓存"></a>7. HTTP缓存</h4><p>HTTP缓存有多种规则，根据是否需要重新向服务器发起请求来分类，我将其分为两大类(强制缓存，对比缓存)。对于强制缓存来说，响应header中会有两个字段来标明失效规则（Expires/Cache-Control）Cache-Control 是最重要的规则。常见的取值有private、public、no-cache、max-age，no-store，默认为private。常见的http缓存只能缓存get请求响应的资源，对于其他类型的响应则无能为力。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">private:             客户端可以缓存</span><br><span class="line">public:              客户端和代理服务器都可缓存</span><br><span class="line">max-age=xxx:         缓存的内容将在 xxx 秒后失效</span><br><span class="line">no-cache:            需要使用对比缓存来验证缓存数据（后面介绍）</span><br><span class="line">no-store:            所有内容都不会缓存，强制缓存，对比缓存都不会触发</span><br></pre></td></tr></table></figure>
-<p><img src="https://upload-images.jianshu.io/upload_images/4845448-39248bf4a3b45c3e?imageMogr2/auto-orient/strip|imageView2/2/w/800/format/webp" alt=""><br><a href="https://juejin.im/entry/599afbe5f265da247c4ee6e3" target="_blank" rel="noopener">HTTP缓存机制详解</a></p>
-<h4 id="8-cors预请求"><a href="#8-cors预请求" class="headerlink" title="8. cors预请求"></a>8. cors预请求</h4><p>很多时候发送一个post请求之前会先发送一个options请求，为什么会这样？cors本身是一种机制（跨域资源共享），为跨域访问提供了安全的数据传输。options作为预请求主要用途有两个：获取服务器支持的http请求方法，检查服务器的性能；ajax进行跨域请求时，需要向另一个域名的资源发送一个options请求用于判断实际要发出的请求是否安全。本身从不同的域访问资源是受到同源策略禁止的，所以cors定义了这种浏览器和服务器交互的形式允许跨域请求。现阶段大部分浏览器都支持cors机制，服务端则需要配置Access-Control-Allow-Origin:*,允许任何域发起请求。<br>不会触发cors预检的请求称之为简单请求，日常开发满足下列条件的称之为简单请求：1.使用get,post,head其中一种；2.只使用了如下的安全首部字段，没有人为的设置其他首部字段：</p>
-<ul>
-<li>Accept</li>
-<li>Accept-Language</li>
-<li>Content-Language</li>
-<li>Content-Type仅限：text/plain、multipart/form-data、application/x-www-form-urlencoded<h4 id="6-跨域"><a href="#6-跨域" class="headerlink" title="6. 跨域"></a>6. 跨域</h4>解决跨域的方法有很多种。cors是比较好的解决方案。JsonP只支持get请求，但是适配老式浏览器<h5 id="9-TCP三次握手"><a href="#9-TCP三次握手" class="headerlink" title="9. TCP三次握手"></a>9. TCP三次握手</h5>三次握手的过程：<br>主机向服务器发送一个建立连接的请求（您好，我想认识您）；<br>服务器接到请求后发送同意连接的信号（好的，很高兴认识您）；<br>主机接到同意连接的信号后，再次向服务器发送了确认信号（我也很高兴认识您），自此，主机与服务器两者建立了连接。<br>四次挥手的过程：<br>主机向服务器发送一个断开连接的请求（不早了，我该走了）；<br>服务器接到请求后发送确认收到请求的信号（知道了）；<br>服务器向主机发送断开通知（我也该走了）；<br>主机接到断开通知后断开连接并反馈一个确认信号（嗯，好的），服务器收到确认信号后断开连接；<br>为什么建立连接是三次？为什么断开链接是四次呢？<br>为了确保数据全部发送并且防止服务器端一直等待而浪费资源；</li>
-</ul>
-<h4 id="10-性能优化"><a href="#10-性能优化" class="headerlink" title="10. 性能优化"></a>10. 性能优化</h4><p>合理使用缓存，将资源放在浏览器端，这是最快的方式（service worker）；合理进行http缓存；如果资源必须从网络中加载，则要考虑缩短连接时间，即DNS优化部分；减少响应内容大小，即对内容进行压缩，静态资源优化gzip、br；减少reflow的次数；无用代码移除；tree-shaking；差异化加载；减少http请求；预加载；懒加载；节流防抖；内存回收；<br>will-change优化动画、滚动等效果的性能，尤其在移动端（调动更多的GPU资源进行计算和重绘）<br>缩减首屏白屏时间：从资源和视觉两方面去优化：懒加载/按需加载（提高首屏加载速度），视觉上可以采取Medium渐变加载的策略，给用户一个柔和的感觉。<br><img src="https://img-blog.csdn.net/20160501111846529" alt=""></p>
-<h3 id="二、ES6-ES7-ES8"><a href="#二、ES6-ES7-ES8" class="headerlink" title="二、ES6/ES7/ES8"></a>二、ES6/ES7/ES8</h3><blockquote>
-<p>ES全称ECMAScript，ECMAScript是ECMA制定的标准化脚本语言。</p>
-</blockquote>
-<p>es6的特性跨度和es5比较大，所以es6的特性比较多，es7,es8是在es6的基础上进行的补充。下面列举一些常用的es6特性：</p>
-<ul>
-<li>类</li>
-<li>模块化</li>
-<li>箭头函数</li>
-<li>模版字符串</li>
-<li>解构赋值</li>
-<li>Promise</li>
-<li>let、const</li>
-<li>延展操作符</li>
-<li>函数参数默认值</li>
-</ul>
-<p>es6引入了类的概念，js的面向对象编程更加容易理解。模块化主要有export和import组成，每一个模块都有自己单独的作用域，通过export暴露对外接口，通过import来引用其他模块提供的接口。箭头函数是es6中最重要的特性之一，可以很好的处理this指针的问题，箭头函数中this继承的是父执行上下文中的this，；箭头函数和bind方法，每次执行后都会返回一个新的函数引用。</p>
-<p>es7新增Array.prototype.includes(),用来判断一个数组是否包含指定的值，包含返回true，不包含返回false；新增指数操作符<strong>，Math.pow(2,10)等价于2</strong>10；</p>
-<p>es8新增async/await;</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/06/18/常见的Widget使用/" itemprop="url">
-                  常见的Widget使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-06-18T13:35:28+08:00" content="2019-06-18">
-              2019-06-18
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="ScrollView-in-Flutter"><a href="#ScrollView-in-Flutter" class="headerlink" title="ScrollView in Flutter"></a>ScrollView in Flutter</h4><p>想象有一种应用场景，scrollable组件内部嵌套另一个scrollable组件。特别是当同时显示ListView和GridView时应该怎么处理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">return Scaffold (</span><br><span class="line">    appBar: AppBar(</span><br><span class="line">        title: Text(&apos;listView&apos;)</span><br><span class="line">    ),</span><br><span class="line">    body: Container(</span><br><span class="line">        child: SingleChildScrollView(</span><br><span class="line">            child: Column(</span><br><span class="line">                children: &lt;Widget&gt;[</span><br><span class="line">                    someWidget,</span><br><span class="line">                    someWidget,</span><br><span class="line">                    someWidget,</span><br><span class="line">                    ListView(</span><br><span class="line">                        children: &lt;Widget&gt;[</span><br><span class="line">                            anotherWidget,</span><br><span class="line">                            anotherWidget,</span><br><span class="line">                            anotherWidget</span><br><span class="line">                        ]</span><br><span class="line">                    )</span><br><span class="line">                ]</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>运行以上代码，控制台会抛出异常，其中关键的一句翻译过来就是：</p>
-<blockquote>
-<p>垂直视口被赋予无限高度。这种情况通常在可滚动小部件嵌套在另一个可滚动小部件内时发生。</p>
-</blockquote>
-<p>这个时候，我们可以通过Slivers来实现这一需求。通过以下代码替换：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">return Scaffold (</span><br><span class="line">    appBar: AppBar(</span><br><span class="line">        title: Text(&apos;listView&apos;)</span><br><span class="line">    ),</span><br><span class="line">    body: Container(</span><br><span class="line">        child: CustomScrollView(</span><br><span class="line">            slivers: &lt;Widget&gt;[</span><br><span class="line">                SliverList(</span><br><span class="line">                    delegate: SliverChildListDelegate(</span><br><span class="line">                        someWidget,</span><br><span class="line">                        someWidget,</span><br><span class="line">                        someWidget,</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">                SliverList(</span><br><span class="line">                    delegate: SliverChildListDelegate(</span><br><span class="line">                        anotherWidget,</span><br><span class="line">                        anotherWidget,</span><br><span class="line">                        anotherWidget,</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">                SliverGrid(</span><br><span class="line">                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),</span><br><span class="line">                    delegate: SliverChildListDelegate(</span><br><span class="line">                        thirdWidget,</span><br><span class="line">                        thirdWidget,</span><br><span class="line">                        thirdWidget,</span><br><span class="line">                    )</span><br><span class="line">                ),</span><br><span class="line">            ]</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<div align="center"><br>  <img src="https://cdn-images-1.medium.com/max/1600/1*EV0ISPIhC8Yrf9nEwSJEMQ.gif"><br></div>
-
-<h3 id="下面介绍Slivers系列常见的控件及使用场景"><a href="#下面介绍Slivers系列常见的控件及使用场景" class="headerlink" title="下面介绍Slivers系列常见的控件及使用场景"></a>下面介绍Slivers系列常见的控件及使用场景</h3><h4 id="SliverAppBar"><a href="#SliverAppBar" class="headerlink" title="SliverAppBar"></a>SliverAppBar</h4><p>经常用于AppBar展开收起的场景，通过配置flexibleSpace和expandedHeight属性</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverAppBar(</span><br><span class="line">            actions: &lt;Widget&gt;[</span><br><span class="line">                _buildAction(),</span><br><span class="line">            ],</span><br><span class="line">            title: Text(&apos;SliverAppBar&apos;),</span><br><span class="line">            backgroundColor: Theme.of(context).accentColor,</span><br><span class="line">            expandedHeight: 200.0,</span><br><span class="line">            flexibleSpace: FlexibleSpaceBar(</span><br><span class="line">                background: Image.asset(&apos;images/food01.jpeg&apos;, fit: BoxFit.cover),</span><br><span class="line">            ),</span><br><span class="line">        ),</span><br><span class="line">        SliverFixedExtentList(</span><br><span class="line">            itemExtent: 120.0,</span><br><span class="line">            delegate: SliverChildListDelegate(</span><br><span class="line">                products.map((product) &#123;</span><br><span class="line">                return _buildItem(product);</span><br><span class="line">                &#125;).toList(),</span><br><span class="line">            ),</span><br><span class="line">        ),</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f1ef4beb9?imageslim"><br></div>
-
-<p>flexibleSpace是被展开和收起的组件，expandedHeight是其操控的高度；其他属性具体含义可以参考官方文档</p>
-<h4 id="SliverList"><a href="#SliverList" class="headerlink" title="SliverList"></a>SliverList</h4><p>SliverList只需要设置delegate属性就可以，可以滑动的列表，常常用于滑动组件嵌套的场景</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverList(</span><br><span class="line">            delegate: SliverChildBuilderDelegate(</span><br><span class="line">                (BuildContext context, int index) &#123;</span><br><span class="line">                    return _buildItem(context, products[index]);</span><br><span class="line">                &#125;,</span><br><span class="line">                childCount: 3,</span><br><span class="line">            ),</span><br><span class="line">        )</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>也可以通过SliverChildListDelegate来构建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverList(</span><br><span class="line">            delegate: SliverChildListDelegate([</span><br><span class="line">              _buildItem(),</span><br><span class="line">              _buildItem(),</span><br><span class="line">              _buildItem(),</span><br><span class="line">            ]),</span><br><span class="line">        )</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<font face="黑体" color="#f00" size="4">SliverChildListDelegate和SliverChildBuilderDelegate的区别：</font>
-
-<p>SliverChildListDelegate一般用来构item建数量明确的列表，会提前build好所有的子item，所以在效率上会有问题，适合item数量不多的情况。<br>SliverChildBuilderDelegate构建的列表理论上是可以无限长的。<br>两者的区别有些类似于ListView和ListView.builder()的区别。</p>
-<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f785cc80d26b?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"><br></div>
-
-<h4 id="SliverGrid"><a href="#SliverGrid" class="headerlink" title="SliverGrid"></a>SliverGrid</h4><p>SliverGrid有三个构造函数：SliverGrid.count()、SliverGrid.extent和SliverGrid()。</p>
-<ul>
-<li>SliverGrid.count()指定了一行展示多少个item，下面的例子表示一行展示4个：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliverGrid.count(children: scrollItems, crossAxisCount: 4)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>SliverGrid.extent可以指定item的最大宽度，然后让Flutter自己决定一行展示多少个item</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SliverGrid.extent(children: scrollItems, maxCrossAxisExtent: 90.0)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>SliverGrid()则是需要指定一个gridDelegate，它提供给了程序员一个自定义Delegate的入口，你可以自己决定每一个item怎么排列</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SliverGrid(</span><br><span class="line">  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(</span><br><span class="line">    crossAxisCount: 2</span><br><span class="line">  ),</span><br><span class="line">  delegate: SliverChildBuilderDelegate(</span><br><span class="line">    (BuildContext context, int index) &#123;</span><br><span class="line">      return _buildItem(products[index]);;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f785c4f198d3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"><br></div>
-
-<h4 id="SliverPersistentHeader"><a href="#SliverPersistentHeader" class="headerlink" title="SliverPersistentHeader"></a>SliverPersistentHeader</h4><p>SliverPersistentHeader顾名思义，就是给一个可滑动的视图添加一个头（实际上，在CustomScrollView的slivers列表中，header可以出现在视图的任意位置，不一定要是在顶部）。这个Header会随着滑动而展开/收起</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">SliverPersistentHeader(</span><br><span class="line">    delegate: _SliverAppBarDelegate(</span><br><span class="line">        minHeight: 60.0,</span><br><span class="line">        maxHeight: 180.0,</span><br><span class="line">        child: Container(),</span><br><span class="line">    ),</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<p>构建一个SliverPersistentHeader需要传入一个delegate，这个delegate是SliverPersistentHeaderDelegate类型的，而SliverPersistentHeaderDelegate是一个abstract类，我们不能直接new一个SliverPersistentHeaderDelegate出来，因此，我们需要自定义一个delegate来实现SliverPersistentHeaderDelegate类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate &#123;</span><br><span class="line">  _SliverAppBarDelegate(&#123;</span><br><span class="line">    @required this.minHeight,</span><br><span class="line">    @required this.maxHeight,</span><br><span class="line">    @required this.child,</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  final double minHeight;</span><br><span class="line">  final double maxHeight;</span><br><span class="line">  final Widget child;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  double get minExtent =&gt; minHeight;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  double get maxExtent =&gt; math.max(maxHeight, minHeight);</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(</span><br><span class="line">      BuildContext context, double shrinkOffset, bool overlapsContent) &#123;</span><br><span class="line">    return new SizedBox.expand(child: child);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) &#123;</span><br><span class="line">    return maxHeight != oldDelegate.maxHeight ||</span><br><span class="line">        minHeight != oldDelegate.minHeight ||</span><br><span class="line">        child != oldDelegate.child;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>写一个自定义SliverPersistentHeaderDelegate很简单，只需重写build()、get maxExtent、get minExtent和shouldRebuild()这四个方法，上面就是一个最简单的SliverPersistentHeaderDelegate的实现。其中，maxExtent表示header完全展开时的高度，minExtent表示header在收起时的最小高度。因此，对于我们上面的那个自定义Delegate，如果将minHeight和maxHeight的值设置为相同时，header就不会收缩了，这样的Header跟我们平常理解的Header更像。</p>
-<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f1f050152?imageslim"><br></div>
-
-<h4 id="SliverToBoxAdapter"><a href="#SliverToBoxAdapter" class="headerlink" title="SliverToBoxAdapter"></a>SliverToBoxAdapter</h4><p> SliverPersistentHeader一般来说都是会展开/收起的（除非minExtent和maxExtent值相同），那么如果想要在滚动视图中添加一个普通的控件，那么就可以使用SliverToBoxAdapter来将各种视图组合在一起，放在CustomListView中。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">CustomScrollView(</span><br><span class="line">    physics: ScrollPhysics(),</span><br><span class="line">    slivers: &lt;Widget&gt;[</span><br><span class="line">        SliverToBoxAdapter(</span><br><span class="line">            child: _buildHeader(),</span><br><span class="line">        ),</span><br><span class="line">        SliverGrid.count(</span><br><span class="line">            crossAxisCount: 3,</span><br><span class="line">            children: products.map((product) &#123;</span><br><span class="line">                return _buildItemGrid(product);</span><br><span class="line">            &#125;).toList(),</span><br><span class="line">        ),</span><br><span class="line">        SliverToBoxAdapter(</span><br><span class="line">            child: _buildSearch(),</span><br><span class="line">        ),</span><br><span class="line">        SliverFixedExtentList(</span><br><span class="line">            itemExtent: 100.0,</span><br><span class="line">            delegate: SliverChildListDelegate(</span><br><span class="line">                products.map((product) &#123;</span><br><span class="line">                return _buildItemList(product);</span><br><span class="line">                &#125;).toList(),</span><br><span class="line">            ),</span><br><span class="line">        ),</span><br><span class="line">        SliverToBoxAdapter(</span><br><span class="line">            child: _buildFooter(),</span><br><span class="line">        ),</span><br><span class="line">    ],</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<div align="center"><br>  <img src="https://user-gold-cdn.xitu.io/2018/10/23/1669f73f8a91a7e8?imageView2/0/w/1280/h/960/format/webp/ignore-error/1"><br></div>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/06/12/Flutter新的状态管理方案/" itemprop="url">
-                  Flutter新的状态管理方案
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-06-12T14:21:51+08:00" content="2019-06-12">
-              2019-06-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>在Google IO 2019大会上提出了新的状态管理方案Provider用来替代之前的状态管理方案Provide，针对不同类型对象提供了多种不同的Provider;Provider借助了InheritWidget，将共享状态放到顶层Widget。</p>
-</blockquote>
-<p><a href="https://mp.weixin.qq.com/s?__biz=MzUyMjg5NTI3NQ==&amp;mid=2247483784&amp;idx=1&amp;sn=aef9b82cb7aa41f0d9172b46e5853362&amp;chksm=f9c5ab4cceb2225a4aaa0fb9a643b553afc07802c30f4bf069d0c6f0b775d3ec6f6c488f9011&amp;mpshare=1&amp;scene=23&amp;srcid=#rd" target="_blank" rel="noopener">很细心的讲解文章</a></p>
-<ul>
-<li>借助了InheritWidget，允许将有效信息传递到组件树下的小组件</li>
-<li>提供DI</li>
-<li>创建和销毁实例</li>
-<li>结合Bloc等进行状态管理</li>
-</ul>
-<h4 id="Let’s-Code"><a href="#Let’s-Code" class="headerlink" title="Let’s Code"></a>Let’s Code</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const Provider.value(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    @required T value,</span><br><span class="line">    this.updateShouldNotify,</span><br><span class="line">    this.child</span><br><span class="line">&#125;) : dispose = null, super.value(key: key, value: value);</span><br></pre></td></tr></table></figure>
-<p>上面的源码value的类型为范型，并没有进行限制，所以可以绑定任意数据类型</p>
-<h5 id="如何绑定数据"><a href="#如何绑定数据" class="headerlink" title="如何绑定数据"></a>如何绑定数据</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        return MaterialApp(</span><br><span class="line">            title: &apos;demo&apos;,</span><br><span class="line">            home: Provider&lt;String&gt;.value(</span><br><span class="line">                value: &apos;demo&apos;,</span><br><span class="line">                child: Demo()</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Provider.of()在Provider窗口小部件对应的后代中BuildContext是必需的；获取BuildContext麻烦时Consumer()是很好的替代方式</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        return MaterialApp(</span><br><span class="line">            title: &apos;demo&apos;,</span><br><span class="line">            home: Provider&lt;String&gt;.value(</span><br><span class="line">                value: &apos;demo&apos;,</span><br><span class="line">                child: Consumer&lt;String&gt;(</span><br><span class="line">                    builder: (context, value, child) &#123;</span><br><span class="line">                        return Center(</span><br><span class="line">                            child: Text(value)</span><br><span class="line">                        )</span><br><span class="line">                    &#125;</span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="如何获取数据"><a href="#如何获取数据" class="headerlink" title="如何获取数据"></a>如何获取数据</h5><p>provider需要在绑定的子widget中获取数据，使用静态方法Provider.of(BuildContext context),此方法将从关联的widget树中查找<font face="黑体" color="#f00" size="4">最近的相同类型的数据</font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Class Demo extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        final value = Provider.of&lt;String&gt;(context);</span><br><span class="line">        return Center(</span><br><span class="line">            child: Text(value)</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>#####以上简述了Provider的数据绑定几获取的方法，下面在应用场景里实现Provider的作用，以官方的计数器的例子来举例</p>
-<p>首先创建一个Counter类，并封装他的增和减的方法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Counter with ChangeNotifier&#123;</span><br><span class="line">    int _counter;</span><br><span class="line">    Counter(this._counter);</span><br><span class="line">    getCouonter =&gt; _counter;</span><br><span class="line">    setCounter(int counter) =&gt; _counter = counter;</span><br><span class="line">    void increment() &#123;</span><br><span class="line">        _counter ++;</span><br><span class="line">        notifyListeners();</span><br><span class="line">    &#125;</span><br><span class="line">    void decrement() &#123;</span><br><span class="line">        _counter --;</span><br><span class="line">        notifyListeners();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>现在Counter类拥有了监听的功能，我们需要调用notifyListeners()去通知监听器数据变化，并更新UI</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        return MaterialApp(</span><br><span class="line">            title: &apos;demo&apos;,</span><br><span class="line">            home: ChangeNotifierProvider&lt;Counter&gt;(</span><br><span class="line">                builder: (_) =&gt; Counter(0),</span><br><span class="line">                child: HomePage()</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Class HomePage extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        final counter = Provider.of&lt;Counter&gt;(context);</span><br><span class="line">        return Scaffold(</span><br><span class="line">            appBar: AppBar(</span><br><span class="line">                title: Text(&apos;ChangeNotifierProvider demo&apos;)</span><br><span class="line">            ),</span><br><span class="line">            body: Center(</span><br><span class="line">                child: Text(counter.getCounter())</span><br><span class="line">            ),</span><br><span class="line">            floatingActionButton: Column(</span><br><span class="line">                children: &lt;Widget&gt;[</span><br><span class="line">                    FloatingActionButton(</span><br><span class="line">                        onPressed: counter.increment,</span><br><span class="line">                        child: Icon(Icons.add)</span><br><span class="line">                    ),</span><br><span class="line">                    FloatingActionButton(</span><br><span class="line">                        onPressed: counter.decrement,</span><br><span class="line">                        child: Icon(Icons.remove)</span><br><span class="line">                    ),</span><br><span class="line">                ]</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="Provider结合Bloc模式进行状态管理"><a href="#Provider结合Bloc模式进行状态管理" class="headerlink" title="Provider结合Bloc模式进行状态管理"></a>Provider结合Bloc模式进行状态管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">class CounterBloc &#123;</span><br><span class="line">    final _valueController = StreamController&lt;String&gt;();</span><br><span class="line">    Stream&lt;String&gt; get stream =&gt; _valueController.stream;</span><br><span class="line">    int _number = 0;</span><br><span class="line">    void increment() &#123;</span><br><span class="line">        _number++;</span><br><span class="line">        _valueController.sink.add(_number.toString());</span><br><span class="line">    &#125;</span><br><span class="line">    void dispose() &#123;</span><br><span class="line">        _valueController.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ProviderPage extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        return Provider&lt;CounterBloc&gt;(</span><br><span class="line">            builder: (_) =&gt; CounterBloc(),</span><br><span class="line">            dispose: (_, bloc) =&gt; bloc.dispose(),</span><br><span class="line">            child: Scaffold(</span><br><span class="line">                body: CounterText(),</span><br><span class="line">                floatingActionButton: _floatingButton(),</span><br><span class="line">            )</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Widget _floatingButton() &#123;</span><br><span class="line">        return Consumer&lt;CounterBloc&gt;(</span><br><span class="line">            builder: (context, value, child) &#123;</span><br><span class="line">                return FloatingActionButton(</span><br><span class="line">                    onPressed: value.increment,</span><br><span class="line">                    child: const Icon(Icons.add),</span><br><span class="line">                );</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class CounterText extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        final bloc = Provider.of&lt;CounterBloc&gt;(context);</span><br><span class="line">        return StreamBuilder&lt;String&gt;(</span><br><span class="line">            stream: bloc.stream,</span><br><span class="line">            builder: (context, snapshot) &#123;</span><br><span class="line">                return Center(</span><br><span class="line">                    child: Text(snapshot.data ?? &apos;0&apos;)</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="以上可以用Provder-value-实现，引入简单值传播"><a href="#以上可以用Provder-value-实现，引入简单值传播" class="headerlink" title="以上可以用Provder.value()实现，引入简单值传播"></a>以上可以用Provder.value()实现，引入简单值传播</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">class ProviderValuePage extends StatefulWidget &#123;</span><br><span class="line">  @override</span><br><span class="line">  ProviderValueState createState() =&gt; ProviderValueState();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class ProviderValueState extends State&lt;ProviderValuePage&gt; &#123;</span><br><span class="line">  final _bloc = CounterBloc();</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return Scaffold(</span><br><span class="line">      body: Provider&lt;CounterBloc&gt;.value(</span><br><span class="line">        value: _bloc,</span><br><span class="line">        child: CounterText(),</span><br><span class="line">      ),</span><br><span class="line">      floatingActionButton: FloatingActionButton(</span><br><span class="line">        onPressed: bloc.increment,</span><br><span class="line">        child: const Icon(Icons.add),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  void dispose() &#123;</span><br><span class="line">    _bloc.dispose();</span><br><span class="line">    super.dispose();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CounterText extends StatelessWidget &#123;</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    final bloc = Provider.of&lt;CounterBloc&gt;(context);</span><br><span class="line"></span><br><span class="line">    return StreamBuilder&lt;String&gt;(</span><br><span class="line">      stream: bloc.stream,</span><br><span class="line">      builder: (context, snapshot) &#123;</span><br><span class="line">        return Center(</span><br><span class="line">          child: Text(snapshot.data ?? &apos;0&apos;)</span><br><span class="line">        );</span><br><span class="line">      &#125;,</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>ChangeNotifierProvider与ChangeNotifierProvider.value()等提供商的唯一区别在于<font face="黑体" color="#f00" size="4">ChangeNotifierProvider.value()创建和销毁模型实例需要自行处理</font></p>
-<p>多提供商的场景</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Provider&lt;Foo&gt;.value(</span><br><span class="line">    value: foo,</span><br><span class="line">    child: Provider&lt;Bar&gt;.value(</span><br><span class="line">        value: bar,</span><br><span class="line">        child: Provider&lt;Baz&gt;.value(</span><br><span class="line">            value: baz,</span><br><span class="line">            child: someWidget</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>一层一层的嵌套导致代码可读性降低，所以产生了MultiProvider</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MultiProvider(</span><br><span class="line">    providers: [</span><br><span class="line">        Provider&lt;Foo&gt;.value(value: foo),</span><br><span class="line">        Provider&lt;Bar&gt;.value(value: bar),</span><br><span class="line">        Provider&lt;Baz&gt;.value(value: baz),</span><br><span class="line">    ],</span><br><span class="line">    child: someWidget</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<font face="黑体" color="#f00" size="4">注意的是需要指定不同的类型，如果是相同的类型，将保留最后一个Provider的值</font>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/06/12/flutter中可以携带参数的命名路由/" itemprop="url">
-                  flutter中可以携带参数的命名路由
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-06-12T11:22:17+08:00" content="2019-06-12">
-              2019-06-12
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="创建一个可以携带参数的flutter命名路由"><a href="#创建一个可以携带参数的flutter命名路由" class="headerlink" title="创建一个可以携带参数的flutter命名路由"></a>创建一个可以携带参数的flutter命名路由</h2><p>MaterialApp提供了一个属性<font face="黑体" color="#f00" size="4">onGenerateRoute</font>,需要一个返回<code>Route&lt;dynamic&gt;</code>,并接受<code>RouteSettings</code>参数的函数</p>
-<p>首先创建一个Router类，并且创建一个静态函数,settings包括路由的名称和参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Router &#123;</span><br><span class="line">    static Route&lt;dynamic&gt; generateRoute(RouteSettings settings) &#123;</span><br><span class="line">        switch(settings.name) &#123;</span><br><span class="line">            case &apos;/&apos;: return MaterialPageRoute(</span><br><span class="line">                builder: (_) =&gt; Home()</span><br><span class="line">            ),</span><br><span class="line">            case &apos;/feed&apos;: return MaterialPageRoute(</span><br><span class="line">                builder: (_) =&gt; Feed()</span><br><span class="line">            ),</span><br><span class="line">            default: return MaterialPageRoute(</span><br><span class="line">                builder: (_) =&gt; Scaffold(</span><br><span class="line">                    body: Center(</span><br><span class="line">                        child: Text(&apos;没有路由&apos;)</span><br><span class="line">                    )</span><br><span class="line">                )</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了避免我们的代码出现错误，我们将采用硬编码的方式定义路由名称，并放到全局可以访问的constant.dart文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const String homeRoute = &apos;/&apos;;</span><br><span class="line">const String feedRoute = &apos;/feed&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>switch case语句之后更改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case homeRoute: return MaterialPageRoute(</span><br><span class="line">    builder: (_) =&gt; Home()</span><br><span class="line">),</span><br><span class="line">case feedRoute: return MaterialPageRoute(</span><br><span class="line">    builder: (_) =&gt; Feed()</span><br><span class="line">),</span><br></pre></td></tr></table></figure></p>
-<p>之后，在定义MaterialApp应用程序时，generateRoute函数传递给onGenerateRoute,通过initialRoute配置起始视图<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">    @override</span><br><span class="line">    Widget build (BuildContext context) &#123;</span><br><span class="line">        return MaterialApp (</span><br><span class="line">            onGenerateRoute: Router.generateRoute,</span><br><span class="line">            initialRoute: homeRoute</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这时，当你需要导航时，只需要使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Navigator.pushNamed(context, feedRoute);</span><br></pre></td></tr></table></figure></p>
-<p>如果需要传递参数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Navigator.pushNamed(context, feedRoute, arguments: &apos;传递的参数&apos;);</span><br><span class="line">case feedRoute: </span><br><span class="line">    var data = settins.arguments as String;</span><br><span class="line">    return MaterialPageRoute(</span><br><span class="line">        builder: (_) =&gt; Feed(data)</span><br><span class="line">    ),</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/02/26/steam in dart/" itemprop="url">
-                  Dart Streams
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-02-26T15:02:52+08:00" content="2019-02-26">
-              2019-02-26
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="什么是Streams"><a href="#什么是Streams" class="headerlink" title="什么是Streams?"></a>什么是Streams?</h3><blockquote>
-<p>streams就好比传送带，将物品放到一侧，他将自动运送到另一侧。我们可以将数据对象放在传送带上，他会被传送带传输。如果传送带不是无限长的（它不是一个无限的流， 例如rxjs里的interval，如果不取消订阅，他会随着时间一直流动），那么传送带的物品终会掉落。</p>
-</blockquote>
-<p><img src="https://cdn-images-1.medium.com/max/1600/0*z_EhYGu-2XQ5AwST.gif" alt="avatar"></p>
-<blockquote>
-<p>为了避免传送带上的物品无辜掉落，我们可以做一些事情，使得物品在掉落之前实现某些价值。</p>
-</blockquote>
-<p><img src="https://cdn-images-1.medium.com/max/1600/0*2LOUvyESiTySjwwU.gif" alt="avatar"></p>
-<h3 id="Dart-Streams-和-Rx"><a href="#Dart-Streams-和-Rx" class="headerlink" title="Dart Streams 和 Rx"></a>Dart Streams 和 Rx</h3><ul>
-<li><p>Rx里面的可观察对象命名未Observable，它与Dart Streams里的Stream是同等的意义，所以在可以使用Stream的任何地方赋予Observable的含义</p>
-</li>
-<li><p>listen / subscribe, 进行序列订阅，同等意义</p>
-</li>
-<li><p>listen()返回一个StreamSubscription对象，调用cancel()释放订阅</p>
-</li>
-<li><p>StreamController / Subject, 发布值，相当于在传送带的左侧添加物品，同等意义</p>
-</li>
-</ul>
-<h3 id="使用StreamBuilder"><a href="#使用StreamBuilder" class="headerlink" title="使用StreamBuilder"></a>使用StreamBuilder</h3><p>不用使用initState()和setState(),flutter提供了一个方便的widget称之为StreamBuilder,它需要一个Stream和一个builder函数，只要Stream发出一个新值就会调用他,不再需要initState或dispose.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">body: Center(</span><br><span class="line">	child: Column(</span><br><span class="line">		mainAxisAligment: MainAxisAlignment.center,</span><br><span class="line">		children: &lt;Widget&gt;[</span><br><span class="line">			Text(&apos;demo&apos;),</span><br><span class="line">			StreamBuilder&lt;int&gt;(</span><br><span class="line">				initialData: 0,</span><br><span class="line">				stream: _stream,</span><br><span class="line">				builder: (context, snappShot) &#123;</span><br><span class="line">					String valueString = &apos;NoData&apos;;</span><br><span class="line">					if (snappShot != null &amp;&amp; snappShot.hasData) &#123;</span><br><span class="line">						valueString = snappShot.data.toString();</span><br><span class="line">					&#125;</span><br><span class="line">					return Text(</span><br><span class="line">						valueString,</span><br><span class="line">						style: Theme.of(context).textTheme.display1</span><br><span class="line">					)</span><br><span class="line">				&#125;</span><br><span class="line">			)</span><br><span class="line">		]</span><br><span class="line">	)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>相对于直接订阅，使用StreamBuilder有几个明显的区别：</p>
-<ul>
-<li>setState()在listen()时接受新值时会重建整页，而StreamBuilder只会重建他自己的widget</li>
-<li>snappShot包含从Stream接收的最新数据</li>
-<li>含有一个initialData,用于第一次构建，即屏幕的第一帧，解决StreamBuilder不能在第一帧期间接收值的问题,如果snappShot无效,则返回默认Widget，适用于某些业务场景</li>
-</ul>
-<h3 id="flutter中使用BLOC模式"><a href="#flutter中使用BLOC模式" class="headerlink" title="flutter中使用BLOC模式"></a>flutter中使用BLOC模式</h3><h4 id="什么是bloc模式？"><a href="#什么是bloc模式？" class="headerlink" title="什么是bloc模式？"></a>什么是bloc模式？</h4><p>bloc[Business Logic Component]翻译过来就是业务逻辑组件，把业务逻辑抽出来，数据和ui解耦，一处改动，多处更新</p>
-<blockquote>
-<p><img src="https://ask.qcloudimg.com/http-save/1203298/sb707akvgg.png?imageView2/2/w/1620" alt="avatar"></p>
-</blockquote>
-<blockquote>
-<p>上面描述的是组件的一些基本行为，【展示数据】，【发送事件】,flutter中实现Bloc的精髓就是stream，严格遵守了单一职责原则，代码解耦更好。</p>
-</blockquote>
-<p>UI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">class CounterPage extends StateLessWidget &#123;</span><br><span class="line">	@override</span><br><span class="line">	Widget build(BuildContext context) &#123;</span><br><span class="line">		final IncrementBloc bloc = BlocProvider.of&lt;IncrementBloc&gt;(context);</span><br><span class="line">		return Scaffod(</span><br><span class="line">			appBar: AppBar(</span><br><span class="line">				title: Text(&apos;block&apos;)</span><br><span class="line">			),</span><br><span class="line">			body: Center(</span><br><span class="line">				child: StreamBuilder&lt;int&gt;(</span><br><span class="line">					stream: bloc._counterStream,</span><br><span class="line">					initialData: 0,</span><br><span class="line">					builder: (BuildContext context, AsyncSnapShot&lt;int&gt; snapshot) &#123;</span><br><span class="line">						return Text(&apos;clicked $&#123;snapshot.data&#125; times&apos;)</span><br><span class="line">					&#125;</span><br><span class="line">				)</span><br><span class="line">			),</span><br><span class="line">			floatingActionButton: FloatingActionButton(</span><br><span class="line">				child: Icon(Icons.add),</span><br><span class="line">				onPressed: () &#123;</span><br><span class="line">					bloc._actionSink.add(null);  // 发送事件</span><br><span class="line">				&#125;</span><br><span class="line">			)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Bloc</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class IncrementBloc &#123;</span><br><span class="line">	int _counter;</span><br><span class="line">	StreamController&lt;int&gt; _counterController = StreamController&lt;int&gt;();</span><br><span class="line">	StreamSink&lt;int&gt; _counterSink =&gt; _counterController.sink;  		// 发送数据</span><br><span class="line">	Stream&lt;int&gt; _counterStream =&gt; _counterController.stream;   		// stream</span><br><span class="line"></span><br><span class="line">	StreamController _actionController = StreamController();</span><br><span class="line">	StreamSink _actionSink =&gt; _actionController.sink;</span><br><span class="line">	Stream _actionStream =&gt; _actionController.stream; </span><br><span class="line"></span><br><span class="line">	void IncrementBloc() &#123;</span><br><span class="line">		_counter = 0;</span><br><span class="line">		_actionStream.listen((data)&#123;</span><br><span class="line">			_counter = _counter + 1;</span><br><span class="line">			_counterSink.add(_counter);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2019/02/21/flutter/" itemprop="url">
-                  flutter 学习笔记与问题总结
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2019-02-21T10:26:33+08:00" content="2019-02-21">
-              2019-02-21
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Flutter框架结构"><a href="#Flutter框架结构" class="headerlink" title="Flutter框架结构"></a>Flutter框架结构</h4><p><img src="https://cdn.jsdelivr.net/gh/flutterchina/flutter-in-action@1.0/docs/imgs/framework.png" alt="avatar"></p>
-<ul>
-<li><p>底下两层（Foundation和Animation、Painting、Gestures被合并为一个dart UI层，它是Flutter引擎暴露的底层UI库，提供动画、手势及绘制能力。</p>
-</li>
-<li><p>Rendering层，这一层是一个抽象的布局层，它依赖于dart UI层，Rendering层会构建一个UI树，当UI树有变化时，会计算出有变化的部分，然后更新UI树，最终将UI树绘制到屏幕上，这个过程类似于React中的虚拟DOM。Rendering层可以说是Flutter UI框架最核心的部分，它除了确定每个UI元素的位置、大小之外还要进行坐标变换、绘制(调用底层dart:ui)。</p>
-</li>
-<li><p>Widgets层是Flutter提供的的一套基础组件库，在基础组件库之上，Flutter还提供了 Material 和Cupertino两种视觉风格的组件库。而我们Flutter开发的大多数场景，只是和这两层打交道。</p>
-</li>
-</ul>
-<h4 id="primarySwatch-和-primaryColor-的区别"><a href="#primarySwatch-和-primaryColor-的区别" class="headerlink" title="primarySwatch 和 primaryColor 的区别"></a>primarySwatch 和 primaryColor 的区别</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Widget build (BuildContext context) &#123;</span><br><span class="line">	return MaterialApp(</span><br><span class="line">		title: &apos;myApp&apos;,</span><br><span class="line">		theme: ThemeData(</span><br><span class="line">			primaryColor: Colors.white   // primarySwatch  </span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用primaryColor可以Colors.white,使用primarySwatch不可以设置白色和黑色，primarySwatch中的颜色是调用MaterialColor这种颜色类</p>
-<h4 id="listView"><a href="#listView" class="headerlink" title="listView"></a>listView</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Widget _buildSuggestions() &#123;</span><br><span class="line">	return ListView.builder(</span><br><span class="line">		padding: EdgeInsets.all(16.0),</span><br><span class="line">		itemCount: 100,</span><br><span class="line">		itemBuilder: (BuildContext context, i) &#123;   //itemBuilder callback </span><br><span class="line">			if (i.isOdd) &#123;</span><br><span class="line">				return Something();</span><br><span class="line">			&#125;</span><br><span class="line">			return Another()</span><br><span class="line">		&#125;</span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="异步编程"><a href="#异步编程" class="headerlink" title="异步编程"></a>异步编程</h4><p>与js一样，dart支持单线程执行，js中Promise对象表示异步操作的最终结果，dart中用Future对象来处理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_getIpAddress() &#123;</span><br><span class="line">	final url = &apos;http://www.google.com&apos;;</span><br><span class="line">	HttpRequest.reqeust(url).then((value) =&gt; &#123;</span><br><span class="line">		print(json.decode(value.responseText)[&apos;origin&apos;]);</span><br><span class="line">	&#125;).catchError((error) =&gt; print(error))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>async函数返回Future,await等待Future</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_getIpAddress() &#123;</span><br><span class="line">	final url = &apos;http://www.google.com&apos;;</span><br><span class="line">	var request = await HttpRequest.reqeust(url);</span><br><span class="line">	String ip = json.decode(request.responseText)[&apos;origin&apos;];</span><br><span class="line">	print(ip);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Contianer(</span><br><span class="line">	child: Center(</span><br><span class="line">		child: Container(</span><br><span class="line">			child: Text(&apos;demo&apos;),</span><br><span class="line">			decoration: BoxDecoration(    // color, borderRadius, boxShadow, shape 通过BoxDecoration装饰</span><br><span class="line">				color: Colors.red,</span><br><span class="line">				borderRadius: BorderRadius.all(</span><br><span class="line">					Radius.circular(8.0)</span><br><span class="line">				),</span><br><span class="line">				boxshadow: &lt;BoxShadow&gt;[</span><br><span class="line">					BoxShadow(</span><br><span class="line">						color: Color(0xcc000000),</span><br><span class="line">						offset: Offset(0.0, 2.0)</span><br><span class="line">					),</span><br><span class="line">					BoxShadow(</span><br><span class="line">						color: Color(0000000000),</span><br><span class="line">						offset: Offset(0.0, 2.0)</span><br><span class="line">					)</span><br><span class="line">				],</span><br><span class="line">				shape: BoxShape.circle  </span><br><span class="line">			),</span><br><span class="line">			padding: EdgesInsets.all(16.0),</span><br><span class="line">			width: 240.0</span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Positioned widget and Stack widget</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Container(</span><br><span class="line">	child: Stack(</span><br><span class="line">		children: [</span><br><span class="line">			Positioned(</span><br><span class="line">				child: Container(</span><br><span class="line">					child: Text(&apos;demo&apos;),</span><br><span class="line">					decoration: BoxDecoration(</span><br><span class="line">						color: Colors.red</span><br><span class="line">					)</span><br><span class="line">				),</span><br><span class="line">				left: 24.0,</span><br><span class="line">				top: 24.0</span><br><span class="line">			)</span><br><span class="line">		]</span><br><span class="line">	),</span><br><span class="line">	width: 320.0,</span><br><span class="line">	height: 320.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Transform widget and Scaling widget</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Container(</span><br><span class="line">	child: Transform(</span><br><span class="line">		child: Container(</span><br><span class="line">			child: Text(&apos;demo&apos;)</span><br><span class="line">		),</span><br><span class="line">		alignment: Alignment.center,</span><br><span class="line">		transform: Matrix4.identity()..rotateZ(15 * 3.1415926 / 180)  // rotate</span><br><span class="line">		transform: Matrix4.identity()..scale(1.5)   // scale</span><br><span class="line">	),</span><br><span class="line">	width: 320.0,</span><br><span class="line">	height: 320.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ellipsis</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Container(</span><br><span class="line">	child: Container(</span><br><span class="line">		child: Text(</span><br><span class="line">			child: Text(&apos;demo&apos;),</span><br><span class="line">			overflow: TextOverflow.ellipsis,</span><br><span class="line">			maxLines: 1</span><br><span class="line">		),</span><br><span class="line">	),</span><br><span class="line">	width: 320.0,</span><br><span class="line">	height: 320.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<h4 id="GestureDetector-处理手势"><a href="#GestureDetector-处理手势" class="headerlink" title="GestureDetector 处理手势"></a>GestureDetector 处理手势</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class MyButton extends StatelessWidget &#123;</span><br><span class="line">	@override</span><br><span class="line">	Widget build (BuildContext context) &#123;</span><br><span class="line">		return GestureDetector(     		// IconButton等使用GestureDetector提供onPressed回调</span><br><span class="line">			onTap: () &#123;   					// onLongPress...</span><br><span class="line">				print(&apos;tapped&apos;)</span><br><span class="line">			&#125;,</span><br><span class="line">			child: Container(</span><br><span class="line">				child: Text(&apos;demo&apos;)</span><br><span class="line">			)</span><br><span class="line">		)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="final-const-var-static-in-Dart"><a href="#final-const-var-static-in-Dart" class="headerlink" title="final const var static in Dart"></a>final const var static in Dart</h4><blockquote>
-<p>static: 表示一个成员属于类而不是对象，修饰成员</p>
-</blockquote>
-<blockquote>
-<p>final: 必须初始化，且值不可变，编译时不能确定值，修饰变量  //  final list = [1,2,3];  list[0] = 4;  =&gt; [4,2,3]</p>
-</blockquote>
-<blockquote>
-<p>const: 编译时可确定，并且不能修改    // var list = const [1,2,3];  list[0] = 4;  error</p>
-</blockquote>
-<h4 id="typedef-类型定义，通过用来检查函数类型"><a href="#typedef-类型定义，通过用来检查函数类型" class="headerlink" title="typedef 类型定义，通过用来检查函数类型"></a>typedef 类型定义，通过用来检查函数类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef int Compart(int a, int b);</span><br><span class="line">int sort(int a, int b) =&gt; a - b;</span><br><span class="line">main() &#123;</span><br><span class="line">	assert(sort is Compare);   // True</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/11/06/rxjs常用操作符及项目应用/" itemprop="url">
-                  rxjs常用操作符及项目应用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-11-06T17:20:07+08:00" content="2018-11-06">
-              2018-11-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。</p>
-<h4 id="RxJS所能解决的问题："><a href="#RxJS所能解决的问题：" class="headerlink" title="RxJS所能解决的问题："></a>RxJS所能解决的问题：</h4><p>时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些应用的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject；Http模块中Observable作为大部分API的交互对象使用。但是这只是官方推荐的外部扩展并不必须，也可以使用Promise,之后会介绍Observable和Promise的区别。</p>
-<h4 id="RxJS初探："><a href="#RxJS初探：" class="headerlink" title="RxJS初探："></a>RxJS初探：</h4><h5 id="首先尝试一个简单的小例子："><a href="#首先尝试一个简单的小例子：" class="headerlink" title="首先尝试一个简单的小例子："></a>首先尝试一个简单的小例子：</h5><ul>
-<li>存在一个数组，里面含有多种数据类型的元素</li>
-<li>找到其中的数字及字数组成的字符串</li>
-<li>每一个符合标准的元素乘以2</li>
-<li>累加</li>
-</ul>
-<p>需要同时满足以上四个要求，可以通过循环列表来筛选满足要求的元素在进一步操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const source = [1, 5, 9, 3, &apos;hi&apos;, &apos;tb&apos;, 456, &apos;11&apos;, &apos;yoyoyo&apos;];</span><br><span class="line">let total = 0;</span><br><span class="line">for (let i = 0; i &lt; source.length; i++) &#123;</span><br><span class="line">    const num = parseInt(source[i], 10);</span><br><span class="line">    if (!isNaN(num)) &#123;</span><br><span class="line">        total += num * 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果拥有函数式编程的经验，相信大家一定会通过es6的映射函数进行操作,接下来通过这个例子说明一下命令式编程和函数式编程的区别。</p>
-<blockquote>
-<p>声明式编程发轫于人工智能的研究，主要包括函数式编程（functional programming，简称FP）和逻辑式编程（logic programming，简称LP）;<br>如果想探究声明式编程与函数式编程的具体关系请访问：<a href="https://www.cnblogs.com/doit8791/p/8232821.html" target="_blank" rel="noopener">函数式与声明式的关系</a>，在此不是本篇的重点</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const source = [1, 5, 9, 3, &apos;hi&apos;, &apos;tb&apos;, 456, &apos;11&apos;, &apos;yoyoyo&apos;];</span><br><span class="line">let total = source  </span><br><span class="line">    .map(x =&gt; parseInt(x as any, 10))</span><br><span class="line">    .filter(x =&gt; !isNaN(x))</span><br><span class="line">    .map(x =&gt; x * 2)</span><br><span class="line">    .reduce((total, value) =&gt; total + value);</span><br></pre></td></tr></table></figure>
-<p>函数式编程中的函数这个术语不是指计算机中的函数，而是指数学中的函数，即自变量的映射。也就是说一个函数返回的值仅决定于函数参数的值，不依赖其他状态。命令式编程注重的是函数执行的细节，函数式编程注重的是函数执行的结果。<br>函数式编程对函数的使用有一些特殊要求：</p>
-<ul>
-<li>声明式函数</li>
-<li>纯函数</li>
-<li>数据不可变性</li>
-</ul>
-<p>声明式编程是人脑思维方式的抽象，即利用数理逻辑或既定规范对已知条件进行推理或运算。声明式的函数，让开发者只需要表达”想要做什么”，而不需要表达“怎么去做”。<br>纯函数指的是执行结果由输入参数决定，参数相同时结果相同，不受其他数据影响，并且不会带来副作用的函数。副作用指的是函数做了和本身运算返回值没有关系的事情，如修改外部变量或传入的参数对象，甚至是执行console.log都算是副作用。前端中常见的副作用有发送http请求、操作DOM、调用alert或者confirm函数等。<br>数据不可变就是指这个数据一旦产生，它的值就永远不会变。JavaScript中字符串类型和数字类型就是不可改变的，而对象基本都是可变的，可能会带来各种副作用。</p>
-<h4 id="函数式编程带来的好处主要可以总结为以下两点："><a href="#函数式编程带来的好处主要可以总结为以下两点：" class="headerlink" title="函数式编程带来的好处主要可以总结为以下两点："></a>函数式编程带来的好处主要可以总结为以下两点：</h4><ul>
-<li>相比命令式编程，少了非常多的状态变量的声明与维护</li>
-<li>代码更为简洁，可读性更强</li>
-</ul>
-<h3 id="进入RxJS"><a href="#进入RxJS" class="headerlink" title="进入RxJS"></a>进入RxJS</h3><p>流（Stream）无非是随<strong>时间</strong>流逝的一系列事件。流可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。Stream在其时间轴中发出三样东西，一个值，一个错误和完整的信号。我们必须捕获此异步事件并相应地执行函数。</p>
-<p><img src="https://s1.ax1x.com/2018/09/20/im7Ry9.gif" alt=""></p>
-<p>想要抓取事件，一般可以用 callback 或是 Promise 来达成，promise和observable都是为解决异步问题而设计的（避免“回调地狱”）, 然而 Promise 主要設设计一次性的事件与单一回傳=传值，而RxJS除了包含Promise外，提供了observable可观察对象，以惰性的方式推送多值的集合</p>
-<h4 id="Pull拉取-VS-Push推送"><a href="#Pull拉取-VS-Push推送" class="headerlink" title="Pull拉取 VS Push推送"></a>Pull拉取 VS Push推送</h4><p>拉和推是数据生产者和数据的消费者两种不同的交流协议;什么是”pull”？在”pull”体系中，数据的消费者决定何时从数据生产者那里获取数据，而生产者自身并不会意识到什么时候数据将会被发送给消费者。每一个JS函数都是一个“pull”体系.<br>什么是”push”？在push体系中，数据的生产者决定何时发送数据给消费者，消费者不会在接收数据之前意识到它将要接收这个数据。<br>Promise(承诺))是当今JS中最常见的Push体系，一个Promise(数据的生产者)发送一个resolved value(成功状态的值)来注册一个回调(数据消费者)，但是不同于函数的地方的是：Promise决定着何时数据才被推送至这个回调函数。<br>RxJS引入了Observables(可观察对象)，一个全新的”推体系”。一个可观察对象是一个产生多值的生产者，并”推送给”Observer(观察者)。</p>
-<h4 id="单值与多值"><a href="#单值与多值" class="headerlink" title="单值与多值"></a>单值与多值</h4><p>如果您通过Promise提出请求并等待回复。您可以确定对同一请求不会有多个响应。Observables允许您在调用observer.complete()函数之前解析多个值</p>
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*ThbKddqq1qC4a1pDDjHNoQ.jpeg" alt=""></p>
-<h4 id="总结RxJS-VS-Promise-——-三个最重要的区别"><a href="#总结RxJS-VS-Promise-——-三个最重要的区别" class="headerlink" title="总结RxJS VS Promise —— 三个最重要的区别"></a>总结RxJS VS Promise —— 三个最重要的区别</h4><table>
-<thead>
-<tr>
-<th>区别</th>
-<th style="text-align:center">Rxjs</th>
-<th style="text-align:right">Promise</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>动作是否可以取消？</td>
-<td style="text-align:center">是</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>是否可以发射多个值？</td>
-<td style="text-align:center">是</td>
-<td style="text-align:right">否</td>
-</tr>
-<tr>
-<td>各种工具函数？</td>
-<td style="text-align:center">是</td>
-<td style="text-align:right">否</td>
-</tr>
-</tbody>
-</table>
-<h4 id="开始了解RxJS中的几个重要成员"><a href="#开始了解RxJS中的几个重要成员" class="headerlink" title="开始了解RxJS中的几个重要成员"></a>开始了解RxJS中的几个重要成员</h4><ul>
-<li>Observable(可观察对象)：表示一个可调用的未来值或者时间序列上的事件集合</li>
-<li>Observer(观察者)：一个回调函数集合,它知道怎样去监听被Observable发送的值</li>
-<li>Subscription(订阅)： 表示一个可观察对象的执行，主要用于取消执行</li>
-<li>Subject(主题)：等同于一个事件驱动器，是将一个值或者事件广播到多个观察者的唯一途径</li>
-<li>Operators(操作符)： 纯函数，使得以函数编程的方式处理集合</li>
-</ul>
-<h4 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h4><p><img src="https://cdn-images-1.medium.com/max/1600/1*lq9uxKQpQZllnc-vNgzITg.jpeg" alt=""></p>
-<p>Observable是一个具有一些特殊的特征的函数。它接收一个“观察者”（一个带有“next”，“error”和“complete”方法的对象）</p>
-<ul>
-<li>Observable支持在应用程序中的发布者和订阅者之间传递消息。</li>
-<li>Observable很懒惰。它不会开始生成数据，直到您订阅它为止。</li>
-<li>subscribe()返回一个订阅，消费者可以在unsubscribe()取消订阅并销毁生产者。</li>
-<li>RxJS提供了许多可用于创建Observable的函数。这些函数可以简化创建可观察对象的过程</li>
-</ul>
-<h4 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h4><p>什么是Observer？Observer是Observable传递过来的数据的消费者。Observers由一个带有“next”，“error”和“complete”方法的对象构成，next、error、和 complete用来传递数据。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var observer = &#123;</span><br><span class="line">    next: x =&gt; console.log(&apos;Observable got a next value: &apos; + x),</span><br><span class="line">    error: err =&gt; console.log(&apos;Observable got and error: &apos; + err),</span><br><span class="line">    complete: () =&gt; console.log(&apos;Observable got a complete notification&apos;)</span><br><span class="line">&#125;;</span><br><span class="line">observable.subscribe(observer)</span><br></pre></td></tr></table></figure>
-<h4 id="Subscription"><a href="#Subscription" class="headerlink" title="Subscription"></a>Subscription</h4><p>一个Subscription代表了一个一次性的资源，通常表示的是一个Observable执行。一个Subscription有一个重要的方法，unsubscribe，它不需要参数，仅仅是取消订阅释放资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const observable = interval(1000);</span><br><span class="line">const subscription = observable.subscribe(x =&gt; console.log(x));</span><br><span class="line">subscription.unsubscribe();</span><br></pre></td></tr></table></figure></p>
-<p>Subscriptions也可以放在一起，这样会导致使用一个unsubscribe()将取消多个Observable执行，通过add、remove方法维护关联的Subscription</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const observable1 = interval(400);</span><br><span class="line">const observable2 = interval(300);</span><br><span class="line">const subscription = observable1.subscribe(x =&gt; console.log(&apos;first: &apos; + x));</span><br><span class="line">const childSubscription = observable2.subscribe(x =&gt; console.log(&apos;second: &apos; + x));</span><br><span class="line">subscription.add(childSubscription);</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    subscription.unsubscribe();</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
-<h4 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h4><p><img src="https://cdn-images-1.medium.com/max/1600/1*pZ4lHOGYFBZUPHQJVpGrzg.jpeg" alt=""></p>
-<ul>
-<li><p>Subject是一种特殊类型的Observable，允许将值多播到许多观察者。虽然普通的Observable是单播的（每个订阅的Observer都拥有Observable的独立执行），但Subject是多播的</p>
-</li>
-<li><p><font color="#f00" size="2">每一个Subject都是一个observable可观察对象，</font>给定一个Subject后，你可以订阅它，提供的观察者将会正常的开始接收值。从观察者的角度来看，它不能判断一个可观察对象的执行时来自于单播的Observable还是来自于一个Subject.<br>在Subject的内部，subscribe并不调用一个新的发送值得执行。它仅仅在观察者注册表中注册给定的观察者，类似addEventListener的工作方式。</p>
-</li>
-<li><p><font color="#f00" size="2">每一个Subject都是一个Observer观察者对象。</font>它是一个拥有next()/error()/complete()方法的对象。要想Subject提供一个新的值，只需调用next()，它将会被多播至用来监听Subject的观察者。</p>
-</li>
-</ul>
-<blockquote>
-<p>Subject就是一个可观察对象，只不过可以被多播至多个观察者。同时Subject也类似于EventEmitter:维护者着众多事件监听器的注册表。</p>
-</blockquote>
-<h4 id="BehaviorSubject"><a href="#BehaviorSubject" class="headerlink" title="BehaviorSubject"></a>BehaviorSubject</h4><p>Subjects的一个变体是BehaviorSubject,其有”当前值”的概念。它储存着要发射给消费者的最新的值。无论何时一个新的观察者订阅它，都会立即接受到这个来自BehaviorSubject的”当前值”</p>
-<blockquote>
-<p>BehaviorSubject对于表示”随时间的值”是很有用的。举个例子，人的生日的事件流是一个Subject,然而人的年龄的流是一个BehaviorSubject。</p>
-</blockquote>
-<h4 id="ReplaySubject"><a href="#ReplaySubject" class="headerlink" title="ReplaySubject"></a>ReplaySubject</h4><p>一个ReplaySubject类似于一个BehaviorSubject，因为它可以发送一个过去的值(old values)给一个新的订阅者，但是它也可以记录可观察对象的一部分执行。</p>
-<blockquote>
-<p>一个ReplaySubject 从一个可观察对象的执行中记录多个值，并且可以重新发送给新的订阅者。</p>
-</blockquote>
-<h4 id="AsyncSubject"><a href="#AsyncSubject" class="headerlink" title="AsyncSubject"></a>AsyncSubject</h4><p>AsyncSubject是另一个变体，它只发送给观察者可观察对象执行的最新值，并且仅在执行结束时。AsyncSubject类似于last()操作符,因为它为了发送单一值而等待complete通知。</p>
-<h4 id="常用的操作符"><a href="#常用的操作符" class="headerlink" title="常用的操作符"></a>常用的操作符</h4><p>每一个操作符都会产生一个新的Observable，不会对上游的Observable做任何修改，这完全符合函数式编程“数据不可变”的要求。pipe方法就是数据管道，会对数据流进行处理，可以添加操作符作为参数。</p>
-<p><strong>interval</strong> 创建一个无限长度的周期性序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interval(1000)  // 输出: 0,1,2...</span><br></pre></td></tr></table></figure></p>
-<p><strong>timer</strong> 指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timer(0,1000) // 输出:0,1,2...</span><br></pre></td></tr></table></figure></p>
-<p><strong>from</strong> 可以将已有的数据转化为Observable,参数为iterable数据集对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from([1,2,3,4])   // 输出:1,2,3,4</span><br></pre></td></tr></table></figure></p>
-<p><strong>of</strong> 不在同一个数据集中的多个来源的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">of([1,2,3])    //    [1,2,3]</span><br><span class="line">from([1,2,3])  //    1,2,3</span><br></pre></td></tr></table></figure></p>
-<p><strong>fromEvent</strong> 将事件流转化为Observable,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const el = document.getElementById(&quot;btn&quot;); </span><br><span class="line">fromEvent(el,&quot;click&quot;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>delay</strong> 推迟   参数为数字或Date对象</p>
-<p><strong>startWith</strong> 可以在源序列之前添加额外的元素</p>
-<p><strong>map</strong> 对源序列进行变换，并返回新的序列(改变了源)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,3); // 输出： 1 2 3</span><br><span class="line">const target = source.map(x =&gt; x * 2);   //输出： 2 4 6</span><br></pre></td></tr></table></figure>
-<p>concat<strong>有序</strong>拼接 ， merge<strong>无序</strong>拼接</p>
-<p><img src="https://github.com/vernvn/hexoBlog/blob/master/decImg/concat.jpg?raw=true" alt=""></p>
-<p><img src="https://github.com/vernvn/hexoBlog/blob/master/decImg/merge.jpg?raw=true" alt=""></p>
-<p><strong>mergeMap</strong> 平坦化映射:首先将一个序列的各元素映射为序列，然后将各序列融合，参数是一个映射函数，返回值为序列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source = fromEvent(document, &apos;click&apos;);</span><br><span class="line">    const target = source.pipe(</span><br><span class="line">    mapTo(1),</span><br><span class="line">    mergeMap(() =&gt; interval(1000).pipe(take(3)))</span><br><span class="line">    ).subscribe(res =&gt; console.log(res));   //输出： 0 1 2 0 ...</span><br></pre></td></tr></table></figure>
-<p><strong>switchMap</strong>  与mergeMap的区别在于将最新的序列中的元素输出</p>
-<p><strong>concatMap</strong>  将源序列各元素映射为序列，然后按顺序拼接 (与mergeMap的区别所在)</p>
-<p><strong>filter</strong> 筛选源序列中满足条件的元素，并返回新的序列</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,3,4,5); //序列： 1 2 3 4 5</span><br><span class="line">const target = source.filter(x =&gt; x &lt; 4)  //序列： 1 2 3</span><br></pre></td></tr></table></figure>
-<p><strong>take</strong> 截取序列头部元素数量输出</p>
-<p><strong>distinct</strong> 去重,并返回一个新序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,2,3,4,2,1); //序列： 1 2 2 3 4 2 1</span><br><span class="line">const target = source.distinct(); //序列：1 2 3 4</span><br></pre></td></tr></table></figure></p>
-<p><strong>distinctUntilChanged</strong> 相邻元素去重,并返回一个新序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,2,3,4,2,1); //序列： 1 2 2 3 4 2 1</span><br><span class="line">const target = source.distinctUntilChanged(); //序列：1 2 3 4 2 1</span><br></pre></td></tr></table></figure></p>
-<p><strong>debounce</strong>  去抖动,一段时间内只取最新数据作为一次发射数据，其他数据取消发射</p>
-<p><strong>throttle</strong> (和debounce唯一区别是debounce取一段时间内最新的，而throttle忽略这段时间后，发现新值才发送, 通俗讲，都设定一个时间周期，持续触发事件，throttle为每到时间周期便会触发一次，bebounce为触发周期小于设定时间周期不予事件触发）</p>
-<p><strong>zip</strong> 支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source1 = of(1, 2, 3);</span><br><span class="line">const source2 = of(4, 5, 6);</span><br><span class="line">const target = zip(source1, source2).subscribe(([val1, val2]) =&gt; &#123;      // 序列： 1-4  2-5  3-6</span><br><span class="line">    console.log(val1 + &apos;-&apos; + val2)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>forkJoin</strong>  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素,一个常见用例是在页面加载时你希望发起多个请求，并在所有请求都响应后再采取行动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source1 = of(1, 2, 3);</span><br><span class="line">const source2 = of(4, 5, 6);</span><br><span class="line">const target = forkJoin(source1, source2).subscribe(([val1, val2]) =&gt; &#123;   // 序列： 3-6</span><br><span class="line">    console.log(val1 + &apos;-&apos; + val2)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>combineLatest</strong> 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素</p>
-<pre><code>const setHtml = id =&gt; val =&gt; document.getElementById(id).innerHTML = val;
-const addOneClick$ = id =&gt; fromEvent(document.getElementById(id), &apos;click&apos;)
-    .pipe(
-        mapTo(1),
-        startWith(0),
-        scan((acc, curr) =&gt; acc + curr, 0),
-        tap(setHtml(`${id}Total`))
-    );
-    const combineTotal$ = combineLatest(
-        addOneClick$(&apos;red&apos;),
-        addOneClick$(&apos;black&apos;)
-    ).pipe(
-        map(([val1, val2]) =&gt; val1 + val2)
-    )
-    .subscribe(setHtml(&apos;total&apos;));
-</code></pre><p>map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射， <font color="#f00" size="2">返回一个包含映射结果的Observable对象</font> 而mergeMap是把自身对象里的数值进行映射并转换成一个新的Observable对象.<font color="#f00" size="2">返回一个内部元素为映射的Observable对象的Observable对象</font></p>
-<h4 id="marble-diagrams"><a href="#marble-diagrams" class="headerlink" title="marble diagrams"></a>marble diagrams</h4><p>为了解释operators是如何工作的，光是文本解释是不够的。许多operators和时间有关，它们可能会延迟执行，例如，throttle等。图标往往能够比文字更多表达清楚。Marble Diagrams能够可视化的表现出operators是如何工作的，包括输入的Observable(s)，operator和它的参数，以及输出的Observable.  <a href="http://rxmarbles.com/" target="_blank" rel="noopener">Marble diagrams</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/03/01/git新的指令/" itemprop="url">
-                  git新的指令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-03-01T14:22:58+08:00" content="2018-03-01">
-              2018-03-01
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="使用Git管理项目总结"><a href="#使用Git管理项目总结" class="headerlink" title="使用Git管理项目总结"></a>使用Git管理项目总结</h2><h4 id="导语："><a href="#导语：" class="headerlink" title="导语："></a>导语：</h4><blockquote>
-<p>使用git已经一段时间了，总结一下我的理解关于使用git进行团队协作开发的流程。首先master分支作为主分支应该承担版本发布的责任。开发任务应该在develop分支上。不论当前分支是从哪个分支分离开来，都需要合并到那个分支上。根据需求的不同以及开发人员的指派，应该创建一系列feature-<em>分支，一旦开发完毕后，进行代码的review，确认无误后合并分支到develop分支上，之后删除相应的feature-</em>分支。在进行版本的发布前，需要从develop分支分离并创建对应的预发布分支，进行当前版本的测试，完成后，需要合并进develop分支和master分支，之后切换分支到master分支，生成版本节点标签并删除对应预发布分支，进行版本的发布。如果遇到bug问题，需要从master分支分离出修复bug分支，修复完成后合并进develop和master分支，之后切换分支到master分支，生成节点标签并删除对应bug分支。</p>
-</blockquote>
-<h3 id="一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。"><a href="#一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。" class="headerlink" title="一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。"></a>一般的git命令已经用的很多了，今天记录几个很重要但是我自己在日常工作中很少使用的几个命令。</h3><h4 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h4><p>正在feature分支开发，master分支报了一个bug错误，此时需要即时修复bug,但是开发还没有完成，此时提交不太友好。Git提供的stash功能正好适用这个场景。可以把当前工作储存起来，处理完事情后继续工作。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash    // order code</span><br><span class="line">Saved working directory and index state WIP on feature-**: 4966d2d bingo</span><br></pre></td></tr></table></figure>
-<p>此时git status查看工作区是干净的。此时可以创建临时分支处理bug。处理完bug后切换回feature-分支继续开发。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git stash list // order code</span><br><span class="line">stash@&#123;0&#125;: WIP on feature-**: 4966d2d bingo</span><br></pre></td></tr></table></figure>
-<p>工作现场存在，现在需要恢复现场。两个办法：</p>
-<ul>
-<li><p>git stash apply &amp;&amp; git stash drop  // 前者恢复现场不删除stash内容，后者为补充删除stash内容</p>
-</li>
-<li><p>git stash pop  // 恢复现场同时删除stash内容</p>
-</li>
-</ul>
-<p>如果多次stash的情况下，可以git stash list查看，然后恢复指定的stash</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash apply stash@&#123;0&#125;  // 括号内为指定stash内容</span><br></pre></td></tr></table></figure>
-<h4 id="–no-ff"><a href="#–no-ff" class="headerlink" title="–no-ff"></a>–no-ff</h4><p>这个参数的意思是保留原分支记录，默认情况下，执行fast-forward merge,直接将master分支指向develop分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge --no-ff develop // 把develop合并进master分支</span><br></pre></td></tr></table></figure>
-<p><img src="http://i.imgur.com/Kt1rngH.png" alt="fast-forward"></p>
-<p><img src="http://i.imgur.com/rDt0UhJ.png" alt="--no-ff"></p>
-<h4 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h4><p>比较两次修改的差异</p>
-<h3 id="工作区-VS-暂存区"><a href="#工作区-VS-暂存区" class="headerlink" title="工作区 VS 暂存区"></a>工作区 VS 暂存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;filename&gt;  </span><br><span class="line"></span><br><span class="line">$ git diff &lt;branch&gt; &lt;filename&gt; // 和另一分支的区别</span><br></pre></td></tr></table></figure>
-<h3 id="暂存区-VS-Git仓库"><a href="#暂存区-VS-Git仓库" class="headerlink" title="暂存区 VS Git仓库"></a>暂存区 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git diff --cached &lt;filename&gt;  </span><br><span class="line"></span><br><span class="line">$ git diff --cached &lt;commit&gt; &lt;filename&gt; // 和指定commit的区别</span><br></pre></td></tr></table></figure>
-<h3 id="工作目录-VS-Git仓库"><a href="#工作目录-VS-Git仓库" class="headerlink" title="工作目录 VS Git仓库"></a>工作目录 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;commit&gt; &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="Git仓库-VS-Git仓库"><a href="#Git仓库-VS-Git仓库" class="headerlink" title="Git仓库 VS Git仓库"></a>Git仓库 VS Git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff &lt;commit&gt; &lt;commit&gt;  // git仓库任意两次commit的差别</span><br></pre></td></tr></table></figure>
-<h2 id="扩展："><a href="#扩展：" class="headerlink" title="扩展："></a>扩展：</h2><p>以上命令可以不指定<filename>,则对应全部文件操作<br>以上命令涉及git仓库对比的，均可指定commit版本</filename></p>
-<ul>
-<li><p>HEAD 最近一次commit</p>
-</li>
-<li><p>HEAD^ 上次提交</p>
-</li>
-<li><p>HEAD～100 上100次提交</p>
-</li>
-<li><p>每次提交产生的哈希值</p>
-</li>
-</ul>
-<h4 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h4><h3 id="将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录"><a href="#将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录" class="headerlink" title="将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录"></a>将某个分支上的所有提交记录移植到另一个分支上，清除不必要的提交记录</h3><h3 id="永远不要rebase一个已经分享的分支"><a href="#永远不要rebase一个已经分享的分支" class="headerlink" title="永远不要rebase一个已经分享的分支"></a>永远不要rebase一个已经分享的分支</h3><p>一图以意之</p>
-<p><img src="https://sfault-image.b0.upaiyun.com/206/854/2068544494-5783bdd025d80_articlex" alt="0"></p>
-<h3 id="以下是一个例子讲解rebase的作用"><a href="#以下是一个例子讲解rebase的作用" class="headerlink" title="以下是一个例子讲解rebase的作用"></a>以下是一个例子讲解rebase的作用</h3><p><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup2_8_1_1.png" alt="1"></p>
-<p>切换到issue3分支后，对master执行rebase,解决冲突</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout issue3</span><br><span class="line">$ git rebase master</span><br></pre></td></tr></table></figure>
-<p>冲突解决后不需要commit命令进行提交，而是执行rebase命令的continue选项或着abort选项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git rebase --continue  /  --abort</span><br></pre></td></tr></table></figure>
-<p><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup2_8_1.png" alt="2"></p>
-<p>master分支的issue3分支可以fast-forward了。切换到master分支执行合并</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge issue3</span><br></pre></td></tr></table></figure>
-<p>rebase的内容与merge的效果是一样的，但是历史记录会简洁</p>
-<p><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup2_8_2.png" alt="3"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/02/08/ng2-translate/" itemprop="url">
-                  ng2-translate
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-02-08T15:56:40+08:00" content="2018-02-08">
-              2018-02-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="i18n国际化，演示angular控件ng2-translate"><a href="#i18n国际化，演示angular控件ng2-translate" class="headerlink" title="i18n国际化，演示angular控件ng2-translate"></a>i18n国际化，演示angular控件ng2-translate</h2><p>app.module</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; TranslateModule, TranslateLoader, TranslateStaticLoader &#125; from &apos;ng2-translate&apos;;</span><br><span class="line">//..</span><br><span class="line">export function createTranslateStaticLoader(http: Http) &#123;</span><br><span class="line">    return new TranslateStaticLoader(http, &apos;./assets/i18n&apos;, &apos;.json&apos;);   // 发送请求，拿到i18n文件夹下的json后缀文件</span><br><span class="line">&#125;</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    imports: [</span><br><span class="line">        TranslateModule.forRoot(&#123;</span><br><span class="line">            provide: TranslateLoader,</span><br><span class="line">            useFactory: createTranslateStaticLoader,</span><br><span class="line">            deps: [Http]</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>app.component</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; TranslateService &#125; from &apos;ng2-translate&apos;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector: &apos;app-root&apos;</span><br><span class="line">&#125;)</span><br><span class="line">export class AppComponent &#123;</span><br><span class="line">    constructor(</span><br><span class="line">        private translate: TranslateService</span><br><span class="line">    ) &#123;&#125;</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        this.translate.addLangs([&apos;zh&apos;, &apos;en&apos;]);</span><br><span class="line">        this.translate.setDefaultLang(&apos;zh&apos;);</span><br><span class="line">        const browserLang = this.translate.getBrowserLang();</span><br><span class="line">        this.translate.use(browserLang.match(/zh|en/) ? browserLang : &apos;zh&apos; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>模版使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123; word | trnaslate &#125;&#125;&lt;p&gt;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/02/08/NgZone/" itemprop="url">
-                  NgZone
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-02-08T10:22:09+08:00" content="2018-02-08">
-              2018-02-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p></p><h4 align="center">利用Angular本身ChangeDetectionStrategyAPI改变检查策略脱离变化检测器，即减少不必要的检测来提高应用的性能<p></p>
-<h4>
-
-<h3 id="zone是什么"><a href="#zone是什么" class="headerlink" title="zone是什么"></a>zone是什么</h3><p>对浏览器的异步api做了封装，并对外发出通知何时开始何时结束，angular在得到异步事件结束的通知后，执行变化检查。</p>
-<h3 id="zone性能优化的重点在哪"><a href="#zone性能优化的重点在哪" class="headerlink" title="zone性能优化的重点在哪"></a>zone性能优化的重点在哪</h3><p>精确的控制哪些异步事件是应该在angular的zone以内运行的，哪些是应该在angular的zone之外运行的。显然在angular的zone之外运行的事件是不会进行变化检测的，减少不必要的变化检测则实现了性能上的优化</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; NgZone &#125; from &apos;@angular/core&apos;;</span><br><span class="line">constructor(private zone: NgZone) &#123;&#125;</span><br><span class="line">mouseDown(event) &#123;</span><br><span class="line">    this.zone.runOutsideAngular(() =&gt; &#123;</span><br><span class="line">        window.document.addEventListener(&apos;mouseover&apos;, this.mouseMove.bind(this));  // 此处应该尽量避免直接操纵dom,应该利用底层封装api(renderer, renderer2)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>NgZone可以让代码继续回到zone里运行，会再次触发anuglar的变化检测，调用NgZone.run();</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mouseUp(event) &#123;</span><br><span class="line">    this.zone.run(() =&gt; &#123;</span><br><span class="line">        .....</span><br><span class="line">    &#125;)</span><br><span class="line">    window.docuemnt.removeEventListener(&apos;mousemove&apos;, this.mouseMove);  // 移除mousemove绑定的回调</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>zone.js为javascript提供执行上下文，可以在异步任务之间进行持久性传递。采用了猴子补丁将javascript中的异步任务包裹了一层。使得异步任务运行在zone的上下文中。每一个异步任务都被当作一个task,并在task基础上提供钩子函数。</p>
-<ul>
-<li><p>onZoneCreated: 产生一个新的zone对象时的钩子函数，zone.fork也会产生一个继承基类zone的新zone,形成一个独立的zone上下文</p>
-</li>
-<li><p>beforeTask: zone Task 执行前的钩子函数</p>
-</li>
-<li><p>afterTask</p>
-</li>
-<li><p>onError: zone运行Task时候的异常钩子函数</p>
-</li>
-</ul>
-<p>并且对大多数异步事件进行了包裹封装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">const log = (phase) =&gt; &#123;</span><br><span class="line">    return () =&gt; &#123;</span><br><span class="line">        console.log(&apos;i am in zone.js&apos; + phase + &apos;!&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">zone.fork(&#123;</span><br><span class="line">    onZoneCreated: log(&apos;onZoneCreated&apos;),</span><br><span class="line">    beforeTask: log(&apos;beforeTask&apos;),</span><br><span class="line">    afterTask: log(&apos;afterTask&apos;)</span><br><span class="line">&#125;).run(() =&gt; &#123;</span><br><span class="line">    const methodLog = (func) =&gt; &#123;</span><br><span class="line">        return () =&gt; &#123;</span><br><span class="line">            console.log(&apos;i am from&apos; + func + &apos;function&apos;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    foo = methodLog(&apos;foo&apos;),</span><br><span class="line">    bar = methodLog(&apos;bar&apos;),</span><br><span class="line">    baz = () =&gt; &#123;</span><br><span class="line">        setTimeout( methodLog(&apos;baz in setTimeout&apos;), 0)</span><br><span class="line">    &#125;;</span><br><span class="line">    foo(); </span><br><span class="line">    baz();</span><br><span class="line">    bar();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输出结果：</span><br><span class="line">i am in zone.js beforeTask;</span><br><span class="line">i am from foo function;</span><br><span class="line">i am from bar function;</span><br><span class="line">i am in zone.js afterTask;</span><br><span class="line"></span><br><span class="line">i am in zone.js onZoneCreated;</span><br><span class="line">i am in zone.js beforeTask;</span><br><span class="line">i am from baz in setTimeout function;</span><br><span class="line">i am in zone.js afterTask;</span><br></pre></td></tr></table></figure>
-<p>上述例子中将run方法分为了两个task，分别为同步task和异步task。fork方法会产生一个继承根zone的子类，并在fork函数中配置特定的钩子函数，形成独立的zone上下文，而run方法则是启动执行业务代码的对外接口。</p>
-<h3 id="使用Observable优化脏检查"><a href="#使用Observable优化脏检查" class="headerlink" title="使用Observable优化脏检查"></a>使用Observable优化脏检查</h3><p>使用OnPush的检查策略，如果修改了对象内部的值，此时不会进行脏检查，不会进行视图更新。此时可以选择Observable对象，通过手动调用markForCheck()方法进行优化，当前组件到根组件的路径上的所有组件都会进行变化检测。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@Component(&#123;</span><br><span class="line">    ...,</span><br><span class="line">    changeDetection: ChangeDetectionStrategy.OnPush</span><br><span class="line">&#125;)</span><br><span class="line">export class TodosComponent implements OnInit&#123;</span><br><span class="line">    @Input() todos: Observable&lt;Todo[]&gt;;</span><br><span class="line">    constructor(private cd: ChangeDetectorRef) &#123;&#125;</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        this.todos.subscribe(todos =&gt; &#123;</span><br><span class="line">            业务代码；</span><br><span class="line">            this.cd.markForCheck();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></h4></h4>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
-          <p class="site-author-name" itemprop="name">Lee</p>
-          <p class="site-description motion-element" itemprop="description">my blog</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
-            </a>
-          </div>
-
-          
-
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
 
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Lee</span>
 </div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
+        </p>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    Lee Ran. All rights reserved. 996685777@qq.com
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+    <!-- Busuanzi Post Views -->
+    <span id="busuanzi_container_site_pv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_pv"></span>
+        <span>Views</span>
+        
+    </span>
+
+
 
         
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
 
-        
-      </div>
-    </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
 
-  
+<script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2016;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
 </script>
 
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
+<!-- Comment -->
+
+    
 
 
+<!-- ### Custom Footer ### -->
+<script type="text/javascript"> var a = 1; console.log(a) </script>
+    </body>
 
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
 </html>

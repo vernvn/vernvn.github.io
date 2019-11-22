@@ -1,74 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
-
-  
-
-
-<html class="theme-next muse use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
+<!-- comment -->
 
 
 
 
 
-
-  
-  
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+    <link rel="dns-prefetch" href="//cdn-city.livere.com">
 
 
 
+<!-- analytics -->
 
-  
-  
-  
-  
+    <link rel="dns-prefetch" href="//hm.baidu.com">
 
-  
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+
+
+    <link rel="dns-prefetch" href="//pingjs.qq.com">
+
+
+    <!-- ## Preload ## -->
     
+    <!-- Busuanzi -->
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
 
 
 
@@ -76,235 +57,455 @@
 
 
 
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+    <!-- Title -->
+    <title>EveryNote | 努力混迹江湖的前端小白</title>
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
 
-
-
-
-
-<meta name="description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta">
-<meta property="og:type" content="article">
-<meta property="og:title" content="EveryNote">
-<meta property="og:url" content="http://vernvn.github.io/2018/02/07/everyNote/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-08T09:13:53.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EveryNote">
-<meta name="twitter:description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: rgba(233,242,251,1);
     }
-  };
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: rgba(233,242,251,1);
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="EveryNote | 努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="article"><meta property="og:url" content="http://vernvn.github.io/2018/02/07/everyNote/"><meta property="og:locale" content="zh-CN"><meta name="description" content="记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream"><meta property="article:published_time" content="2018-02-07T03:09:10.000Z"><meta property="article:modified_time" content="2018-02-08T09:13:53.000Z"><meta property="og:updated_time" content="2018-02-08T09:13:53.000Z"><meta property="article:author" content="Lee"><meta property="article:tag" content="angular,rxjs,flutter,stream"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://vernvn.github.io/2018/02/07/everyNote/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+    <!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-153074481-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-153074481-1');
+</script>
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2018/02/07/everyNote/">
+    <script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
 
 
-  <title> EveryNote | Hexo </title>
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://vernvn.github.io/2018/02/07/everyNote/",
+    "@type": "BlogPosting",
+    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://vernvn.github.io/2018/02/07/everyNote/"
+    },
+    "headline": "EveryNote | 努力混迹江湖的前端小白",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+    },
+    
+    "datePublished": "2018-02-07T03:09:10.000Z",
+    "dateModified": "2018-02-08T09:13:53.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        },
+        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "努力混迹江湖的前端小白",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://vernvn.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "angular,rxjs,flutter,stream",
+    "description": "记录每天学习中发现的知识点总结TemplateRef与ViewContainerRef  TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewConta - Lee - 努力混迹江湖的前端小白"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
 </head>
 
-<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+    <body>
+            
 
-  
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
 
+    <p class="text-center header-slogan">
+        
+            
+                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
+            
+        
+    </p>
 
-
-
-
-
-
-
-
-
-  
-  
+    <nav class="navbar-section text-center">
     
-  
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+    
+        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <!-- Share Weibo -->
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-            Home
-          </a>
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
         </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
-            
-            Schedule
-          </a>
-        </li>
-      
 
-      
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
-
-  
+</div>
+    
+    
 </nav>
+</header>
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
             
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">EveryNote</h1>
 
-  <div id="posts" class="posts-expand">
-    
 
-  
-  
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <span>2018-02-07</span>
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                EveryNote
-              
-            
-          </h1>
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-02-07T11:09:10+08:00" content="2018-02-07">
-              2018-02-07
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=EveryNote&url=http://vernvn.github.io/2018/02/07/everyNote/&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
     
 
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=EveryNote&url=http://vernvn.github.io/2018/02/07/everyNote/&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
 
-    <div class="post-body" itemprop="articleBody">
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io/2018/02/07/everyNote/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
 
-      
-      
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://vernvn.github.io/2018/02/07/everyNote/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
 
-      
-        <h2 id="记录每天学习中发现的知识点"><a href="#记录每天学习中发现的知识点" class="headerlink" title="记录每天学习中发现的知识点"></a>记录每天学习中发现的知识点</h2><font face="黑体" color="#f00" size="4">总结TemplateRef与ViewContainerRef</font>
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io/2018/02/07/everyNote/&title=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=努力混迹江湖的前端小白&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io/2018/02/07/everyNote/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://vernvn.github.io/2018/02/07/everyNote/&text=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB3UlEQVR42u3bS27DMAxFUe9/0+2oQBuYfFeJC1j09aTIx9EJwEgixR5fN7wOUaJEiTpBHc3154aX56rXX9/z85iMI2oO6jToAups0LP7q9fPxhE1C/UaeNXz1aBVMNNxRD0LVQV6CnryJUU9F1UhuoVa1LNR1UJZDdIFerdAX7JLEHV7VLehv/LvZdmMqFujYtEhBGy1yfvXqouoW6O6QCQJQTfR0s8XNQvVbdi6xZYEeJV0oMlT1NaobpNGAr76IqSY1s7oorZH0clwtbBG3itqFopMbrQAUt2HElpRY1AJQiZYssF7e0EWtSVqBZYOs9OhQPkjETUGlSY3AiSH4KkwK2omiiyqK0UPGvSiZqJWDgzpxFsdSKKqi6gtUaTBjwT4yoYvTp6itkaRRppU4Hgn4JcOIUVth0oDvpNQ0MlY1DzUauPMSjKKmm5EjUStNs7QwE6F/bLAIWoEinzoShGNbhRFzUZ1Gz3yjxldwpkSFFFzUOkih4jp0JsUU0TNQZGATAOmpPSjqouoLVHd5p4koLTBcCnQRW2PogvuJ407qYle1LNQtFBGk9FLAl3UtqhUwE8NheSgXNQ8FC6WhsIZPbgUNRuVAjc15qQGHTJxipqDutMlSpQoUb+ubxbckC9Uk03iAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#记录每天学习中发现的知识点"><span class="post-toc-number">1.</span> <span class="post-toc-text">记录每天学习中发现的知识点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分类：内置指令，-自定义指令"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">分类：内置指令， 自定义指令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#主要考虑自定义指令的属性指令与结构指令"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">主要考虑自定义指令的属性指令与结构指令</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义属性指令实现简写"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">自定义属性指令实现简写</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义结构指令是实现简写"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">自定义结构指令是实现简写</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结以上属性指令与结构指令"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">总结以上属性指令与结构指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义debounceClick指令"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">自定义debounceClick指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">将包装器的不同子项投影到模板的不同部分。 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ngProjectAs"><span class="post-toc-number">2.</span> <span class="post-toc-text">ngProjectAs</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"><span class="post-toc-number">2.0.1.</span> <span class="post-toc-text">内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#举例：邮件匹配"><span class="post-toc-number">2.0.2.</span> <span class="post-toc-text">举例：邮件匹配</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"><span class="post-toc-number">2.0.3.</span> <span class="post-toc-text">验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Forward-Reference"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Forward Reference</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpaqueToken"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">OpaqueToken</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#InjectionToken-Angular4"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">InjectionToken (Angular4+)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用ValueProvider"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">使用ValueProvider</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注入ProviderValue"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">注入ProviderValue</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OpaqueToken-与-InjectionToken-异同点"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">OpaqueToken 与 InjectionToken 异同点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#相同点"><span class="post-toc-number">2.3.5.</span> <span class="post-toc-text">相同点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#不同点"><span class="post-toc-number">2.3.6.</span> <span class="post-toc-text">不同点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Es6-Set-Map"><span class="post-toc-number">3.</span> <span class="post-toc-text">Es6 Set Map</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Set内部，两个对象不相等，两个NaN相等，用length检测-可以用for…of遍历"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">Set内部，两个对象不相等，两个NaN相等，用length检测,可以用for…of遍历</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ModuleWithProviders"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">ModuleWithProviders</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shadow-DOM-选择器"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">shadow DOM 选择器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#宿主"><span class="post-toc-number">3.4.1.</span> <span class="post-toc-text">宿主</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#样式依赖于祖先元素"><span class="post-toc-number">3.4.2.</span> <span class="post-toc-text">样式依赖于祖先元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#宿主元素或后代元素-跨边界"><span class="post-toc-number">3.4.3.</span> <span class="post-toc-text">宿主元素或后代元素(跨边界)</span></a></li></ol></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="记录每天学习中发现的知识点"><a href="#记录每天学习中发现的知识点" class="headerlink" title="记录每天学习中发现的知识点"></a>记录每天学习中发现的知识点</h2><font face="黑体" color="#f00" size = 4>总结TemplateRef与ViewContainerRef</font>
 
 <h4 id="TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素"><a href="#TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素" class="headerlink" title="TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素"></a>TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素</h4><h4 id="ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"><a href="#ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图" class="headerlink" title="ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"></a>ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template #tpl&gt;</span><br><span class="line">    ...</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">@ViewChild(&apos;tpl&apos;) tplRef: TemplateRef&lt;any&gt;;</span><br><span class="line">@ViewChild(&apos;tpl&apos;, &#123; read: ViewContainerRef &#125;) tplVcRef: ViewContainerRef;</span><br><span class="line">ngAfterViewInit()&#123;</span><br><span class="line">    this.tplVcRef.createEmbeddedView(this.tplRef);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"><a href="#注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例" class="headerlink" title="注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"></a>注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例</h3><font face="黑体" color="#f00" size="4">指令的一般应用场景</font>
+<h3 id="注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"><a href="#注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例" class="headerlink" title="注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"></a>注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例</h3><font face="黑体" color="#f00" size = 4>指令的一般应用场景</font>
 
 <h4 id="分类：内置指令，-自定义指令"><a href="#分类：内置指令，-自定义指令" class="headerlink" title="分类：内置指令， 自定义指令"></a>分类：内置指令， 自定义指令</h4><h4 id="主要考虑自定义指令的属性指令与结构指令"><a href="#主要考虑自定义指令的属性指令与结构指令" class="headerlink" title="主要考虑自定义指令的属性指令与结构指令"></a>主要考虑自定义指令的属性指令与结构指令</h4><h3 id="自定义属性指令实现简写"><a href="#自定义属性指令实现简写" class="headerlink" title="自定义属性指令实现简写"></a>自定义属性指令实现简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">@Directive(&#123;</span><br><span class="line">    selector: &apos;[directivename]&apos;  // 这里定义的selector为什么使用中括号，是为了结合input装饰器获取属性值</span><br><span class="line">&#125;)</span><br><span class="line">export class SomeDirective &#123;</span><br><span class="line">    private _default = &apos;[someValue]&apos; // 旨在指令类内部定义默认值</span><br><span class="line">    @Input(directivename) directiveAnotherName;  // 输入属性</span><br><span class="line">    constructor(private el: ElementRef, private renderer: Renderer)&#123; // 引用类实例化，其中renderer对象提供许多api供渲染元素</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    @HostListener(eventName) eventName()&#123;  // 监听宿主元素事件</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &lt;h1 [changeColor]=&quot;&apos;red&apos;&quot;&gt;&lt;/h1&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="自定义结构指令是实现简写"><a href="#自定义结构指令是实现简写" class="headerlink" title="自定义结构指令是实现简写"></a>自定义结构指令是实现简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@Directive(&#123;</span><br><span class="line">    selector: &apos;[directivename]&apos;  // 这里定义的selector为什么使用中括号，是为了结合input装饰器获取属性值</span><br><span class="line">&#125;)</span><br><span class="line">export class SomeDirective &#123;</span><br><span class="line">    @Input(directivename)  </span><br><span class="line">    set condition(newCondition: boolean) &#123;  // 这里用了getter、setter存取器, 进行属性值的动态监听</span><br><span class="line">        if(newCondition)&#123;</span><br><span class="line">            this.tplVc.createEmbeddedView(this.tpl); // 创建内嵌视图,可以设置第二个参数&#123;$implicit: somevalue&#125;, 则angular提供了let模板语法，允许在生成的上下文是定义和传递</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            this.tplVc.clear();  // 清除内嵌视图</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    constructor(private tpf: TemplateRef, private tplVc: VireContainerRef)&#123; // 引用类实例化，用于创建内嵌视图</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &lt;h1 *structureDirective = true&gt;&lt;/h1&gt; // 这里用了angular结构性指令的语法糖，原理同*ngIf</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="总结以上属性指令与结构指令"><a href="#总结以上属性指令与结构指令" class="headerlink" title="总结以上属性指令与结构指令"></a>总结以上属性指令与结构指令</h3><p><em>1 ElementRef与Renderer等的作用：支持跨平台，从底层封住，统一了api接口;
 </em>2 TemplateRef与ViewContainerRef的作用： 前面有总结过他俩的作用;<br>*3 angular2中指令与组件的关系：组件继承与指令，并扩展了与视图的关系</p>
 <h3 id="自定义debounceClick指令"><a href="#自定义debounceClick指令" class="headerlink" title="自定义debounceClick指令"></a>自定义debounceClick指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">@Directive(&#123;</span><br><span class="line">    selector: &apos;[directiveDebounceClick]&apos;</span><br><span class="line">&#125;)</span><br><span class="line">export class SomeDirective &#123;</span><br><span class="line">    @Input(&apos;debounceTime&apos;) debounceTime: string;</span><br><span class="line">    @Output(&apos;debounceClick&apos;)  debounceClick = new EventEmitter();</span><br><span class="line">    private clicks = new Subject&lt;any&gt;();  // 定义subject处理点击事件</span><br><span class="line">    constructor()&#123; &#125;</span><br><span class="line">    @HostListener(&apos;click&apos;,[&apos;$event&apos;])  // 监听宿主元素上的点击事件，第二个参数用于将事件传递给eventClick方法</span><br><span class="line">    eventClick(event)&#123;</span><br><span class="line">        event.preventDefault();</span><br><span class="line">        event.stopPropagation();  // 阻止事件默认行为与事件冒泡</span><br><span class="line">        this.clicks.next(event);  // 发送新值</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ngOnInit()&#123;</span><br><span class="line">        this.clicks.debounceTime(this.debounceTime) // 去抖动,时间自定义</span><br><span class="line">        .subscribe(x =&gt; this.debounceClick.emit(x)); // 调用emit方法发出事件</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &lt;button directiveDebounceClick [debounceTime] =&apos;300&apos; (debounceClick)=&quot;log($event)&quot;&gt;&lt;/button&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<font face="黑体" color="#f00" size="4">ng-content包装器</font>
+<font face="黑体" color="#f00" size = 4>ng-content包装器</font>
 
-<h4 id="如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念"><a href="#如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念" class="headerlink" title="如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:"></a>如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:<ng-content></ng-content></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: &apos;wrapper&apos;,</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">      &lt;ng-content&gt;&lt;/ng-content&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `</span><br><span class="line">&#125;)</span><br><span class="line">class Wrapper &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念"><a href="#如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念" class="headerlink" title="如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:"></a>如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:<ng-content></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: &apos;wrapper&apos;,</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">      &lt;ng-content&gt;&lt;/ng-content&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `</span><br><span class="line">&#125;)</span><br><span class="line">class Wrapper &#123;&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component &#125; from &apos;@angular/core&apos;;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">  selector: &apos;wrapper&apos;,</span><br><span class="line">  template: `</span><br><span class="line">  &lt;div class=&quot;box red&quot;&gt;</span><br><span class="line">    &lt;ng-content&gt;&lt;/ng-content&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;box blue&quot;&gt;</span><br><span class="line">    &lt;ng-content select=&quot;counter&quot;&gt;&lt;/ng-content&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  `,</span><br><span class="line">  styles: [`</span><br><span class="line">    .red &#123;background: red;&#125;</span><br><span class="line">    .blue &#123;background: blue;&#125;</span><br><span class="line">  `]</span><br><span class="line">&#125;)</span><br><span class="line">export class Wrapper &#123; &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。"><a href="#将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。" class="headerlink" title="将包装器的不同子项投影到模板的不同部分。 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。"></a>将包装器的不同子项投影到模板的不同部分。<ng-content> 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。</ng-content></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;wrapper&gt;</span><br><span class="line">  &lt;span&gt;This is not a counter&lt;/span&gt;</span><br><span class="line">  &lt;counter&gt;&lt;/counter&gt;</span><br><span class="line">&lt;/wrapper&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。"><a href="#counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。" class="headerlink" title="counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。"></a>counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。</h4><h2 id="ngProjectAs"><a href="#ngProjectAs" class="headerlink" title="ngProjectAs"></a>ngProjectAs</h2><h4 id="内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"><a href="#内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。" class="headerlink" title="内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"></a>内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。</h4><font face="黑体" color="#f00" size="3">表单自定义验证规则</font>
+<h4 id="将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。"><a href="#将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。" class="headerlink" title="将包装器的不同子项投影到模板的不同部分。 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。"></a>将包装器的不同子项投影到模板的不同部分。<ng-content> 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;wrapper&gt;</span><br><span class="line">  &lt;span&gt;This is not a counter&lt;/span&gt;</span><br><span class="line">  &lt;counter&gt;&lt;/counter&gt;</span><br><span class="line">&lt;/wrapper&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。"><a href="#counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。" class="headerlink" title="counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。"></a>counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。</h4><h2 id="ngProjectAs"><a href="#ngProjectAs" class="headerlink" title="ngProjectAs"></a>ngProjectAs</h2><h4 id="内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"><a href="#内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。" class="headerlink" title="内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"></a>内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。</h4><font face="黑体" color="#f00" size = 3>表单自定义验证规则</font>
 
 <h4 id="举例：邮件匹配"><a href="#举例：邮件匹配" class="headerlink" title="举例：邮件匹配"></a>举例：邮件匹配</h4><p>定义用户类型接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export interface User &#123;</span><br><span class="line">    name: string;</span><br><span class="line">    account: &#123;</span><br><span class="line">        email: string;</span><br><span class="line">        confirm: string;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>邮件匹配规则函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">export const emailMatcher = (control: AbstractControl): &#123;[key: string]: boolean&#125; =&gt; &#123;</span><br><span class="line">   const email = control.get(&apos;email&apos;);</span><br><span class="line">   const confirm = control.get(&apos;confirm&apos;);</span><br><span class="line">   if (!email || !confirm)&#123;</span><br><span class="line">       return;</span><br><span class="line">   &#125;</span><br><span class="line">   return email.value === confirm.value ? null : &#123; nomatch: true &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>表单模版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Component, OnInit&#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; FormBuilder, FormGroup, Validators &#125; from &apos;@angular/forms&apos;;</span><br><span class="line">import &#123; emailMatcher &#125; from &apos;./email-matcher&apos;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector: &apos;signup=form&apos;,</span><br><span class="line">    template: `</span><br><span class="line">        &lt;form novalidate (ngSubmit)=&quot;onSubmit(user)&quot; [formGroup]=&quot;user&quot;&gt;</span><br><span class="line">            &lt;label&gt;</span><br><span class="line">               name...</span><br><span class="line">            &lt;/label&gt;</span><br><span class="line">            &lt;div *ngIf=&quot;user.get(&apos;name&apos;).touched &amp;&amp; user.get(&apos;name&apos;).hasError(&apos;required&apos;)&quot;&gt;</span><br><span class="line">                name is required</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div formGroupName = &quot;account&quot;&gt;</span><br><span class="line">                &lt;label&gt;</span><br><span class="line">                    &lt;span&gt;Email address&lt;/span&gt;</span><br><span class="line">                    &lt;input type=&quot;email&quot; placeholder=&quot;Your email address&quot; formControlName=&quot;email&quot;&gt;</span><br><span class="line">                &lt;/label&gt;</span><br><span class="line">                &lt;label&gt;</span><br><span class="line">                    &lt;span&gt;Confirm address&lt;/span&gt;</span><br><span class="line">                    &lt;input type=&quot;email&quot; placeholder=&quot;Confirm your email address&quot; formControlName=&quot;confirm&quot;&gt;</span><br><span class="line">                &lt;/label&gt;</span><br><span class="line">                &lt;div *ngIf=&quot;user.get(&apos;account&apos;).touched &amp;&amp; user.get(&apos;name&apos;).hasError(&apos;nomatch&apos;)&quot;&gt;</span><br><span class="line">                    name is required</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;button type=&quot;submit&quot; [disabled]=&quot;user.invalid&quot;&gt;Sign up&lt;/button&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line">    `</span><br><span class="line">&#125;)</span><br><span class="line">export class SignUpFormCOmponent implements OnInit &#123;</span><br><span class="line">    user: FormGroup;</span><br><span class="line">    constructor(private fb: FormBuilder)&#123;&#125;</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        this.user = this.fb.group(&#123;</span><br><span class="line">            name: [&apos;&apos;, Validators.required],</span><br><span class="line">            account: this.fb.group(&#123;</span><br><span class="line">                email: [&apos;&apos;, Validators.required],</span><br><span class="line">                confirm: [&apos;&apos;, Validators.rquired],</span><br><span class="line">            &#125;, &#123;validator: emailMatcher&#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<font face="黑体" color="#f00" size="3">对比创建表单自定义验证指令</font>
+<font face="黑体" color="#f00" size = 3>对比创建表单自定义验证指令</font>
 
-<p>模版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name=&quot;password&quot; formControlName=&quot;password&quot; validateEqual=&quot;password&quot;&gt;</span><br><span class="line">&lt;input name=&quot;confirmpassword&quot; formControlName=&quot;confirmpassword&quot; validateEqual=&quot;password&quot;&gt;</span><br></pre></td></tr></table></figure></p>
-<p>validateEqual指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Directive, forwardRef, Attribute &#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; Validator, AbstractControl, NG_VALIDATORS &#125; from &apos;@angular/forms&apos;;</span><br><span class="line">@DIrective(&#123;</span><br><span class="line">    selector: &apos;[validateEqual][formControlName], [validateEqual][formControl],[validateEqual][ngModel]&apos; ,</span><br><span class="line">    providers: [&#123;</span><br><span class="line">        provide: NG_VALIDATORS,</span><br><span class="line">        useExisting: forward(() =&gt; EqualValidator),</span><br><span class="line">        multi: true</span><br><span class="line">    &#125;]</span><br><span class="line">    扩展</span><br><span class="line">&#125;)</span><br><span class="line">export class EqualValidator implements Validator &#123;</span><br><span class="line">    constructor(@Attribute(&apos;validateEqual&apos;) public validateEqual: string)&#123;&#125;</span><br><span class="line">    validate(control: AbstractControl): &#123; [key:string]: boolean &#125; &#123;</span><br><span class="line">        let v  = control.value;  使用指令的控件自身值: confirmpassword</span><br><span class="line">        let e  = control.root.get(this.validateEqual);  指令指定的控件: passwordControl;</span><br><span class="line">        if (e &amp;&amp; v !== e.value) &#123;</span><br><span class="line">            return &#123; validateEqual: false&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"><a href="#验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性" class="headerlink" title="验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"></a>验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性</h4><h3 id="Forward-Reference"><a href="#Forward-Reference" class="headerlink" title="Forward Reference"></a>Forward Reference</h3><h4 id="不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。"><a href="#不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。" class="headerlink" title="不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。"></a>不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。</h4><font face="黑体" color="#f00" size="3">es6+中的class不进行自动提升主要为了解决继承父类时，父类不可用的问题</font>
+<p>模版<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name=&quot;password&quot; formControlName=&quot;password&quot; validateEqual=&quot;password&quot;&gt;</span><br><span class="line">&lt;input name=&quot;confirmpassword&quot; formControlName=&quot;confirmpassword&quot; validateEqual=&quot;password&quot;&gt;</span><br></pre></td></tr></table></figure><br>validateEqual指令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Directive, forwardRef, Attribute &#125; from &apos;@angular/core&apos;;</span><br><span class="line">import &#123; Validator, AbstractControl, NG_VALIDATORS &#125; from &apos;@angular/forms&apos;;</span><br><span class="line">@DIrective(&#123;</span><br><span class="line">    selector: &apos;[validateEqual][formControlName], [validateEqual][formControl],[validateEqual][ngModel]&apos; ,</span><br><span class="line">    providers: [&#123;</span><br><span class="line">        provide: NG_VALIDATORS,</span><br><span class="line">        useExisting: forward(() =&gt; EqualValidator),</span><br><span class="line">        multi: true</span><br><span class="line">    &#125;]</span><br><span class="line">    扩展</span><br><span class="line">&#125;)</span><br><span class="line">export class EqualValidator implements Validator &#123;</span><br><span class="line">    constructor(@Attribute(&apos;validateEqual&apos;) public validateEqual: string)&#123;&#125;</span><br><span class="line">    validate(control: AbstractControl): &#123; [key:string]: boolean &#125; &#123;</span><br><span class="line">        let v  = control.value;  使用指令的控件自身值: confirmpassword</span><br><span class="line">        let e  = control.root.get(this.validateEqual);  指令指定的控件: passwordControl;</span><br><span class="line">        if (e &amp;&amp; v !== e.value) &#123;</span><br><span class="line">            return &#123; validateEqual: false&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"><a href="#验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性" class="headerlink" title="验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"></a>验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性</h4><h3 id="Forward-Reference"><a href="#Forward-Reference" class="headerlink" title="Forward Reference"></a>Forward Reference</h3><h4 id="不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。"><a href="#不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。" class="headerlink" title="不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。"></a>不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。</h4><font face="黑体" color="#f00" size = 3>es6+中的class不进行自动提升主要为了解决继承父类时，父类不可用的问题</font>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; forwardRef, Injectable &#125; from &apos;@angular2/core&apos;</span><br><span class="line">@Injectable()</span><br><span class="line">class Socket &#123;</span><br><span class="line">    constructor(@Inject(forwardRef(() =&gt; Buffer)) private buffer) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">class Buffer &#123;</span><br><span class="line">    constructor(@Inject(BUFFER_SIZE) private size: Number) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="OpaqueToken"><a href="#OpaqueToken" class="headerlink" title="OpaqueToken"></a>OpaqueToken</h3><h4 id="OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。"><a href="#OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。" class="headerlink" title="OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。"></a>OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import &#123; OpaqueToken &#125; from &apos;@angular/core&apos;;</span><br><span class="line">const CONFIG_TOKEN = new OpaqueToken(&apos;config&apos;);</span><br><span class="line">export const THIRDPARTYLIBPROVIDERS = [</span><br><span class="line">    &#123;</span><br><span class="line">        provide: CONFIG_TOKEN, useClass: ThirdPartyConfig</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
@@ -314,7 +515,7 @@
 <h4 id="注入ProviderValue"><a href="#注入ProviderValue" class="headerlink" title="注入ProviderValue"></a>注入ProviderValue</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@Injectable()</span><br><span class="line">export class HeroService &#123;</span><br><span class="line">    constructor(</span><br><span class="line">        private loggerService: LoggerService,</span><br><span class="line">        @Inject(&apos;apiUrl&apos;) private apiUrl: String</span><br><span class="line">    )&#123;</span><br><span class="line">        console.log(apiUrl)  //  http://localhost:4200/heroes</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果引入了第三方库且名称相同就产生了问题<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export const THIRD_PARTY_PROVIDERS = [</span><br><span class="line">    &#123;</span><br><span class="line">        provide: &apos;apiUrl&apos;,   //  与localhost:4200相同</span><br><span class="line">        userValue: &apos;http://192.168.18.59:4200&apos;</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
 <p>更新Provider配置信息则如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import &#123; THIRD_PARTY_PROVIDERS &#125; from &apos;./third-party&apos;;</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    ...,</span><br><span class="line">    providers: [</span><br><span class="line">        &#123;</span><br><span class="line">        provide: &apos;apiUrl&apos;,</span><br><span class="line">        useValue: &apos;http://localhost:4200/heros&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        THIRD_PARTY_PROVIDERS</span><br><span class="line">    ],</span><br><span class="line">    bootstrap: [AppComponent]</span><br><span class="line">&#125;)</span><br><span class="line">export class AppModule &#123; &#125;</span><br></pre></td></tr></table></figure></p>
-<font face="黑体" color="#f00" size="3">localhost:4200被覆盖</font>
+<font face="黑体" color="#f00" size = 3>localhost:4200被覆盖</font>
 
 <h4 id="使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。"><a href="#使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。" class="headerlink" title="使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。"></a>使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; InjectionToken &#125; from &apos;@angular/core&apos;;</span><br><span class="line">export const API_URL = new InjectionToken&lt;string&gt;(&apos;apiUrl&apos;);</span><br></pre></td></tr></table></figure>
 <h4 id="OpaqueToken-与-InjectionToken-异同点"><a href="#OpaqueToken-与-InjectionToken-异同点" class="headerlink" title="OpaqueToken 与 InjectionToken 异同点"></a>OpaqueToken 与 InjectionToken 异同点</h4><h4 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h4><ul>
@@ -337,7 +538,7 @@
 </ul>
 <h3 id="Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map"><a href="#Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map" class="headerlink" title="Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map"></a>Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var m = new Map([[&apos;Michael&apos;, 95], [&apos;Bob&apos;, 75], [&apos;Tracy&apos;, 85]]);</span><br><span class="line">m.get(&apos;Michael&apos;); // 95</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var m = new Map();</span><br><span class="line">var o = &#123;p: &quot;Hello World&quot;&#125;;</span><br><span class="line">m.set(o, &quot;content&quot;)</span><br><span class="line">m.get(o)    // &quot;content&quot;</span><br><span class="line">m.has(o)    // true</span><br><span class="line">m.delete(o) // true</span><br><span class="line">m.has(o)    // false</span><br></pre></td></tr></table></figure>
-<font face="黑体" color="#f00" size="3">只有对同一个对象的引用，Map结构才视为同一个键</font>
+<font face="黑体" color="#f00" size = 3>只有对同一个对象的引用，Map结构才视为同一个键</font>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var map = new Map();</span><br><span class="line">map.set([&apos;a&apos;], 555);</span><br><span class="line">map.get([&apos;a&apos;])   // undefined</span><br><span class="line">上面代码的set和get方法，表面是针对同一个键，但实际上这是两个值，内存地址是不一样的，因此get方法无法读取该键，返回undefined。</span><br></pre></td></tr></table></figure>
 <h3 id="ModuleWithProviders"><a href="#ModuleWithProviders" class="headerlink" title="ModuleWithProviders"></a>ModuleWithProviders</h3><p>创建一个共享模块，包含部分功能性模块、管道、指令、和服务。对于服务，通常作为单例的服务可能被多次提供，可以通过在共享模块内部返回ModuleWithProviders对象的静态方法forRoot解决这类问题, (相对于将service注入在NgModule,通过forRoot方法返回具有NgModule属性的ModuleWithProviders对象，可以解决service多次提供的情况)</p>
@@ -346,7 +547,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; SharedModule &#125; from &apos;./shared&apos;</span><br><span class="line">//:...</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    imports: [</span><br><span class="line">        SharedModule.forRoot()</span><br><span class="line">    ],</span><br><span class="line">    //:...</span><br><span class="line">&#125;)</span><br><span class="line">export class AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>不调用forRoot方法则会只访问共享的管道和指令，不在提供服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; SharedModule &#125; from &apos;./shared&apos;</span><br><span class="line">//:...</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    imports: [</span><br><span class="line">        SharedModule、</span><br><span class="line">    ],</span><br><span class="line">    //:...</span><br><span class="line">&#125;)</span><br><span class="line">export class AppModule &#123;&#125;</span><br></pre></td></tr></table></figure>
-<font face="黑体" color="#f00" size="3">Angular2中没有模块级别的service,所有在NgModule中声明的Provider都是注册在跟级别的DI中</font>
+<font face="黑体" color="#f00" size = 3>Angular2中没有模块级别的service,所有在NgModule中声明的Provider都是注册在跟级别的DI中</font>
 
 <h3 id="shadow-DOM-选择器"><a href="#shadow-DOM-选择器" class="headerlink" title="shadow DOM 选择器"></a>shadow DOM 选择器</h3><p>使用emulated进行样式隔离时，可以访问适用于shadow DOM的css选择器</p>
 <h4 id="宿主"><a href="#宿主" class="headerlink" title="宿主"></a>宿主</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:host &#123;</span><br><span class="line">    color: red;    // &lt;song-track&gt;</span><br><span class="line">&#125;</span><br><span class="line">:host(.selected) &#123;</span><br><span class="line">    color: red;    // &lt;song-track class=&quot;selected&quot;&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -354,278 +555,176 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:host-content(.selected) &#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125;</span><br><span class="line">:host-content(#selected) &#123;</span><br><span class="line">    color: red</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="宿主元素或后代元素-跨边界"><a href="#宿主元素或后代元素-跨边界" class="headerlink" title="宿主元素或后代元素(跨边界)"></a>宿主元素或后代元素(跨边界)</h4><p>它会覆盖任何封装的宿主元素或者其子元素</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:host /deep/ .selected&#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125;</span><br><span class="line">:host &gt;&gt;&gt; .selected&#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<font face="黑体" color="#f00" size="3">angular-cli 启动的项目使用deep而不是&gt;&gt;&gt;</font>
-      
-    </div>
+<font face="黑体" color="#f00" size = 3>angular-cli 启动的项目使用deep而不是&gt;&gt;&gt;</font>
+                    </article>
+                    
 
-    <div>
-      
-        
 
-      
-    </div>
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2018-02-08");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
 
-    <div>
-      
-        
 
-      
-    </div>
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2018-02-07T03:09:10.000Z" itemprop="datePublished">2018-02-07</time>
 
-    <footer class="post-footer">
-      
+    , 最后修改于&nbsp;<time datetime="2018-02-08T09:13:53.000Z" itemprop="dateModified">2018-02-08</time>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/12/28/自定义表单/" rel="next" title="自定义表单">
-                <i class="fa fa-chevron-left"></i> 自定义表单
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/08/NgZone/" rel="prev" title="NgZone">
-                NgZone <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
+</p>
 
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
     
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
-          <p class="site-author-name" itemprop="name">Lee</p>
-          <p class="site-description motion-element" itemprop="description">my blog</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
+        <li class="page-item page-prev">
+            <a href="/2018/02/08/NgZone/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">NgZone</div>
             </a>
-          </div>
+        </li>
+    
 
-          
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2017/12/28/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%8D%95/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">自定义表单</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2MS8yNDE1OQ==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+                        </div>
+                    
+                
             </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
         </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录每天学习中发现的知识点"><span class="nav-number">1.</span> <span class="nav-text">记录每天学习中发现的知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TemplateRef-用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）-可以访问到封装后的nativeElement-模板经过渲染后会替换成comment元素"><span class="nav-number">1.0.1.</span> <span class="nav-text">TemplateRef: 用于表示内嵌的template模板元素，可以创建内嵌视图（createEmbeddedView）,可以访问到封装后的nativeElement,模板经过渲染后会替换成comment元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ViewContainerRef-用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图"><span class="nav-number">1.0.2.</span> <span class="nav-text">ViewContainerRef: 用于表示一个视图容器，可添加一或多个视图，通过ViewContainerRef实例，可以基于TemplateRef创建内嵌视图，并指定插入位置，主要创建管理内嵌视图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意：-ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例"><span class="nav-number">1.1.</span> <span class="nav-text">注意：@ViewChild属性装饰器若未设置read属性，默认返回ElementRef对象实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类：内置指令，-自定义指令"><span class="nav-number">1.1.1.</span> <span class="nav-text">分类：内置指令， 自定义指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要考虑自定义指令的属性指令与结构指令"><span class="nav-number">1.1.2.</span> <span class="nav-text">主要考虑自定义指令的属性指令与结构指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义属性指令实现简写"><span class="nav-number">1.2.</span> <span class="nav-text">自定义属性指令实现简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义结构指令是实现简写"><span class="nav-number">1.3.</span> <span class="nav-text">自定义结构指令是实现简写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结以上属性指令与结构指令"><span class="nav-number">1.4.</span> <span class="nav-text">总结以上属性指令与结构指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义debounceClick指令"><span class="nav-number">1.5.</span> <span class="nav-text">自定义debounceClick指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你尝试在-Angular-中编写可重复使用的组件，则可能会接触到内容投射的概念"><span class="nav-number">1.5.1.</span> <span class="nav-text">如果你尝试在 Angular 中编写可重复使用的组件，则可能会接触到内容投射的概念:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将包装器的不同子项投影到模板的不同部分。-支持一个-select-属性，可以让你在特定的地方投射具体的内容。该属性支持-CSS-选择器（my-element，-my-class，-my-attribute-，…）来匹配你想要的内容。如果-ng-content-上没有设置-select-属性，它将接收全部内容，或接收不匹配任何其他-ng-content-元素的内容。"><span class="nav-number">1.5.2.</span> <span class="nav-text">将包装器的不同子项投影到模板的不同部分。 支持一个 select 属性，可以让你在特定的地方投射具体的内容。该属性支持 CSS 选择器（my-element，.my-class，[my-attribute]，…）来匹配你想要的内容。如果 ng-content 上没有设置 select 属性，它将接收全部内容，或接收不匹配任何其他 ng-content 元素的内容。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#counter组件被正确投影到第二个蓝色框中，而-span-元素最终会在全部红色框中。"><span class="nav-number">1.5.3.</span> <span class="nav-text">counter组件被正确投影到第二个蓝色框中，而 span 元素最终会在全部红色框中。</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#ngProjectAs"><span class="nav-number">2.</span> <span class="nav-text">ngProjectAs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用-ngIf-或-ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。"><span class="nav-number">2.0.1.</span> <span class="nav-text">内部组件会被隐藏在另一个更大的组件中。你只需要将其包装在额外的容器中即可应用 ngIf 或 ngSwitch。无论什么原因，通常情况下，你的内部组件不是包装器的直接子节点。所以需要使用ngProjectAs属性，将它用于指定的元素上。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举例：邮件匹配"><span class="nav-number">2.0.2.</span> <span class="nav-text">举例：邮件匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性"><span class="nav-number">2.0.3.</span> <span class="nav-text">验证器添加到指定控件，造成只有该控件数值变化才会进行验证，先输入confirmPassword造成验证器失效，需要给验证器添加reverse属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forward-Reference"><span class="nav-number">2.1.</span> <span class="nav-text">Forward Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward-reference特性进行解决-Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担-。"><span class="nav-number">2.1.1.</span> <span class="nav-text">不论es6、es7、还是ts作为开发语言，现阶段最终都会编译为es5的代码。es5中只有function并没有class。造成js代码编译阶段只有变量声明和函数声明会自动提升，而函数表达式并不会自动提升。所以要解决此问题可以使用Angular2提供的forward reference特性进行解决(Buffer顺序在Socket之前声明也可以，但是angular项目中模块组件化开发确认注入依赖的顺序性会带来更大负担)。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OpaqueToken"><span class="nav-number">2.2.</span> <span class="nav-text">OpaqueToken</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OpaqueToken允许创建基于字符串的Token类-在Provider中使用。只需导入Opaque类。"><span class="nav-number">2.2.1.</span> <span class="nav-text">OpaqueToken允许创建基于字符串的Token类,在Provider中使用。只需导入Opaque类。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InjectionToken-Angular4"><span class="nav-number">2.3.</span> <span class="nav-text">InjectionToken (Angular4+)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用ValueProvider"><span class="nav-number">2.3.1.</span> <span class="nav-text">使用ValueProvider</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注入ProviderValue"><span class="nav-number">2.3.2.</span> <span class="nav-text">注入ProviderValue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用字符串作为Token起冲突了。所以利用InjectionToken-Angular4-统一管理Token信息。"><span class="nav-number">2.3.3.</span> <span class="nav-text">使用字符串作为Token起冲突了。所以利用InjectionToken(Angular4+)统一管理Token信息。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#OpaqueToken-与-InjectionToken-异同点"><span class="nav-number">2.3.4.</span> <span class="nav-text">OpaqueToken 与 InjectionToken 异同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相同点"><span class="nav-number">2.3.5.</span> <span class="nav-text">相同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不同点"><span class="nav-number">2.3.6.</span> <span class="nav-text">不同点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Es6-Set-Map"><span class="nav-number">3.</span> <span class="nav-text">Es6 Set Map</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数"><span class="nav-number">3.1.</span> <span class="nav-text">Es6提供了新的数据结构Set。类似于数组，但是成员都是唯一的，没有重复的值。接受一个数组或类数组对象作为参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Set内部，两个对象不相等，两个NaN相等，用length检测-可以用for…of遍历"><span class="nav-number">3.1.1.</span> <span class="nav-text">Set内部，两个对象不相等，两个NaN相等，用length检测,可以用for…of遍历</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键-初始化Map需要一个二维数组，或者直接初始化一个空Map"><span class="nav-number">3.2.</span> <span class="nav-text">Map结构提供了“值—值”的对应，是一种更完善的Hash结构实现。如果你需要“键值对”的数据结构，Map比Object更合适。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键, 初始化Map需要一个二维数组，或者直接初始化一个空Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModuleWithProviders"><span class="nav-number">3.3.</span> <span class="nav-text">ModuleWithProviders</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shadow-DOM-选择器"><span class="nav-number">3.4.</span> <span class="nav-text">shadow DOM 选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主"><span class="nav-number">3.4.1.</span> <span class="nav-text">宿主</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#样式依赖于祖先元素"><span class="nav-number">3.4.2.</span> <span class="nav-text">样式依赖于祖先元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#宿主元素或后代元素-跨边界"><span class="nav-number">3.4.3.</span> <span class="nav-text">宿主元素或后代元素(跨边界)</span></a></li></ol></li></ol></li></div>
-            
-          </div>
-        </section>
-      
-
     </div>
-  </aside>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    Lee Ran. All rights reserved. 996685777@qq.com
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+    <!-- Busuanzi Post Views -->
+    <span id="busuanzi_container_site_pv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_pv"></span>
+        <span>Views</span>
+        
+    </span>
+
 
 
         
-      </div>
-    </main>
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Lee</span>
-</div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+<script>
 
-        
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
-        
-      </div>
-    </footer>
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2016;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
+<!-- Comment -->
+
+    
+        
+    
 
 
+<!-- ### Custom Footer ### -->
+<script type="text/javascript"> var a = 1; console.log(a) </script>
+    </body>
 
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
 </html>

@@ -1,74 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
-
-  
-
-
-<html class="theme-next muse use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
+<!-- comment -->
 
 
 
 
 
-
-  
-  
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+    <link rel="dns-prefetch" href="//cdn-city.livere.com">
 
 
 
+<!-- analytics -->
 
-  
-  
-  
-  
+    <link rel="dns-prefetch" href="//hm.baidu.com">
 
-  
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+
+
+    <link rel="dns-prefetch" href="//pingjs.qq.com">
+
+
+    <!-- ## Preload ## -->
     
+    <!-- Busuanzi -->
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
 
 
 
@@ -76,497 +57,612 @@
 
 
 
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+    <!-- Title -->
+    <title>何时使用指令，服务，控制器 | 努力混迹江湖的前端小白</title>
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
 
-
-
-
-
-<meta name="description" content="Directive(指令) Controller(控制器) Service(服务)以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。ServiceService是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;首先创建一个module,1var">
-<meta property="og:type" content="article">
-<meta property="og:title" content="何时使用指令，服务，控制器">
-<meta property="og:url" content="http://vernvn.github.io/2016/11/18/何时使用指令，服务，控制器/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Directive(指令) Controller(控制器) Service(服务)以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。ServiceService是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;首先创建一个module,1var">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何时使用指令，服务，控制器">
-<meta name="twitter:description" content="Directive(指令) Controller(控制器) Service(服务)以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。ServiceService是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;首先创建一个module,1var">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: rgba(233,242,251,1);
     }
-  };
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: rgba(233,242,251,1);
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="何时使用指令，服务，控制器 | 努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="article"><meta property="og:url" content="http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/"><meta property="og:locale" content="zh-CN"><meta name="description" content="Directive(指令) Controller(控制器) Service(服务)以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。ServiceService是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;首先创建一个module,1var m - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream"><meta property="article:published_time" content="2016-11-18T07:13:33.000Z"><meta property="article:modified_time" content="2018-02-08T02:09:02.000Z"><meta property="og:updated_time" content="2018-02-08T02:09:02.000Z"><meta property="article:author" content="Lee"><meta property="article:tag" content="angular,rxjs,flutter,stream"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+    <!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-153074481-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-153074481-1');
+</script>
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2016/11/18/何时使用指令，服务，控制器/">
+    <script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
 
 
-  <title> 何时使用指令，服务，控制器 | Hexo </title>
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/",
+    "@type": "BlogPosting",
+    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/"
+    },
+    "headline": "何时使用指令，服务，控制器 | 努力混迹江湖的前端小白",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+    },
+    
+    "datePublished": "2016-11-18T07:13:33.000Z",
+    "dateModified": "2018-02-08T02:09:02.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        },
+        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "努力混迹江湖的前端小白",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://vernvn.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "angular,rxjs,flutter,stream",
+    "description": "Directive(指令) Controller(控制器) Service(服务)以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。ServiceService是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;首先创建一个module,1var m - Lee - 努力混迹江湖的前端小白"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
 </head>
 
-<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+    <body>
+            
 
-  
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
 
+    <p class="text-center header-slogan">
+        
+            
+                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
+            
+        
+    </p>
 
-
-
-
-
-
-
-
-
-  
-  
+    <nav class="navbar-section text-center">
     
-  
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+    
+        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <!-- Share Weibo -->
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-            Home
-          </a>
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
         </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
-            
-            Schedule
-          </a>
-        </li>
-      
 
-      
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
-
-  
+</div>
+    
+    
 </nav>
+</header>
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
             
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">何时使用指令，服务，控制器</h1>
 
-  <div id="posts" class="posts-expand">
-    
 
-  
-  
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <span>2016-11-18</span>
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                何时使用指令，服务，控制器
-              
-            
-          </h1>
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T15:13:33+08:00" content="2016-11-18">
-              2016-11-18
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=何时使用指令，服务，控制器&url=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
     
 
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=何时使用指令，服务，控制器&url=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
 
-    <div class="post-body" itemprop="articleBody">
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
 
-      
-      
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
 
-      
-        <ul>
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/&title=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=努力混迹江湖的前端小白&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://vernvn.github.io/2016/11/18/%E4%BD%95%E6%97%B6%E4%BD%BF%E7%94%A8%E6%8C%87%E4%BB%A4%EF%BC%8C%E6%9C%8D%E5%8A%A1%EF%BC%8C%E6%8E%A7%E5%88%B6%E5%99%A8/&text=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOQAAADkCAAAAACtPNdRAAAEK0lEQVR42u3d227jMAxF0fz/T7dPBYrA4tmUMwNT3XmZXlJbS0BoiiQwr68/8HqJFClSpEiRN5Gv4oUu9Ot9P1///vvVz9Lr/R6rn1V/K1LkVGS1+CvE1eJX70vXvEKkjSP3EClyOvJ9sVXgeb9ZCjJVoFj9rgLTdYsUeSoyLYwGi2qzUpC52jSRIv8ishMEqgWuNim9j26ISJGnIXce+Fd/U4FXgaM6VKfrfOQUIlLkw5ApeX7qvx+r1okU+SDkrYZKOGCngEEf+CTg/LOulkiR/xmZPuCk+HunuUOS+OrwXW6aSJEDkaumTSpIrQrBq8SabB5t8tDEXaTIiUjanCGBgDRMSSFrlVBU90WnEJEiByC7SfPOgESnsUOL2KRxLFLkRGRKvMkDOQGqwEWHBzuJikiR05Hp4d7ZBJJ87xSwSOEMNXxEihyA7CTP5FBMCl9kWIJs2modIkWehKQJNrl5J2EghSqSkIgUORmZgkFn8CgGAtCUJQUuOtQkUuRkJG2w0INx9dCmxavdA7tIkdOR5MGcBiJIUTm9lyb2Ww0fkSKHIHcvRAYe0oG6evh/Fa/bpxCRIh+MrAJJSsDJIEOnsJwaQp3CmkiRpyDTg7obODqFMtLQ+UiCLlLkw5HdIhEJKGTAgjRqaeN1a4BQpMgHI8mDnzZ80uE6DUKRoLXd8BEpchAyDS2QgNQZ2t8pVKdNane1RIp8ILJMcsMi6YLT9e8OWaBTiEiRA5A00FRJdbfATJKIlKijwUWRIgci0yH2TlK9e8AmAa1K3EWKnIwkCXU8nL72/5OFTgJO1lcORogUOQCZmjSpEEyKwSkJTwUr8juRIk9CkgbK7iI7TdqYcMMCl0iRJyCrAd2UBHQKW6lRRBLwWwOEIkU+HJkS9HTxbpOHNHDJQBRKDkSKHIokAYQ2TdMDfWcgKSX9uOEjUuQQZBUUyGLoexKoKoTtwEWKnIgkN06bQJtHCUwPB7joLVLkAUiSnHeG30niTRtFZI0o8IgU+XBkKhrtDNmSAnQ6IHeuKVLkKcg0tE4G6dOCSDErBZnVNcv3iBQ5EHm7WASSezLokArRnUaxSJEnIlNSTAeHUuOGDE3QA3trMEKkyCHI9OGmiT0ZokjNpp2hfpEipyNpgEkPe5qE373GrVOISJEDkCkZJgWoarNowkGKY9VBIiboIkUOQtIgkJIC0kQigY5+H5u9IkUOR9IhBjJARAabyL07STrqaokU+XBkGkSohoto4p4SfVpAo4PEIkVOR3YTg07xlwxI0AI3LWaJFHkCsvpgkwWT5urde5DhwssEXaTIg5B0EZ3NSA2fzrBF2YgSKfJAJG0G0UNy5+s02BgP8SJFDkZ2PuCdAEUP1aQR2xm+EClyMpI0ZVIBmBajd75PyccySIkUORB58kukSJEiRYrcfH0D8xGgzJXbH8QAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Service"><span class="post-toc-number">1.</span> <span class="post-toc-text">Service</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先创建一个module"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">首先创建一个module,</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Controller"><span class="post-toc-number">2.</span> <span class="post-toc-text">Controller</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面;</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Directive"><span class="post-toc-number">3.</span> <span class="post-toc-text">Directive</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <ul>
 <li>Directive(指令)</li>
 <li>Controller(控制器)</li>
 <li>Service(服务)<br>以上为angular1的核心概念，我们究竟什么以什么样的方式去使用它们。<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方"><a href="#Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方" class="headerlink" title="Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;"></a>Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;</h3><br><h3 id="首先创建一个module"><a href="#首先创建一个module" class="headerlink" title="首先创建一个module,"></a>首先创建一个module,</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var module = angular.module(&apos;myModule,[]&apos;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br><br>下一步，创建一个服务，用来管理图书的BookService;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module.factory(&apos;BookService&apos;,[&apos;rootScope&apos;,function($rootScope)&#123;</span><br><span class="line">	var service = &#123;</span><br><span class="line">		books:[</span><br><span class="line">			&#123; title: &quot;Magician&quot;, author: &quot;Raymond E. Feist&quot; &#125;,</span><br><span class="line">			&#123; title: &quot;The Hobbit&quot;, author: &quot;J.R.R Tolkien&quot; &#125;</span><br><span class="line">		],</span><br><span class="line">		addbook : function(book)&#123;</span><br><span class="line">			service.books.push(book);</span><br><span class="line">			$rootScope.$broadcast(&apos;books.updata&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return service;</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure></p>
-<h3 id="这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。"><a href="#这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。" class="headerlink" title="这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。"></a>这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。</h3><p><br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.controller(&apos;books.list&apos;,[&apos;$scope&apos;,&apos;BookService&apos;,function($scope,BookServie)&#123;</span><br><span class="line">	$scope.$on(&apos;books.updata&apos;,function(event)&#123;</span><br><span class="line">		$scope.books = BookService.books;</span><br><span class="line">		$scope.$apply();</span><br><span class="line">	&#125;);</span><br><span class="line">	$scope.books = BookService.books;</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure></p>
-<h3 id="这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。"><a href="#这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。" class="headerlink" title="这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。"></a>这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。</h3><p><br></p>
-<h3 id="形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，"><a href="#形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，" class="headerlink" title="形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，"></a>形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，</h3><p>A团A连发现敌情，要报告给B团B连，军队里只有服从上级，所以他只能报告给A团A营，在一直向上报告直到A、B共同的长官C旅，C旅在下发给B团，直到B连，要是有个特殊情况，相信这时候B连已经死光了，所以才有了通信部门的存在，而这里的通信部门也就是angular中的服务。</p>
-<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><h3 id="Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面"><a href="#Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面" class="headerlink" title="Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面;"></a>Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面;</h3><p><br></p>
-<h2 id="Directive"><a href="#Directive" class="headerlink" title="Directive"></a>Directive</h2><h3 id="应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。"><a href="#应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。" class="headerlink" title="应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。"></a>应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">module.directive(&apos;addBookButton&apos;,[&apos;BookService&apos;,function(BookService)&#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		restrict:&apos;EA&apos;,</span><br><span class="line">		replace:true,</span><br><span class="line">		link:function(scope,ele,attrs)&#123;</span><br><span class="line">			ele.bind(&apos;click&apos;,function()&#123;</span><br><span class="line">				BookService.addbook(&#123; title: &quot;Star Wars&quot;, author: &quot;George Lucas&quot; &#125;);</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure>
+<br><br>下一步，创建一个服务，用来管理图书的BookService;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">module.factory(&apos;BookService&apos;,[&apos;rootScope&apos;,function($rootScope)&#123;</span><br><span class="line">	var service = &#123;</span><br><span class="line">		books:[</span><br><span class="line">			&#123; title: &quot;Magician&quot;, author: &quot;Raymond E. Feist&quot; &#125;,</span><br><span class="line">			&#123; title: &quot;The Hobbit&quot;, author: &quot;J.R.R Tolkien&quot; &#125;</span><br><span class="line">		],</span><br><span class="line">		addbook : function(book)&#123;</span><br><span class="line">			service.books.push(book);</span><br><span class="line">			$rootScope.$broadcast(&apos;books.updata&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return service;</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure>
+<h3 id="这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。"><a href="#这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。" class="headerlink" title="这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。"></a>这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。</h3><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.controller(&apos;books.list&apos;,[&apos;$scope&apos;,&apos;BookService&apos;,function($scope,BookServie)&#123;</span><br><span class="line">	$scope.$on(&apos;books.updata&apos;,function(event)&#123;</span><br><span class="line">		$scope.books = BookService.books;</span><br><span class="line">		$scope.$apply();</span><br><span class="line">	&#125;);</span><br><span class="line">	$scope.books = BookService.books;</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure>
+<h3 id="这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。"><a href="#这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。" class="headerlink" title="这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。"></a>这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。</h3><br><h3 id="形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，"><a href="#形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，" class="headerlink" title="形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，"></a>形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，</h3>A团A连发现敌情，要报告给B团B连，军队里只有服从上级，所以他只能报告给A团A营，在一直向上报告直到A、B共同的长官C旅，C旅在下发给B团，直到B连，要是有个特殊情况，相信这时候B连已经死光了，所以才有了通信部门的存在，而这里的通信部门也就是angular中的服务。<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><h3 id="Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面"><a href="#Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面" class="headerlink" title="Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面;"></a>Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面;</h3><br><h2 id="Directive"><a href="#Directive" class="headerlink" title="Directive"></a>Directive</h2><h3 id="应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。"><a href="#应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。" class="headerlink" title="应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。"></a>应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">module.directive(&apos;addBookButton&apos;,[&apos;BookService&apos;,function(BookService)&#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		restrict:&apos;EA&apos;,</span><br><span class="line">		replace:true,</span><br><span class="line">		link:function(scope,ele,attrs)&#123;</span><br><span class="line">			ele.bind(&apos;click&apos;,function()&#123;</span><br><span class="line">				BookService.addbook(&#123; title: &quot;Star Wars&quot;, author: &quot;George Lucas&quot; &#125;);</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure>
 <h3 id="创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中"><a href="#创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中" class="headerlink" title="创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中"></a>创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button add-book-button&gt;Add Book&lt;/button&gt;</span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h3 id="每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，"><a href="#每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，" class="headerlink" title="每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，"></a>每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.addBook = function()&#123;</span><br><span class="line">	 BookService.addBook( &#123; title: &quot;Star Wars&quot;, author: &quot;George Lucas&quot; &#125; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了"><a href="#可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了" class="headerlink" title="可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了"></a>可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了</h3>
-      
-    </div>
+<br><h3 id="每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，"><a href="#每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，" class="headerlink" title="每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，"></a>每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.addBook = function()&#123;</span><br><span class="line">	 BookService.addBook( &#123; title: &quot;Star Wars&quot;, author: &quot;George Lucas&quot; &#125; );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了"><a href="#可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了" class="headerlink" title="可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了"></a>可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了</h3></li>
+</ul>
 
-    <div>
-      
-        
+                    </article>
+                    
 
-      
-    </div>
 
-    <div>
-      
-        
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2018-02-08");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
 
-      
-    </div>
 
-    <footer class="post-footer">
-      
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2016-11-18T07:13:33.000Z" itemprop="datePublished">2016-11-18</time>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/11/09/generator/" rel="next" title="generator">
-                <i class="fa fa-chevron-left"></i> generator
-              </a>
-            
-          </div>
+    , 最后修改于&nbsp;<time datetime="2018-02-08T02:09:02.000Z" itemprop="dateModified">2018-02-08</time>
 
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/21/ng1与ng2依赖注入的比较/" rel="prev" title="依赖注入">
-                依赖注入 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
+</p>
 
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
     
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
-          <p class="site-author-name" itemprop="name">Lee</p>
-          <p class="site-description motion-element" itemprop="description">my blog</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
+        <li class="page-item page-prev">
+            <a href="/2016/11/21/ng1%E4%B8%8Eng2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E6%AF%94%E8%BE%83/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">依赖注入</div>
             </a>
-          </div>
+        </li>
+    
 
-          
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2016/11/09/generator/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">generator</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2MS8yNDE1OQ==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+                        </div>
+                    
+                
             </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
         </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Service"><span class="nav-number">1.</span> <span class="nav-text">Service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方"><span class="nav-number">1.1.</span> <span class="nav-text">Service是单例对象，会经常被传来传去，但是可以保证每次访问的都是同一个实例。所以很多Controler和Directive可以访问它内部的数值，所以它是一个存放数据，实现数据共享的好地方;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首先创建一个module"><span class="nav-number">1.2.</span> <span class="nav-text">首先创建一个module,</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。"><span class="nav-number">1.3.</span> <span class="nav-text">这里很好理解，一个对象里面有我要存放的书的集合，还有一个添加图书的方法，这个方法还会在应用上广播一个事件，告诉所有使用我们的服务的人，存放书的集合已经更新了，接下来就是要使用它的东西需要接收这个广播了。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。"><span class="nav-number">1.4.</span> <span class="nav-text">这里就是将前面创建的BookService中存放的books赋值给了controller内部的scope对象。如果我们在controller上创建一个数组，其他地方也要处理书籍的信息，通过scope来维护数据会很麻烦，scope很容易变得混乱不堪，通过一种集中的途径进行数据的管理，更容易理解也可以使代码模块化。所以当需要在不同的地方共享数据的时候，就要依靠服务了，谁要用就注入到谁那里，就这么容易。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，"><span class="nav-number">1.5.</span> <span class="nav-text">形容服务有一个例子特别的形象，A团A连和B团B连去执行任务，</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Controller"><span class="nav-number">2.</span> <span class="nav-text">Controller</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面"><span class="nav-number">2.1.</span> <span class="nav-text">Controller应该纯粹的把Service，依赖关系，以及其他对象串连在一起，通过scope关联到view上。Dom操作的部分最好把它放入指令里面;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Directive"><span class="nav-number">3.</span> <span class="nav-text">Directive</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。"><span class="nav-number">3.1.</span> <span class="nav-text">应用中最复杂的部分应该在指令中，下面来扩展前面的例子，提供一个按钮，通过这个按钮向服务里面添加一本书。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中"><span class="nav-number">3.2.</span> <span class="nav-text">创建了一个指令，目的是向books集合里面添加一本书，books已经注册在服务中，所以可以直接注入服务进行使用。下面将指令应用到视图中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，"><span class="nav-number">3.3.</span> <span class="nav-text">每当点击按钮的时候都会添加那本书，如果将控制器上面添加一个addBook方法呢，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了"><span class="nav-number">3.4.</span> <span class="nav-text">可以得到同样的结果，但是如果需要复用的话，只能copy这段代码，但是通过指令的方式，就会很方便了</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
-      
-
     </div>
-  </aside>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    Lee Ran. All rights reserved. 996685777@qq.com
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+    <!-- Busuanzi Post Views -->
+    <span id="busuanzi_container_site_pv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_pv"></span>
+        <span>Views</span>
+        
+    </span>
+
 
 
         
-      </div>
-    </main>
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Lee</span>
-</div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+<script>
 
-        
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
-        
-      </div>
-    </footer>
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2016;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
+<!-- Comment -->
+
+    
+        
+    
 
 
+<!-- ### Custom Footer ### -->
+<script type="text/javascript"> var a = 1; console.log(a) </script>
+    </body>
 
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
 </html>

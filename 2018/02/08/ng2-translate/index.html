@@ -1,74 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
-
-  
-
-
-<html class="theme-next muse use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
+<!-- comment -->
 
 
 
 
 
-
-  
-  
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+    <link rel="dns-prefetch" href="//cdn-city.livere.com">
 
 
 
+<!-- analytics -->
 
-  
-  
-  
-  
+    <link rel="dns-prefetch" href="//hm.baidu.com">
 
-  
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+
+
+    <link rel="dns-prefetch" href="//pingjs.qq.com">
+
+
+    <!-- ## Preload ## -->
     
+    <!-- Busuanzi -->
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
 
 
 
@@ -76,487 +57,604 @@
 
 
 
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+    <!-- Title -->
+    <title>ng2-translate | 努力混迹江湖的前端小白</title>
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
 
-
-
-
-
-<meta name="description" content="i18n国际化，演示angular控件ng2-translateapp.module 1234567891011121314import &amp;#123; TranslateModule, TranslateLoader, TranslateStaticLoader &amp;#125; from &amp;apos;ng2-translate&amp;apos;;//..export function createTran">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ng2-translate">
-<meta property="og:url" content="http://vernvn.github.io/2018/02/08/ng2-translate/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="i18n国际化，演示angular控件ng2-translateapp.module 1234567891011121314import &amp;#123; TranslateModule, TranslateLoader, TranslateStaticLoader &amp;#125; from &amp;apos;ng2-translate&amp;apos;;//..export function createTran">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-08T08:48:42.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ng2-translate">
-<meta name="twitter:description" content="i18n国际化，演示angular控件ng2-translateapp.module 1234567891011121314import &amp;#123; TranslateModule, TranslateLoader, TranslateStaticLoader &amp;#125; from &amp;apos;ng2-translate&amp;apos;;//..export function createTran">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: rgba(233,242,251,1);
     }
-  };
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: rgba(233,242,251,1);
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="ng2-translate | 努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="article"><meta property="og:url" content="http://vernvn.github.io/2018/02/08/ng2-translate/"><meta property="og:locale" content="zh-CN"><meta name="description" content="i18n国际化，演示angular控件ng2-translateapp.module 1234567891011121314import &amp;#123; TranslateModule, TranslateLoader, TranslateStaticLoader &amp;#125; from &amp;apos;ng2-translate&amp;apos;;//..export function createTran - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream"><meta property="article:published_time" content="2018-02-08T07:56:40.000Z"><meta property="article:modified_time" content="2018-02-08T08:48:42.000Z"><meta property="og:updated_time" content="2018-02-08T08:48:42.000Z"><meta property="article:author" content="Lee"><meta property="article:tag" content="angular,rxjs,flutter,stream"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://vernvn.github.io/2018/02/08/ng2-translate/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+    <!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-153074481-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-153074481-1');
+</script>
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2018/02/08/ng2-translate/">
+    <script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
 
 
-  <title> ng2-translate | Hexo </title>
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://vernvn.github.io/2018/02/08/ng2-translate/",
+    "@type": "BlogPosting",
+    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://vernvn.github.io/2018/02/08/ng2-translate/"
+    },
+    "headline": "ng2-translate | 努力混迹江湖的前端小白",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+    },
+    
+    "datePublished": "2018-02-08T07:56:40.000Z",
+    "dateModified": "2018-02-08T08:48:42.000Z",
+    "author": {
+        "@type": "Person",
+        "name": "Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        },
+        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "努力混迹江湖的前端小白",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://vernvn.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "angular,rxjs,flutter,stream",
+    "description": "i18n国际化，演示angular控件ng2-translateapp.module 1234567891011121314import &amp;amp;#123; TranslateModule, TranslateLoader, TranslateStaticLoader &amp;amp;#125; from &amp;amp;apos;ng2-translate&amp;amp;apos;;//..export function createTran - Lee - 努力混迹江湖的前端小白"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
 </head>
 
-<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+    <body>
+            
 
-  
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
 
+    <p class="text-center header-slogan">
+        
+            
+                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
+            
+        
+    </p>
 
-
-
-
-
-
-
-
-
-  
-  
+    <nav class="navbar-section text-center">
     
-  
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+    
+        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <!-- Share Weibo -->
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-            Home
-          </a>
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
         </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
-            
-            Schedule
-          </a>
-        </li>
-      
 
-      
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
-
-  
+</div>
+    
+    
 </nav>
+</header>
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
             
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">ng2-translate</h1>
 
-  <div id="posts" class="posts-expand">
-    
 
-  
-  
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <span>2018-02-08</span>
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                ng2-translate
-              
-            
-          </h1>
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-02-08T15:56:40+08:00" content="2018-02-08">
-              2018-02-08
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=ng2-translate&url=http://vernvn.github.io/2018/02/08/ng2-translate/&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
     
 
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=ng2-translate&url=http://vernvn.github.io/2018/02/08/ng2-translate/&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
 
-    <div class="post-body" itemprop="articleBody">
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io/2018/02/08/ng2-translate/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
 
-      
-      
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://vernvn.github.io/2018/02/08/ng2-translate/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
 
-      
-        <h2 id="i18n国际化，演示angular控件ng2-translate"><a href="#i18n国际化，演示angular控件ng2-translate" class="headerlink" title="i18n国际化，演示angular控件ng2-translate"></a>i18n国际化，演示angular控件ng2-translate</h2><p>app.module</p>
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io/2018/02/08/ng2-translate/&title=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=努力混迹江湖的前端小白&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io/2018/02/08/ng2-translate/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://vernvn.github.io/2018/02/08/ng2-translate/&text=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB4klEQVR42u3a0U7DMAxG4b3/S8MVEpTG/7GoUOKd3iC2rvkmeUns+PWx4fUSJUqUqBvUq7h+fODy2ur96z1f/5NxRM1B3Qbd4uEraIXB44gahboG3vV1MtjqGWQcUe+FogFLgKJEpYmzWqj/5dcnalvUaqEkCzPdBD62SxC1Para0D/597FsRtTWqFh0KIKXbPJWAf6nqouorVFVIFaFCjLR0ueLmofqJJHdJCHdj2Z0UUehKIJ+CVr0KANd1PEoUqBPG8BVIT8hRc1DrQZbDVAtwmRxLhNaUWNQnWIqKaylzy3HEzUKRQsUKXA7B06/kKJGoDqH1dX7ncaJ1iZP1PGodIBNksr0w4jFfVHHo9LmKx0O0ULJqoAmahYqJQ4JRhPTlHCImoVKB0KtwldYsNvNp6KOQ5EFmSSXZDKNhwSiRqA6ySZaVLuNXKLGo+hmLRU10gHS7X2iRqFIsyAJbLJhXCawokajyIFktWnrNN6ImoWijYKp6avbSHE7MYsagUKNxiAB6CawraqLqONQdDFOB9e06I8CXdTxKNoIkZokSJEMN+CIGouiSUNVQEM/EFFvgyLJAGlEjYdQokahVgsyLXqhyTHcI2oOigQuOUzqNqCWRTNRx6J2ukSJEiXq2/UJuyVxQCZsWSEAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#i18n国际化，演示angular控件ng2-translate"><span class="post-toc-number">1.</span> <span class="post-toc-text">i18n国际化，演示angular控件ng2-translate</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h2 id="i18n国际化，演示angular控件ng2-translate"><a href="#i18n国际化，演示angular控件ng2-translate" class="headerlink" title="i18n国际化，演示angular控件ng2-translate"></a>i18n国际化，演示angular控件ng2-translate</h2><p>app.module</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; TranslateModule, TranslateLoader, TranslateStaticLoader &#125; from &apos;ng2-translate&apos;;</span><br><span class="line">//..</span><br><span class="line">export function createTranslateStaticLoader(http: Http) &#123;</span><br><span class="line">    return new TranslateStaticLoader(http, &apos;./assets/i18n&apos;, &apos;.json&apos;);   // 发送请求，拿到i18n文件夹下的json后缀文件</span><br><span class="line">&#125;</span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    imports: [</span><br><span class="line">        TranslateModule.forRoot(&#123;</span><br><span class="line">            provide: TranslateLoader,</span><br><span class="line">            useFactory: createTranslateStaticLoader,</span><br><span class="line">            deps: [Http]</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>app.component</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import &#123; TranslateService &#125; from &apos;ng2-translate&apos;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector: &apos;app-root&apos;</span><br><span class="line">&#125;)</span><br><span class="line">export class AppComponent &#123;</span><br><span class="line">    constructor(</span><br><span class="line">        private translate: TranslateService</span><br><span class="line">    ) &#123;&#125;</span><br><span class="line">    ngOnInit() &#123;</span><br><span class="line">        this.translate.addLangs([&apos;zh&apos;, &apos;en&apos;]);</span><br><span class="line">        this.translate.setDefaultLang(&apos;zh&apos;);</span><br><span class="line">        const browserLang = this.translate.getBrowserLang();</span><br><span class="line">        this.translate.use(browserLang.match(/zh|en/) ? browserLang : &apos;zh&apos; );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>模版使用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123; word | trnaslate &#125;&#125;&lt;p&gt;</span><br></pre></td></tr></table></figure>
-      
-    </div>
+                    </article>
+                    
 
-    <div>
-      
-        
 
-      
-    </div>
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2018-02-08");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
 
-    <div>
-      
-        
 
-      
-    </div>
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2018-02-08T07:56:40.000Z" itemprop="datePublished">2018-02-08</time>
 
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/02/08/NgZone/" rel="next" title="NgZone">
-                <i class="fa fa-chevron-left"></i> NgZone
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/01/git新的指令/" rel="prev" title="git新的指令">
-                git新的指令 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
+</p>
 
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
     
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
-          <p class="site-author-name" itemprop="name">Lee</p>
-          <p class="site-description motion-element" itemprop="description">my blog</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
+        <li class="page-item page-prev">
+            <a href="/2018/03/01/git%E6%96%B0%E7%9A%84%E6%8C%87%E4%BB%A4/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">git新的指令</div>
             </a>
-          </div>
+        </li>
+    
 
-          
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/02/08/NgZone/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">NgZone</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2MS8yNDE1OQ==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+                        </div>
+                    
+                
             </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
         </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#i18n国际化，演示angular控件ng2-translate"><span class="nav-number">1.</span> <span class="nav-text">i18n国际化，演示angular控件ng2-translate</span></a></li></ol></div>
-            
-          </div>
-        </section>
-      
-
     </div>
-  </aside>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    Lee Ran. All rights reserved. 996685777@qq.com
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+    <!-- Busuanzi Post Views -->
+    <span id="busuanzi_container_site_pv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_pv"></span>
+        <span>Views</span>
+        
+    </span>
+
 
 
         
-      </div>
-    </main>
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Lee</span>
-</div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+<script>
 
-        
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
-        
-      </div>
-    </footer>
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2016;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
+<!-- Comment -->
+
+    
+        
+    
 
 
+<!-- ### Custom Footer ### -->
+<script type="text/javascript"> var a = 1; console.log(a) </script>
+    </body>
 
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
 </html>

@@ -1,74 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
 
 
-
-  
-
-
-<html class="theme-next muse use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
+<!-- comment -->
 
 
 
 
 
-
-  
-  
-  <link href="/lee/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+    <link rel="dns-prefetch" href="//cdn-city.livere.com">
 
 
 
+<!-- analytics -->
 
-  
-  
-  
-  
+    <link rel="dns-prefetch" href="//hm.baidu.com">
 
-  
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+
+
+    <link rel="dns-prefetch" href="//pingjs.qq.com">
+
+
+    <!-- ## Preload ## -->
     
+    <!-- Busuanzi -->
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lee/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
 
 
 
@@ -76,218 +57,432 @@
 
 
 
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2">
+    <!-- Title -->
+    <title>rxjs常用操作符及项目应用 | 努力混迹江湖的前端小白</title>
 
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
 
-
-
-
-
-<meta name="description" content="前言RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。 RxJS所能解决的问题：时刻保持响应。这对于">
-<meta property="og:type" content="article">
-<meta property="og:title" content="rxjs常用操作符及项目应用">
-<meta property="og:url" content="http://vernvn.github.io/2018/11/06/rxjs常用操作符及项目应用/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。 RxJS所能解决的问题：时刻保持响应。这对于">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://s1.ax1x.com/2018/09/20/im7Ry9.gif">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*ThbKddqq1qC4a1pDDjHNoQ.jpeg">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*lq9uxKQpQZllnc-vNgzITg.jpeg">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*pZ4lHOGYFBZUPHQJVpGrzg.jpeg">
-<meta property="og:image" content="https://github.com/vernvn/hexoBlog/blob/master/decImg/concat.jpg?raw=true">
-<meta property="og:image" content="https://github.com/vernvn/hexoBlog/blob/master/decImg/merge.jpg?raw=true">
-<meta property="og:updated_time" content="2018-11-15T09:08:43.489Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="rxjs常用操作符及项目应用">
-<meta name="twitter:description" content="前言RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。 RxJS所能解决的问题：时刻保持响应。这对于">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/09/20/im7Ry9.gif">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: rgba(233,242,251,1);
     }
-  };
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: rgba(233,242,251,1);
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="rxjs常用操作符及项目应用 | 努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="article"><meta property="og:url" content="http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/"><meta property="og:locale" content="zh-CN"><meta name="description" content="前言RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。 RxJS所能解决的问题：时刻保持响应。这对于 - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream"><meta property="og:image" content="https://s1.ax1x.com/2018/09/20/im7Ry9.gif"><meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*ThbKddqq1qC4a1pDDjHNoQ.jpeg"><meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*lq9uxKQpQZllnc-vNgzITg.jpeg"><meta property="og:image" content="https://cdn-images-1.medium.com/max/1600/1*pZ4lHOGYFBZUPHQJVpGrzg.jpeg"><meta property="og:image" content="https://github.com/vernvn/hexoBlog/blob/master/decImg/concat.jpg?raw=true"><meta property="og:image" content="https://github.com/vernvn/hexoBlog/blob/master/decImg/merge.jpg?raw=true"><meta property="article:published_time" content="2018-11-06T09:20:07.000Z"><meta property="article:modified_time" content="2018-11-15T09:08:43.489Z"><meta property="og:updated_time" content="2018-11-15T09:08:43.489Z"><meta property="article:author" content="Lee"><meta property="article:tag" content="angular,rxjs,flutter,stream"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/">
+
+    <meta name="generator" content="Hexo 4.0.0">
+
+    <!-- ### Analytics ### -->
+    
+    <!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-153074481-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-153074481-1');
+</script>
+
+
+
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
+    var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
 
 
 
-  <link rel="canonical" href="http://vernvn.github.io/2018/11/06/rxjs常用操作符及项目应用/">
+    <script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
+
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
 
 
-  <title> rxjs常用操作符及项目应用 | Hexo </title>
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/",
+    "@type": "BlogPosting",
+    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/"
+    },
+    "headline": "rxjs常用操作符及项目应用 | 努力混迹江湖的前端小白",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+    },
+    
+    "datePublished": "2018-11-06T09:20:07.000Z",
+    "dateModified": "2018-11-15T09:08:43.489Z",
+    "author": {
+        "@type": "Person",
+        "name": "Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        },
+        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "努力混迹江湖的前端小白",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://vernvn.github.io/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "angular,rxjs,flutter,stream",
+    "description": "前言RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。 RxJS所能解决的问题：时刻保持响应。这对于 - Lee - 努力混迹江湖的前端小白"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
 </head>
 
-<body itemscope="" itemtype="//schema.org/WebPage" lang="zh-CN">
+    <body>
+            
 
-  
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
 
+    <p class="text-center header-slogan">
+        
+            
+                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
+            
+        
+    </p>
 
-
-
-
-
-
-
-
-
-  
-  
+    <nav class="navbar-section text-center">
     
-  
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+    
+        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
-
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Hexo</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle"></p>
-</div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <!-- Share Weibo -->
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-            Home
-          </a>
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
         </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-            Archives
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-            Tags
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-schedule">
-          <a href="/schedule" rel="section">
-            
-            Schedule
-          </a>
-        </li>
-      
 
-      
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
     </ul>
-  
-
-  
+</div>
+    
+    
 </nav>
+</header>
 
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
             
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">rxjs常用操作符及项目应用</h1>
 
-  <div id="posts" class="posts-expand">
-    
 
-  
-  
 
-  
-  
-  
 
-  <article class="post post-type-normal " itemscope="" itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
+        <span>2018-11-06</span>
         
         
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                rxjs常用操作符及项目应用
-              
-            
-          </h1>
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
         
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2018-11-06T17:20:07+08:00" content="2018-11-06">
-              2018-11-06
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=rxjs常用操作符及项目应用&url=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
     
 
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=rxjs常用操作符及项目应用&url=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
 
-    <div class="post-body" itemprop="articleBody">
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
 
-      
-      
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
 
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。</p>
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/&title=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=努力混迹江湖的前端小白&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://vernvn.github.io/2018/11/06/rxjs%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E9%A1%B9%E7%9B%AE%E5%BA%94%E7%94%A8/&text=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAADUCAAAAADBtVLEAAADrklEQVR42u3cUW7rMAwF0ex/06+/ea3FO5QTmwkmPwXaWtYxYIki2T7+feHnIUqUKFGivg71KD7Pv3P09fn6/wY/+L0/E3i6Lo2P5ylK1BDU6qZpEtV1adLVQ/uNoPMUJWoSajXI0UJAsb9/Vk1steCs5nP4IESJ+jBUtTmuXubV91bI5YRFifoyFA1iq+CTLgzVwxEl6lNQ1SBpI60OlnQRSQHsS6N0UaLejKpe7ElfX5ZNEiXqjaiYdA/JzXS4qw6M1eKSDqenqh6iRL0RVb2Iq8WEJCCr8dImnALZZdArStQwVLVItAYPhYCUqKRJHVGipqJI0Zom+mliP43ZSYyKEjUR1V0wqqC3Ckw7WLrAiBI1CUUOdXSzTA+hW4xID3q5UIgSdSMqBYokYV8VEWgBgjRyxSKCKFFDUDsJk7TZ7jZP0UTNdtVDlKiLUDsvKm7aaGymnUI4OvmKEnUxiiTtu0EnOSSmZGna5LcqiaJEXYDqbLRnGnpJQrPzcHAyU5SoAahO0y5NVJKfpYcYi3SiRA1CdQvJ3aZe0mRVjYeKD6JEDUN1kiIxuHzkPy7rLjZp4RIlagqKJl06SUm6wdIDKnogokQNQ1UFAtpAQgoPaWOmTZNooRAl6iYUeUlT4ZocJmlDcbq3KFFTUemgRxo+OokWAiMBrihRU1HdpElKdp5dgMh9lmOKEjUAtRtY0iaSTqGNBsUx8SJK1ABUCli3i8uP+h/vpnuQOYkSNQnV2XRpYjEtMCmYJcmgw+tFiRqESoc3eohLk+u8+OlaUaImouiGmBoMu9eTidNitihR01BnFoozQWt1WHxZlC5K1E2oamAa0NLJ0saQFGwvm0NEiboZRRuf6KGvcyDcWVCWi5goUUNQ9FCWDn/d5kaaSK0Kg6hAIErUhSjSAEVumJpE0uGv20TSag4RJepCVDcBSRaG7iHwbHOXKFGTUCRYpE28qeiwE+jSYFaUqCmoVMTubMa0sTE9iHTwXCZqRIkahEqFgc4ku5spbf6Nm7goUQNQdFEgGzVpliKJFzpGO/EiStQFqBgkhkGrA2Y3AO4uIrhAIErUhSjaeJsmQ17o7hjkYcTVT5SoG1C0+BUHhQ+FNJikg2ksuokSdTMqveBk86WLTyr0kT9gwRlaUaIGomhyhmzgZHLdhKkoUZ+GSgkPmthP30+NXVuVRFGibkLR4jXZZGlBgQTQtGggStQkVDdx0m0s6TSOdIoV29kkUaLeiPqmjyhRokSJ+prPDwekL2sHmOCYAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RxJS所能解决的问题："><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RxJS所能解决的问题：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RxJS初探："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">RxJS初探：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#首先尝试一个简单的小例子："><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">首先尝试一个简单的小例子：</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数式编程带来的好处主要可以总结为以下两点："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">函数式编程带来的好处主要可以总结为以下两点：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#进入RxJS"><span class="post-toc-number">2.</span> <span class="post-toc-text">进入RxJS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Pull拉取-VS-Push推送"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Pull拉取 VS Push推送</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#单值与多值"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">单值与多值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结RxJS-VS-Promise-——-三个最重要的区别"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">总结RxJS VS Promise —— 三个最重要的区别</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开始了解RxJS中的几个重要成员"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">开始了解RxJS中的几个重要成员</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Observable"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Observable</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Observer"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">Observer</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Subscription"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">Subscription</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Subject"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">Subject</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BehaviorSubject"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">BehaviorSubject</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ReplaySubject"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">ReplaySubject</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AsyncSubject"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">AsyncSubject</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常用的操作符"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">常用的操作符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#marble-diagrams"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">marble diagrams</span></a></li></ol></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>RXJS全名Reactive Extensions for JavaScript，是JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。ReactiveX结合了观察者模式、迭代器模式和函数式编程构建一个管理事件序列的理想方式。</p>
 <h4 id="RxJS所能解决的问题："><a href="#RxJS所能解决的问题：" class="headerlink" title="RxJS所能解决的问题："></a>RxJS所能解决的问题：</h4><p>时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些应用的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject；Http模块中Observable作为大部分API的交互对象使用。但是这只是官方推荐的外部扩展并不必须，也可以使用Promise,之后会介绍Observable和Promise的区别。</p>
 <h4 id="RxJS初探："><a href="#RxJS初探：" class="headerlink" title="RxJS初探："></a>RxJS初探：</h4><h5 id="首先尝试一个简单的小例子："><a href="#首先尝试一个简单的小例子：" class="headerlink" title="首先尝试一个简单的小例子："></a>首先尝试一个简单的小例子：</h5><ul>
 <li>存在一个数组，里面含有多种数据类型的元素</li>
@@ -295,8 +490,7 @@
 <li>每一个符合标准的元素乘以2</li>
 <li>累加</li>
 </ul>
-<p>需要同时满足以上四个要求，可以通过循环列表来筛选满足要求的元素在进一步操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const source = [1, 5, 9, 3, &apos;hi&apos;, &apos;tb&apos;, 456, &apos;11&apos;, &apos;yoyoyo&apos;];</span><br><span class="line">let total = 0;</span><br><span class="line">for (let i = 0; i &lt; source.length; i++) &#123;</span><br><span class="line">    const num = parseInt(source[i], 10);</span><br><span class="line">    if (!isNaN(num)) &#123;</span><br><span class="line">        total += num * 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果拥有函数式编程的经验，相信大家一定会通过es6的映射函数进行操作,接下来通过这个例子说明一下命令式编程和函数式编程的区别。</p>
+<p>需要同时满足以上四个要求，可以通过循环列表来筛选满足要求的元素在进一步操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const source = [1, 5, 9, 3, &apos;hi&apos;, &apos;tb&apos;, 456, &apos;11&apos;, &apos;yoyoyo&apos;];</span><br><span class="line">let total = 0;</span><br><span class="line">for (let i = 0; i &lt; source.length; i++) &#123;</span><br><span class="line">    const num = parseInt(source[i], 10);</span><br><span class="line">    if (!isNaN(num)) &#123;</span><br><span class="line">        total += num * 2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>如果拥有函数式编程的经验，相信大家一定会通过es6的映射函数进行操作,接下来通过这个例子说明一下命令式编程和函数式编程的区别。</p>
 <blockquote>
 <p>声明式编程发轫于人工智能的研究，主要包括函数式编程（functional programming，简称FP）和逻辑式编程（logic programming，简称LP）;<br>如果想探究声明式编程与函数式编程的具体关系请访问：<a href="https://www.cnblogs.com/doit8791/p/8232821.html" target="_blank" rel="noopener">函数式与声明式的关系</a>，在此不是本篇的重点</p>
 </blockquote>
@@ -361,16 +555,15 @@
 </ul>
 <h4 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h4><p>什么是Observer？Observer是Observable传递过来的数据的消费者。Observers由一个带有“next”，“error”和“complete”方法的对象构成，next、error、和 complete用来传递数据。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var observer = &#123;</span><br><span class="line">    next: x =&gt; console.log(&apos;Observable got a next value: &apos; + x),</span><br><span class="line">    error: err =&gt; console.log(&apos;Observable got and error: &apos; + err),</span><br><span class="line">    complete: () =&gt; console.log(&apos;Observable got a complete notification&apos;)</span><br><span class="line">&#125;;</span><br><span class="line">observable.subscribe(observer)</span><br></pre></td></tr></table></figure>
-<h4 id="Subscription"><a href="#Subscription" class="headerlink" title="Subscription"></a>Subscription</h4><p>一个Subscription代表了一个一次性的资源，通常表示的是一个Observable执行。一个Subscription有一个重要的方法，unsubscribe，它不需要参数，仅仅是取消订阅释放资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const observable = interval(1000);</span><br><span class="line">const subscription = observable.subscribe(x =&gt; console.log(x));</span><br><span class="line">subscription.unsubscribe();</span><br></pre></td></tr></table></figure></p>
-<p>Subscriptions也可以放在一起，这样会导致使用一个unsubscribe()将取消多个Observable执行，通过add、remove方法维护关联的Subscription</p>
+<h4 id="Subscription"><a href="#Subscription" class="headerlink" title="Subscription"></a>Subscription</h4><p>一个Subscription代表了一个一次性的资源，通常表示的是一个Observable执行。一个Subscription有一个重要的方法，unsubscribe，它不需要参数，仅仅是取消订阅释放资源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const observable = interval(1000);</span><br><span class="line">const subscription = observable.subscribe(x =&gt; console.log(x));</span><br><span class="line">subscription.unsubscribe();</span><br></pre></td></tr></table></figure><br>Subscriptions也可以放在一起，这样会导致使用一个unsubscribe()将取消多个Observable执行，通过add、remove方法维护关联的Subscription</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const observable1 = interval(400);</span><br><span class="line">const observable2 = interval(300);</span><br><span class="line">const subscription = observable1.subscribe(x =&gt; console.log(&apos;first: &apos; + x));</span><br><span class="line">const childSubscription = observable2.subscribe(x =&gt; console.log(&apos;second: &apos; + x));</span><br><span class="line">subscription.add(childSubscription);</span><br><span class="line">setTimeout(() =&gt; &#123;</span><br><span class="line">    subscription.unsubscribe();</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
 <h4 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h4><p><img src="https://cdn-images-1.medium.com/max/1600/1*pZ4lHOGYFBZUPHQJVpGrzg.jpeg" alt=""></p>
 <ul>
 <li><p>Subject是一种特殊类型的Observable，允许将值多播到许多观察者。虽然普通的Observable是单播的（每个订阅的Observer都拥有Observable的独立执行），但Subject是多播的</p>
 </li>
-<li><p><font color="#f00" size="2">每一个Subject都是一个observable可观察对象，</font>给定一个Subject后，你可以订阅它，提供的观察者将会正常的开始接收值。从观察者的角度来看，它不能判断一个可观察对象的执行时来自于单播的Observable还是来自于一个Subject.<br>在Subject的内部，subscribe并不调用一个新的发送值得执行。它仅仅在观察者注册表中注册给定的观察者，类似addEventListener的工作方式。</p>
+<li><p><font color="#f00" size = 2>每一个Subject都是一个observable可观察对象，</font>给定一个Subject后，你可以订阅它，提供的观察者将会正常的开始接收值。从观察者的角度来看，它不能判断一个可观察对象的执行时来自于单播的Observable还是来自于一个Subject.<br>在Subject的内部，subscribe并不调用一个新的发送值得执行。它仅仅在观察者注册表中注册给定的观察者，类似addEventListener的工作方式。</p>
 </li>
-<li><p><font color="#f00" size="2">每一个Subject都是一个Observer观察者对象。</font>它是一个拥有next()/error()/complete()方法的对象。要想Subject提供一个新的值，只需调用next()，它将会被多播至用来监听Subject的观察者。</p>
+<li><p><font color="#f00" size = 2>每一个Subject都是一个Observer观察者对象。</font>它是一个拥有next()/error()/complete()方法的对象。要想Subject提供一个新的值，只需调用next()，它将会被多播至用来监听Subject的观察者。</p>
 </li>
 </ul>
 <blockquote>
@@ -387,11 +580,7 @@
 <h4 id="AsyncSubject"><a href="#AsyncSubject" class="headerlink" title="AsyncSubject"></a>AsyncSubject</h4><p>AsyncSubject是另一个变体，它只发送给观察者可观察对象执行的最新值，并且仅在执行结束时。AsyncSubject类似于last()操作符,因为它为了发送单一值而等待complete通知。</p>
 <h4 id="常用的操作符"><a href="#常用的操作符" class="headerlink" title="常用的操作符"></a>常用的操作符</h4><p>每一个操作符都会产生一个新的Observable，不会对上游的Observable做任何修改，这完全符合函数式编程“数据不可变”的要求。pipe方法就是数据管道，会对数据流进行处理，可以添加操作符作为参数。</p>
 <p><strong>interval</strong> 创建一个无限长度的周期性序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interval(1000)  // 输出: 0,1,2...</span><br></pre></td></tr></table></figure></p>
-<p><strong>timer</strong> 指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timer(0,1000) // 输出:0,1,2...</span><br></pre></td></tr></table></figure></p>
-<p><strong>from</strong> 可以将已有的数据转化为Observable,参数为iterable数据集对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from([1,2,3,4])   // 输出:1,2,3,4</span><br></pre></td></tr></table></figure></p>
-<p><strong>of</strong> 不在同一个数据集中的多个来源的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">of([1,2,3])    //    [1,2,3]</span><br><span class="line">from([1,2,3])  //    1,2,3</span><br></pre></td></tr></table></figure></p>
-<p><strong>fromEvent</strong> 将事件流转化为Observable,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const el = document.getElementById(&quot;btn&quot;); </span><br><span class="line">fromEvent(el,&quot;click&quot;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>delay</strong> 推迟   参数为数字或Date对象</p>
+<p><strong>timer</strong> 指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timer(0,1000) // 输出:0,1,2...</span><br></pre></td></tr></table></figure><br><strong>from</strong> 可以将已有的数据转化为Observable,参数为iterable数据集对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">from([1,2,3,4])   // 输出:1,2,3,4</span><br></pre></td></tr></table></figure><br><strong>of</strong> 不在同一个数据集中的多个来源的数据<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">of([1,2,3])    //    [1,2,3]</span><br><span class="line">from([1,2,3])  //    1,2,3</span><br></pre></td></tr></table></figure><br><strong>fromEvent</strong> 将事件流转化为Observable,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const el = document.getElementById(&quot;btn&quot;); </span><br><span class="line">fromEvent(el,&quot;click&quot;);</span><br></pre></td></tr></table></figure><br><strong>delay</strong> 推迟   参数为数字或Date对象</p>
 <p><strong>startWith</strong> 可以在源序列之前添加额外的元素</p>
 <p><strong>map</strong> 对源序列进行变换，并返回新的序列(改变了源)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,3); // 输出： 1 2 3</span><br><span class="line">const target = source.map(x =&gt; x * 2);   //输出： 2 4 6</span><br></pre></td></tr></table></figure>
@@ -405,13 +594,10 @@
 <p><strong>filter</strong> 筛选源序列中满足条件的元素，并返回新的序列</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,3,4,5); //序列： 1 2 3 4 5</span><br><span class="line">const target = source.filter(x =&gt; x &lt; 4)  //序列： 1 2 3</span><br></pre></td></tr></table></figure>
 <p><strong>take</strong> 截取序列头部元素数量输出</p>
-<p><strong>distinct</strong> 去重,并返回一个新序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,2,3,4,2,1); //序列： 1 2 2 3 4 2 1</span><br><span class="line">const target = source.distinct(); //序列：1 2 3 4</span><br></pre></td></tr></table></figure></p>
-<p><strong>distinctUntilChanged</strong> 相邻元素去重,并返回一个新序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,2,3,4,2,1); //序列： 1 2 2 3 4 2 1</span><br><span class="line">const target = source.distinctUntilChanged(); //序列：1 2 3 4 2 1</span><br></pre></td></tr></table></figure></p>
+<p><strong>distinct</strong> 去重,并返回一个新序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,2,3,4,2,1); //序列： 1 2 2 3 4 2 1</span><br><span class="line">const target = source.distinct(); //序列：1 2 3 4</span><br></pre></td></tr></table></figure><br><strong>distinctUntilChanged</strong> 相邻元素去重,并返回一个新序列<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const source = of(1,2,2,3,4,2,1); //序列： 1 2 2 3 4 2 1</span><br><span class="line">const target = source.distinctUntilChanged(); //序列：1 2 3 4 2 1</span><br></pre></td></tr></table></figure></p>
 <p><strong>debounce</strong>  去抖动,一段时间内只取最新数据作为一次发射数据，其他数据取消发射</p>
 <p><strong>throttle</strong> (和debounce唯一区别是debounce取一段时间内最新的，而throttle忽略这段时间后，发现新值才发送, 通俗讲，都设定一个时间周期，持续触发事件，throttle为每到时间周期便会触发一次，bebounce为触发周期小于设定时间周期不予事件触发）</p>
-<p><strong>zip</strong> 支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source1 = of(1, 2, 3);</span><br><span class="line">const source2 = of(4, 5, 6);</span><br><span class="line">const target = zip(source1, source2).subscribe(([val1, val2]) =&gt; &#123;      // 序列： 1-4  2-5  3-6</span><br><span class="line">    console.log(val1 + &apos;-&apos; + val2)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>forkJoin</strong>  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素,一个常见用例是在页面加载时你希望发起多个请求，并在所有请求都响应后再采取行动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source1 = of(1, 2, 3);</span><br><span class="line">const source2 = of(4, 5, 6);</span><br><span class="line">const target = forkJoin(source1, source2).subscribe(([val1, val2]) =&gt; &#123;   // 序列： 3-6</span><br><span class="line">    console.log(val1 + &apos;-&apos; + val2)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>combineLatest</strong> 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素</p>
+<p><strong>zip</strong> 支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source1 = of(1, 2, 3);</span><br><span class="line">const source2 = of(4, 5, 6);</span><br><span class="line">const target = zip(source1, source2).subscribe(([val1, val2]) =&gt; &#123;      // 序列： 1-4  2-5  3-6</span><br><span class="line">    console.log(val1 + &apos;-&apos; + val2)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br><strong>forkJoin</strong>  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素,一个常见用例是在页面加载时你希望发起多个请求，并在所有请求都响应后再采取行动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const source1 = of(1, 2, 3);</span><br><span class="line">const source2 = of(4, 5, 6);</span><br><span class="line">const target = forkJoin(source1, source2).subscribe(([val1, val2]) =&gt; &#123;   // 序列： 3-6</span><br><span class="line">    console.log(val1 + &apos;-&apos; + val2)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br><strong>combineLatest</strong> 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素</p>
 <pre><code>const setHtml = id =&gt; val =&gt; document.getElementById(id).innerHTML = val;
 const addOneClick$ = id =&gt; fromEvent(document.getElementById(id), &apos;click&apos;)
     .pipe(
@@ -427,280 +613,178 @@ const addOneClick$ = id =&gt; fromEvent(document.getElementById(id), &apos;click
         map(([val1, val2]) =&gt; val1 + val2)
     )
     .subscribe(setHtml(&apos;total&apos;));
-</code></pre><p>map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射， <font color="#f00" size="2">返回一个包含映射结果的Observable对象</font> 而mergeMap是把自身对象里的数值进行映射并转换成一个新的Observable对象.<font color="#f00" size="2">返回一个内部元素为映射的Observable对象的Observable对象</font></p>
+</code></pre><p>map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射， <font color="#f00" size = 2>返回一个包含映射结果的Observable对象</font> 而mergeMap是把自身对象里的数值进行映射并转换成一个新的Observable对象.<font color="#f00" size = 2>返回一个内部元素为映射的Observable对象的Observable对象</font></p>
 <h4 id="marble-diagrams"><a href="#marble-diagrams" class="headerlink" title="marble diagrams"></a>marble diagrams</h4><p>为了解释operators是如何工作的，光是文本解释是不够的。许多operators和时间有关，它们可能会延迟执行，例如，throttle等。图标往往能够比文字更多表达清楚。Marble Diagrams能够可视化的表现出operators是如何工作的，包括输入的Observable(s)，operator和它的参数，以及输出的Observable.  <a href="http://rxmarbles.com/" target="_blank" rel="noopener">Marble diagrams</a></p>
 
-      
-    </div>
+                    </article>
+                    
 
-    <div>
-      
-        
 
-      
-    </div>
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2018-11-15");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
 
-    <div>
-      
-        
 
-      
-    </div>
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2018-11-06T09:20:07.000Z" itemprop="datePublished">2018-11-06</time>
 
-    <footer class="post-footer">
-      
+    , 最后修改于&nbsp;<time datetime="2018-11-15T09:08:43.489Z" itemprop="dateModified">2018-11-15</time>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/03/01/git新的指令/" rel="next" title="git新的指令">
-                <i class="fa fa-chevron-left"></i> git新的指令
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/21/flutter/" rel="prev" title="flutter 学习笔记与问题总结">
-                flutter 学习笔记与问题总结 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
+</p>
+<p class="post-footer-info mb-0 pt-2">
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
 
+</p>
 
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
     
-  </div>
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="//schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" alt="Lee">
-          <p class="site-author-name" itemprop="name">Lee</p>
-          <p class="site-description motion-element" itemprop="description">my blog</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">posts</span>
+        <li class="page-item page-prev">
+            <a href="/2019/02/21/flutter/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">flutter 学习笔记与问题总结</div>
             </a>
-          </div>
+        </li>
+    
 
-          
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/2018/03/01/git%E6%96%B0%E7%9A%84%E6%8C%87%E4%BB%A4/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">git新的指令</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2MS8yNDE1OQ==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+                        </div>
+                    
+                
             </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
         </div>
-
-        
-        
-
-        
-        
-
-      </section>
-
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RxJS所能解决的问题："><span class="nav-number">1.1.</span> <span class="nav-text">RxJS所能解决的问题：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RxJS初探："><span class="nav-number">1.2.</span> <span class="nav-text">RxJS初探：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先尝试一个简单的小例子："><span class="nav-number">1.2.1.</span> <span class="nav-text">首先尝试一个简单的小例子：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数式编程带来的好处主要可以总结为以下两点："><span class="nav-number">1.3.</span> <span class="nav-text">函数式编程带来的好处主要可以总结为以下两点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入RxJS"><span class="nav-number">2.</span> <span class="nav-text">进入RxJS</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pull拉取-VS-Push推送"><span class="nav-number">2.1.</span> <span class="nav-text">Pull拉取 VS Push推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单值与多值"><span class="nav-number">2.2.</span> <span class="nav-text">单值与多值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结RxJS-VS-Promise-——-三个最重要的区别"><span class="nav-number">2.3.</span> <span class="nav-text">总结RxJS VS Promise —— 三个最重要的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#开始了解RxJS中的几个重要成员"><span class="nav-number">2.4.</span> <span class="nav-text">开始了解RxJS中的几个重要成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Observable"><span class="nav-number">2.5.</span> <span class="nav-text">Observable</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Observer"><span class="nav-number">2.6.</span> <span class="nav-text">Observer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subscription"><span class="nav-number">2.7.</span> <span class="nav-text">Subscription</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Subject"><span class="nav-number">2.8.</span> <span class="nav-text">Subject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BehaviorSubject"><span class="nav-number">2.9.</span> <span class="nav-text">BehaviorSubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ReplaySubject"><span class="nav-number">2.10.</span> <span class="nav-text">ReplaySubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AsyncSubject"><span class="nav-number">2.11.</span> <span class="nav-text">AsyncSubject</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用的操作符"><span class="nav-number">2.12.</span> <span class="nav-text">常用的操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#marble-diagrams"><span class="nav-number">2.13.</span> <span class="nav-text">marble diagrams</span></a></li></ol></li></ol></div>
-            
-          </div>
-        </section>
-      
-
     </div>
-  </aside>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    Lee Ran. All rights reserved. 996685777@qq.com
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+    <!-- Busuanzi Post Views -->
+    <span id="busuanzi_container_site_pv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_pv"></span>
+        <span>Views</span>
+        
+    </span>
+
 
 
         
-      </div>
-    </main>
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Lee</span>
-</div>
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
-</div>
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+<script>
 
-        
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
 
-        
-      </div>
-    </footer>
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2016;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
 </script>
 
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
 
 
 
 
+<!-- Comment -->
+
+    
+        
+    
 
 
+<!-- ### Custom Footer ### -->
+<script type="text/javascript"> var a = 1; console.log(a) </script>
+    </body>
 
-
-  
-
-
-
-  
-  <script type="text/javascript" src="/lee/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lee/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lee/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lee/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
 </html>
