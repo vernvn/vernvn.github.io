@@ -1,488 +1,277 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        hexo-theme-suka © SukkaW
-        GitHub: https://github.com/SukkaW/hexo-theme-suka
-    -->
-
-    <!-- ### Resource Hint ### -->
-
-    <!-- ## DNS Prefetch ## -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-<!-- busuanzi -->
-
-    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
-
-
-<!-- comment -->
-
-
-
-
-
-    <link rel="dns-prefetch" href="//cdn-city.livere.com">
-
-
-
-<!-- analytics -->
-
-    <link rel="dns-prefetch" href="//hm.baidu.com">
-
-
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-
-
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-
-
-
-
-    <link rel="dns-prefetch" href="//pingjs.qq.com">
-
-
-    <!-- ## Preload ## -->
-    
-    <!-- Busuanzi -->
-    
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
-
-
-
-
-
-
-
-    <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <meta name="renderer" content="webkit">
-
-    <!-- Title -->
-    <title>RxJS:万物皆为流 | 努力混迹江湖的前端小白</title>
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
-
-    <!-- ### Import File ### -->
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
-    body {
-        background-color: rgba(233,242,251,1);
-    }
-
-    a, a:visited {
-        color: #0070ff;
-    }
-
-    a:active, a:focus, a:hover {
-        color: #0070ff;
-        opacity: .75;
-    }
-
-    #post-content a,
-    #post-content a:hover,
-    #post-content a:focus,
-    #post-content a:visited {
-        color: #005eb9;
-        opacity: 1;
-    }
-
-    
-
-    .post-entry .card-body a {
-        color: #0070ff;
-    }
-
-    .avatar {
-        background: #444;
-    }
-
-    .navbar-link,
-    .navbar-link:visited,
-    .timeline .timeline-item .timeline-icon.icon-lg {
-        color: #0070ff;
-    }
-
-    .navbar-link:hover {
-        color: #0070ff;
-        opacity: .8;
-    }
-
-    #search-input .btn,
-    #disqus_click_btn,
-    #disqus-switch-to-direct,
-    #disqus-loadmore-button {
-        background: #727e96;
-        border-color: #727e96;
-        color: #fff;
-    }
-
-    #post-toc a.post-toc-link,
-    #post-toc a.post-toc-link:visited,
-    .share-menu.menu .menu-item>a {
-        color: #727e96;
-    }
-
-    .share-menu.menu .menu-item>a:hover,
-    .share-menu.menu .menu-item>a:focus,
-    .share-menu.menu .menu-item>a:visited {
-        color: #50596c;
-        background: rgba(233,242,251,1);
-        opacity: .85;
-    }
-</style><link rel="stylesheet" href="/css/style.min.css">
-
-
-
-
-
-
-
-
-    <!-- Prettify Theme -->
-    
-    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
-
-
-
-
-
-<script>
-/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
-</script>
-
-    <!-- ### Site Verification ### -->
-    
-
-
-    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
-
-    <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="RxJS:万物皆为流 | 努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="article"><meta property="og:url" content="http://vernvn.github.io/2017/02/28/rxjs/"><meta property="og:locale" content="zh-CN"><meta name="description" content="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。RxJS所能解决的问题：时刻保持响 - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream"><meta property="article:published_time" content="2017-02-28T05:54:14.000Z"><meta property="article:modified_time" content="2018-02-08T02:09:02.000Z"><meta property="og:updated_time" content="2018-02-08T02:09:02.000Z"><meta property="article:author" content="Lee"><meta property="article:tag" content="angular,rxjs,flutter,stream"><meta name="twitter:card" content="summary">
-
-    
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://vernvn.github.io/2017/02/28/rxjs/">
-
-    <meta name="generator" content="Hexo 4.0.0">
-
-    <!-- ### Analytics ### -->
-    
-    <!-- Google Analytics -->
-<script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-153074481-1', 'auto');
-    ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-
-
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-153074481-1');
-</script>
-
-
-
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
-    var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-
-
-    <script>
-    var _mtac = {};
-    (function() {
-        var mta = document.createElement("script");
-        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
-        mta.setAttribute("name", "MTAH5");
-        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
-
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(mta, s);
-    })();
-</script>
-
-
-
-    <!-- ### Structured Data ### -->
-    
-
-
-
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "url": "http://vernvn.github.io/2017/02/28/rxjs/",
-    "@type": "BlogPosting",
-    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://vernvn.github.io/2017/02/28/rxjs/"
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://vernvn.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    "headline": "RxJS:万物皆为流 | 努力混迹江湖的前端小白",
-    
-    "image": {
-        "@type": "ImageObject",
-        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-    },
-    
-    "datePublished": "2017-02-28T05:54:14.000Z",
-    "dateModified": "2018-02-08T02:09:02.000Z",
-    "author": {
-        "@type": "Person",
-        "name": "Lee",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-        },
-        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "努力混迹江湖的前端小白",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-        }
-    },
-    
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "http://vernvn.github.io/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-    },
-    
-    "keywords": "angular,rxjs,flutter,stream",
-    "description": "首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。RxJS所能解决的问题：时刻保持响 - Lee - 努力混迹江湖的前端小白"
-}
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
 </script>
 
+  <meta name="description" content="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。RxJS所能解决的问题：时刻保持响">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJS:万物皆为流">
+<meta property="og:url" content="http:&#x2F;&#x2F;vernvn.github.io&#x2F;2017&#x2F;02&#x2F;28&#x2F;rxjs&#x2F;index.html">
+<meta property="og:site_name" content="努力混迹江湖的前端小白">
+<meta property="og:description" content="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。RxJS所能解决的问题：时刻保持响">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-08T02:09:02.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://vernvn.github.io/2017/02/28/rxjs/">
 
 
-    <!-- ### Custom Head ### -->
-    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>RxJS:万物皆为流 | 努力混迹江湖的前端小白</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="努力混迹江湖的前端小白" type="application/atom+xml">
 </head>
 
-    <body>
-            
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-            <!-- ### Main content ### -->
-            <!-- ## Header ##-->
-<header>
-    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-    <p class="text-center header-slogan">
-        
-            
-                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
-            
-        
-    </p>
-
-    <nav class="navbar-section text-center">
-    
-        <a href="/" class="navbar-link">首页</a>
-    
-    
-        <a href="/archives/" class="navbar-link">归档</a>
-    
-    
-    
-        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
-    
-    
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
-    
-    
-</nav>
-</header>
-
-            
-    <!-- ## Post ## -->
-    <div class="post-container">
-    <div id="post-card" class="card">
-        
-        <div class="card-item-container">
-            <div class="card-inner-cell">
-                <!-- # Post Header Info # -->
-                <div class="card-header">
-                    
-    <h1 class="card-title h3 mb-2">RxJS:万物皆为流</h1>
-
-
-
-
-<div class="post-header-info">
-    <p class="post-header-info-left text-gray">
-        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
-        <span>2017-02-28</span>
-        
-        
-            <!-- Busuanzi Post Views -->
-<span id="busuanzi_container_page_pv" hidden>
-    <span class="suka-devide-dot"></span>
-    <span></span>
-    <span id="busuanzi_value_page_pv"></span>
-    <span>Views</span>
-</span>
-        
-        
-    </p>
-    <div class="post-header-info-right">
-        
-            <div class="dropdown dropdown-right">
-<a class="dropdown-toggle" tabindex="0">分享本文</a>
-<ul class="menu share-menu">
-    <!-- Share Weibo -->
-    
-    <li class="menu-item">
-        <a href="http://service.weibo.com/share/share.php?appkey=&title=RxJS:万物皆为流&url=http://vernvn.github.io/2017/02/28/rxjs/&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
-    </li>
-    
-
-    <!-- Share Twitter -->
-    
-    <li class="menu-item">
-        <a href="https://twitter.com/intent/tweet?text=RxJS:万物皆为流&url=http://vernvn.github.io/2017/02/28/rxjs/&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
-    </li>
-    
-
-    <!-- Share Facebook -->
-    
-    <li class="menu-item">
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io/2017/02/28/rxjs/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
-    </li>
-    
-
-    <!-- Share Google+ -->
-    
-    <li class="menu-item">
-        <a href="https://plus.google.com/share?url=http://vernvn.github.io/2017/02/28/rxjs/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
-    </li>
-    
-
-    <!-- Share LinkedIn -->
-    
-    <li class="menu-item">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io/2017/02/28/rxjs/&title=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
-    </li>
-    
-
-    <!-- Share QQ -->
-    
-    <li class="menu-item">
-        <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=努力混迹江湖的前端小白&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io/2017/02/28/rxjs/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
-    </li>
-    
-
-    <!-- Share Telegram -->
-    
-    <li class="menu-item">
-        <a href="https://t.me/share/url?url=http://vernvn.github.io/2017/02/28/rxjs/&text=努力混迹江湖的前端小白" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
-    </li>
-    
-
-    <!-- QRCode -->
-    
-    <li class="menu-item">
-        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABkUlEQVR42u3bwY6EMAwDUP7/p2euCCW2UyFwkbnszsCWd4iapukeP4PrCCKIILZAHOA63z8/Xw54+Z6NG4Q3gg16RVXPXu9L4wZhjagCsgrM6qXd72jcIPZFVMHGXhzE9xHq/epzEPsiukTTLXQ63CgxBmGLYAvd1Z+3rraDeAwhFa5kAkMBeltVHsRjCPUFSqJCz8pZNIjXEZMXdn+jfC6fCcIWsVIYdxtsqACCgRmEDULZ4FCSGdpsGyWwIGwQyqYoS2TdgnZUgQXxOgI1VliwKpMXKpyD8ESgAFIaKCgYaXAHsQUCLViVBDUpkIPwRqDJZfL9pKAKwhPBJp3JJMSatlIWDeJ1hLKZoS5+0KJGaroEYYFgkxArjCbJje7yB2GBUA8AsgOBrAFXLqCCsERMmnCoKb9y+CMIT8TKQeFJEQzhQdgi2KYnmpSUAz7tO4KwRkwOdCmFMmrMBfENRFfksiBGkCD2RKj/TKBuoAWxD4I13yfNWblpE4QtQj0oPCl+WAEdhC/izSuIIIKwRvwBsdVo2P2HlSsAAAAASUVORK5CYII=" alt="QRCode">
-    </li>
-    
-
-</ul>
-</div>
-        
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">努力混迹江湖的前端小白</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
-                </div>
-                <div class="card-body">
-                    
-                        
-                        
-                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档"><span class="post-toc-number">1.</span> <span class="post-toc-text">首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RXJS全名Reactive-Extensions-for-JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RxJS所能解决的问题："><span class="post-toc-number">1.2.</span> <span class="post-toc-text">RxJS所能解决的问题：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯-Output对应的EventEmitter实际上就是一个Subject-主题：同时为Observable和Observer-Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用-toPromise的方式转换为Promise来使用或第三方扩展库或Fetch-API-传统Ajax已死，Fetch永生。"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject(主题：同时为Observable和Observer);Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用.toPromise的方式转换为Promise来使用或第三方扩展库或Fetch API 传统Ajax已死，Fetch永生。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RxJS初探："><span class="post-toc-number">1.3.</span> <span class="post-toc-text">RxJS初探：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RxJS是一个解决异步问题的JS开发库-它带来了观察者模式和函数式编程的相结合的最佳实践。-观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系-况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS-引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">RxJS是一个解决异步问题的JS开发库.它带来了观察者模式和函数式编程的相结合的最佳实践。 观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系.况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS 引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Stream"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Stream</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#事件引发的改变总是从事件源（生产者）-向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">事件引发的改变总是从事件源（生产者）,向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#流的方式重新定义的变量值的动态行为-换句话说，C-是把两个流变量A-和B-进行合并操作。当一个新值被推进了A-，C-立刻响应式的变更为16。"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">流的方式重新定义的变量值的动态行为.换句话说，C$是把两个流变量A$和B$进行合并操作。当一个新值被推进了A$，C$立刻响应式的变更为16。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开始了解RxJS中的几个重要成员"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">开始了解RxJS中的几个重要成员</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一个例子"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">第一个例子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用RxJS创建一个可观察对象："><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">使用RxJS创建一个可观察对象：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#observable可观察对象，以惰性的方式推送多值的集合"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">observable可观察对象，以惰性的方式推送多值的集合</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下面的例子是一个推送1-2，3-4数值的可观察对象，一旦它被订阅1-2，3-就会被推送，4则会在订阅发生一秒之后被推送，紧接着完成推送"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">下面的例子是一个推送1,2，3,4数值的可观察对象，一旦它被订阅1,2，3,就会被推送，4则会在订阅发生一秒之后被推送，紧接着完成推送</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pull拉取-VS-Push推送"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">Pull拉取 VS Push推送</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#拉和推是数据生产者和数据的消费者两种不同的交流协议-方式"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">拉和推是数据生产者和数据的消费者两种不同的交流协议(方式);</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#什么是”Pull拉”？在”拉”体系中，数据的消费者决定何时从数据生产者那里获取数据，而生产者自身并不会意识到什么时候数据将会被发送给消费者。"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">什么是”Pull拉”？在”拉”体系中，数据的消费者决定何时从数据生产者那里获取数据，而生产者自身并不会意识到什么时候数据将会被发送给消费者。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#每一个JS函数都是一个“拉”体系，函数是数据的生产者，调用函数的代码通过“拉出”一个单一的返回值来消费该数据-return-语句-。"><span class="post-toc-number">1.8.3.</span> <span class="post-toc-text">每一个JS函数都是一个“拉”体系，函数是数据的生产者，调用函数的代码通过“拉出”一个单一的返回值来消费该数据(return 语句)。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#什么是”Push推”？在推体系中，数据的生产者决定何时发送数据给消费者，消费者不会在接收数据之前意识到它将要接收这个数据。"><span class="post-toc-number">1.8.4.</span> <span class="post-toc-text">什么是”Push推”？在推体系中，数据的生产者决定何时发送数据给消费者，消费者不会在接收数据之前意识到它将要接收这个数据。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Promise-承诺-是当今JS中最常见的Push推体系，一个Promise-数据的生产者-发送一个resolved-value-成功状态的值-来注册一个回调-数据消费者-，但是不同于函数的地方的是：Promise决定着何时数据才被推送至这个回调函数。"><span class="post-toc-number">1.8.5.</span> <span class="post-toc-text">Promise(承诺))是当今JS中最常见的Push推体系，一个Promise(数据的生产者)发送一个resolved value(成功状态的值)来注册一个回调(数据消费者)，但是不同于函数的地方的是：Promise决定着何时数据才被推送至这个回调函数。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RxJS引入了Observables-可观察对象-，一个全新的”推体系”。一个可观察对象是一个产生多值的生产者，并”推送给”Observer-观察者-。"><span class="post-toc-number">1.8.6.</span> <span class="post-toc-text">RxJS引入了Observables(可观察对象)，一个全新的”推体系”。一个可观察对象是一个产生多值的生产者，并”推送给”Observer(观察者)。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RxJS-VS-Promise—3个最重要的不同点"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">RxJS VS Promise—3个最重要的不同点</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Operators操作符"><span class="post-toc-number">2.</span> <span class="post-toc-text">Operators操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#create-创建一个可观察序列，参数为一个封装数据生成逻辑的函数，该函数的参数为观察者"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">create()  创建一个可观察序列，参数为一个封装数据生成逻辑的函数，该函数的参数为观察者</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#empty-不需要传递参数，创建一个空序列并立即结束"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">empty()  不需要传递参数，创建一个空序列并立即结束</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#never-不需要传递参数，创建一个空序列，并永远不结束"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">never() 不需要传递参数，创建一个空序列，并永远不结束</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#throw-创建一个空序列，参数来声明错误并立即抛出错误"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">throw() 创建一个空序列，参数来声明错误并立即抛出错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#range-创建一个有线长度的整数序列，两个参数，第一个起始值，第二个元素数量"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">range() 创建一个有线长度的整数序列，两个参数，第一个起始值，第二个元素数量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#interval-创建一个无限长度的周期性序列"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">interval() 创建一个无限长度的周期性序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#timer-指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">timer() 指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#from-可以将已有的数据转化为Observable-参数为iterable数据集对象-常见Array-String"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">from() 可以将已有的数据转化为Observable,参数为iterable数据集对象,常见Array,String</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#of-不在同一个数据集中的多个来源的数据，使用of-方法直接构造："><span class="post-toc-number">2.9.</span> <span class="post-toc-text">of()  不在同一个数据集中的多个来源的数据，使用of()方法直接构造：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#just-将任何数据转化为一个单值输出的Observable"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">just()  将任何数据转化为一个单值输出的Observable</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#repeat-创建一个重复值序列-par1-值，par2：次数"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">repeat() 创建一个重复值序列  par1:值，par2：次数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#fromEvent-将事件流转化为Observable"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">fromEvent() 将事件流转化为Observable,</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toArray-将序列还原为数组对象-只有在订阅后才还原为数组"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">toArray() 将序列还原为数组对象,只有在订阅后才还原为数组</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#delay-推迟-参数为数字或Date对象"><span class="post-toc-number">2.14.</span> <span class="post-toc-text">delay() 推迟   参数为数字或Date对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#delaySubscription-延迟订阅-参数同理"><span class="post-toc-number">2.15.</span> <span class="post-toc-text">delaySubscription() 延迟订阅  参数同理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#startWith-可以在源序列之前添加额外的元素"><span class="post-toc-number">2.16.</span> <span class="post-toc-text">startWith() 可以在源序列之前添加额外的元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#map-对源序列进行变换，并返回新的序列-改变了源"><span class="post-toc-number">2.17.</span> <span class="post-toc-text">map() 对源序列进行变换，并返回新的序列(改变了源)</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#concat-有序拼接-merge-无序"><span class="post-toc-number"></span> <span class="post-toc-text">concat() 有序拼接   merge()无序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#concatAll-如果源序列的元素也是序列-——-序列的序列，那么可以使用concatAll-方法将各元素序列按顺序拼接起来"><span class="post-toc-number">0.1.</span> <span class="post-toc-text">concatAll()  如果源序列的元素也是序列 —— 序列的序列，那么可以使用concatAll() 方法将各元素序列按顺序拼接起来</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#catch-捕捉源序列错误，返回新序列"><span class="post-toc-number">0.2.</span> <span class="post-toc-text">catch()  捕捉源序列错误，返回新序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#pluck-针对元素为json对象的源序列，返回指定属性的值的序列"><span class="post-toc-number">0.3.</span> <span class="post-toc-text">pluck()  针对元素为json对象的源序列，返回指定属性的值的序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flatMap-平坦化映射-首先将一个序列的各元素映射为序列，然后将各序列融合-参数是一个映射函数，返回值为序列"><span class="post-toc-number">0.4.</span> <span class="post-toc-text">flatMap()  平坦化映射:首先将一个序列的各元素映射为序列，然后将各序列融合  参数是一个映射函数，返回值为序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flatMapLatest-与flatMap-的区别在于将最新的序列中的元素输出"><span class="post-toc-number">0.5.</span> <span class="post-toc-text">flatMapLatest()  与flatMap()的区别在于将最新的序列中的元素输出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#concatMap-将源序列各元素映射为序列，然后按顺序拼接-与flatMap的区别所在"><span class="post-toc-number">0.6.</span> <span class="post-toc-text">concatMap()  将源序列各元素映射为序列，然后按顺序拼接 (与flatMap的区别所在)</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#flatMap与map异同点"><span class="post-toc-number">1.</span> <span class="post-toc-text">flatMap与map异同点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射，返回一个包含映射结果的Observable对象。而flatMap是把自身对象里的数值进行映射并转换成一个新的Observable对象-当从其他类型对象中构建Observable对象时，需要使用flatMap方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射，返回一个包含映射结果的Observable对象。而flatMap是把自身对象里的数值进行映射并转换成一个新的Observable对象.当从其他类型对象中构建Observable对象时，需要使用flatMap方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#flatMap与concatMap异同点"><span class="post-toc-number">2.</span> <span class="post-toc-text">flatMap与concatMap异同点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#merge和map结合与concat和map结合的区别，归根结底为merge与concat的区别，一个无序一个有序"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">merge和map结合与concat和map结合的区别，归根结底为merge与concat的区别，一个无序一个有序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#filter-筛选源序列中满足条件的元素，并返回新的序列"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">filter() 筛选源序列中满足条件的元素，并返回新的序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#skip-num-抑制序列头部元素数量输出-skipLast-num-尾部-skipWhile-if-指定一个条件"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">skip(num) 抑制序列头部元素数量输出   skipLast(num)尾部   skipWhile(if)指定一个条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#take-num-截取序列头部元素数量输出-takeLast-num-尾部-takeWhile-if-指定一个条件"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">take(num) 截取序列头部元素数量输出   takeLast(num)尾部   takeWhile(if)指定一个条件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#distinct-去重-并返回一个新序列"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">distinct 去重,并返回一个新序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#distinctUntilChanged-去重-并返回一个新序列"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">distinctUntilChanged 去重,并返回一个新序列</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#debounce-去抖动-一段时间内只取最新数据作为一次发射数据，其他数据取消发射"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">debounce  去抖动,一段时间内只取最新数据作为一次发射数据，其他数据取消发射</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#throttle-和debounce唯一区别是debounce取一段时间内最新的，而throttle忽略这段时间后，发现新值才发送-通俗讲，都设定一个时间周期，持续触发事件，throttle为每到时间周期便会触发一次，bebounce为触发周期小于设定时间周期不予事件触发）"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">throttle(和debounce唯一区别是debounce取一段时间内最新的，而throttle忽略这段时间后，发现新值才发送, 通俗讲，都设定一个时间周期，持续触发事件，throttle为每到时间周期便会触发一次，bebounce为触发周期小于设定时间周期不予事件触发）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#buffer-使用第二个序列触发源序列中多个元素的打包"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">buffer() 使用第二个序列触发源序列中多个元素的打包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#bufferWithTime-按固定时间间隔对源序列进行打包"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">bufferWithTime() 按固定时间间隔对源序列进行打包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#zip-支持可变数量的序列作为参数，最后一个参数应当是一个组合函数，-其返回值将作为目标序列的元素"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">zip()  支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#forkJoin-将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">forkJoin()  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#combineLatest-将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">combineLatest() 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素</span></a></li></ol></li></ol></div>
-                        
-                    
-                    <article id="post-content">
-                        <h2 id="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档"><a href="#首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档" class="headerlink" title="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档"></a>首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。<a href="https://www.gitbook.com/book/buctwbzs/rxjs/details" target="_blank" rel="noopener">最好的Rxjs中文文档</a></h2><h3 id="RXJS全名Reactive-Extensions-for-JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。"><a href="#RXJS全名Reactive-Extensions-for-JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。" class="headerlink" title="RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。"></a>RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。</h3><h3 id="RxJS所能解决的问题："><a href="#RxJS所能解决的问题：" class="headerlink" title="RxJS所能解决的问题："></a>RxJS所能解决的问题：</h3><h4 id="时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯-Output对应的EventEmitter实际上就是一个Subject-主题：同时为Observable和Observer-Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用-toPromise的方式转换为Promise来使用或第三方扩展库或Fetch-API-传统Ajax已死，Fetch永生。"><a href="#时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯-Output对应的EventEmitter实际上就是一个Subject-主题：同时为Observable和Observer-Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用-toPromise的方式转换为Promise来使用或第三方扩展库或Fetch-API-传统Ajax已死，Fetch永生。" class="headerlink" title="时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject(主题：同时为Observable和Observer);Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用.toPromise的方式转换为Promise来使用或第三方扩展库或Fetch API 传统Ajax已死，Fetch永生。"></a>时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject(主题：同时为Observable和Observer);Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用.toPromise的方式转换为Promise来使用或第三方扩展库或Fetch API <a href="https://segmentfault.com/a/1190000003810652" target="_blank" rel="noopener">传统Ajax已死，Fetch永生</a>。</h4><p><br></p>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://vernvn.github.io/2017/02/28/rxjs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+      <meta itemprop="name" content="Lee_Ran">
+      <meta itemprop="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力混迹江湖的前端小白">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          RxJS:万物皆为流
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-28 13:54:14" itemprop="dateCreated datePublished" datetime="2017-02-28T13:54:14+08:00">2017-02-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-02-08 10:09:02" itemprop="dateModified" datetime="2018-02-08T10:09:02+08:00">2018-02-08</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档"><a href="#首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档" class="headerlink" title="首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档"></a>首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。<a href="https://www.gitbook.com/book/buctwbzs/rxjs/details" target="_blank" rel="noopener">最好的Rxjs中文文档</a></h2><h3 id="RXJS全名Reactive-Extensions-for-JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。"><a href="#RXJS全名Reactive-Extensions-for-JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。" class="headerlink" title="RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。"></a>RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。</h3><h3 id="RxJS所能解决的问题："><a href="#RxJS所能解决的问题：" class="headerlink" title="RxJS所能解决的问题："></a>RxJS所能解决的问题：</h3><h4 id="时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯-Output对应的EventEmitter实际上就是一个Subject-主题：同时为Observable和Observer-Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用-toPromise的方式转换为Promise来使用或第三方扩展库或Fetch-API-传统Ajax已死，Fetch永生。"><a href="#时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯-Output对应的EventEmitter实际上就是一个Subject-主题：同时为Observable和Observer-Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用-toPromise的方式转换为Promise来使用或第三方扩展库或Fetch-API-传统Ajax已死，Fetch永生。" class="headerlink" title="时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject(主题：同时为Observable和Observer);Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用.toPromise的方式转换为Promise来使用或第三方扩展库或Fetch API 传统Ajax已死，Fetch永生。"></a>时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject(主题：同时为Observable和Observer);Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用.toPromise的方式转换为Promise来使用或第三方扩展库或Fetch API <a href="https://segmentfault.com/a/1190000003810652" target="_blank" rel="noopener">传统Ajax已死，Fetch永生</a>。</h4><p><br></p>
 <h3 id="RxJS初探："><a href="#RxJS初探：" class="headerlink" title="RxJS初探："></a>RxJS初探：</h3><h4 id="RxJS是一个解决异步问题的JS开发库-它带来了观察者模式和函数式编程的相结合的最佳实践。-观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系-况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS-引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"><a href="#RxJS是一个解决异步问题的JS开发库-它带来了观察者模式和函数式编程的相结合的最佳实践。-观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系-况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS-引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。" class="headerlink" title="RxJS是一个解决异步问题的JS开发库.它带来了观察者模式和函数式编程的相结合的最佳实践。 观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系.况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS 引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"></a>RxJS是一个解决异步问题的JS开发库.它带来了观察者模式和函数式编程的相结合的最佳实践。 观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系.况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS 引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。</h4><p><br></p>
 <h3 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h3><h4 id="流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"><a href="#流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。" class="headerlink" title="流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"></a>流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var a = 2;</span><br><span class="line">var b = 4;</span><br><span class="line">var c = a + b;</span><br><span class="line">console.log(c); //-&gt; 6</span><br><span class="line">a = 10;  // reassign a</span><br><span class="line">console.log(c); //-&gt; still 6</span><br></pre></td></tr></table></figure>
 <h4 id="事件引发的改变总是从事件源（生产者）-向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？"><a href="#事件引发的改变总是从事件源（生产者）-向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？" class="headerlink" title="事件引发的改变总是从事件源（生产者）,向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？"></a>事件引发的改变总是从事件源（生产者）,向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var A$ = 2;</span><br><span class="line">var B$ = 4;</span><br><span class="line">var C$ = A$ + B$;</span><br><span class="line">console.log(C$); //-&gt; 6</span><br><span class="line">A$ = 10;  </span><br><span class="line">console.log(C$); //-&gt;  16</span><br></pre></td></tr></table></figure>
@@ -559,175 +348,231 @@
 <h3 id="zip-支持可变数量的序列作为参数，最后一个参数应当是一个组合函数，-其返回值将作为目标序列的元素"><a href="#zip-支持可变数量的序列作为参数，最后一个参数应当是一个组合函数，-其返回值将作为目标序列的元素" class="headerlink" title="zip()  支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素"></a>zip()  支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var source1 = Rx.Observable.of(1,2,3); //序列： 1 2 3</span><br><span class="line">var source2 = Rx.Observable.of(4,5,6); //序列：4 5 6</span><br><span class="line">var cf = function(d1,d2)&#123; return d1 + &apos;-&apos; + d2;&#125;;</span><br><span class="line">var target = Rx.Observable.zip(source1,source2,cf); //序列： 1-4 2-5 3-6</span><br></pre></td></tr></table></figure>
 <h3 id="forkJoin-将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素"><a href="#forkJoin-将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素" class="headerlink" title="forkJoin()  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素"></a>forkJoin()  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var source1 = Rx.Observable.of(1,2,3); //序列： 1 2 3</span><br><span class="line">var source2 = Rx.Observable.of(4,5,6); //序列： 4 5 6</span><br><span class="line">var target = Rz.Observable.forkJoin(source1,source2); //序列：[3,6]</span><br></pre></td></tr></table></figure>
 <h3 id="combineLatest-将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素"><a href="#combineLatest-将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素" class="headerlink" title="combineLatest() 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素"></a>combineLatest() 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var source1 = Rx.Observable.interval(200).map(x =&gt; &apos;First:&apos; + x)</span><br><span class="line">var source2 = Rx.Observable.interval(100).map(x =&gt; &apos;Second:&apos; + x)</span><br><span class="line">var source = Rx.Observable.combineLatest(</span><br><span class="line">    source1,</span><br><span class="line">    source2</span><br><span class="line">).take(4);   // [&quot;First:0&quot;, &quot;Second:0&quot;]  [&quot;First:0&quot;, &quot;Second:1&quot;]  [&quot;First:0&quot;, &quot;Second:2&quot;]   [&quot;First:1&quot;, &quot;Second:2&quot;]</span><br></pre></td></tr></table></figure>
-                    </article>
-                    
+    </div>
 
-
-    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
-    <script>
-    (function() {
-        var dateUpdate = Date.parse("2018-02-08");
-        var nowDate = new Date();
-        var a = nowDate.getTime();
-        var b = a - dateUpdate;
-        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
-        if (daysUpdateExpire >= 120) {
-            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
-        } else {
-            document.getElementById('date-expire-notification').style.display = 'none';
-        }
-    })();
-    </script>
-
-
-<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2017-02-28T05:54:14.000Z" itemprop="datePublished">2017-02-28</time>
-
-    , 最后修改于&nbsp;<time datetime="2018-02-08T02:09:02.000Z" itemprop="dateModified">2018-02-08</time>
-
-</p>
-<p class="post-footer-info mb-0 pt-2">
-
-
-
-
-</p>
-
-                </div>
-                <div class="post-nav px-2 bg-gray">
-<ul class="pagination">
-    <!-- Prev Nav -->
     
-        <li class="page-item page-prev">
-            <a href="/2017/04/13/Subject/" rel="prev">
-                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">Subject</div>
-            </a>
-        </li>
     
+    
+      
 
-    <!-- Next Nav -->
-    
-        <li class="page-item page-next">
-            <a href="/2016/11/21/ng1%E4%B8%8Eng2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E6%AF%94%E8%BE%83/" rel="next">
-                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
-                <div class="page-item-subtitle">依赖注入</div>
-            </a>
-        </li>
-    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Lee_Ran
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://vernvn.github.io/2017/02/28/rxjs/" title="RxJS:万物皆为流">http://vernvn.github.io/2017/02/28/rxjs/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/null" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
 </ul>
 </div>
 
-                
-                    <!-- # Comment # -->
-                    
-                        <div class="card-footer post-comment">
-                            <div id="lv-container" data-id="city" data-uid="MTAyMC80NzY2MS8yNDE1OQ==">
-    <script id="livere-comment-js">
-    (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-       if (typeof LivereTower === 'function') { return; }
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-       e.parentNode.insertBefore(j, e);
-    })(document, 'script');
-    </script>
-</div>
-                        </div>
-                    
-                
-            </div>
-        </div>
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2016/11/21/ng1%E4%B8%8Eng2%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E6%AF%94%E8%BE%83/" rel="prev" title="依赖注入">
+      <i class="fa fa-chevron-left"></i> 依赖注入
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/04/13/Subject/" rel="next" title="Subject">
+      Subject <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档"><span class="nav-number">1.</span> <span class="nav-text">首先贴上一个中文Rxjs文档链接，从官网被人直译下来的，也是比较全面的介绍rxjs了。最好的Rxjs中文文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RXJS全名Reactive-Extensions-for-JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。"><span class="nav-number">1.1.</span> <span class="nav-text">RXJS全名Reactive Extensions for JavaScript，JavaScript的响应式扩展。什么是响应式？响应式就是跟随时间不断变化的数据、状态、事件等转换成可被观察的序列，然后订阅那些变化，一旦变化则会执行业务逻辑。适用于异步场景。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RxJS所能解决的问题："><span class="nav-number">1.2.</span> <span class="nav-text">RxJS所能解决的问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯-Output对应的EventEmitter实际上就是一个Subject-主题：同时为Observable和Observer-Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用-toPromise的方式转换为Promise来使用或第三方扩展库或Fetch-API-传统Ajax已死，Fetch永生。"><span class="nav-number">1.2.1.</span> <span class="nav-text">时刻保持响应。这对于一个应用来说意味着当他处理用户的输入或者凭借AJAX从服务器接受一些数据时停止是一件不可能接受的事情。在JavaScript中解决问题的方案始终是大量运用回调函数来进行一些运行的处理。但回调的使用使内容丰富的大型应用变得凌乱，一旦你需要多块数据时你就陷入了回调地狱。Angular2中，组件间通讯@Output对应的EventEmitter实际上就是一个Subject(主题：同时为Observable和Observer);Http模块中Observable作为大部分API的交互对象使用。但是这只是官方的外部扩展，并不必须，也可以使用.toPromise的方式转换为Promise来使用或第三方扩展库或Fetch API 传统Ajax已死，Fetch永生。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RxJS初探："><span class="nav-number">1.3.</span> <span class="nav-text">RxJS初探：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#RxJS是一个解决异步问题的JS开发库-它带来了观察者模式和函数式编程的相结合的最佳实践。-观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系-况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS-引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"><span class="nav-number">1.3.1.</span> <span class="nav-text">RxJS是一个解决异步问题的JS开发库.它带来了观察者模式和函数式编程的相结合的最佳实践。 观察者模式是一个被实践证明的模式，基于生产者（事件的创建者）和消费者（事件的监听者）的逻辑分离关系.况且函数式编程方式的引入，如说明性编程，不可变数据结构，链式方法调用会使你极大的简化代码量。RxJS 引入了一个重要的数据类型——流（stream）。流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下，等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Stream"><span class="nav-number">1.4.</span> <span class="nav-text">Stream</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。"><span class="nav-number">1.4.1.</span> <span class="nav-text">流（Streams）无非是随时间流逝的一系列事件。流（Streams）可以用来处理任何类型的事件，如：鼠标点击，键盘按下等等。你可以把流作为变量，它有能力从数据角度对发生的改变做出反应。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件引发的改变总是从事件源（生产者）-向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？"><span class="nav-number">1.4.2.</span> <span class="nav-text">事件引发的改变总是从事件源（生产者）,向下传递到所有事件监听方（消费者）。如果变量看做流呢，又是什么结果呢？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#流的方式重新定义的变量值的动态行为-换句话说，C-是把两个流变量A-和B-进行合并操作。当一个新值被推进了A-，C-立刻响应式的变更为16。"><span class="nav-number">1.4.3.</span> <span class="nav-text">流的方式重新定义的变量值的动态行为.换句话说，C$是把两个流变量A$和B$进行合并操作。当一个新值被推进了A$，C$立刻响应式的变更为16。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始了解RxJS中的几个重要成员"><span class="nav-number">1.5.</span> <span class="nav-text">开始了解RxJS中的几个重要成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个例子"><span class="nav-number">1.6.</span> <span class="nav-text">第一个例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用RxJS创建一个可观察对象："><span class="nav-number">1.6.1.</span> <span class="nav-text">使用RxJS创建一个可观察对象：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#observable可观察对象，以惰性的方式推送多值的集合"><span class="nav-number">1.7.</span> <span class="nav-text">observable可观察对象，以惰性的方式推送多值的集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面的例子是一个推送1-2，3-4数值的可观察对象，一旦它被订阅1-2，3-就会被推送，4则会在订阅发生一秒之后被推送，紧接着完成推送"><span class="nav-number">1.7.1.</span> <span class="nav-text">下面的例子是一个推送1,2，3,4数值的可观察对象，一旦它被订阅1,2，3,就会被推送，4则会在订阅发生一秒之后被推送，紧接着完成推送</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pull拉取-VS-Push推送"><span class="nav-number">1.8.</span> <span class="nav-text">Pull拉取 VS Push推送</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拉和推是数据生产者和数据的消费者两种不同的交流协议-方式"><span class="nav-number">1.8.1.</span> <span class="nav-text">拉和推是数据生产者和数据的消费者两种不同的交流协议(方式);</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是”Pull拉”？在”拉”体系中，数据的消费者决定何时从数据生产者那里获取数据，而生产者自身并不会意识到什么时候数据将会被发送给消费者。"><span class="nav-number">1.8.2.</span> <span class="nav-text">什么是”Pull拉”？在”拉”体系中，数据的消费者决定何时从数据生产者那里获取数据，而生产者自身并不会意识到什么时候数据将会被发送给消费者。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每一个JS函数都是一个“拉”体系，函数是数据的生产者，调用函数的代码通过“拉出”一个单一的返回值来消费该数据-return-语句-。"><span class="nav-number">1.8.3.</span> <span class="nav-text">每一个JS函数都是一个“拉”体系，函数是数据的生产者，调用函数的代码通过“拉出”一个单一的返回值来消费该数据(return 语句)。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是”Push推”？在推体系中，数据的生产者决定何时发送数据给消费者，消费者不会在接收数据之前意识到它将要接收这个数据。"><span class="nav-number">1.8.4.</span> <span class="nav-text">什么是”Push推”？在推体系中，数据的生产者决定何时发送数据给消费者，消费者不会在接收数据之前意识到它将要接收这个数据。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Promise-承诺-是当今JS中最常见的Push推体系，一个Promise-数据的生产者-发送一个resolved-value-成功状态的值-来注册一个回调-数据消费者-，但是不同于函数的地方的是：Promise决定着何时数据才被推送至这个回调函数。"><span class="nav-number">1.8.5.</span> <span class="nav-text">Promise(承诺))是当今JS中最常见的Push推体系，一个Promise(数据的生产者)发送一个resolved value(成功状态的值)来注册一个回调(数据消费者)，但是不同于函数的地方的是：Promise决定着何时数据才被推送至这个回调函数。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RxJS引入了Observables-可观察对象-，一个全新的”推体系”。一个可观察对象是一个产生多值的生产者，并”推送给”Observer-观察者-。"><span class="nav-number">1.8.6.</span> <span class="nav-text">RxJS引入了Observables(可观察对象)，一个全新的”推体系”。一个可观察对象是一个产生多值的生产者，并”推送给”Observer(观察者)。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RxJS-VS-Promise—3个最重要的不同点"><span class="nav-number">1.9.</span> <span class="nav-text">RxJS VS Promise—3个最重要的不同点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operators操作符"><span class="nav-number">2.</span> <span class="nav-text">Operators操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#create-创建一个可观察序列，参数为一个封装数据生成逻辑的函数，该函数的参数为观察者"><span class="nav-number">2.1.</span> <span class="nav-text">create()  创建一个可观察序列，参数为一个封装数据生成逻辑的函数，该函数的参数为观察者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#empty-不需要传递参数，创建一个空序列并立即结束"><span class="nav-number">2.2.</span> <span class="nav-text">empty()  不需要传递参数，创建一个空序列并立即结束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#never-不需要传递参数，创建一个空序列，并永远不结束"><span class="nav-number">2.3.</span> <span class="nav-text">never() 不需要传递参数，创建一个空序列，并永远不结束</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throw-创建一个空序列，参数来声明错误并立即抛出错误"><span class="nav-number">2.4.</span> <span class="nav-text">throw() 创建一个空序列，参数来声明错误并立即抛出错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#range-创建一个有线长度的整数序列，两个参数，第一个起始值，第二个元素数量"><span class="nav-number">2.5.</span> <span class="nav-text">range() 创建一个有线长度的整数序列，两个参数，第一个起始值，第二个元素数量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#interval-创建一个无限长度的周期性序列"><span class="nav-number">2.6.</span> <span class="nav-text">interval() 创建一个无限长度的周期性序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timer-指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列"><span class="nav-number">2.7.</span> <span class="nav-text">timer() 指定一个额外的参数来调节第一值的静默时长，第二个参数可选，若无则仅仅在规定的静默时长后输出一个值，然后结束序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#from-可以将已有的数据转化为Observable-参数为iterable数据集对象-常见Array-String"><span class="nav-number">2.8.</span> <span class="nav-text">from() 可以将已有的数据转化为Observable,参数为iterable数据集对象,常见Array,String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#of-不在同一个数据集中的多个来源的数据，使用of-方法直接构造："><span class="nav-number">2.9.</span> <span class="nav-text">of()  不在同一个数据集中的多个来源的数据，使用of()方法直接构造：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#just-将任何数据转化为一个单值输出的Observable"><span class="nav-number">2.10.</span> <span class="nav-text">just()  将任何数据转化为一个单值输出的Observable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repeat-创建一个重复值序列-par1-值，par2：次数"><span class="nav-number">2.11.</span> <span class="nav-text">repeat() 创建一个重复值序列  par1:值，par2：次数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fromEvent-将事件流转化为Observable"><span class="nav-number">2.12.</span> <span class="nav-text">fromEvent() 将事件流转化为Observable,</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toArray-将序列还原为数组对象-只有在订阅后才还原为数组"><span class="nav-number">2.13.</span> <span class="nav-text">toArray() 将序列还原为数组对象,只有在订阅后才还原为数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delay-推迟-参数为数字或Date对象"><span class="nav-number">2.14.</span> <span class="nav-text">delay() 推迟   参数为数字或Date对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delaySubscription-延迟订阅-参数同理"><span class="nav-number">2.15.</span> <span class="nav-text">delaySubscription() 延迟订阅  参数同理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#startWith-可以在源序列之前添加额外的元素"><span class="nav-number">2.16.</span> <span class="nav-text">startWith() 可以在源序列之前添加额外的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#map-对源序列进行变换，并返回新的序列-改变了源"><span class="nav-number">2.17.</span> <span class="nav-text">map() 对源序列进行变换，并返回新的序列(改变了源)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#concat-有序拼接-merge-无序"><span class="nav-number"></span> <span class="nav-text">concat() 有序拼接   merge()无序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#concatAll-如果源序列的元素也是序列-——-序列的序列，那么可以使用concatAll-方法将各元素序列按顺序拼接起来"><span class="nav-number">0.1.</span> <span class="nav-text">concatAll()  如果源序列的元素也是序列 —— 序列的序列，那么可以使用concatAll() 方法将各元素序列按顺序拼接起来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#catch-捕捉源序列错误，返回新序列"><span class="nav-number">0.2.</span> <span class="nav-text">catch()  捕捉源序列错误，返回新序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pluck-针对元素为json对象的源序列，返回指定属性的值的序列"><span class="nav-number">0.3.</span> <span class="nav-text">pluck()  针对元素为json对象的源序列，返回指定属性的值的序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flatMap-平坦化映射-首先将一个序列的各元素映射为序列，然后将各序列融合-参数是一个映射函数，返回值为序列"><span class="nav-number">0.4.</span> <span class="nav-text">flatMap()  平坦化映射:首先将一个序列的各元素映射为序列，然后将各序列融合  参数是一个映射函数，返回值为序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flatMapLatest-与flatMap-的区别在于将最新的序列中的元素输出"><span class="nav-number">0.5.</span> <span class="nav-text">flatMapLatest()  与flatMap()的区别在于将最新的序列中的元素输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#concatMap-将源序列各元素映射为序列，然后按顺序拼接-与flatMap的区别所在"><span class="nav-number">0.6.</span> <span class="nav-text">concatMap()  将源序列各元素映射为序列，然后按顺序拼接 (与flatMap的区别所在)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flatMap与map异同点"><span class="nav-number">1.</span> <span class="nav-text">flatMap与map异同点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射，返回一个包含映射结果的Observable对象。而flatMap是把自身对象里的数值进行映射并转换成一个新的Observable对象-当从其他类型对象中构建Observable对象时，需要使用flatMap方法"><span class="nav-number">1.1.</span> <span class="nav-text">Map用于对自身对象数值进行映射，将发射对象转换成另一个发射对象发射，返回一个包含映射结果的Observable对象。而flatMap是把自身对象里的数值进行映射并转换成一个新的Observable对象.当从其他类型对象中构建Observable对象时，需要使用flatMap方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flatMap与concatMap异同点"><span class="nav-number">2.</span> <span class="nav-text">flatMap与concatMap异同点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#merge和map结合与concat和map结合的区别，归根结底为merge与concat的区别，一个无序一个有序"><span class="nav-number">2.1.</span> <span class="nav-text">merge和map结合与concat和map结合的区别，归根结底为merge与concat的区别，一个无序一个有序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-筛选源序列中满足条件的元素，并返回新的序列"><span class="nav-number">2.2.</span> <span class="nav-text">filter() 筛选源序列中满足条件的元素，并返回新的序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#skip-num-抑制序列头部元素数量输出-skipLast-num-尾部-skipWhile-if-指定一个条件"><span class="nav-number">2.3.</span> <span class="nav-text">skip(num) 抑制序列头部元素数量输出   skipLast(num)尾部   skipWhile(if)指定一个条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#take-num-截取序列头部元素数量输出-takeLast-num-尾部-takeWhile-if-指定一个条件"><span class="nav-number">2.4.</span> <span class="nav-text">take(num) 截取序列头部元素数量输出   takeLast(num)尾部   takeWhile(if)指定一个条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinct-去重-并返回一个新序列"><span class="nav-number">2.5.</span> <span class="nav-text">distinct 去重,并返回一个新序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#distinctUntilChanged-去重-并返回一个新序列"><span class="nav-number">2.6.</span> <span class="nav-text">distinctUntilChanged 去重,并返回一个新序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#debounce-去抖动-一段时间内只取最新数据作为一次发射数据，其他数据取消发射"><span class="nav-number">2.7.</span> <span class="nav-text">debounce  去抖动,一段时间内只取最新数据作为一次发射数据，其他数据取消发射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#throttle-和debounce唯一区别是debounce取一段时间内最新的，而throttle忽略这段时间后，发现新值才发送-通俗讲，都设定一个时间周期，持续触发事件，throttle为每到时间周期便会触发一次，bebounce为触发周期小于设定时间周期不予事件触发）"><span class="nav-number">2.8.</span> <span class="nav-text">throttle(和debounce唯一区别是debounce取一段时间内最新的，而throttle忽略这段时间后，发现新值才发送, 通俗讲，都设定一个时间周期，持续触发事件，throttle为每到时间周期便会触发一次，bebounce为触发周期小于设定时间周期不予事件触发）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#buffer-使用第二个序列触发源序列中多个元素的打包"><span class="nav-number">2.9.</span> <span class="nav-text">buffer() 使用第二个序列触发源序列中多个元素的打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bufferWithTime-按固定时间间隔对源序列进行打包"><span class="nav-number">2.10.</span> <span class="nav-text">bufferWithTime() 按固定时间间隔对源序列进行打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-支持可变数量的序列作为参数，最后一个参数应当是一个组合函数，-其返回值将作为目标序列的元素"><span class="nav-number">2.11.</span> <span class="nav-text">zip()  支持可变数量的序列作为参数，最后一个参数应当是一个组合函数， 其返回值将作为目标序列的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forkJoin-将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素"><span class="nav-number">2.12.</span> <span class="nav-text">forkJoin()  将多个序列的最后一个元素组合为一个数组后，作为目标序列的唯一元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#combineLatest-将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素"><span class="nav-number">2.13.</span> <span class="nav-text">combineLatest() 将多个序列的最后一个元素，使用组合函数构成目标序列的一个新元素</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lee_Ran"
+      src="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+  <p class="site-author-name" itemprop="name">Lee_Ran</p>
+  <div class="site-description" itemprop="description">保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/vernvn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;vernvn" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/LeeRan_6924" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;LeeRan_6924" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee_Ran</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
-            <!-- ### Footer ### -->
-            <footer class="text-center">
-    <!-- footer copyright -->
-    
-        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
-            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
-        </p>
-
-    <!-- footer custom text -->
-    <p class="footer-text mb-0">
-    Lee Ran. All rights reserved. 996685777@qq.com
-    </p>
-    <!-- footer develop info -->
-    <p class="footer-develop mb-0">
-        
-    <!-- Busuanzi User Views -->
-    <span id="busuanzi_container_site_uv" hidden>
-        <span></span>
-        <span id="busuanzi_value_site_uv"></span>
-        <span>Viewers</span>
-        
-            <span>|</span>
-        
-    </span>
 
 
-    <!-- Busuanzi Post Views -->
-    <span id="busuanzi_container_site_pv" hidden>
-        <span></span>
-        <span id="busuanzi_value_site_pv"></span>
-        <span>Views</span>
-        
-    </span>
+
+
 
 
 
         
-        Powered by&nbsp;<!--
-         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
-         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
-    </p>
-</footer>
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
-        <!-- ### Import File ### -->
-        <!-- ### Footer JS Import ### -->
 
-<script>
-
-    
-window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 50
-};
-
-(function() {
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.getElementById('copyright-year');
-    var copyrightSince = 2016;
-    if (copyrightSince === copyrightNow) {
-        copyrightContent.textContent = copyrightNow;
-    } else {
-        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
-    }
-})();
-console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
-
-</script>
-
-<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
-
-
-<!-- Offset -->
+  
 
 
 
 
-<!-- Comment -->
-
-    
-        
-    
+  <script src="/js/local-search.js"></script>
 
 
-<!-- ### Custom Footer ### -->
-<script type="text/javascript"> var a = 1; console.log(a) </script>
-    </body>
 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
 </html>

@@ -1,475 +1,423 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        hexo-theme-suka © SukkaW
-        GitHub: https://github.com/SukkaW/hexo-theme-suka
-    -->
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
 
-    <!-- ### Resource Hint ### -->
-
-    <!-- ## DNS Prefetch ## -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-<!-- busuanzi -->
-
-    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<!-- comment -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 
 
-
-
-
-    <link rel="dns-prefetch" href="//cdn-city.livere.com">
-
-
-
-<!-- analytics -->
-
-    <link rel="dns-prefetch" href="//hm.baidu.com">
-
-
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-
-
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-
-
-
-
-    <link rel="dns-prefetch" href="//pingjs.qq.com">
-
-
-    <!-- ## Preload ## -->
-    
-    <!-- Busuanzi -->
-    
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
-
-
-
-
-
-
-
-    <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <meta name="renderer" content="webkit">
-
-    <!-- Title -->
-    <title>归档: 2018/3 | 努力混迹江湖的前端小白</title>
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
-
-    <!-- ### Import File ### -->
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
-    body {
-        background-color: rgba(233,242,251,1);
-    }
-
-    a, a:visited {
-        color: #0070ff;
-    }
-
-    a:active, a:focus, a:hover {
-        color: #0070ff;
-        opacity: .75;
-    }
-
-    #post-content a,
-    #post-content a:hover,
-    #post-content a:focus,
-    #post-content a:visited {
-        color: #005eb9;
-        opacity: 1;
-    }
-
-    
-
-    .post-entry .card-body a {
-        color: #0070ff;
-    }
-
-    .avatar {
-        background: #444;
-    }
-
-    .navbar-link,
-    .navbar-link:visited,
-    .timeline .timeline-item .timeline-icon.icon-lg {
-        color: #0070ff;
-    }
-
-    .navbar-link:hover {
-        color: #0070ff;
-        opacity: .8;
-    }
-
-    #search-input .btn,
-    #disqus_click_btn,
-    #disqus-switch-to-direct,
-    #disqus-loadmore-button {
-        background: #727e96;
-        border-color: #727e96;
-        color: #fff;
-    }
-
-    #post-toc a.post-toc-link,
-    #post-toc a.post-toc-link:visited,
-    .share-menu.menu .menu-item>a {
-        color: #727e96;
-    }
-
-    .share-menu.menu .menu-item>a:hover,
-    .share-menu.menu .menu-item>a:focus,
-    .share-menu.menu .menu-item>a:visited {
-        color: #50596c;
-        background: rgba(233,242,251,1);
-        opacity: .85;
-    }
-</style><link rel="stylesheet" href="/css/style.min.css">
-
-
-
-
-
-
-
-
-    <!-- Prettify Theme -->
-    
-
-
-
-
-<script>
-/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://vernvn.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
 </script>
 
-    <!-- ### Site Verification ### -->
-    
+  <meta name="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+<meta property="og:type" content="website">
+<meta property="og:title" content="努力混迹江湖的前端小白">
+<meta property="og:url" content="http:&#x2F;&#x2F;vernvn.github.io&#x2F;archives&#x2F;2018&#x2F;03&#x2F;index.html">
+<meta property="og:site_name" content="努力混迹江湖的前端小白">
+<meta property="og:description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://vernvn.github.io/archives/2018/03/">
 
 
-    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
-
-    <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="归档: 2018&#x2F;3 | 努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="website"><meta property="og:url" content="http://vernvn.github.io/archives/2018/03/"><meta property="og:locale" content="zh-CN"><meta name="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上 - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream">
-
-    
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://vernvn.github.io/archives/2018/03/">
-
-    <meta name="generator" content="Hexo 4.0.0">
-
-    <!-- ### Analytics ### -->
-    
-    <!-- Google Analytics -->
-<script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-153074481-1', 'auto');
-    ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-
-
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-153074481-1');
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false,
+    isPage: false,
+    isArchive: true
+  };
 </script>
 
-
-
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
-    var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
+  <title>归档 | 努力混迹江湖的前端小白</title>
+  
 
 
 
 
-    <script>
-    var _mtac = {};
-    (function() {
-        var mta = document.createElement("script");
-        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
-        mta.setAttribute("name", "MTAH5");
-        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
-
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(mta, s);
-    })();
-</script>
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
-    <!-- ### Structured Data ### -->
-    
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
-
-
-    <!-- ### Custom Head ### -->
-    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
+<link rel="alternate" href="/atom.xml" title="努力混迹江湖的前端小白" type="application/atom+xml">
 </head>
 
-    <body>
-            
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-            <!-- ### Main content ### -->
-            <!-- ## Header ##-->
-<header>
-    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-    <p class="text-center header-slogan">
-        
-            
-                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
-            
-        
-    </p>
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">努力混迹江湖的前端小白</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
 
-    <nav class="navbar-section text-center">
-    
-        <a href="/" class="navbar-link">首页</a>
-    
-    
-        <a href="/archives/" class="navbar-link">归档</a>
-    
-    
-    
-        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
-    
-    
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
-    
-    
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
 </nav>
-</header>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
-            <div class="container">
-    <div class="main-container">
-        <main>
+</div>
+<div class="search-pop-overlay"></div>
 
-            <div class="timeline">
+  </div>
+</div>
+    </header>
 
-                <div class="timeline-item">
-                    <div class="timeline-left">
-                        <div class="timeline-icon"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="tile">
-                            <div class="tile-content">
-                                <p class="tile-title">
-                                    目前共计 25 篇文章
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
-                
-                
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-left">
-                            <div class="timeline-icon icon-lg"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="tile">
-                                <div class="tile-content">
-                                    <p class="tile-title mb-0 h4">三月 2018</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-left">
-                            <div class="timeline-icon"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="tile">
-                                <div class="tile-content">
-                                    <span class="tile-subtitle text-gray mb-1">03-01</span>
-                                    <a href="/2018/03/01/git%E6%96%B0%E7%9A%84%E6%8C%87%E4%BB%A4/" class="timeline-tile-title ml-1" rel="bookmark"><span class="tile-title">git新的指令</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                
-                
-            </div>
 
-        </main>
-        
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  
+  
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <span class="collection-header">嗯..! 目前共计 25 篇日志。 继续努力。</span>
+      </div>
+
+      
+    <div class="collection-year">
+      <h1 class="collection-header">2018</h1>
+    </div>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2018-03-01T14:22:58+08:00"
+              content="2018-03-01">
+          03-01
+        </time>
+      </div>
+
+      <h2 class="post-title">
+          <a class="post-title-link" href="/2018/03/01/git%E6%96%B0%E7%9A%84%E6%8C%87%E4%BB%A4/" itemprop="url">
+            <span itemprop="name">git新的指令</span>
+          </a>
+      </h2>
+
+    </header>
+  </article>
+
 
     </div>
+  </div>
+  
+  
+  
+
+  
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lee_Ran"
+      src="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+  <p class="site-author-name" itemprop="name">Lee_Ran</p>
+  <div class="site-description" itemprop="description">保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上</div>
 </div>
-            <!-- ### Footer ### -->
-            <footer class="text-center">
-    <!-- footer copyright -->
-    
-        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
-            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
-        </p>
-
-    <!-- footer custom text -->
-    <p class="footer-text mb-0">
-    Lee Ran. All rights reserved. 996685777@qq.com
-    </p>
-    <!-- footer develop info -->
-    <p class="footer-develop mb-0">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
         
-    <!-- Busuanzi User Views -->
-    <span id="busuanzi_container_site_uv" hidden>
-        <span></span>
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/vernvn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;vernvn" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/LeeRan_6924" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;LeeRan_6924" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee_Ran</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
-        <span>Viewers</span>
-        
-            <span>|</span>
-        
+      </span>
     </span>
-
-
-    <!-- Busuanzi Post Views -->
-    <span id="busuanzi_container_site_pv" hidden>
-        <span></span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
-        <span>Views</span>
-        
+      </span>
     </span>
+</div>
+
+
+
+
+
 
 
 
         
-        Powered by&nbsp;<!--
-         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
-         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
-    </p>
-</footer>
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
-        <!-- ### Import File ### -->
-        <!-- ### Footer JS Import ### -->
 
-<script>
-
-    
-window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 50
-};
-
-(function() {
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.getElementById('copyright-year');
-    var copyrightSince = 2016;
-    if (copyrightSince === copyrightNow) {
-        copyrightContent.textContent = copyrightNow;
-    } else {
-        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
-    }
-})();
-console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
-
-</script>
-
-<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
-
-
-<!-- Offset -->
+  
 
 
 
 
-<!-- Comment -->
-
-    
+  <script src="/js/local-search.js"></script>
 
 
-<!-- ### Custom Footer ### -->
-<script type="text/javascript"> var a = 1; console.log(a) </script>
-    </body>
 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
 </html>

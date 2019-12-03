@@ -1,650 +1,880 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
-    <head>
-    <meta charset="utf-8">
-    <!--
-        hexo-theme-suka © SukkaW
-        GitHub: https://github.com/SukkaW/hexo-theme-suka
-    -->
-
-    <!-- ### Resource Hint ### -->
-
-    <!-- ## DNS Prefetch ## -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-<!-- busuanzi -->
-
-    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
-
-
-<!-- comment -->
-
-
-
-
-
-    <link rel="dns-prefetch" href="//cdn-city.livere.com">
-
-
-
-<!-- analytics -->
-
-    <link rel="dns-prefetch" href="//hm.baidu.com">
-
-
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-
-
-    <link rel="dns-prefetch" href="//www.googletagmanager.com">
-    <link rel="dns-prefetch" href="//www.google-analytics.com">
-
-
-
-
-    <link rel="dns-prefetch" href="//pingjs.qq.com">
-
-
-    <!-- ## Preload ## -->
-    
-    <!-- Busuanzi -->
-    
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
-
-
-
-
-
-
-
-    <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
-    <meta name="renderer" content="webkit">
-
-    <!-- Title -->
-    <title>努力混迹江湖的前端小白</title>
-
-    <!-- Favicons -->
-    <link rel="icon" type="image/ico" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="apple-touch-icon" sizes="180x180" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="192x192" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="32x32" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="icon" typt="image/png" sizes="16x16" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"><link rel="mask-icon" href="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" color="blue"><meta name="theme-color" content="blue">
-
-    <!-- ### Import File ### -->
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
-    body {
-        background-color: rgba(233,242,251,1);
-    }
-
-    a, a:visited {
-        color: #0070ff;
-    }
-
-    a:active, a:focus, a:hover {
-        color: #0070ff;
-        opacity: .75;
-    }
-
-    #post-content a,
-    #post-content a:hover,
-    #post-content a:focus,
-    #post-content a:visited {
-        color: #005eb9;
-        opacity: 1;
-    }
-
-    
-
-    .post-entry .card-body a {
-        color: #0070ff;
-    }
-
-    .avatar {
-        background: #444;
-    }
-
-    .navbar-link,
-    .navbar-link:visited,
-    .timeline .timeline-item .timeline-icon.icon-lg {
-        color: #0070ff;
-    }
-
-    .navbar-link:hover {
-        color: #0070ff;
-        opacity: .8;
-    }
-
-    #search-input .btn,
-    #disqus_click_btn,
-    #disqus-switch-to-direct,
-    #disqus-loadmore-button {
-        background: #727e96;
-        border-color: #727e96;
-        color: #fff;
-    }
-
-    #post-toc a.post-toc-link,
-    #post-toc a.post-toc-link:visited,
-    .share-menu.menu .menu-item>a {
-        color: #727e96;
-    }
-
-    .share-menu.menu .menu-item>a:hover,
-    .share-menu.menu .menu-item>a:focus,
-    .share-menu.menu .menu-item>a:visited {
-        color: #50596c;
-        background: rgba(233,242,251,1);
-        opacity: .85;
-    }
-</style><link rel="stylesheet" href="/css/style.min.css">
-
-
-
-
-
-
-
-
-    <!-- Prettify Theme -->
-    
-
-
-
-
-<script>
-/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
-</script>
-
-    <!-- ### Site Verification ### -->
-    
-
-
-    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="努力混迹江湖的前端小白"><meta name="msapplication-starturl" content="http://vernvn.github.io"><meta name="msapplication-navbutton-color" content="blue"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="努力混迹江湖的前端小白"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="search" type="application/opensearchdescription+xml" href="source/opensearch.xml" title="努力混迹江湖的前端小白">
-
-    <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="努力混迹江湖的前端小白"><meta property="og:site_name" content="努力混迹江湖的前端小白"><meta property="og:type" content="website"><meta property="og:url" content="http://vernvn.github.io/page/2/"><meta property="og:locale" content="zh-CN"><meta name="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上 - Lee - 努力混迹江湖的前端小白"><meta name="keywords" content="angular,rxjs,flutter,stream">
-
-    
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://vernvn.github.io/page/2/">
-
-    <meta name="generator" content="Hexo 4.0.0">
-
-    <!-- ### Analytics ### -->
-    
-    <!-- Google Analytics -->
-<script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-153074481-1', 'auto');
-    ga('send', 'pageview');
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-
-
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-153074481-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-153074481-1');
-</script>
-
-
-
-    <script>
-    var _hmt = _hmt || [];
-    (function() {var hm = document.createElement('script');
-    hm.src = 'https://hm.baidu.com/hm.js?7e013f56a256cdffa32c4091027f4202';
-    var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-
-
-
-    <script>
-    var _mtac = {};
-    (function() {
-        var mta = document.createElement("script");
-        mta.src = "https://pingjs.qq.com/h5/stats.js?v2.0.4";
-        mta.setAttribute("name", "MTAH5");
-        mta.setAttribute("sid", "theme.analytics.tencent_mta_id");
-
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(mta, s);
-    })();
-</script>
-
-
-
-    <!-- ### Structured Data ### -->
-    
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Blog",
-    "author": {
-        "@type": "Person",
-        "name": "Lee",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-        },
-        "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上"
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://vernvn.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":true,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    "publisher": {
-        "@type": "Organization",
-        "name": "努力混迹江湖的前端小白",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-        }
-    },
-    "url": "http://vernvn.github.io",
-    "logo": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true",
-    "image": {
-        "@type": "ImageObject",
-        "url": "https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://vernvn.github.io"
-    },
-    
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "http://vernvn.github.io/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-    },
-    
-    "keywords": "angular,rxjs,flutter,stream",
-    "description": "保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上 - Lee - 努力混迹江湖的前端小白"
-}
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
 </script>
 
+  <meta name="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+<meta property="og:type" content="website">
+<meta property="og:title" content="努力混迹江湖的前端小白">
+<meta property="og:url" content="http:&#x2F;&#x2F;vernvn.github.io&#x2F;page&#x2F;2&#x2F;index.html">
+<meta property="og:site_name" content="努力混迹江湖的前端小白">
+<meta property="og:description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://vernvn.github.io/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>努力混迹江湖的前端小白</title>
+  
 
 
 
 
-    <!-- ### Custom Head ### -->
-    <img src="https://img.blingabc.com/8e3a44b805c14366b5d2ba0fa3fe44a5.jpg" style="width:8rem; height:8rem;border-radius:50%; position:relative;left:50%;transform:translate(-50%, 0); margin: 1.5rem 0" />
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="努力混迹江湖的前端小白" type="application/atom+xml">
 </head>
 
-    <body>
-            
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
-            <!-- ### Main content ### -->
-            <!-- ## Header ##-->
-<header>
-    <h1 class="header-title text-center"><a href="/">努力混迹江湖的前端小白</a></h1>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-    <p class="text-center header-slogan">
-        
-            
-                保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上
-            
-        
-    </p>
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">努力混迹江湖的前端小白</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
 
-    <nav class="navbar-section text-center">
-    
-        <a href="/" class="navbar-link">首页</a>
-    
-    
-        <a href="/archives/" class="navbar-link">归档</a>
-    
-    
-    
-        <a href="https://vernvn.github.io/resume2017/" class="navbar-link">简历</a>
-    
-    
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
-    <ul class="menu share-menu">
-
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=努力混迹江湖的前端小白&url=http://vernvn.github.io&pic=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
-        </li>
-        
-
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=努力混迹江湖的前端小白&url=http://vernvn.github.io&via=Lee" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://vernvn.github.io&title=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=努力混迹江湖的前端小白&title=2019 RESUME&summary=保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上&pics=https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true&url=http://vernvn.github.io" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://vernvn.github.io&text=2019 RESUME" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAAAAABQV18IAAAB20lEQVR42u3bQW7DMAxEUd//0u2qQFuIM8PEAST6e1PDcaQXgLYoSr2+NjwuUKBAgVqgLnFU9/xc+9Og+F7cD6gxqGXQBdcr5Op61B6oUagqkF1j6oH4/5nqB9SzUKvzFbICggJVoar7V59X56Ceg1IvR5XcqUBvD/CgxqBUQn/n39tmM6C2RtmiQyMJXHX0kaoLqK1RKhDdBNRNItL2Qc1DVZOD5RdNUU2BVBEO1ByUmngmiCrw04G6fKODOhaVFOS7cDnhVD8G1AhUN3hdwLoETxbeQI1AJQNpWrBPCv+tLAHUkShXMHUT0xTkJhqg5qDcBECdu6KsWmyKZsigjkWlCztqkFYDc/LwgJqDeqVg1il8vDUggzoSlWzwc4GeLhS1CxygjkZ1G04Cvr3xC9QI1CuduqQtWahctgFqBCpN1OIND92NXKBGopIXqdyMFRZn7X2gRqHU4Jp0ICcE4WYdULNQ3UKqK8omCwSgZqKSjYJu859b9I4fFFAjUEni1l34STd6RVUXUEeiOsGbFu3ThUxQc1HpgOqSOXdvvAEH1GNQnaJZd8AG9SxUOoCnD8UtgQ5qa1SS0MUF1cv/s+tbSR6o7VHvBG5nA7T6UaDmoHY6QIECBerX8Q2IoTGA5ErSOQAAAABJRU5ErkJggg==" alr="QRCode">
-        </li>
-        
-
-    </ul>
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
 </div>
-    
-    
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>公益 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
 </nav>
-</header>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
 
-            <div class="container">
-    <div class="main-container">
-        <main>
-            <div class="post-stream-container">
-                <!-- # Post List # -->
-                
-                    
-                        <article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/11/09/generator/" rel="bookmark">generator</a></h2>
+</div>
+<div class="search-pop-overlay"></div>
 
+  </div>
+</div>
+    </header>
 
-<p class="mb-0 card-body">
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
         
-    <a href="/2016/11/09/generator/">阅读全文</a>
-</p>
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://vernvn.github.io/2016/11/09/generator/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+      <meta itemprop="name" content="Lee_Ran">
+      <meta itemprop="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+    </span>
 
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力混迹江湖的前端小白">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/09/generator/" class="post-title-link" itemprop="url">generator</a>
+        </h1>
 
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
-        <time>2016-11-09</time>
-        
-        
+              <time title="创建时间：2016-11-09 14:53:20" itemprop="dateCreated datePublished" datetime="2016-11-09T14:53:20+08:00">2016-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-02-08 10:09:02" itemprop="dateModified" datetime="2018-02-08T10:09:02+08:00">2018-02-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="generator简单说是一种可以控制函数内部执行状态的函数"><a href="#generator简单说是一种可以控制函数内部执行状态的函数" class="headerlink" title="generator简单说是一种可以控制函数内部执行状态的函数"></a>generator简单说是一种可以控制函数内部执行状态的函数</h2><h3 id="funtion-定义了generator函数的语法"><a href="#funtion-定义了generator函数的语法" class="headerlink" title="funtion* 定义了generator函数的语法"></a>funtion* 定义了generator函数的语法</h3><h3 id="yield定义了函数内部实现不同的状态"><a href="#yield定义了函数内部实现不同的状态" class="headerlink" title="yield定义了函数内部实现不同的状态"></a>yield定义了函数内部实现不同的状态</h3><h3 id="demo1"><a href="#demo1" class="headerlink" title="demo1"></a>demo1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function* build()&#123;</span><br><span class="line">	yield &apos;step1&apos;;</span><br><span class="line">	return &apos;done&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var generator = build();</span><br><span class="line">generator.next();  //&#123;value:&apos;step1&apos;,done:false&#125;</span><br><span class="line">generator.next();  //&#123;value:&apos;done&apos;,done:true&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="这里前者是函数体yield后面的值，后者代表函数是否完成"><a href="#这里前者是函数体yield后面的值，后者代表函数是否完成" class="headerlink" title="这里前者是函数体yield后面的值，后者代表函数是否完成"></a>这里前者是函数体yield后面的值，后者代表函数是否完成</h3><h3 id="加入函数体内不包含任意一个yield-则函数只是一个延迟执行的函数而已"><a href="#加入函数体内不包含任意一个yield-则函数只是一个延迟执行的函数而已" class="headerlink" title="加入函数体内不包含任意一个yield,则函数只是一个延迟执行的函数而已"></a>加入函数体内不包含任意一个yield,则函数只是一个延迟执行的函数而已</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">generator.next(); //&#123;value:done,done:true&#125;</span><br><span class="line">generator.next(); //&#123;value:undefined,done:true&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来"><a href="#yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来" class="headerlink" title="yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来"></a>yield表达式还可以返回值在下一个next里调用，返回值只能通过next函数传参进来</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function* build()&#123;</span><br><span class="line">	yield &apos;step1&apos;;</span><br><span class="line">	var step = yield &apos;step2&apos;;</span><br><span class="line">	if(step == 3)&#123;</span><br><span class="line">        yield &apos;step3&apos;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        yield &apos;step4&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    yield &apos;step5&apos;;</span><br><span class="line">    return &apos;执行完毕!&apos;;</span><br><span class="line">&#125;</span><br><span class="line">var generator = build();</span><br><span class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step1&apos;, done: false&#125;</span><br><span class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step2&apos;, done: false&#125;</span><br><span class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step3&apos;, done: false&#125;</span><br><span class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;step5&apos;, done: false&#125;</span><br><span class="line">console.log(generator.next(3));  // =&gt; &#123;value: &apos;执行完毕&apos;, done: true&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注意-next传递的参数值是传递给上一次yield表达式-所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式"><a href="#注意-next传递的参数值是传递给上一次yield表达式-所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式" class="headerlink" title="注意: next传递的参数值是传递给上一次yield表达式,所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式"></a>注意: next传递的参数值是传递给上一次yield表达式,所以上面例子里第三次调用next传递参数其实是把值传递给第二个yield表达式</h3><p><font color="#f00" size=5 face='黑体'>异常处理</font><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function* build()&#123;</span><br><span class="line">	try&#123;</span><br><span class="line">		throw new Error(&apos;from build&apos;);</span><br><span class="line">		yield &apos;haha&apos;;</span><br><span class="line">	&#125;catch(err)&#123;</span><br><span class="line">		console.log(&apos;inside error&apos;+ err);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var it = build();</span><br><span class="line">it.next()    // =&gt; inside error: Error: from build!</span><br></pre></td></tr></table></figure></p>
+<h3 id="上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常-然后generator本身也提供了一个方法用于向外抛出异常"><a href="#上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常-然后generator本身也提供了一个方法用于向外抛出异常" class="headerlink" title="上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常,然后generator本身也提供了一个方法用于向外抛出异常"></a>上面的例子就是在generator里面增加try…catch语句来捕获函数内部的异常,然后generator本身也提供了一个方法用于向外抛出异常</h3><h3 id="throw-此方法可以向外抛出异常-由外部的try…catch来捕获"><a href="#throw-此方法可以向外抛出异常-由外部的try…catch来捕获" class="headerlink" title="throw 此方法可以向外抛出异常,由外部的try…catch来捕获"></a>throw 此方法可以向外抛出异常,由外部的try…catch来捕获</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function * build()&#123;</span><br><span class="line">    try&#123;</span><br><span class="line">        yield &apos;haha&apos;;  //没有抛出异常</span><br><span class="line">    &#125;catch(err)&#123;</span><br><span class="line">        console.log(&apos;inside error: &apos; + err);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var it = build();   //外部的try...catch进行捕获</span><br><span class="line">try&#123;</span><br><span class="line">    it.throw(&apos;from it&apos;); </span><br><span class="line">&#125;catch(err)&#123;</span><br><span class="line">    console.log(&apos;out error: &apos; + err);  // =&gt; out error from it</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="yield-后面跟上别的generator实例就可以遍历别的generator里的yield了"><a href="#yield-后面跟上别的generator实例就可以遍历别的generator里的yield了" class="headerlink" title="yield* 后面跟上别的generator实例就可以遍历别的generator里的yield了"></a>yield* 后面跟上别的generator实例就可以遍历别的generator里的yield了</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function* build()&#123;</span><br><span class="line">    var a = yield 1;</span><br><span class="line">    var b = yield 2;</span><br><span class="line">    var c = yield* child();</span><br><span class="line">    console.log(a, b, c);</span><br><span class="line">&#125;</span><br><span class="line">function* child()&#123;</span><br><span class="line">    var x = yield 3;</span><br><span class="line">    var y = yield 4;</span><br><span class="line">    console.log(x, y);</span><br><span class="line">    return &apos;child&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var it =  build();</span><br><span class="line">it.next();</span><br><span class="line">it.next(&apos;a&apos;);</span><br><span class="line">it.next(&apos;b&apos;);</span><br><span class="line">it.next(&apos;c&apos;);</span><br><span class="line">it.next(&apos;d&apos;);  </span><br><span class="line">// =&gt; c d</span><br><span class="line">// =&gt; a b child</span><br></pre></td></tr></table></figure>
+      
     </div>
 
-                </div>
-            
-        </div>
-</article>
-
-                    
-                
-                    
-                        <article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/11/09/angular-note/" rel="bookmark">angular note</a></h2>
-
-
-<p class="mb-0 card-body">
     
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
         
-    <a href="/2016/11/09/angular-note/">阅读全文</a>
-</p>
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://vernvn.github.io/2016/11/09/angular-note/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+      <meta itemprop="name" content="Lee_Ran">
+      <meta itemprop="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+    </span>
 
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力混迹江湖的前端小白">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/09/angular-note/" class="post-title-link" itemprop="url">angular note</a>
+        </h1>
 
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
-        <time>2016-11-09</time>
-        
-        
+              <time title="创建时间：2016-11-09 13:31:46" itemprop="dateCreated datePublished" datetime="2016-11-09T13:31:46+08:00">2016-11-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-02-08 10:09:02" itemprop="dateModified" datetime="2018-02-08T10:09:02+08:00">2018-02-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="当调用-digest的时候，只触发当前作用域和它的子作用域上的监控，但是当调用-apply的时候，会触发作用域树上的所有监控"><a href="#当调用-digest的时候，只触发当前作用域和它的子作用域上的监控，但是当调用-apply的时候，会触发作用域树上的所有监控" class="headerlink" title="当调用$digest的时候，只触发当前作用域和它的子作用域上的监控，但是当调用$apply的时候，会触发作用域树上的所有监控"></a>当调用$digest的时候，只触发当前作用域和它的子作用域上的监控，但是当调用$apply的时候，会触发作用域树上的所有监控</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$scope.$watch(&quot;arr&quot;, function(newValue) &#123;</span><br><span class="line">    alert(&quot;deep:&quot; + newValue.join(&quot;,&quot;));</span><br><span class="line">&#125;, true);</span><br></pre></td></tr></table></figure>
+<h3 id="注意，这里我们在-watch函数中，添加了第三个参数，这个参数用于指示对数据的深层监控，包括数组的子元素和对象的属性等等-本例如果没有第三个参数只会监听整个arr数组的变化，而不会监听到数组内部的子元素的变化。"><a href="#注意，这里我们在-watch函数中，添加了第三个参数，这个参数用于指示对数据的深层监控，包括数组的子元素和对象的属性等等-本例如果没有第三个参数只会监听整个arr数组的变化，而不会监听到数组内部的子元素的变化。" class="headerlink" title="注意，这里我们在$watch函数中，添加了第三个参数，这个参数用于指示对数据的深层监控，包括数组的子元素和对象的属性等等,本例如果没有第三个参数只会监听整个arr数组的变化，而不会监听到数组内部的子元素的变化。"></a>注意，这里我们在$watch函数中，添加了第三个参数，这个参数用于指示对数据的深层监控，包括数组的子元素和对象的属性等等,本例如果没有第三个参数只会监听整个arr数组的变化，而不会监听到数组内部的子元素的变化。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">angular.element(document).ready(function()&#123;</span><br><span class="line">	angular.bootstrap(document.getElementById(&apos;app1&apos;),[&apos;test&apos;]);</span><br><span class="line">	angular.bootstrap(document.getElementById(&apos;app2&apos;),[&apos;test&apos;]);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app1&quot; ng-controller=&apos;testctrl&apos;&gt;</span><br><span class="line">	&#123;&#123;x&#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;app2&quot; ng-controller=&apos;testctrl&apos;&gt;</span><br><span class="line">	&#123;&#123;x&#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="这样在同一个页面创建同一个module的不同实例，互不干涉"><a href="#这样在同一个页面创建同一个module的不同实例，互不干涉" class="headerlink" title="这样在同一个页面创建同一个module的不同实例，互不干涉"></a>这样在同一个页面创建同一个module的不同实例，互不干涉</h3>
+      
     </div>
 
-                </div>
-            
-        </div>
-</article>
-
-                    
-                
-                    
-                        <article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/11/01/angular-2/" rel="bookmark">angular 2</a></h2>
-
-
-<p class="mb-0 card-body">
     
-        初识Angular2
-    <a href="/2016/11/01/angular-2/">阅读全文</a>
-</p>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
-        <time>2016-11-01</time>
         
-        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://vernvn.github.io/2016/11/01/angular-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+      <meta itemprop="name" content="Lee_Ran">
+      <meta itemprop="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力混迹江湖的前端小白">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/01/angular-2/" class="post-title-link" itemprop="url">angular 2</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-01 10:55:07" itemprop="dateCreated datePublished" datetime="2016-11-01T10:55:07+08:00">2016-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-02-08 10:09:02" itemprop="dateModified" datetime="2018-02-08T10:09:02+08:00">2018-02-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="初识Angular2"><a href="#初识Angular2" class="headerlink" title="初识Angular2"></a>初识Angular2</h2><h3 id="标签：ES6-Class-组件化"><a href="#标签：ES6-Class-组件化" class="headerlink" title="标签：ES6 Class 组件化"></a>标签：ES6 Class 组件化</h3><h3 id="import是ES6的关键字，从模块中引入类型定义；"><a href="#import是ES6的关键字，从模块中引入类型定义；" class="headerlink" title="import是ES6的关键字，从模块中引入类型定义；"></a>import是ES6的关键字，从模块中引入类型定义；</h3><h3 id="实现一个angular2组件，需要定义一个类，然后给这个类添加注解"><a href="#实现一个angular2组件，需要定义一个类，然后给这个类添加注解" class="headerlink" title="实现一个angular2组件，需要定义一个类，然后给这个类添加注解"></a>实现一个angular2组件，需要定义一个类，然后给这个类添加注解</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[@Component](/user/Component)(&#123;selector:&apos;my-app&apos;&#125;)</span><br><span class="line">[@View](/user/View)(&#123;template:&apos;&lt;h1&gt;hello world&lt;/h1&gt;&apos;&#125;)</span><br><span class="line">class MyApp&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="class是ES6的关键字，用来定义一个类，而-Component和-View是附加给类的信息，称为注解。前者通过selector属性指定要渲染的Dom对象，后者为指定渲染的模板。"><a href="#class是ES6的关键字，用来定义一个类，而-Component和-View是附加给类的信息，称为注解。前者通过selector属性指定要渲染的Dom对象，后者为指定渲染的模板。" class="headerlink" title="class是ES6的关键字，用来定义一个类，而@Component和@View是附加给类的信息，称为注解。前者通过selector属性指定要渲染的Dom对象，后者为指定渲染的模板。"></a>class是ES6的关键字，用来定义一个类，而@Component和@View是附加给类的信息，称为注解。前者通过selector属性指定要渲染的Dom对象，后者为指定渲染的模板。</h3><h3 id="bootstrap-MyApp-这个函数通知angular2将MyApp组件渲染到Dom树上。它在angular1-x中是围绕dom元素展开的，而在angular2-x中是围绕组件开始的，如果没有组件，也就无法启动angular2"><a href="#bootstrap-MyApp-这个函数通知angular2将MyApp组件渲染到Dom树上。它在angular1-x中是围绕dom元素展开的，而在angular2-x中是围绕组件开始的，如果没有组件，也就无法启动angular2" class="headerlink" title="bootstrap(MyApp) 这个函数通知angular2将MyApp组件渲染到Dom树上。它在angular1.x中是围绕dom元素展开的，而在angular2.x中是围绕组件开始的，如果没有组件，也就无法启动angular2"></a>bootstrap(MyApp) 这个函数通知angular2将MyApp组件渲染到Dom树上。它在angular1.x中是围绕dom元素展开的，而在angular2.x中是围绕组件开始的，如果没有组件，也就无法启动angular2</h3><h2 id="显示数据"><a href="#显示数据" class="headerlink" title="显示数据"></a>显示数据</h2><h3 id="属性绑定机制把数据显示到用户界面上"><a href="#属性绑定机制把数据显示到用户界面上" class="headerlink" title="属性绑定机制把数据显示到用户界面上"></a>属性绑定机制把数据显示到用户界面上</h3><h3 id="使用插值表达式显示组件属性，与angular1-x一样，把属性名包裹在双花括号里面放进视图模板，如"><a href="#使用插值表达式显示组件属性，与angular1-x一样，把属性名包裹在双花括号里面放进视图模板，如" class="headerlink" title="使用插值表达式显示组件属性，与angular1.x一样，把属性名包裹在双花括号里面放进视图模板，如."></a>使用插值表达式显示组件属性，与angular1.x一样，把属性名包裹在双花括号里面放进视图模板，如.</h3><h3 id="模板是包在es6反引号中的一个多行字符串，使html模板更容易阅读。"><a href="#模板是包在es6反引号中的一个多行字符串，使html模板更容易阅读。" class="headerlink" title="模板是包在es6反引号中的一个多行字符串，使html模板更容易阅读。"></a>模板是包在es6反引号<code></code>中的一个多行字符串，使html模板更容易阅读。</h3><h3 id="组件模板也可以由两种选择，分别是内联模板和模板文件，templateUrl属性，在组件元数据中把他链接到组件。"><a href="#组件模板也可以由两种选择，分别是内联模板和模板文件，templateUrl属性，在组件元数据中把他链接到组件。" class="headerlink" title="组件模板也可以由两种选择，分别是内联模板和模板文件，templateUrl属性，在组件元数据中把他链接到组件。"></a>组件模板也可以由两种选择，分别是内联模板和模板文件，templateUrl属性，在组件元数据中把他链接到组件。</h3><h3 id="初始化组件可以有变量赋值和使用构造函数声明和初始化两种，下面分别为demo"><a href="#初始化组件可以有变量赋值和使用构造函数声明和初始化两种，下面分别为demo" class="headerlink" title="初始化组件可以有变量赋值和使用构造函数声明和初始化两种，下面分别为demo"></a>初始化组件可以有变量赋值和使用构造函数声明和初始化两种，下面分别为demo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export class AppComponent&#123;</span><br><span class="line">	title : string = &apos;angular2&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用构造函数初始化"><a href="#使用构造函数初始化" class="headerlink" title="使用构造函数初始化"></a>使用构造函数初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export class AppComponent&#123;</span><br><span class="line">	title:string;</span><br><span class="line">	constructor()&#123;</span><br><span class="line">		this.title = &apos;angular2&apos;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用NgFor显示数组属性，-ngFor是angular的迭代指令，他将元素及其子级标记为迭代模板；"><a href="#使用NgFor显示数组属性，-ngFor是angular的迭代指令，他将元素及其子级标记为迭代模板；" class="headerlink" title="使用NgFor显示数组属性，*ngFor是angular的迭代指令，他将元素及其子级标记为迭代模板；"></a>使用NgFor显示数组属性，*ngFor是angular的迭代指令，他将元素及其子级标记为迭代模板；</h3><h3 id="使用NgIf进行条件显示，它会根据一个布尔条件来显示或移除一个元素。"><a href="#使用NgIf进行条件显示，它会根据一个布尔条件来显示或移除一个元素。" class="headerlink" title="使用NgIf进行条件显示，它会根据一个布尔条件来显示或移除一个元素。"></a>使用NgIf进行条件显示，它会根据一个布尔条件来显示或移除一个元素。</h3><h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><h3 id="依赖注入是重要的设计模式，angular离开了他，几乎没法构建angular应用，它使用的很广泛，简称为DI。"><a href="#依赖注入是重要的设计模式，angular离开了他，几乎没法构建angular应用，它使用的很广泛，简称为DI。" class="headerlink" title="依赖注入是重要的设计模式，angular离开了他，几乎没法构建angular应用，它使用的很广泛，简称为DI。"></a>依赖注入是重要的设计模式，angular离开了他，几乎没法构建angular应用，它使用的很广泛，简称为DI。</h3><h3 id="Injectable-装饰器"><a href="#Injectable-装饰器" class="headerlink" title="@Injectable()装饰器"></a>@Injectable()装饰器</h3><h3 id="注册提供商"><a href="#注册提供商" class="headerlink" title="注册提供商"></a>注册提供商</h3>
+      
     </div>
 
-                </div>
-            
-        </div>
-</article>
-
-                    
-                
-                    
-                        <article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/10/28/angular-directive/" rel="bookmark">angular directive</a></h2>
-
-
-<p class="mb-0 card-body">
     
-        angular dire...
-    <a href="/2016/10/28/angular-directive/">阅读全文</a>
-</p>
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
 
-
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
-        <time>2016-10-28</time>
         
-        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://vernvn.github.io/2016/10/28/angular-directive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+      <meta itemprop="name" content="Lee_Ran">
+      <meta itemprop="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力混迹江湖的前端小白">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/28/angular-directive/" class="post-title-link" itemprop="url">angular directive</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-28 14:26:15" itemprop="dateCreated datePublished" datetime="2016-10-28T14:26:15+08:00">2016-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-02-08 10:09:02" itemprop="dateModified" datetime="2018-02-08T10:09:02+08:00">2018-02-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="angular-directive"><a href="#angular-directive" class="headerlink" title="angular directive"></a>angular directive</h2><h2 id="语义化标签，复用、封装，将逻辑与dom结合在一起，即插即用，指令化即模块化与通用化"><a href="#语义化标签，复用、封装，将逻辑与dom结合在一起，即插即用，指令化即模块化与通用化" class="headerlink" title="语义化标签，复用、封装，将逻辑与dom结合在一起，即插即用，指令化即模块化与通用化"></a>语义化标签，复用、封装，将逻辑与dom结合在一起，即插即用，指令化即模块化与通用化</h2><h2 id="demo1-以下全部简写"><a href="#demo1-以下全部简写" class="headerlink" title="demo1 (以下全部简写)"></a>demo1 (以下全部简写)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;hello-world&gt;&lt;/hello-world&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var app = angular.moudle(&apos;app&apos;,[])</span><br><span class="line">.directive(&apos;helloWorld&apos;,function()&#123;</span><br><span class="line">	return &#123;</span><br><span class="line">		restrict: &apos;ECMA&apos;,</span><br><span class="line">		replace :　true,</span><br><span class="line">		template : &apos;&lt;div&gt;hello world&lt;/div&gt;&apos;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<p></br></p>
+<h3 id="这里的ECMA是声明格式-默认为EA，其分别为"><a href="#这里的ECMA是声明格式-默认为EA，其分别为" class="headerlink" title="这里的ECMA是声明格式,默认为EA，其分别为"></a>这里的ECMA是声明格式,默认为EA，其分别为</h3><h3 id="E-元素名称-lt-my-directive-gt-lt-my-directive-gt"><a href="#E-元素名称-lt-my-directive-gt-lt-my-directive-gt" class="headerlink" title="E - 元素名称: &lt;my-directive&gt;&lt;/my-directive&gt;"></a>E - 元素名称: <code>&lt;my-directive&gt;&lt;/my-directive&gt;</code></h3><h3 id="A-属性-lt-div-my-directive-gt-lt-div-gt"><a href="#A-属性-lt-div-my-directive-gt-lt-div-gt" class="headerlink" title="A - 属性: &lt;div my-directive&gt;&lt;/div&gt;"></a>A - 属性: <code>&lt;div my-directive&gt;&lt;/div&gt;</code></h3><h3 id="C-类名-lt-div-class-39-my-directive-39-gt-lt-div-gt"><a href="#C-类名-lt-div-class-39-my-directive-39-gt-lt-div-gt" class="headerlink" title="C - 类名: &lt;div class=&#39;my-directive&#39;&gt;&lt;/div&gt;"></a>C - 类名: <code>&lt;div class=&#39;my-directive&#39;&gt;&lt;/div&gt;</code></h3><h3 id="M-注释-lt-directive-my-directive-exp-gt-很少使用-exp代表一个空格，必须存在，不然没效果"><a href="#M-注释-lt-directive-my-directive-exp-gt-很少使用-exp代表一个空格，必须存在，不然没效果" class="headerlink" title="M - 注释: &lt;!--directive:my-directive exp--&gt; (很少使用,exp代表一个空格，必须存在，不然没效果)"></a>M - 注释: <code>&lt;!--directive:my-directive exp--&gt;</code> (很少使用,exp代表一个空格，必须存在，不然没效果)</h3><h3 id="这里的一个小坑是驼峰命名，指令若是驼峰命名，视图需写成上述样式，中间用下划线相连"><a href="#这里的一个小坑是驼峰命名，指令若是驼峰命名，视图需写成上述样式，中间用下划线相连" class="headerlink" title="这里的一个小坑是驼峰命名，指令若是驼峰命名，视图需写成上述样式，中间用下划线相连"></a>这里的一个小坑是驼峰命名，指令若是驼峰命名，视图需写成上述样式，中间用下划线相连</h3><h3 id="replace-是否替换掉自定义的指令-默认是false"><a href="#replace-是否替换掉自定义的指令-默认是false" class="headerlink" title="replace, 是否替换掉自定义的指令,　默认是false"></a>replace, 是否替换掉自定义的指令,　默认是false</h3><h3 id="template是字符串模板，一般情况下都是templateUrl-毕竟代码量大了成了一坨"><a href="#template是字符串模板，一般情况下都是templateUrl-毕竟代码量大了成了一坨" class="headerlink" title="template是字符串模板，一般情况下都是templateUrl,毕竟代码量大了成了一坨;"></a>template是字符串模板，一般情况下都是templateUrl,毕竟代码量大了成了一坨;</h3><hr>
+<p></br></p>
+<h3 id="他还有一个属性transclude-transclude字面意思就是嵌入，需要将你的指令内部的元素（注意不是指令的模板）嵌入到你的模板中，也就是说将它从DOM元素中获取的内容放到它发现ng-transclude-指令的地方。transclude默认为false-如果设置为true-那么就需要配合ng-transclude指令来进行使用，例如上一个例子需要在模板里面写入"><a href="#他还有一个属性transclude-transclude字面意思就是嵌入，需要将你的指令内部的元素（注意不是指令的模板）嵌入到你的模板中，也就是说将它从DOM元素中获取的内容放到它发现ng-transclude-指令的地方。transclude默认为false-如果设置为true-那么就需要配合ng-transclude指令来进行使用，例如上一个例子需要在模板里面写入" class="headerlink" title="他还有一个属性transclude,transclude字面意思就是嵌入，需要将你的指令内部的元素（注意不是指令的模板）嵌入到你的模板中，也就是说将它从DOM元素中获取的内容放到它发现ng-transclude 指令的地方。transclude默认为false,如果设置为true,那么就需要配合ng-transclude指令来进行使用，例如上一个例子需要在模板里面写入"></a>他还有一个属性transclude,transclude字面意思就是嵌入，需要将你的指令内部的元素（注意不是指令的模板）嵌入到你的模板中，也就是说将它从DOM元素中获取的内容放到它发现ng-transclude 指令的地方。transclude默认为false,如果设置为true,那么就需要配合ng-transclude指令来进行使用，例如上一个例子需要在模板里面写入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">template: &apos;&lt;div&gt;hello world &lt;span ng-transclude&gt;&lt;/span&gt;&lt;/div&gt;&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="对应的html变为"><a href="#对应的html变为" class="headerlink" title="对应的html变为"></a>对应的html变为</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;hello-world&gt;</span><br><span class="line">	&lt;span&gt;i&apos;m here&lt;/span&gt;</span><br><span class="line">	&lt;span&gt;i&apos;m here too&lt;/span&gt;</span><br><span class="line">&lt;/hello-world&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="这个属性可以理解为把hello-world标签换成我们所编写的html模板，但是标签内部内容不变。"><a href="#这个属性可以理解为把hello-world标签换成我们所编写的html模板，但是标签内部内容不变。" class="headerlink" title="这个属性可以理解为把hello-world标签换成我们所编写的html模板，但是标签内部内容不变。"></a>这个属性可以理解为把hello-world标签换成我们所编写的html模板，但是标签内部内容不变。</h3><h3 id="对应视图则变为“hello-world-i’m-here-i’m-here-too”"><a href="#对应视图则变为“hello-world-i’m-here-i’m-here-too”" class="headerlink" title="对应视图则变为“hello world i’m here i’m here too”"></a>对应视图则变为<em>“hello world i’m here i’m here too”</em></h3><hr>
+<p></br></p>
+<h3 id="绑定策略"><a href="#绑定策略" class="headerlink" title="绑定策略"></a>绑定策略</h3><h3 id="scope-代表了独立作用域"><a href="#scope-代表了独立作用域" class="headerlink" title="scope:{} 代表了独立作用域;"></a>scope:{} 代表了独立作用域;</h3><h3 id="本地作用域属性：使用-符号将本地作用域同Dom属性的值进行绑定，指令内部作用域可以使用外部作用域的变量"><a href="#本地作用域属性：使用-符号将本地作用域同Dom属性的值进行绑定，指令内部作用域可以使用外部作用域的变量" class="headerlink" title="本地作用域属性：使用@符号将本地作用域同Dom属性的值进行绑定，指令内部作用域可以使用外部作用域的变量"></a>本地作用域属性：使用@符号将本地作用域同Dom属性的值进行绑定，指令内部作用域可以使用外部作用域的变量</h3><h3 id="双向绑定：通过-可以将本地作用域上的属性同父级作用域上的属性进行双向的数据绑定。就像普通的数据绑定一样，本地属性也会反映出父数据模型上所发生的改变"><a href="#双向绑定：通过-可以将本地作用域上的属性同父级作用域上的属性进行双向的数据绑定。就像普通的数据绑定一样，本地属性也会反映出父数据模型上所发生的改变" class="headerlink" title="双向绑定：通过=可以将本地作用域上的属性同父级作用域上的属性进行双向的数据绑定。就像普通的数据绑定一样，本地属性也会反映出父数据模型上所发生的改变"></a>双向绑定：通过=可以将本地作用域上的属性同父级作用域上的属性进行双向的数据绑定。就像普通的数据绑定一样，本地属性也会反映出父数据模型上所发生的改变</h3><h3 id="父级作用域绑定：-使用-amp-符号可以对父级作用域进行绑定，以便在其中运行函数。这就意味着这个值进行设置时会生成一个指向父级作用域的包装函数，下面请看分别的例子"><a href="#父级作用域绑定：-使用-amp-符号可以对父级作用域进行绑定，以便在其中运行函数。这就意味着这个值进行设置时会生成一个指向父级作用域的包装函数，下面请看分别的例子" class="headerlink" title="父级作用域绑定： 使用&amp;符号可以对父级作用域进行绑定，以便在其中运行函数。这就意味着这个值进行设置时会生成一个指向父级作用域的包装函数，下面请看分别的例子"></a>父级作用域绑定： 使用&amp;符号可以对父级作用域进行绑定，以便在其中运行函数。这就意味着这个值进行设置时会生成一个指向父级作用域的包装函数，下面请看分别的例子</h3><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.directive(&quot;direct&quot;,function()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        restrict: &apos;ECMA&apos;,</span><br><span class="line">        template: &apos;&lt;div&gt;指令中：&#123;&#123; name &#125;&#125;&lt;/div&gt;&apos;,</span><br><span class="line">        scope:&#123;</span><br><span class="line">          name:&apos;@forName&apos;</span><br><span class="line">        &#125;</span><br><span class="line">     &#125; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;direct for-name=&quot;&#123;&#123; Name &#125;&#125;&quot;&gt;&lt;/direct&gt;</span><br><span class="line">&lt;input ng-model=&apos;Name&apos;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.controller(&apos;ctrl&apos;,function($scope)&#123;</span><br><span class="line">    $scope.Name = &apos;&apos;;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="这样成功地与父控制器中的Name绑定起来了，也可以写成name-‘-’-这样就默认属性名为name了即"><a href="#这样成功地与父控制器中的Name绑定起来了，也可以写成name-‘-’-这样就默认属性名为name了即" class="headerlink" title="这样成功地与父控制器中的Name绑定起来了，也可以写成name:‘@’,这样就默认属性名为name了即"></a>这样成功地与父控制器中的Name绑定起来了，也可以写成name:‘@’,这样就默认属性名为name了即</h3><hr>
+<p></br></p>
+<direct name=""></direct>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.directive(&quot;direct&quot;,function()&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        restrict: &apos;ECMA&apos;,</span><br><span class="line">        template: &apos;&lt;div&gt;指令中：&lt;input ng-model=&quot;Name&quot;/&gt;&lt;/div&gt;&apos;,</span><br><span class="line">        scope:&#123;</span><br><span class="line">          Name:&apos;=forName&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;direct for-name=&quot;Name&quot;&gt;&lt;/direct&gt;</span><br><span class="line">&lt;input  ng-model=&apos;Name&apos;&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="这样就实现了双向数据的绑定"><a href="#这样就实现了双向数据的绑定" class="headerlink" title="这样就实现了双向数据的绑定"></a>这样就实现了双向数据的绑定</h3><hr>
+<p></br></p>
+<h3 id="最后是-amp-它的含义是对父级作用域进行绑定，并将其中的属性包装成一个函数"><a href="#最后是-amp-它的含义是对父级作用域进行绑定，并将其中的属性包装成一个函数" class="headerlink" title="最后是&amp;它的含义是对父级作用域进行绑定，并将其中的属性包装成一个函数"></a>最后是&amp;它的含义是对父级作用域进行绑定，并将其中的属性包装成一个函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.directive(&quot;direct&quot;,function()&#123; </span><br><span class="line">	return&#123;</span><br><span class="line">    	restrict: &apos;ECMA&apos;,</span><br><span class="line">    	template: &apos;&lt;div&gt;&lt;input ng-model=&quot;model&quot;/&gt;\</span><br><span class="line">		      &lt;button ng-click=&quot;show(&#123;name:model&#125;)&quot;&gt;show&lt;/button&gt;&lt;/div&gt;&apos;,</span><br><span class="line">        scope:&#123;</span><br><span class="line">            show:&apos;&amp;&apos;              </span><br><span class="line">        &#125;                      </span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">.controller(&quot;nameController&quot;,function($scope)&#123;</span><br><span class="line">    $scope.showName=function(name)&#123; </span><br><span class="line">      alert(name); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;direct show=&quot;showName(name)&quot;&gt;&lt;/direct&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="这个例子中，通过模板中的ng-click触发了show函数并将一个叫做model的对象作为name参数传递了进去，而在html中，我们把show的属性值设为showName-name-。"><a href="#这个例子中，通过模板中的ng-click触发了show函数并将一个叫做model的对象作为name参数传递了进去，而在html中，我们把show的属性值设为showName-name-。" class="headerlink" title="这个例子中，通过模板中的ng-click触发了show函数并将一个叫做model的对象作为name参数传递了进去，而在html中，我们把show的属性值设为showName(name)。"></a>这个例子中，通过模板中的ng-click触发了show函数并将一个叫做model的对象作为name参数传递了进去，而在html中，我们把show的属性值设为showName(name)。</h3><hr>
+<p></br></p>
+<blockquote>
+<p>为什么Angular要为我们提供这样一套绑定策略呢？就是因为它想让我们在为指令创建隔离作用域的同时，还能访问到父级中的属性，这就像，你在隔离作用域身上打了一个洞，然后用一条管道，把指令内部和外界的属性给连起来（绑定），并且一切的通信都只能通过这条管道来实行</p>
+</blockquote>
+<hr>
+<p></br></p>
+<h2 id="demo2-complie-编译-、link-链接"><a href="#demo2-complie-编译-、link-链接" class="headerlink" title="demo2 complie(编译)、link(链接)"></a>demo2 complie(编译)、link(链接)</h2><h3 id="compile阶段进行标签解析和变换，link阶段进行数据绑定等操作"><a href="#compile阶段进行标签解析和变换，link阶段进行数据绑定等操作" class="headerlink" title="compile阶段进行标签解析和变换，link阶段进行数据绑定等操作"></a>compile阶段进行标签解析和变换，link阶段进行数据绑定等操作</h3><h3 id="在编译的阶段，angularJs会遍历整个的文档并根据JavaScript中指令定义来处理页面上什么的指令。在遍历的过程中，有可能一层套着一层，一直延深处遍历。一但遍历和编译完毕就会返回一个叫做模板函数的函数。在这个函数没被返回（return）之前我们可以对编译后的DOM树进行修改。通常情况下，如果设置了compile函数，说明我们希望在指令和实时数据被放到DOM中之前进行DOM操作，在这个函数中进行诸如添加和删除节点等DOM操作是安全的。"><a href="#在编译的阶段，angularJs会遍历整个的文档并根据JavaScript中指令定义来处理页面上什么的指令。在遍历的过程中，有可能一层套着一层，一直延深处遍历。一但遍历和编译完毕就会返回一个叫做模板函数的函数。在这个函数没被返回（return）之前我们可以对编译后的DOM树进行修改。通常情况下，如果设置了compile函数，说明我们希望在指令和实时数据被放到DOM中之前进行DOM操作，在这个函数中进行诸如添加和删除节点等DOM操作是安全的。" class="headerlink" title="在编译的阶段，angularJs会遍历整个的文档并根据JavaScript中指令定义来处理页面上什么的指令。在遍历的过程中，有可能一层套着一层，一直延深处遍历。一但遍历和编译完毕就会返回一个叫做模板函数的函数。在这个函数没被返回（return）之前我们可以对编译后的DOM树进行修改。通常情况下，如果设置了compile函数，说明我们希望在指令和实时数据被放到DOM中之前进行DOM操作，在这个函数中进行诸如添加和删除节点等DOM操作是安全的。"></a>在编译的阶段，angularJs会遍历整个的文档并根据JavaScript中指令定义来处理页面上什么的指令。在遍历的过程中，有可能一层套着一层，一直延深处遍历。一但遍历和编译完毕就会返回一个叫做模板函数的函数。在这个函数没被返回（return）之前我们可以对编译后的DOM树进行修改。通常情况下，如果设置了compile函数，说明我们希望在指令和实时数据被放到DOM中之前进行DOM操作，在这个函数中进行诸如添加和删除节点等DOM操作是安全的。</h3><p></br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;hello autohello=5&gt;</span><br><span class="line">    &lt;p&gt;小平你好&lt;/p&gt;</span><br><span class="line">&lt;/hello&gt;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">app.directive(&apos;hello&apos;,function()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        restrict:&apos;EA&apos;,</span><br><span class="line">        compile : function(ele,attrs)&#123;</span><br><span class="line">            var tpl = ele.children().clone();</span><br><span class="line">            for(var i=0;i&lt;attrs.autohello -1;i++)&#123;</span><br><span class="line">                ele.append(tpl.clone())</span><br><span class="line">            &#125;;</span><br><span class="line">            return function(scope,ele,attrs,ctrl)&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p></br></p>
+<h3 id="我们写了一个DIV标签，定义了一个autohello的一个属性，属性值5-我们想把-“小平你好的这几句话”输出5遍。我们定义个一个compile-的函数，里面进行了一些DOM操作。在最后return一个闭包函数就是link函数，如果同时设置这两个选项，会将compile返回的函数当做链接函数，而link函数不起作用"><a href="#我们写了一个DIV标签，定义了一个autohello的一个属性，属性值5-我们想把-“小平你好的这几句话”输出5遍。我们定义个一个compile-的函数，里面进行了一些DOM操作。在最后return一个闭包函数就是link函数，如果同时设置这两个选项，会将compile返回的函数当做链接函数，而link函数不起作用" class="headerlink" title="我们写了一个DIV标签，定义了一个autohello的一个属性，属性值5.我们想把 “小平你好的这几句话”输出5遍。我们定义个一个compile 的函数，里面进行了一些DOM操作。在最后return一个闭包函数就是link函数，如果同时设置这两个选项，会将compile返回的函数当做链接函数，而link函数不起作用"></a>我们写了一个DIV标签，定义了一个autohello的一个属性，属性值5.我们想把 “小平你好的这几句话”输出5遍。我们定义个一个compile 的函数，里面进行了一些DOM操作。在最后return一个闭包函数就是link函数，如果同时设置这两个选项，会将compile返回的函数当做链接函数，而link函数不起作用</h3><hr>
+<p></br></p>
+<h2 id="compile与link函数的区别：compile函数的作用是对指令的模板进行转换，而link函数是在模型和视图之间建立关联，包括事件监听，即scope之后再链接阶段才能绑定到元素上，对于同一个指令的多个实例，compile只会执行一次，而link对于指令的每次实例都会执行一次，一般情况下，compile函数用的不多，只要编写link函数就够了"><a href="#compile与link函数的区别：compile函数的作用是对指令的模板进行转换，而link函数是在模型和视图之间建立关联，包括事件监听，即scope之后再链接阶段才能绑定到元素上，对于同一个指令的多个实例，compile只会执行一次，而link对于指令的每次实例都会执行一次，一般情况下，compile函数用的不多，只要编写link函数就够了" class="headerlink" title="compile与link函数的区别：compile函数的作用是对指令的模板进行转换，而link函数是在模型和视图之间建立关联，包括事件监听，即scope之后再链接阶段才能绑定到元素上，对于同一个指令的多个实例，compile只会执行一次，而link对于指令的每次实例都会执行一次，一般情况下，compile函数用的不多，只要编写link函数就够了"></a>compile与link函数的区别：compile函数的作用是对指令的模板进行转换，而link函数是在模型和视图之间建立关联，包括事件监听，即scope之后再链接阶段才能绑定到元素上，对于同一个指令的多个实例，compile只会执行一次，而link对于指令的每次实例都会执行一次，一般情况下，compile函数用的不多，只要编写link函数就够了</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var expanderModule=angular.module(&apos;expanderModule&apos;, [])</span><br><span class="line">expanderModule.directive(&apos;expander&apos;, function() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        restrict : &apos;EA&apos;,</span><br><span class="line">        replace : true,</span><br><span class="line">        transclude : true,</span><br><span class="line">        scope : &#123;</span><br><span class="line">            title : &apos;=expanderTitle&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        template : &apos;&lt;div&gt;&apos;</span><br><span class="line">                 + &apos;&lt;div class=&quot;title&quot; ng-click=&quot;toggle()&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/div&gt;&apos;</span><br><span class="line">                 + &apos;&lt;div class=&quot;body&quot; ng-show=&quot;showMe&quot; ng-transclude&gt;&lt;/div&gt;&apos;</span><br><span class="line">                 + &apos;&lt;/div&gt;&apos;,</span><br><span class="line">        link : function(scope, element, attrs) &#123;</span><br><span class="line">            scope.showMe = false;</span><br><span class="line">            scope.toggle = function toggle() &#123;s</span><br><span class="line">                scope.showMe = !scope.showMe;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">expanderModule.controller(&apos;SomeController&apos;,function($scope) &#123;</span><br><span class="line">    $scope.title = &apos;点击展开&apos;;</span><br><span class="line">    $scope.text = &apos;这里是内部的内容。&apos;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;html ng-app=&apos;expanderModule&apos;&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div ng-controller=&apos;SomeController&apos;&gt;</span><br><span class="line">            &lt;expander class=&apos;expander&apos; expander-title=&apos;title&apos;&gt;</span><br><span class="line">                &#123;&#123;text&#125;&#125;</span><br><span class="line">            &lt;/expander&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p></br></p>
+<h3 id="经常使用的一个指令例子："><a href="#经常使用的一个指令例子：" class="headerlink" title="经常使用的一个指令例子："></a>经常使用的一个指令例子：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">home.directive(&apos;compileNav&apos;,[&apos;$http&apos;,&apos;$compile&apos;,function($http,$compile)&#123;</span><br><span class="line">    return&#123;</span><br><span class="line">        restrict: &apos;EA&apos;,</span><br><span class="line">        replace: true,</span><br><span class="line">        controller: &apos;homeController&apos;,</span><br><span class="line">        link : function(scope,element,attrs,ctrl)&#123;</span><br><span class="line">            scope.$watch(function()&#123;</span><br><span class="line">                 return ctrl.mainservice.NavSrc;  //进行监听，若有模板存在，则通过$http进行加载，</span><br><span class="line">            &#125;,function(newVal)&#123;</span><br><span class="line">                if(newVal)&#123;</span><br><span class="line">                    $http.get(newVal).then(function(response)&#123;</span><br><span class="line">                        $(&apos;.main-menu&apos;).html($compile(response.data)(scope));</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+
+      
     </div>
 
-                </div>
-            
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://vernvn.github.io/2016/10/19/angular/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+      <meta itemprop="name" content="Lee_Ran">
+      <meta itemprop="description" content="保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="努力混迹江湖的前端小白">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/19/angular/" class="post-title-link" itemprop="url">angular servicce</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-19 10:59:16" itemprop="dateCreated datePublished" datetime="2016-10-19T10:59:16+08:00">2016-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-02-08 10:09:02" itemprop="dateModified" datetime="2018-02-08T10:09:02+08:00">2018-02-08</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
         </div>
-</article>
+      </header>
 
-                    
-                
-                    
-                        <article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/2016/10/19/angular/" rel="bookmark">angular servicce</a></h2>
-
-
-<p class="mb-0 card-body">
-    
-        ...
-    <a href="/2016/10/19/angular/">阅读全文</a>
-</p>
-
-
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="https://github.com/vernvn/hexoBlog/blob/master/avator/github.jpg?raw=true" src="/img/suka-lazyload.gif" alt="Lee's Avatar">
-        <time>2016-10-19</time>
-        
-        
-    </div>
-
-                </div>
-            
-        </div>
-</article>
-
-                    
-                
-            </div>
-        </main>
-        
-<nav>
-<ul class="pagination">
-    
-        <li class="page-item page-prev">
-            <a href="/" rel="prev">
-                <span class="page-item-subtitle"><i class="icon icon-back" aria-hidden="true"></i></span>
-                <span class="page-item-title">上一页</span>
-            </a>
-        </li>
     
     
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="重点：angular核心之一service"><a href="#重点：angular核心之一service" class="headerlink" title="重点：angular核心之一service"></a>重点：angular核心之一service</h2><h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><h3 id="自定义或内建服务，它是一个函数或对象，"><a href="#自定义或内建服务，它是一个函数或对象，" class="headerlink" title="自定义或内建服务，它是一个函数或对象，"></a>自定义或内建服务，它是一个函数或对象，</h3><h4 id="http服务"><a href="#http服务" class="headerlink" title="$http服务"></a>$http服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.controller(&apos;ctrl&apos;,function($scope,$http)&#123;</span><br><span class="line">	$http.get(&apos;post/json&apos;).then(function(data)&#123;</span><br><span class="line">		$scope.name = data.name</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<p></br></p>
+<h3 id="创建自定义服务-五种方法，constant-value-factory-service-provider-一般情况下factory与service使用较多，angular内置服务都是以-开头，所以自定义的服务应该避免以-开头，造成混乱。"><a href="#创建自定义服务-五种方法，constant-value-factory-service-provider-一般情况下factory与service使用较多，angular内置服务都是以-开头，所以自定义的服务应该避免以-开头，造成混乱。" class="headerlink" title="创建自定义服务,五种方法，constant,value,factory,service,provider,一般情况下factory与service使用较多，angular内置服务都是以$开头，所以自定义的服务应该避免以$开头，造成混乱。"></a>创建自定义服务,五种方法，constant,value,factory,service,provider,一般情况下factory与service使用较多，angular内置服务都是以$开头，所以自定义的服务应该避免以$开头，造成混乱。</h3><blockquote>
+<p>所有类型的service都是单体，单体是什么？单体是一种设计模式，它限制了每一个类仅能够实例化为一个对象，无论我们在什么地方注入，将永远使用同一个实例，换句话就是，如果我们在一个地方改变了其中的某个值，其他地方也会发生相应的改变；<br><img src="https://segmentfault.com/img/bVm9Et" alt="providerToservice"></p>
+</blockquote>
+<h3 id="constant"><a href="#constant" class="headerlink" title="constant"></a>constant</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.constant(&apos;myconstant&apos;,&#123;</span><br><span class="line">	config1 :　&apos;defaultValue&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>constant是用来在指令中提供默认配置，放入的值不会改变;</li>
 </ul>
-</nav>
+<hr>
+<p></br></p>
+<h3 id="value"><a href="#value" class="headerlink" title="value"></a>value</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.value(&apos;myvalue&apos;,&#123;</span><br><span class="line">	config2: &apos;changeValue&apos;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>value经常用来保存值，数值是可以改变的，这是和constant最大区别，但是不能对其中的值进行计算</li>
+</ul>
+<hr>
+<p></br></p>
+<h3 id="provider"><a href="#provider" class="headerlink" title="provider"></a>provider</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.provider(&apos;myprovider&apos;,function()&#123;</span><br><span class="line">	this.$get = function()&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过provider方法创建的服务一定要包含$get方法，否则会报错，provider注入的结果就是$get返回的结果，并且在三种创建服务的方法中，只有provider方法创建的服务可以传进config函数，以用于在对象启动前，对模块进行配置，但是在config中进行配置的只能在是$get函数之外定义的变量,注入config函数时，参数名必须是  <strong>服务名+Provider</strong>,例如下面代码只有color能被访问到，getcolor却不能<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app.provider(&apos;myprovider&apos;,function()&#123;</span><br><span class="line">	this.color = &apos;&apos;;</span><br><span class="line">	this.$get = function()&#123;</span><br><span class="line">		var that = this;</span><br><span class="line">		return &#123;</span><br><span class="line">			getcolor : function()&#123;</span><br><span class="line">				return that.color</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.config(function(myproviderProvider)&#123;</span><br><span class="line">	myproviderProvider.color = &apos;red&apos;;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p></br></p>
+<h3 id="factory"><a href="#factory" class="headerlink" title="factory"></a>factory</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.factory(&apos;myfactory&apos;,function()&#123;</span><br><span class="line">	var factory = &#123;&#125;;</span><br><span class="line">	return factory;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过factory创建的服务必须有返回值，即return函数，factory方法注入的结果即是return返回的结果，可以使用注入对象的定义的方法，例如<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">	var factory = &#123;&#125;;</span><br><span class="line">	var _name = &apos;lee&apos;;</span><br><span class="line">	factory.getname = function()&#123;</span><br><span class="line">		return _name;</span><br><span class="line">	&#125;;</span><br><span class="line">	return factory;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p></br></p>
+<h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.service(&apos;myservice&apos;,function()&#123;</span><br><span class="line">	this.saysomething = function()&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过service方法创建的服务可以不用返回任何值，因为service本身返回一个构造器，系统会用new关键字来创建一个对象，所以我们可以在service内部使用this来进行扩展。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.service(&apos;myservice&apos;,function()&#123;</span><br><span class="line">	this.name = &apos;&apos;;</span><br><span class="line">	this.getname = function()&#123;</span><br><span class="line">		return this.name;</span><br><span class="line">	&#125;</span><br><span class="line">	this.setname = function(name)&#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p></br><br>上面的代码也可以用以下方式表示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">app.factory(&apos;myservice&apos;,function()&#123;</span><br><span class="line">	return new Foobar();</span><br><span class="line">&#125;)</span><br><span class="line">function Foobar()&#123;</span><br><span class="line">	this.name = &apos;&apos;;</span><br><span class="line">	this.getname = function()&#123;</span><br><span class="line">		return this.name</span><br><span class="line">	&#125;</span><br><span class="line">	this.setname = function(name)&#123;</span><br><span class="line">		this.name = name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Foobar是一个’类’-如果已经有个一个类，诸如Foobar，只需要注入进服务"><a href="#Foobar是一个’类’-如果已经有个一个类，诸如Foobar，只需要注入进服务" class="headerlink" title="Foobar是一个’类’,如果已经有个一个类，诸如Foobar，只需要注入进服务"></a>Foobar是一个’类’,如果已经有个一个类，诸如Foobar，只需要注入进服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.service(&apos;myservice&apos;,Foobar);</span><br></pre></td></tr></table></figure>
+<hr>
+<p></br></p>
+<h3 id="官方小例子："><a href="#官方小例子：" class="headerlink" title="官方小例子："></a>官方小例子：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.service(&apos;lee&apos;,function()&#123;</span><br><span class="line">	this.myfunc = function(x)&#123;</span><br><span class="line">		return x.tostring(16)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.controller(&apos;ctrl&apos;,function($scope,lee)&#123;</span><br><span class="line">	$scope.hex = lee.myfunc(255);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-controller=&quot;ctrl&quot;&gt;</span><br><span class="line">	&lt;div&gt;&#123;&#123;hex&#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<p></br></p>
+<h3 id="项目中的服务例子"><a href="#项目中的服务例子" class="headerlink" title="项目中的服务例子"></a>项目中的服务例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">angular.module(&apos;clientModule&apos;,[&apos;home&apos;])</span><br><span class="line">.factory(&apos;clientService&apos;,[&apos;$http&apos;,&apos;$q&apos;,&apos;mainservice&apos;,function($http,$q,mainservice)&#123;  </span><br><span class="line">//$q是angular内置服务，可以使你异步地执行函数</span><br><span class="line">	var communicateIp = &apos;http://10.0.1.8:8010/&apos;;</span><br><span class="line">	mainservice.ip = communicateIp;</span><br><span class="line">	function handleRequest(method,url,data)&#123;  //定义一个接口管理的方法</span><br><span class="line">		var deferred = $q.defer();            </span><br><span class="line">// defer的字面意思是延迟,$q.defer(),可以创建一个deferred实例。 </span><br><span class="line">		var config = &#123;</span><br><span class="line">			method : method,</span><br><span class="line">			url : url</span><br><span class="line">		&#125;;</span><br><span class="line">		if(&apos;POST&apos;===method)&#123;</span><br><span class="line">			config.data = data;</span><br><span class="line">		&#125;else if(&apos;GET&apos;=== method)&#123;</span><br><span class="line">			config.params = data;</span><br><span class="line">		&#125;else if(&apos;DELETE&apos;=== method)&#123;</span><br><span class="line">			config.params = data;</span><br><span class="line">		&#125;</span><br><span class="line">		$http(config).success(function(data)&#123;</span><br><span class="line">			deferred.resolve(data);</span><br><span class="line">		&#125;).error(function(err)&#123;</span><br><span class="line">			deferred.reject(err);</span><br><span class="line">		&#125;);</span><br><span class="line">		return deferred.promise;   </span><br><span class="line">//通过deferred延迟对象，可以得到一个承诺promise，而promise会返回当前任务的完成结果						</span><br><span class="line">	&#125;;</span><br><span class="line">	return &#123;</span><br><span class="line">	    exit: function(params)&#123;</span><br><span class="line">	      return handleRequest(&apos;GET&apos;, communicateIp+&apos;api/pre/demo/loginout&apos;, params);</span><br><span class="line">	    &#125;,</span><br><span class="line">	    changepersonalPassword: function(params)&#123;</span><br><span class="line">	      return handleRequest(&apos;GET&apos;, communicateIp+&apos;api/pre/demo/updatePassword&apos;, params);</span><br><span class="line">	    &#125;,</span><br><span class="line">	    checkuser: function(params)&#123;</span><br><span class="line">	    	return handleRequest(&apos;GET&apos;, communicateIp +&apos;api/pre/demo/login&apos;,params);</span><br><span class="line">	    &#125;</span><br><span class="line">  	&#125;;</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Lee_Ran"
+      src="https://avatars3.githubusercontent.com/u/17755520?s=400&u=9f444bfe70cd719b9bf43ed5fedac2f1d005ff5a&v=4">
+  <p class="site-author-name" itemprop="name">Lee_Ran</p>
+  <div class="site-description" itemprop="description">保持一种学习的状态，然后努力锻炼身体，身体和灵魂都在路上</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/vernvn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;vernvn" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/LeeRan_6924" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;LeeRan_6924" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+      </div>
 
     </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lee_Ran</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.6.0
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
 </div>
 
-            <!-- ### Footer ### -->
-            <footer class="text-center">
-    <!-- footer copyright -->
-    
-        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
-            <a class="footer-copyright-a" href="http://vernvn.github.io">努力混迹江湖的前端小白</a>
-        </p>
-
-    <!-- footer custom text -->
-    <p class="footer-text mb-0">
-    Lee Ran. All rights reserved. 996685777@qq.com
-    </p>
-    <!-- footer develop info -->
-    <p class="footer-develop mb-0">
-        
-    <!-- Busuanzi User Views -->
-    <span id="busuanzi_container_site_uv" hidden>
-        <span></span>
-        <span id="busuanzi_value_site_uv"></span>
-        <span>Viewers</span>
-        
-            <span>|</span>
-        
-    </span>
 
 
-    <!-- Busuanzi Post Views -->
-    <span id="busuanzi_container_site_pv" hidden>
-        <span></span>
-        <span id="busuanzi_value_site_pv"></span>
-        <span>Views</span>
-        
-    </span>
+
+
 
 
 
         
-        Powered by&nbsp;<!--
-         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
-         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
-    </p>
-</footer>
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
-        <!-- ### Import File ### -->
-        <!-- ### Footer JS Import ### -->
 
-<script>
-
-    
-window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 50
-};
-
-(function() {
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.getElementById('copyright-year');
-    var copyrightSince = 2016;
-    if (copyrightSince === copyrightNow) {
-        copyrightContent.textContent = copyrightNow;
-    } else {
-        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
-    }
-})();
-console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
-
-</script>
-
-<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
-
-
-<!-- Offset -->
+  
 
 
 
 
-<!-- Comment -->
-
-    
+  <script src="/js/local-search.js"></script>
 
 
-<!-- ### Custom Footer ### -->
-<script type="text/javascript"> var a = 1; console.log(a) </script>
-    </body>
 
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
 </html>
